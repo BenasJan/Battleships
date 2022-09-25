@@ -5,7 +5,16 @@
     <projectFile profileName="Battleships">Battleships/Battleships.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="" />
+    <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/styles.scss" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +22,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="SWEA" />
   </component>
   <component name="ProjectId" id="2EWIuwJsleYNAJwJVmDqlFDrW8Q" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -31,6 +43,28 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RunManager">
+    <configuration name="Battleships" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Battleships/Battleships.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net5.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="Battleships" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue=".NET Launch Settings Profile.Battleships" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -40,7 +74,7 @@
       <option name="presentableId" value="Default" />
       <updated>1662705169158</updated>
       <workItem from="1662705204866" duration="1235000" />
-      <workItem from="1664101779486" duration="331000" />
+      <workItem from="1664101779486" duration="2208000" />
     </task>
     <servers />
   </component>

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Battleships.Data;
 using Battleships.Models;
+using Battleships.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -35,8 +36,8 @@ namespace Battleships
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddIdentityServer()
-                .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+            // services.AddIdentityServer()
+            //     .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
@@ -44,6 +45,10 @@ namespace Battleships
             services.AddRazorPages();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
+
+            services
+                .AddScoped(typeof(IRepository<>), typeof(BaseRepository<>))
+                .AddScoped<IBattleshipsDatabase, BattleshipsDatabase>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

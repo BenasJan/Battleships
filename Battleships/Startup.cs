@@ -39,10 +39,10 @@ namespace Battleships
             // services.AddIdentityServer()
             //     .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
 
-            services.AddAuthentication()
-                .AddIdentityServerJwt();
+            services.AddAuthentication();
+                // .AddIdentityServerJwt();
             services.AddControllersWithViews();
-            services.AddRazorPages();
+            // services.AddRazorPages();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
 
@@ -61,7 +61,7 @@ namespace Battleships
             }
             else
             {
-                app.UseExceptionHandler("/Error");
+                // app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -76,7 +76,7 @@ namespace Battleships
             app.UseRouting();
 
             app.UseAuthentication();
-            app.UseIdentityServer();
+            // app.UseIdentityServer();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {

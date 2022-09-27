@@ -1,0 +1,25 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+    <button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Profile">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Inventory" routerLink="inventory">
+        <mat-icon>backpack</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Achievements" routerLink="achievements">
+        <mat-icon>emoji_events</mat-icon>
+    </button>
+    <span class="navbar-spacer"></span>
+    <button mat-icon-button matTooltip="Public games" routerLink="games">
+        <mat-icon>public</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Notifications">
+      <mat-icon>notifications</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Logout" routerLink="login">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </mat-toolbar>
+<router-outlet></router-outlet>

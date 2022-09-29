@@ -2,8 +2,11 @@
     <button mat-icon-button>
       <mat-icon>menu</mat-icon>
     </button>
-    <button mat-icon-button matTooltip="Profile">
+    <button mat-icon-button matTooltip="Profile" routerLink="profile">
       <mat-icon>account_circle</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="friends" routerLink="friends">
+      <mat-icon>people</mat-icon>
     </button>
     <button mat-icon-button matTooltip="Inventory" routerLink="inventory">
         <mat-icon>backpack</mat-icon>
@@ -12,8 +15,11 @@
         <mat-icon>emoji_events</mat-icon>
     </button>
     <span class="navbar-spacer"></span>
+    <button mat-icon-button matTooltip="Global players" routerLink="players">
+      <mat-icon>person_search</mat-icon>
+  </button>
     <button mat-icon-button matTooltip="Public games" routerLink="games">
-        <mat-icon>public</mat-icon>
+        <mat-icon>travel_explore</mat-icon>
     </button>
     <button mat-icon-button matTooltip="Notifications">
       <mat-icon>notifications</mat-icon>

@@ -1,11 +1,30 @@
-<mat-card>
-    <h1>Login</h1>
-    <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input matInput type="email" name="email">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input matInput type="password" name="password">
-    </mat-form-field>
-  </mat-card>
+<div class="full-height-centered-flex-container">
+    <mat-card>
+        <div class="card-content-wrapper">
+            <div>
+                <mat-icon>account_circle</mat-icon>
+                <h1>Login</h1>
+            </div>
+            <form [formGroup]="loginFormGroup" (ngSubmit)="login()">
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input formControlName="email" type="email" matInput required placeholder="Enter your email">
+                        <mat-icon matSuffix>email</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input formControlName="password" type="password" matInput required placeholder="Enter your password">
+                        <mat-icon matSuffix>vpn_key</mat-icon>
+                        <mat-hint routerLink="login" [align]="'end'" style="cursor: pointer;">Forgot password?</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button type="submit" mat-raised-button color="primary">Login</button>
+                </div>
+            </form>
+        </div>
+    </mat-card>
+</div>

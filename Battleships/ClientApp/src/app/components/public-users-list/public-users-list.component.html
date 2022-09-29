@@ -1,1 +1,11 @@
-<p>public-users-list works!</p>
+<mat-list>
+    <div mat-subheader>Global users</div>
+    <mat-divider></mat-divider>
+    <mat-list-item *ngFor="let user of users">
+      <mat-icon mat-list-icon>{{user.icon}}</mat-icon>
+      <div mat-line>{{user.name}}</div>
+      <div mat-line>Games played: {{user.gamesPlayedCount}}</div>
+      <div mat-line>Games won: {{user.gamesWonCount}}</div>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+</mat-list>

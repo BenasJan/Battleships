@@ -1,1 +1,12 @@
-<p>achievements works!</p>
+<mat-list>
+    <div mat-subheader>Achievements</div>
+    <mat-divider></mat-divider>
+    <div>
+        <mat-list-item *ngFor="let achievement of achievements">
+          <mat-icon mat-list-icon>{{achievement.icon}}</mat-icon>
+          <div mat-line>{{achievement.name}}</div>
+          <div mat-line>{{achievement.description}}</div>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+    </div>
+</mat-list>

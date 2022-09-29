@@ -10,3 +10,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 	justify-content: center;
 	align-items: center;
 }
+
+.card-content-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content-wrapper > div:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card-content-wrapper > div:first-child > mat-icon {
+    font-size: 72px;
+    height: 72px;
+    width: 72px;
+}

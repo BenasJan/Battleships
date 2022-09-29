@@ -5,10 +5,7 @@
     <projectFile profileName="Battleships">Battleships/Battleships.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/app-container/app-container.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/app-container/app-container.component.html" afterDir="false" />
-    </list>
+    <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +75,7 @@
       <workItem from="1662705204866" duration="1235000" />
       <workItem from="1664101779486" duration="5360000" />
       <workItem from="1664303364937" duration="1537000" />
-      <workItem from="1664470427487" duration="1047000" />
+      <workItem from="1664470427487" duration="4183000" />
     </task>
     <servers />
   </component>

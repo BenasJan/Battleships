@@ -17,7 +17,7 @@ export class UnauthorizedRouteGuard implements CanActivate {
     const isAuthorized = this.authorizationService.isAuthorized;
 
     if (isAuthorized) {
-      this.router.navigateByUrl('dashboard');
+      this.router.navigateByUrl('/dashboard');
       return false;
     }
 

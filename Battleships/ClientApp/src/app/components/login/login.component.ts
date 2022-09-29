@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   public login(): void {
     this.loginService.login(this.loginFormGroup.value as any).pipe(
-      tap(() => this.router.navigateByUrl('dashbaord'))
+      tap(() => this.router.navigateByUrl('/dashboard'))
     ).subscribe();
   }
 }

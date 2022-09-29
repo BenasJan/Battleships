@@ -17,7 +17,7 @@ export class AuthorizedRouteGuard implements CanActivate {
     const isAuthorized = this.authorizationService.isAuthorized;
 
     if (!isAuthorized) {
-      this.router.navigateByUrl('login');
+      this.router.navigateByUrl('/login');
       return false;
     }
 

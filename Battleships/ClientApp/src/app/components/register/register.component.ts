@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
   public register(): void {
     this.authenticationService.register(this.registrationFormGroup.value as any).pipe(
       tap(() => this.toastService.publish('Registration successfull, please log in')),
-      tap(() => this.router.navigateByUrl('login'))
+      tap(() => this.router.navigateByUrl('/login'))
     ).subscribe();
   }
 

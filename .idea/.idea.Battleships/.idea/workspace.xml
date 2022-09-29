@@ -5,21 +5,7 @@
     <projectFile profileName="Battleships">Battleships/Battleships.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Battleships/Controllers/AuthenticationController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/Data/Constants/BattleshipClaims.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/Data/Dto/UserCredentialsDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/Services/Authentication/AuthenticationService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/Services/Authentication/AuthenticationUtility.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/Services/Authentication/CurrentUserService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/Services/Authentication/Interfaces/IAuthenticationService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/Services/Authentication/Interfaces/ICurrentUserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Battleships.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Battleships.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Startup.cs" afterDir="false" />
-    </list>
+    <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,7 +75,7 @@
       <workItem from="1662705204866" duration="1235000" />
       <workItem from="1664101779486" duration="5360000" />
       <workItem from="1664303364937" duration="1537000" />
-      <workItem from="1664470427487" duration="3866000" />
+      <workItem from="1664470427487" duration="4183000" />
     </task>
     <servers />
   </component>

@@ -6,7 +6,7 @@ import { HttpService } from './http.service';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class AuthenticationService {
 
   constructor(
     private httpService: HttpService,
@@ -17,5 +17,9 @@ export class LoginService {
     return this.httpService.post<{ token: string }>('Authentication', 'login', login).pipe(
       tap(response => this.authorizationService.registerToken(response.token))
     );
+  }
+
+  public register(credentials: { email: string, password: string }): Observable<any> {
+    return this.httpService.post<{ token: string }>('Authentication', 'register', credentials);
   }
 }

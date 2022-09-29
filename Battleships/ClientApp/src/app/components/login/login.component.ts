@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs';
-import { LoginService } from 'src/app/services/login.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   });
 
   constructor(
-    private readonly loginService: LoginService,
+    private readonly loginService: AuthenticationService,
     private readonly router: Router
   ) { }
 

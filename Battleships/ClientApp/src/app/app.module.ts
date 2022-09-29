@@ -24,6 +24,7 @@ import { FriendsListComponent } from './components/friends-list/friends-list.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     PublicGamesListComponent,
     PublicUsersListComponent,
     ProfileComponent,
-    FriendsListComponent
+    FriendsListComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

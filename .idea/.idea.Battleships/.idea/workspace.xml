@@ -7,18 +7,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Battleships.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Battleships.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Controllers/OidcConfigurationController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Controllers/WeatherForecastController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Pages/Error.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Pages/Error.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Pages/Shared/_LoginPartial.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Pages/_ViewImports.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/WeatherForecast.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/app-container/app-container.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/app-container/app-container.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +78,7 @@
       <workItem from="1662705204866" duration="1235000" />
       <workItem from="1664101779486" duration="5360000" />
       <workItem from="1664303364937" duration="1537000" />
+      <workItem from="1664470427487" duration="1047000" />
     </task>
     <servers />
   </component>

@@ -18,6 +18,12 @@ import { GameSessionComponent } from './components/game-session/game-session.com
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { LoginComponent } from './components/login/login.component';
 import { PublicGamesListComponent } from './components/public-games-list/public-games-list.component';
+import { PublicUsersListComponent } from './components/public-users-list/public-users-list.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { FriendsListComponent } from './components/friends-list/friends-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -29,7 +35,10 @@ import { PublicGamesListComponent } from './components/public-games-list/public-
     GameSessionComponent,
     AppContainerComponent,
     InventoryComponent,
-    PublicGamesListComponent
+    PublicGamesListComponent,
+    PublicUsersListComponent,
+    ProfileComponent,
+    FriendsListComponent
   ],
   imports: [
     BrowserModule,
@@ -41,9 +50,12 @@ import { PublicGamesListComponent } from './components/public-games-list/public-
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
-    MatListModule
+    MatListModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [MatSnackBar],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

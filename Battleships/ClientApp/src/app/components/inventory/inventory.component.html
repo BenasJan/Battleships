@@ -1,1 +1,28 @@
-<p>inventory works!</p>
+<div style="display: flex; flex-direction: row;">
+    <mat-list style="width: 50vw;">
+        <div mat-subheader>Map skins</div>
+        <mat-divider></mat-divider>
+        <div style="max-height: 792px; overflow-y: scroll;">
+            <mat-list-item *ngFor="let mapSkin of mapSkins">
+              <mat-icon mat-list-icon>{{mapSkin.icon}}</mat-icon>
+              <div mat-line>{{mapSkin.location}} - {{mapSkin.name}}</div>
+              <div mat-line>Games played: {{mapSkin.gamesPlayed}}</div>
+              <div mat-line>Games won: {{mapSkin.lastPlayed}}</div>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+        </div>
+    </mat-list>
+    <mat-list style="width: 50vw;">
+        <div mat-subheader>Ship skins</div>
+        <mat-divider></mat-divider>
+        <div style="max-height: 792px; overflow-y: scroll;">
+            <mat-list-item *ngFor="let shipSkin of shipSkins">
+              <mat-icon mat-list-icon>{{shipSkin.icon}}</mat-icon>
+              <div mat-line>{{shipSkin.shipName}} - {{shipSkin.name}}</div>
+              <div mat-line>Games played: {{shipSkin.gamesPlayed}}</div>
+              <div mat-line>Games won: {{shipSkin.lastPlayed}}</div>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+        </div>
+    </mat-list>
+</div>

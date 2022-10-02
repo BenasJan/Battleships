@@ -5,6 +5,7 @@ using Battleships.Repositories;
 using Battleships.Services.Authentication;
 using Battleships.Services.Authentication.Interfaces;
 using Battleships.SignalR;
+using Battleships.SignalR.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,7 +39,6 @@ namespace Battleships
 
             services.AddDefaultIdentity<ApplicationUser>(options =>
                 {
-                    
                     options.SignIn.RequireConfirmedAccount = true;
                     options.Password.RequireDigit = false;
                     options.Password.RequiredLength = 1;
@@ -75,6 +75,7 @@ namespace Battleships
             services.AddControllersWithViews();
             // services.AddRazorPages();
             // In production, the Angular files will be served from this directory
+            services.AddSignalR();
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
 
             services
@@ -83,6 +84,7 @@ namespace Battleships
                 .AddScoped<IBattleshipsDatabase, BattleshipsDatabase>()
                 .AddScoped<IAuthenticationService, AuthenticationService>()
                 .AddScoped<ICurrentUserService, CurrentUserService>()
+                .AddScoped<IBattleshipsSynchronizationService, BattleshipsSynchronizationService>()
                 ;
         }
 

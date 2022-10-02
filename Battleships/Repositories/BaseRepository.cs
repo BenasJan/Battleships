@@ -29,6 +29,11 @@ namespace Battleships.Repositories
         {
             return await ItemSet.Where(filter).ToListAsync();
         }
+        
+        public async Task<List<TModel>> GetAll()
+        {
+            return await ItemSet.ToListAsync();
+        }
 
         public async Task<Guid> Create(TModel model)
         {

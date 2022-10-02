@@ -25,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RegisterComponent } from './components/register/register.component';
+import { CreateGameSessionComponent } from './components/create-game-session/create-game-session.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { RegisterComponent } from './components/register/register.component';
     PublicUsersListComponent,
     ProfileComponent,
     FriendsListComponent,
-    RegisterComponent
+    RegisterComponent,
+    CreateGameSessionComponent
   ],
   imports: [
     BrowserModule,

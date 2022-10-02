@@ -11,6 +11,7 @@ import { InventoryComponent } from './components/inventory/inventory.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { PublicGamesListComponent } from './components/public-games-list/public-games-list.component';
+import { CreateGameSessionComponent } from './components/create-game-session/create-game-session.component';
 import { PublicUsersListComponent } from './components/public-users-list/public-users-list.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UnauthorizedRouteGuard } from './unauthorized-route.guard';
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: 'inventory', component: InventoryComponent, canActivate: [AuthorizedRouteGuard] },
       { path: 'achievements', component: AchievementsComponent, canActivate: [AuthorizedRouteGuard] },
       { path: 'games', component: PublicGamesListComponent, canActivate: [AuthorizedRouteGuard] },
+      { path: 'createGame', component: CreateGameSessionComponent, canActivate: [AuthorizedRouteGuard] },
       { path: 'lobby', component: GameLobbyComponent, canActivate: [AuthorizedRouteGuard] },
       { path: 'battle', component: GameSessionComponent, canActivate: [AuthorizedRouteGuard] },
       { path: 'players', component: PublicUsersListComponent, canActivate: [AuthorizedRouteGuard] },

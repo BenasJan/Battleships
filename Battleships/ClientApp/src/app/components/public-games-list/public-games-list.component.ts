@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpService} from "../../services/http.service";
+import {GameSessionService} from "../../services/game-session.service";
+import {GameSession} from "../../models/game-session";
+import {MatList} from "@angular/material/list";
 
 @Component({
   selector: 'app-public-games-list',
@@ -18,9 +22,15 @@ export class PublicGamesListComponent implements OnInit {
     { icon: 'directions_boat', name: 'Cool game xDD', gridSize: '5x6', settingsString: 'Deathmatch', hostName: 'Raminta Valaitytė' },
   ]
 
-  constructor() { }
+  public games2: GameSession[] = [];
+
+  constructor(private gameSessionService: GameSessionService) {}
 
   ngOnInit(): void {
+    this.gameSessionService.fetchSessions().subscribe((res: GameSession[]) => {
+      console.log(res);
+      this.games2 = res;
+    });
   }
 
 }

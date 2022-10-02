@@ -7,9 +7,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/Authentication/AuthenticationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Authentication/AuthenticationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/app.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,9 +82,7 @@
       <workItem from="1662705204866" duration="1235000" />
       <workItem from="1664101779486" duration="5360000" />
       <workItem from="1664303364937" duration="1537000" />
-      <workItem from="1664470427487" duration="7115000" />
-      <workItem from="1664726683473" duration="638000" />
-      <workItem from="1664727448105" duration="695000" />
+      <workItem from="1664470427487" duration="4820000" />
     </task>
     <servers />
   </component>
@@ -105,37 +102,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Battleships/Services/Authentication/AuthenticationService.cs</url>
-          <line>28</line>
-          <properties documentPath="D:\dev\Battleships\Battleships\Services\Authentication\AuthenticationService.cs" initialLine="28" containingFunctionPresentation="method 'Login'">
-            <startOffsets>
-              <option value="858" />
-            </startOffsets>
-            <endOffsets>
-              <option value="859" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Battleships/Services/Authentication/AuthenticationService.cs</url>
-          <line>42</line>
-          <properties documentPath="D:\dev\Battleships\Battleships\Services\Authentication\AuthenticationService.cs" initialLine="42" containingFunctionPresentation="method 'Register'">
-            <startOffsets>
-              <option value="1332" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1333" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -23,6 +23,7 @@ export class SignalRService {
     return new HubConnectionBuilder()
       .withUrl('/battleshipsHub')
       .configureLogging(LogLevel.Information)
+      .withAutomaticReconnect()
       .build();
   }
 
@@ -30,12 +31,24 @@ export class SignalRService {
     this.connection.on("underAttack", (payload: AttackPayload) => {
       this.gameSessionEventsService.publishAttackEvent(payload);
     })
+
+    this.connection.on("dummy", console.log)
   }
   //#endregion
 
-  public initializeConnection(): void {
-    this.connection.onclose(() => this.connectToHub());
+  public publishDummy(gameSessionId: string): void {
+    this.connection.invoke("PublishDummyMessage", gameSessionId);
+  }
 
+  public connectToGameSession(gameSessionId: string): void {
+    this.connection.invoke("ConnectToGameSession", gameSessionId);
+  }
+
+  public removeGameSessionConnection(gameSessionId: string): void {
+    this.connection.invoke("DisconnectFromGameSession", gameSessionId);
+  }
+
+  public initializeSignalR(){
     this.connectToHub();
   }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SignalRService } from 'src/app/services/signal-r.service';
 
 @Component({
   selector: 'app-public-games-list',
@@ -18,9 +19,29 @@ export class PublicGamesListComponent implements OnInit {
     { icon: 'directions_boat', name: 'Cool game xDD', gridSize: '5x6', settingsString: 'Deathmatch', hostName: 'Raminta Valaitytė' },
   ]
 
-  constructor() { }
+  constructor(
+    private readonly signalRService: SignalRService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  private readonly id = "esrgsdhgaegae";
+
+  public connect(): void {
+    this.signalRService.connectToGameSession(this.id);
+  }
+
+  public publish(): void {
+    this.signalRService.publishDummy(this.id);
+  }
+
+  public publishWrong(): void {
+    this.signalRService.publishDummy("sdgsdgadshg");
+  }
+
+  public disconnect(): void {
+    this.signalRService.removeGameSessionConnection(this.id);
   }
 
 }

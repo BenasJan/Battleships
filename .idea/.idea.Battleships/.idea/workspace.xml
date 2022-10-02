@@ -12,6 +12,7 @@
       <change afterPath="$PROJECT_DIR$/Battleships/Services/GameSession/GameSessionService.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Battleships/Services/GameSession/Interfaces/IGameSessionService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/Battleships/Battleships.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Battleships.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app.module.ts" afterDir="false" />
@@ -25,6 +26,15 @@
       <change beforePath="$PROJECT_DIR$/Battleships/Repositories/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/IRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Startup.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/app.db" beforeDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/public-games-list/public-games-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/public-games-list/public-games-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/public-games-list/public-games-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/public-games-list/public-games-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/signal-r.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/signal-r.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Models/GameSession.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Models/GameSession.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/SignalR/BattleshipsHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/SignalR/BattleshipsHub.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Startup.cs" afterDir="false" />
+>>>>>>> b295ef392cc4655d44c52ca71c665c800d8b010a
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,9 +113,7 @@
       <workItem from="1662705204866" duration="1235000" />
       <workItem from="1664101779486" duration="5360000" />
       <workItem from="1664303364937" duration="1537000" />
-      <workItem from="1664470427487" duration="7115000" />
-      <workItem from="1664726683473" duration="638000" />
-      <workItem from="1664727448105" duration="695000" />
+      <workItem from="1664470427487" duration="4820000" />
     </task>
     <servers />
   </component>

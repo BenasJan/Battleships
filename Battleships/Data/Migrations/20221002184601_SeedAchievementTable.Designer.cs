@@ -3,14 +3,16 @@ using System;
 using Battleships.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Battleships.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221002184601_SeedAchievementTable")]
+    partial class SeedAchievementTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -215,12 +217,6 @@ namespace Battleships.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Icon")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("TEXT");
-
                     b.HasKey("Id");
 
                     b.ToTable("GameSession");
@@ -251,9 +247,6 @@ namespace Battleships.Data.Migrations
 
                     b.Property<Guid>("GameSessionId")
                         .HasColumnType("TEXT");
-
-                    b.Property<bool>("IsHost")
-                        .HasColumnType("INTEGER");
 
                     b.Property<string>("UserId")
                         .HasColumnType("TEXT");
@@ -506,7 +499,7 @@ namespace Battleships.Data.Migrations
             modelBuilder.Entity("Battleships.Models.Player", b =>
                 {
                     b.HasOne("Battleships.Models.GameSession", "GameSession")
-                        .WithMany("Players")
+                        .WithMany()
                         .HasForeignKey("GameSessionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -638,8 +631,6 @@ namespace Battleships.Data.Migrations
 
             modelBuilder.Entity("Battleships.Models.GameSession", b =>
                 {
-                    b.Navigation("Players");
-
                     b.Navigation("Settings");
                 });
 

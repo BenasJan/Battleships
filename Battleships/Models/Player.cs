@@ -11,7 +11,7 @@ namespace Battleships.Models
         
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
-        
+
         public List<PlayerShip> PlayerShips { get; set; }
 
         public Player()

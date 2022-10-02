@@ -6,13 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Battleships/SignalR/BattleshipsHub.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/SignalR/BattleshipsSynchronizationService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/SignalR/Interfaces/IBattleshipsSynchronizationService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/SignalR/Models/AttackPayload.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/SignalR/Models/BattleshipsMessage.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

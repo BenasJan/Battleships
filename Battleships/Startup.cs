@@ -4,9 +4,11 @@ using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.Services.Authentication;
 using Battleships.Services.Authentication.Interfaces;
+using Battleships.SignalR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -34,7 +36,17 @@ namespace Battleships
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>(options =>
+                {
+                    
+                    options.SignIn.RequireConfirmedAccount = true;
+                    options.Password.RequireDigit = false;
+                    options.Password.RequiredLength = 1;
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequiredUniqueChars = 1;
+                    options.Password.RequireNonAlphanumeric = false;
+                })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             // services.AddIdentityServer()
@@ -107,6 +119,10 @@ namespace Battleships
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+                endpoints.MapHub<BattleshipsHub>("/battleshipsHub", options =>
+                {
+                    options.Transports = HttpTransportType.WebSockets;
+                });
             });
 
             app.UseSpa(spa =>

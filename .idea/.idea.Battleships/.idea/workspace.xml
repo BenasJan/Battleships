@@ -7,8 +7,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/public-games-list/public-games-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/public-games-list/public-games-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/public-games-list/public-games-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/public-games-list/public-games-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +22,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ac26cfdf462b65acb9acc2a1373bbdb2d1e258864aa2735e55ce53ebe8b22e/UserManager.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

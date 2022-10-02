@@ -22,7 +22,7 @@ namespace Battleships.Data
         {
             SeedData.Seed(modelBuilder);
 
-            //base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

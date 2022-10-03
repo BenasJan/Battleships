@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SignalRService } from 'src/app/services/signal-r.service';
+import {HttpService} from "../../services/http.service";
+import {GameSessionService} from "../../services/game-session.service";
+import {GameSession} from "../../models/game-session";
+import {MatList} from "@angular/material/list";
 
 @Component({
   selector: 'app-public-games-list',
@@ -19,29 +22,15 @@ export class PublicGamesListComponent implements OnInit {
     { icon: 'directions_boat', name: 'Cool game xDD', gridSize: '5x6', settingsString: 'Deathmatch', hostName: 'Raminta Valaitytė' },
   ]
 
-  constructor(
-    private readonly signalRService: SignalRService
-  ) { }
+  public games2: GameSession[] = [];
+
+  constructor(private gameSessionService: GameSessionService) {}
 
   ngOnInit(): void {
-  }
-
-  private readonly id = "esrgsdhgaegae";
-
-  public connect(): void {
-    this.signalRService.connectToGameSession(this.id);
-  }
-
-  public publish(): void {
-    this.signalRService.publishDummy(this.id);
-  }
-
-  public publishWrong(): void {
-    this.signalRService.publishDummy("sdgsdgadshg");
-  }
-
-  public disconnect(): void {
-    this.signalRService.removeGameSessionConnection(this.id);
+    this.gameSessionService.fetchSessions().subscribe((res: GameSession[]) => {
+      console.log(res);
+      this.games2 = res;
+    });
   }
 
 }

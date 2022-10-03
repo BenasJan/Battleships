@@ -3,14 +3,16 @@ using System;
 using Battleships.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Battleships.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221002202013_game-session")]
+    partial class gamesession
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,101 +39,14 @@ namespace Battleships.Data.Migrations
                     b.Property<int>("RequiredActionPerformedCount")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Achievements");
+                    b.HasIndex("UserId");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("7e864ca7-2736-49d6-a733-9150b1693de5"),
-                            ActionPerformedCount = 0,
-                            Description = "Hit your first piece of a ship",
-                            Name = "First blood",
-                            RequiredAction = "Shoot a ship",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("c3c39233-588d-403b-8444-176dc17a1cbe"),
-                            ActionPerformedCount = 0,
-                            Description = "Win your first match",
-                            Name = "First Win",
-                            RequiredAction = "Win match",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("241de7b9-af56-4664-83c9-f6fe4294a1b3"),
-                            ActionPerformedCount = 0,
-                            Description = "Get hit by an enemy player for the first time",
-                            Name = "Get hit",
-                            RequiredAction = "Get one of your ships damaged",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("fb03e03f-b989-4a87-926f-55b7d74df038"),
-                            ActionPerformedCount = 0,
-                            Description = "Have your shot miss any enemy ship",
-                            Name = "Miss",
-                            RequiredAction = "Shoot an empty tile",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("915efd4f-18ac-41ac-a743-f4ca4da98945"),
-                            ActionPerformedCount = 0,
-                            Description = "Win five times against an enemy player",
-                            Name = "Fiver win",
-                            RequiredAction = "Win 5 times",
-                            RequiredActionPerformedCount = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("34574fd2-5115-40a9-917c-2d4137e0863e"),
-                            ActionPerformedCount = 0,
-                            Description = "Lose five times against an enemy player",
-                            Name = "Loser",
-                            RequiredAction = "Lose 5 times",
-                            RequiredActionPerformedCount = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("4755f58f-5964-4908-ba32-ca00d4532419"),
-                            ActionPerformedCount = 0,
-                            Description = "Lose against an enemy player",
-                            Name = "Its okay",
-                            RequiredAction = "Lose match",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("3022194d-d137-4ddb-89b0-68ce1842428c"),
-                            ActionPerformedCount = 0,
-                            Description = "Start your first match",
-                            Name = "Lets go",
-                            RequiredAction = "Start match",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("fc228190-f4fe-4777-905b-20e6cfbb5532"),
-                            ActionPerformedCount = 0,
-                            Description = "End a match before it ends",
-                            Name = "Quitter",
-                            RequiredAction = "Cancel match",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("3a1a9b33-457b-4cd4-bc61-894d63e3a653"),
-                            ActionPerformedCount = 0,
-                            Description = "Win 10 matches",
-                            Name = "Ten fingers",
-                            RequiredAction = "Win 10 Matches",
-                            RequiredActionPerformedCount = 10
-                        });
+                    b.ToTable("Achievement");
                 });
 
             modelBuilder.Entity("Battleships.Models.ApplicationUser", b =>
@@ -141,9 +56,6 @@ namespace Battleships.Data.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("INTEGER");
-
-                    b.Property<Guid?>("AchievementId")
-                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -196,8 +108,6 @@ namespace Battleships.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AchievementId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -303,27 +213,6 @@ namespace Battleships.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Ship");
-                });
-
-            modelBuilder.Entity("Battleships.Models.UserAchievement", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid>("AchievementId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AchievementId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserAchievement");
                 });
 
             modelBuilder.Entity("Battleships.Models.UserCosmetic", b =>
@@ -485,11 +374,13 @@ namespace Battleships.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Battleships.Models.ApplicationUser", b =>
+            modelBuilder.Entity("Battleships.Models.Achievement", b =>
                 {
-                    b.HasOne("Battleships.Models.Achievement", null)
-                        .WithMany("Users")
-                        .HasForeignKey("AchievementId");
+                    b.HasOne("Battleships.Models.ApplicationUser", "User")
+                        .WithMany("Achievements")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Battleships.Models.GameSessionSettings", b =>
@@ -537,23 +428,6 @@ namespace Battleships.Data.Migrations
                     b.Navigation("Player");
 
                     b.Navigation("Ship");
-                });
-
-            modelBuilder.Entity("Battleships.Models.UserAchievement", b =>
-                {
-                    b.HasOne("Battleships.Models.Achievement", "Achievement")
-                        .WithMany()
-                        .HasForeignKey("AchievementId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Battleships.Models.ApplicationUser", "User")
-                        .WithMany("UserAchievements")
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Achievement");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Battleships.Models.UserCosmetic", b =>
@@ -622,18 +496,13 @@ namespace Battleships.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Battleships.Models.Achievement", b =>
-                {
-                    b.Navigation("Users");
-                });
-
             modelBuilder.Entity("Battleships.Models.ApplicationUser", b =>
                 {
+                    b.Navigation("Achievements");
+
                     b.Navigation("Cosmetics");
 
                     b.Navigation("Players");
-
-                    b.Navigation("UserAchievements");
                 });
 
             modelBuilder.Entity("Battleships.Models.GameSession", b =>

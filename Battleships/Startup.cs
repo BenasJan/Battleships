@@ -4,13 +4,10 @@ using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.Services.Authentication;
 using Battleships.Services.Authentication.Interfaces;
-<<<<<<< HEAD
 using Battleships.Services.GameSession;
 using Battleships.Services.GameSession.Interfaces;
-=======
 using Battleships.SignalR;
 using Battleships.SignalR.Interfaces;
->>>>>>> b295ef392cc4655d44c52ca71c665c800d8b010a
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -89,11 +86,8 @@ namespace Battleships
                 .AddScoped<IBattleshipsDatabase, BattleshipsDatabase>()
                 .AddScoped<IAuthenticationService, AuthenticationService>()
                 .AddScoped<ICurrentUserService, CurrentUserService>()
-<<<<<<< HEAD
                 .AddScoped<IGameSessionService, GameSessionService>()
-=======
                 .AddScoped<IBattleshipsSynchronizationService, BattleshipsSynchronizationService>()
->>>>>>> b295ef392cc4655d44c52ca71c665c800d8b010a
                 ;
         }
 

@@ -26,7 +26,7 @@ namespace Battleships.Services.Players
         {
             Random random = new Random();
 
-            var allUsers = _userManager.Users;
+            var allUsers = _userManager.Users.ToList();
 
             var test = new List<PlayerDto>();
 

@@ -1,10 +1,19 @@
 ﻿using System.Threading.Tasks;
+using Battleships.Services;
+using Battleships.SignalR.Models;
 using Microsoft.AspNetCore.SignalR;
 
 namespace Battleships.SignalR
 {
     public class BattleshipsHub : Hub
     {
+        private readonly IAttackExecutionService _attackExecutionService;
+
+        public BattleshipsHub(IAttackExecutionService attackExecutionService)
+        {
+            _attackExecutionService = attackExecutionService;
+        }
+
         public async Task ConnectToGameSession(string gameSessionIdString)
         {
             await Clients.Group($"GAME_SESSION_{gameSessionIdString}").SendAsync("A new user has connected");
@@ -18,10 +27,10 @@ namespace Battleships.SignalR
             await Groups.RemoveFromGroupAsync(Context.ConnectionId, $"GAME_SESSION_{gameSessionIdString}");
         }
 
-        public async Task PublishDummyMessage(string gameSessionIdString)
+        public async Task PublishAttack(string gameSessionIdString, AttackPayload attack)
         {
-            await Clients.Group($"GAME_SESSION_{gameSessionIdString}").SendAsync("dummy",  "WOOOOOHHHHH");
-
+            await _attackExecutionService.ExecuteAttack(attack);
+            await Clients.Group($"GAME_SESSION_{gameSessionIdString}").SendAsync("processAttack",  attack);
         }
     }
 }

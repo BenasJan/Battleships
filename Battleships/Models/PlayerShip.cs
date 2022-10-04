@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Battleships.Models
 {
@@ -9,5 +10,7 @@ namespace Battleships.Models
 
         public Guid ShipId { get; set; }
         public Ship Ship { get; set; }
+
+        public List<ShipTile> Tiles { get; set; }
     }
 }

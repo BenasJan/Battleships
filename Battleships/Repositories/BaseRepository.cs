@@ -75,6 +75,11 @@ namespace Battleships.Repositories
             await SaveChanges();
         }
 
+        public IQueryable<TModel> GetQueryable()
+        {
+            return ItemSet.AsQueryable();
+        }
+
         private async Task SaveChanges()
         {
             await _context.SaveChangesAsync();

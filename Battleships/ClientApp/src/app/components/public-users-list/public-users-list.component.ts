@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from "../../services/http.service";
+import { PlayerService } from '../../services/player.service';
+import { Player } from '../../models/player';
+
 
 @Component({
   selector: 'app-public-users-list',
@@ -17,9 +21,16 @@ export class PublicUsersListComponent implements OnInit {
     {icon: 'person', name: 'Tomas Venslova', gamesPlayedCount: 3, gamesWonCount: 3 },
     {icon: 'person', name: 'Raminta Valaitytė', gamesPlayedCount: 5, gamesWonCount: 4 },
   ]
-  constructor() { }
+
+  public users1: Player[] = [];
+
+  constructor(private playerService: PlayerService) { }
 
   ngOnInit(): void {
+    this.playerService.fetchPlayers().subscribe((res: Player[]) => {
+      console.log(res);
+      this.users1 = res;
+    })
   }
 
 }

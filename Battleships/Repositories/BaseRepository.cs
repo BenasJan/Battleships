@@ -30,6 +30,11 @@ namespace Battleships.Repositories
             return await ItemSet.Where(filter).ToListAsync();
         }
 
+        public async Task<List<TModel>> GetAll()
+        {
+            return await ItemSet.ToListAsync();
+        }
+
         public async Task<Guid> Create(TModel model)
         {
             await ItemSet.AddAsync(model);
@@ -73,6 +78,11 @@ namespace Battleships.Repositories
         private async Task SaveChanges()
         {
             await _context.SaveChangesAsync();
+        }
+
+        internal Task GetWhere()
+        {
+            throw new NotImplementedException();
         }
     }
 }

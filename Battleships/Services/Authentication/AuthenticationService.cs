@@ -11,6 +11,7 @@ using Battleships.Models;
 using Battleships.Services.Authentication.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Battleships.Services.Authentication
 {
@@ -95,7 +96,7 @@ namespace Battleships.Services.Authentication
                 new(BattleshipClaims.UserId, user.Id.ToString())
             };
 
-            return claims;
+            return await Task.FromResult(claims);
         }
     }
 }

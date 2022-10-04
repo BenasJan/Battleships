@@ -4,6 +4,8 @@ using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.Services.Authentication;
 using Battleships.Services.Authentication.Interfaces;
+using Battleships.Services.Players;
+using Battleships.Services.Players.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -81,6 +83,7 @@ namespace Battleships
                 .AddScoped<IBattleshipsDatabase, BattleshipsDatabase>()
                 .AddScoped<IAuthenticationService, AuthenticationService>()
                 .AddScoped<ICurrentUserService, CurrentUserService>()
+                .AddScoped<IPlayersService, PlayersService>()
                 ;
         }
 

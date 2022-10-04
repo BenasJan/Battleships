@@ -1,6 +1,7 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using Battleships.Data.Dto;
+using System.Collections.Generic;
 
 namespace Battleships.Models
 {
@@ -10,7 +11,7 @@ namespace Battleships.Models
         public string Name { get; set; }
         public List<Player> Players { get; set; }
         public GameSessionSettings Settings { get; set; }
-
+        
         public GameSessionDto toDto()
         {
             var dto = new GameSessionDto();
@@ -25,13 +26,6 @@ namespace Battleships.Models
         public GameSession()
         {
             
-        }
-        
-        public GameSession(string icon, string name, GameSessionSettings settings)
-        {
-            Icon = icon;
-            Name = name;
-            Settings = settings;
         }
 
         public override string ToString()

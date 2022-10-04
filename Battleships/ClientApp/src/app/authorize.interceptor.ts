@@ -7,14 +7,14 @@ import { AuthorizationService } from './services/authorization.service';
   providedIn: 'root'
 })
 export class AuthorizeInterceptor implements HttpInterceptor {
-
-  constructor(
-    private authorizationService: AuthorizationService
-  ) { }
+  
+    constructor(
+        private authorizationService: AuthorizationService
+    ) { }
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const jwtToken = this.authorizationService.jwtToken;
-
+    
     return this.processRequestWithToken(jwtToken, req, next)
   }
 

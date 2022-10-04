@@ -23,19 +23,25 @@ namespace Battleships.Services.GameSession
         
         public async Task<Guid> CreateSession(GameSessionRequestDto dto)
         {
-            var model = new Models.GameSession(dto.Icon, dto.Name, new GameSessionSettings());
+            var userId = _currentUserService.GetCurrentUserId();
+            var gameSession = new Models.GameSession()
+            {
+                Icon = dto.Icon,
+                Name = dto.Name,
+                Settings = new GameSessionSettings(),
+                Players = new List<Player>
+                {
+                    new Player
+                    {
+                        IsHost = true,
+                        UserId = userId,
+                    }
+                }
+            };
+
+            var id = await _database.GameSessionsRepository.Create(gameSession);
             
-            var player = new Player(model, true, _currentUserService.GetCurrentUserId());
-            await _database.PlayersRepository.Create(player);
-            model.Players.Add(player);
-            var guid = await _database.GameSessionsRepository.Create(model);
-            player.GameSessionId = guid;
-            await _database.PlayersRepository.Update(player);
-
-            var deleteThis = _database.GameSessionsRepository.GetById(guid);
-            Console.WriteLine(deleteThis.ToString());
-
-            return guid;
+            return id;
         }
         
         public async Task<List<GameSessionDto>> ListAllSessions()

@@ -27,13 +27,6 @@ namespace Battleships.Models
         {
             
         }
-        
-        public GameSession(string icon, string name, GameSessionSettings settings)
-        {
-            Icon = icon;
-            Name = name;
-            Settings = settings;
-        }
 
         public override string ToString()
         {

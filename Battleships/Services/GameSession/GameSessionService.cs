@@ -14,21 +14,29 @@ namespace Battleships.Services.GameSession
     {
         private readonly IBattleshipsDatabase _database;
         private readonly ICurrentUserService _currentUserService;
+        private readonly IGameSessionRepository _gameSessionRepository;
 
-        public GameSessionService(IBattleshipsDatabase database, ICurrentUserService userService)
+        public GameSessionService(IBattleshipsDatabase database, ICurrentUserService userService, IGameSessionRepository gameSessionRepository)
         {
             _database = database;
             _currentUserService = userService;
+            _gameSessionRepository = gameSessionRepository;
         }
         
         public async Task<Guid> CreateSession(GameSessionRequestDto dto)
         {
             var userId = _currentUserService.GetCurrentUserId();
+            
+            var gameSettings = new GameSessionSettings
+            {
+                GridSize = dto.SettingsDto.GridSize,
+                GameType = dto.SettingsDto.GameType
+            };
             var gameSession = new Models.GameSession()
             {
                 Icon = dto.Icon,
                 Name = dto.Name,
-                Settings = new GameSessionSettings(),
+                Settings = gameSettings,
                 Players = new List<Player>
                 {
                     new Player
@@ -46,30 +54,8 @@ namespace Battleships.Services.GameSession
         
         public async Task<List<GameSessionDto>> ListAllSessions()
         {
-            var test = new List<GameSessionDto>();
-            var session = new GameSessionDto();
-            session.Id = Guid.Parse("43021935-1114-4edd-85b5-a8c5e2e36885");
-            session.Icon = "ikona";
-            session.Name = "Bobs And Vegana";
-            session.HostName = "hosto neimas";
-            session.GridSize = "5x5";
-            session.SettingsString = "Settingu stringas";
-            session.HostId = Guid.Parse("43021925-1434-4edd-85b5-a8c5e2e36885");
-            test.Add(session);
-            
-            var session2 = new GameSessionDto();
-            session.Id = Guid.Parse("43021935-1114-4edd-85b5-a8c5e2e36885");
-            session2.Icon = "ikona2";
-            session2.Name = "HA HA Benis";
-            session2.HostName = "hosto neimas222";
-            session2.GridSize = "5x52";
-            session2.SettingsString = "Settingu stringas2";
-            session.HostId = Guid.Parse("43021925-1434-4edd-85b5-a8c5e2e36825");
-            test.Add(session2);
-            
-            return test;
-            // var models = await _database.GameSessionsRepository.GetAll();
-            // return models.Select(x => x.toDto()).ToList();
+            var models = await _gameSessionRepository.GetAll();
+            return models.Select(x => x.toDto()).ToList();
         }
     }
 }

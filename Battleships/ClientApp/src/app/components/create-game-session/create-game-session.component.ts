@@ -12,7 +12,7 @@ export class CreateGameSessionComponent implements OnInit {
 
   public gameSessionForm = new FormGroup({
     iconControl: new FormControl('directions_boat'),
-    nameControl: new FormControl('name?!'),
+    nameControl: new FormControl(''),
     gridSizeControl: new FormControl(''),
     gameTypeControl: new FormControl('')
   });
@@ -25,16 +25,15 @@ export class CreateGameSessionComponent implements OnInit {
   }
 
   createSession(): void {
-    const settingString = {
-      "gridSize": this.gameSessionForm.get("gridSizeControl")?.value,
-      "gameType": this.gameSessionForm.get("gameTypeControl")?.value
+    const settings = {
+      gridSize: this.gameSessionForm.get("gridSizeControl")?.value,
+      gameType: Number(this.gameSessionForm.get("gameTypeControl")?.value)
     };
     const session: CreateGameSessionPayload = {
       icon: String(this.gameSessionForm.get("iconControl")?.value),
       name: String(this.gameSessionForm.get("nameControl")?.value),
-      settingsString: JSON.stringify(settingString),
+      settingsDto: settings,
     };
-    console.log(session);
     this.gameSessionService.createSession(session).subscribe(res => {
       console.log(res);
     })

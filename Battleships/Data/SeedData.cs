@@ -1,8 +1,4 @@
 ﻿using System;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using System.Linq;
-using Microsoft.AspNetCore.Identity;
 using Battleships.Models;
 using Microsoft.EntityFrameworkCore;
 

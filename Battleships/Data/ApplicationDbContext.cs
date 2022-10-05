@@ -1,4 +1,5 @@
 ﻿using Battleships.Models;
+using Battleships.Models.Ships;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,15 @@ namespace Battleships.Data
         {
             modelBuilder.Seed();
 
+            modelBuilder.Entity<Ship>()
+                .HasDiscriminator(ship => ship.ShipTypeDiscriminator)
+                .HasValue<BattleshipShip>(nameof(BattleshipShip))
+                .HasValue<CarrierShip>(nameof(CarrierShip))
+                .HasValue<CruiserShip>(nameof(CruiserShip))
+                .HasValue<DestroyerShip>(nameof(DestroyerShip))
+                .HasValue<SubmarineShip>(nameof(SubmarineShip))
+                ;
+            
             base.OnModelCreating(modelBuilder);
         }
     }

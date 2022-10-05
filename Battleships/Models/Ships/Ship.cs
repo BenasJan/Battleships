@@ -11,6 +11,5 @@ namespace Battleships.Models.Ships
 
         public List<UserCosmetic> UserCosmetics { get; set; }
         public List<PlayerShip> PlayerShips { get; set; }
-        public List<ShipTile> Tiles { get; set; }
     }
 }

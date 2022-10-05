@@ -141,6 +141,8 @@ namespace Battleships
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+            
+            ShipSeeder.SeedShips(app.ApplicationServices);
         }
     }
 }

@@ -75,6 +75,12 @@ namespace Battleships.Repositories
             await SaveChanges();
         }
 
+        public bool IsEmpty()
+        {
+            var anyExist = ItemSet.Any();
+            return !anyExist;
+        }
+
         public IQueryable<TModel> GetQueryable()
         {
             return ItemSet.AsQueryable();

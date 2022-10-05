@@ -6,9 +6,14 @@ using Battleships.Services.Authentication;
 using Battleships.Services.Authentication.Interfaces;
 using Battleships.Services.Players;
 using Battleships.Services.Players.Interfaces;
+using Battleships.Services.GameSession;
+using Battleships.Services.GameSession.Interfaces;
+using Battleships.SignalR;
+using Battleships.SignalR.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -38,7 +43,6 @@ namespace Battleships
 
             services.AddDefaultIdentity<ApplicationUser>(options =>
                 {
-                    
                     options.SignIn.RequireConfirmedAccount = true;
                     options.Password.RequireDigit = false;
                     options.Password.RequiredLength = 1;
@@ -75,6 +79,7 @@ namespace Battleships
             services.AddControllersWithViews();
             // services.AddRazorPages();
             // In production, the Angular files will be served from this directory
+            services.AddSignalR();
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
 
             services
@@ -83,6 +88,9 @@ namespace Battleships
                 .AddScoped<IBattleshipsDatabase, BattleshipsDatabase>()
                 .AddScoped<IAuthenticationService, AuthenticationService>()
                 .AddScoped<ICurrentUserService, CurrentUserService>()
+                .AddScoped<IGameSessionService, GameSessionService>()
+                .AddScoped<IBattleshipsSynchronizationService, BattleshipsSynchronizationService>()
+                .AddScoped<IGameSessionRepository, GameSessionRepository>()
                 .AddScoped<IPlayersService, PlayersService>()
                 ;
         }
@@ -120,6 +128,10 @@ namespace Battleships
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+                endpoints.MapHub<BattleshipsHub>("/battleshipsHub", options =>
+                {
+                    options.Transports = HttpTransportType.WebSockets;
+                });
             });
 
             app.UseSpa(spa =>

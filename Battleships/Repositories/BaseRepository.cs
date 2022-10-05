@@ -29,6 +29,11 @@ namespace Battleships.Repositories
         {
             return await ItemSet.Where(filter).ToListAsync();
         }
+        
+        public async Task<List<TModel>> GetAll()
+        {
+            return await ItemSet.ToListAsync();
+        }
 
         public async Task<List<TModel>> GetAll()
         {
@@ -73,6 +78,11 @@ namespace Battleships.Repositories
         {
             ItemSet.RemoveRange(models);
             await SaveChanges();
+        }
+
+        public IQueryable<TModel> GetQueryable()
+        {
+            return ItemSet.AsQueryable();
         }
 
         private async Task SaveChanges()

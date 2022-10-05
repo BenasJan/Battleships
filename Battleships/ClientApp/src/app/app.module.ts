@@ -22,9 +22,12 @@ import { PublicUsersListComponent } from './components/public-users-list/public-
 import { ProfileComponent } from './components/profile/profile.component';
 import { FriendsListComponent } from './components/friends-list/friends-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RegisterComponent } from './components/register/register.component';
+import { CreateGameSessionComponent } from './components/create-game-session/create-game-session.component';
+import {MatSelectModule} from "@angular/material/select";
+import {AuthorizeInterceptor} from "./authorize.interceptor";
 
 @NgModule({
   declarations: [
@@ -40,24 +43,28 @@ import { RegisterComponent } from './components/register/register.component';
     PublicUsersListComponent,
     ProfileComponent,
     FriendsListComponent,
-    RegisterComponent
+    RegisterComponent,
+    CreateGameSessionComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatTooltipModule,
-    MatListModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
-  ],
-  providers: [MatSnackBar],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        MatCardModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatIconModule,
+        MatTooltipModule,
+        MatListModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        MatSelectModule
+    ],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
+    MatSnackBar],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

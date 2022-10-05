@@ -88,6 +88,7 @@ namespace Battleships
                 .AddScoped<ICurrentUserService, CurrentUserService>()
                 .AddScoped<IGameSessionService, GameSessionService>()
                 .AddScoped<IBattleshipsSynchronizationService, BattleshipsSynchronizationService>()
+                .AddScoped<IGameSessionRepository, GameSessionRepository>()
                 ;
         }
 

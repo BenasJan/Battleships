@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpService} from "./http.service";
 import {Observable, tap} from "rxjs";
 import {GameSession} from "../models/game-session";
+import {CreateGameSessionPayload} from "../models/payloads/create-game-session-payload";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class GameSessionService {
     return this.httpService.get('GameSession', 'listSessions');
   }
 
-  public createSession(game: GameSession): Observable<any> {
+  public createSession(game: CreateGameSessionPayload): Observable<any> {
     return this.httpService.post('GameSession', 'createSession', game);
   }
 

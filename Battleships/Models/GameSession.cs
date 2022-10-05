@@ -16,10 +16,27 @@ namespace Battleships.Models
         {
             var dto = new GameSessionDto();
             dto.Id = this.Id;
+            // if (Players is not null)
+            // {
+            Console.WriteLine("Players:");
+            foreach(var player in Players)
+            {
+                Console.WriteLine(player.IsHost);
+            }
+            dto.HostId = this.Players[0].Id;
+            dto.HostName = this.Players[0].User.Name;
+            // }
+            // else
+            // {
+            //     dto.HostId = Guid.Parse("43021935-1114-4edd-85b5-a8c5e2e36885");
+            //     dto.HostName = "naem";
+            // }
+
             dto.Icon = this.Icon;
             dto.Name = this.Name;
-            dto.GridSize = "5x5";
-            dto.SettingsString = "Settingu stringas";
+            dto.GridSize = this.Settings.GridSize;
+            dto.GameType = this.Settings.GameType;
+            // dto.SettingsString = "Settingu stringas";
             return dto;
         }
 

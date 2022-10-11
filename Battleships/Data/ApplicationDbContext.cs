@@ -1,13 +1,7 @@
 ﻿using Battleships.Models;
-using IdentityServer4.EntityFramework.Options;
-using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Battleships.Models.Ships;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace Battleships.Data
 {
@@ -20,8 +14,17 @@ namespace Battleships.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            SeedData.Seed(modelBuilder);
+            modelBuilder.Seed();
 
+            modelBuilder.Entity<Ship>()
+                .HasDiscriminator(ship => ship.ShipTypeDiscriminator)
+                .HasValue<BattleshipShip>(nameof(BattleshipShip))
+                .HasValue<CarrierShip>(nameof(CarrierShip))
+                .HasValue<CruiserShip>(nameof(CruiserShip))
+                .HasValue<DestroyerShip>(nameof(DestroyerShip))
+                .HasValue<SubmarineShip>(nameof(SubmarineShip))
+                ;
+            
             base.OnModelCreating(modelBuilder);
         }
     }

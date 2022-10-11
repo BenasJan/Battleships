@@ -20,6 +20,8 @@ namespace Battleships.Repositories
         Task UpdateMany(List<TModel> models);
         Task DeleteMany(List<TModel> models);
 
+        bool IsEmpty();
+
         IQueryable<TModel> GetQueryable();
     }
 }

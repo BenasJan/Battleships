@@ -1,4 +1,5 @@
 ﻿using System;
+using Battleships.Models.Ships;
 
 namespace Battleships.Models
 {

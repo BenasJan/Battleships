@@ -4,6 +4,8 @@ using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.Services.Authentication;
 using Battleships.Services.Authentication.Interfaces;
+using Battleships.Services.Players;
+using Battleships.Services.Players.Interfaces;
 using Battleships.Services.GameSession;
 using Battleships.Services.GameSession.Interfaces;
 using Battleships.SignalR;
@@ -87,6 +89,8 @@ namespace Battleships
                 .AddScoped<ICurrentUserService, CurrentUserService>()
                 .AddScoped<IGameSessionService, GameSessionService>()
                 .AddScoped<IBattleshipsSynchronizationService, BattleshipsSynchronizationService>()
+                .AddScoped<IGameSessionRepository, GameSessionRepository>()
+                .AddScoped<IPlayersService, PlayersService>()
                 ;
         }
 

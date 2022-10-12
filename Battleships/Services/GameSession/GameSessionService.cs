@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Battleships.Builders;
 using Battleships.Models;
 using Battleships.Data.Dto;
 using Battleships.Repositories;
@@ -32,21 +33,37 @@ namespace Battleships.Services.GameSession
                 GridSize = dto.SettingsDto.GridSize,
                 GameType = dto.SettingsDto.GameType
             };
-            var gameSession = new Models.GameSession()
+            var players = new List<Player>
             {
-                Icon = dto.Icon,
-                Name = dto.Name,
-                Settings = gameSettings,
-                Players = new List<Player>
+                new Player
                 {
-                    new Player
-                    {
-                        IsHost = true,
-                        UserId = userId,
-                    }
+                    IsHost = true,
+                    UserId = userId
                 }
             };
+            // var gameSession = new Models.GameSession()
+            // {
+            //     Icon = dto.Icon,
+            //     Name = dto.Name,
+            //     Settings = gameSettings,
+            //     Players = new List<Player>
+            //     {
+            //         new Player
+            //         {
+            //             IsHost = true,
+            //             UserId = userId,
+            //         }
+            //     }
+            // };
 
+            var gameSession = new GameSessionBuilder()
+                .WithIcon(dto.Icon)
+                .WithName(dto.Name)
+                .WithDateCreated(DateTime.Now)
+                .WithSessionSettings(gameSettings)
+                .WithPlayers(players)
+                .Build();
+            
             var id = await _database.GameSessionsRepository.Create(gameSession);
             
             return id;

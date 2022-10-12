@@ -10,7 +10,7 @@ namespace Battleships.Repositories
         public IRepository<GameSessionSettings> GameSessionSettingsRepository { get; }
         public IRepository<Player> PlayersRepository { get; }
         public IRepository<PlayerShip> PlayerShipsRepository { get; }
-        public IRepository<ShipTile> ShipTilesRepository { get; }
+        public IShipTilesRepository ShipTilesRepository { get; }
         public IRepository<Ship> ShipsRepository { get; }
         public IRepository<UserCosmetic> UserCosmeticsRepository { get; }
     }

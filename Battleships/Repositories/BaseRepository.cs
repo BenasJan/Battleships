@@ -90,10 +90,5 @@ namespace Battleships.Repositories
         {
             await _context.SaveChangesAsync();
         }
-
-        internal Task GetWhere()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

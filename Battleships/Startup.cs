@@ -147,6 +147,7 @@ namespace Battleships
             });
             
             ShipSeeder.SeedShips(app.ApplicationServices);
+            SeedAchievements.SeedAchs(app.ApplicationServices);
         }
     }
 }

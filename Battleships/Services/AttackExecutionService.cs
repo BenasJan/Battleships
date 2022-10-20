@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.SignalR.Models;
 using Microsoft.EntityFrameworkCore;
@@ -19,11 +20,7 @@ namespace Battleships.Services
 
         public async Task ExecuteAttack(AttackPayload attack)
         {
-            var destroyedTile = (await _battleshipsDatabase.ShipTilesRepository.GetWhere(tile =>
-                tile.XCoordinate == attack.TargetXCoordinate && tile.YCoordinate == attack.TargetYCoordinate &&
-                tile.PlayerShip.Player.UserId != attack.AttackingUserId &&
-                tile.PlayerShip.Player.GameSessionId == attack.GameSessionId
-            )).SingleOrDefault();
+            var destroyedTile = await _battleshipsDatabase.ShipTilesRepository.GetAttackedTile(attack);
 
             if (destroyedTile is not null)
             {

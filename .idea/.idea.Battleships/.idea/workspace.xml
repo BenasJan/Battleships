@@ -6,18 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Battleships/Repositories/IShipTilesRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/Repositories/ShipTilesRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BattleshipsUnitTests/AttackExecutionServiceTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BattleshipsUnitTests/FactoryTests/DefensiveShipFactoryTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BattleshipsUnitTests/FactoryTests/OffensiveShipFactoryTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BattleshipsUnitTests/FactoryTests/ShipFactoryProducerTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/BaseRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/BaseRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/BattleshipsDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/BattleshipsDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/IBattleshipsDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/IBattleshipsDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/AttackExecutionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/AttackExecutionService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/ApplicationDbContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,6 +85,7 @@
       <workItem from="1664726683473" duration="638000" />
       <workItem from="1664727448105" duration="695000" />
       <workItem from="1665599068752" duration="4424000" />
+      <workItem from="1666294147760" duration="352000" />
     </task>
     <servers />
   </component>

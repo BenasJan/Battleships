@@ -2,6 +2,7 @@ using System;
 using Battleships.Data;
 using Battleships.Models;
 using Battleships.Repositories;
+using Battleships.Services;
 using Battleships.Services.Authentication;
 using Battleships.Services.Authentication.Interfaces;
 using Battleships.Services.Players;
@@ -92,6 +93,7 @@ namespace Battleships
                 .AddScoped<IGameSessionRepository, GameSessionRepository>()
                 .AddScoped<IPlayersService, PlayersService>()
                 .AddScoped<IShipTilesRepository, ShipTilesRepository>()
+                .AddScoped<IAttackExecutionService, AttackExecutionService>()
                 ;
         }
 

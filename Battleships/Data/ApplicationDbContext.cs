@@ -14,8 +14,6 @@ namespace Battleships.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Seed();
-
             modelBuilder.Entity<Ship>()
                 .HasDiscriminator(ship => ship.ShipTypeDiscriminator)
                 .HasValue<BattleshipShip>(nameof(BattleshipShip))

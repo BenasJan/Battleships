@@ -32,12 +32,6 @@ public class GameSessionBuilder : IGameSessionBuilder
         return this;
     }
 
-    public GameSessionBuilder WithWinnerId(Guid id)
-    {
-        session.WinnerId = id;
-        return this;
-    }
-
     public GameSessionBuilder WithPlayers(List<Player> players)
     {
         session.Players = players;

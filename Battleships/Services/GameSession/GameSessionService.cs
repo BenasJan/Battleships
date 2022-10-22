@@ -15,13 +15,11 @@ namespace Battleships.Services.GameSession
     {
         private readonly IBattleshipsDatabase _database;
         private readonly ICurrentUserService _currentUserService;
-        private readonly IGameSessionRepository _gameSessionRepository;
 
-        public GameSessionService(IBattleshipsDatabase database, ICurrentUserService userService, IGameSessionRepository gameSessionRepository)
+        public GameSessionService(IBattleshipsDatabase database, ICurrentUserService userService)
         {
             _database = database;
             _currentUserService = userService;
-            _gameSessionRepository = gameSessionRepository;
         }
         
         public async Task<Guid> CreateSession(GameSessionRequestDto dto)
@@ -71,7 +69,7 @@ namespace Battleships.Services.GameSession
         
         public async Task<List<GameSessionDto>> ListAllSessions()
         {
-            var models = await _gameSessionRepository.GetAll();
+            var models = await _database.GameSessionsRepository.GetAll();
             return models.Select(x => x.toDto()).ToList();
         }
     }

@@ -10,7 +10,6 @@ public interface IGameSessionBuilder
     GameSessionBuilder WithName(string name);
     GameSessionBuilder WithDateCreated(DateTime dateCreated);
     GameSessionBuilder WithGameLength(TimeSpan gameLength);
-    GameSessionBuilder WithWinnerId(Guid id);
     GameSessionBuilder WithPlayers(List<Player> players);
     GameSessionBuilder WithSessionSettings(GameSessionSettings settings);
 

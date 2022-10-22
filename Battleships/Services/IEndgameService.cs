@@ -5,5 +5,6 @@ namespace Battleships.Services;
 
 public interface IEndgameService
 {
-    Task RefreshEndgame(Guid gameSessionId, string attackerId);
+    Task<bool> IsEndgameReached(Guid gameSessionId);
+    Task EndGameSession(Guid gameSessionId, string attackerId);
 }

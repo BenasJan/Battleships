@@ -6,6 +6,5 @@ namespace Battleships.Services;
 
 public interface IEndgameStrategyService
 {
-    void SetEndgameStrategy(IEndgameStrategy endgameStrategy);
-    Task<bool> IsEndgameReached(Guid gameSessionId);
+    Task<IEndgameStrategy> GetEndgameStrategy(Guid gameSessionId);
 }

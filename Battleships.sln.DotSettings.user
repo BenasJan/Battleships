@@ -5,5 +5,7 @@
     &lt;TestId&gt;xUnit::B23A899B-DA06-4403-BF77-2B71E93CA225::net6.0::BattleshipsUnitTests.FactoryTests.OffensiveShipFactoryTests&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::B23A899B-DA06-4403-BF77-2B71E93CA225::net6.0::BattleshipsUnitTests.FactoryTests.DefensiveShipFactoryTests&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::B23A899B-DA06-4403-BF77-2B71E93CA225::net6.0::BattleshipsUnitTests.AttackExecutionServiceTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B23A899B-DA06-4403-BF77-2B71E93CA225::net6.0::BattleshipsUnitTests.EndgameServiceTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B23A899B-DA06-4403-BF77-2B71E93CA225::net6.0::BattleshipsUnitTests.EndgameStrategyServiceTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

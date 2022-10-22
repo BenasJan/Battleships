@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Battleships.Builders;
-using Battleships.Models;
 using Battleships.Data.Dto;
+using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.Services.Authentication.Interfaces;
 using Battleships.Services.GameSession.Interfaces;
@@ -13,12 +13,12 @@ namespace Battleships.Services.GameSession
 {
     public class GameSessionService : IGameSessionService
     {
-        private readonly IBattleshipsDatabase _database;
+        private readonly IBattleshipsDatabase _battleshipsDatabase;
         private readonly ICurrentUserService _currentUserService;
 
-        public GameSessionService(IBattleshipsDatabase database, ICurrentUserService userService)
+        public GameSessionService(IBattleshipsDatabase battleshipsDatabase, ICurrentUserService userService)
         {
-            _database = database;
+            _battleshipsDatabase = battleshipsDatabase;
             _currentUserService = userService;
         }
         
@@ -39,21 +39,6 @@ namespace Battleships.Services.GameSession
                     UserId = userId
                 }
             };
-            // var gameSession = new Models.GameSession()
-            // {
-            //     Icon = dto.Icon,
-            //     Name = dto.Name,
-            //     Settings = gameSettings,
-            //     Players = new List<Player>
-            //     {
-            //         new Player
-            //         {
-            //             IsHost = true,
-            //             UserId = userId,
-            //         }
-            //     }
-            // };
-
             var gameSession = new GameSessionBuilder()
                 .WithIcon(dto.Icon)
                 .WithName(dto.Name)
@@ -62,14 +47,14 @@ namespace Battleships.Services.GameSession
                 .WithPlayers(players)
                 .Build();
             
-            var id = await _database.GameSessionsRepository.Create(gameSession);
+            var id = await _battleshipsDatabase.GameSessionsRepository.Create(gameSession);
             
             return id;
         }
-        
+
         public async Task<List<GameSessionDto>> ListAllSessions()
         {
-            var models = await _database.GameSessionsRepository.GetAll();
+            var models = await _battleshipsDatabase.GameSessionsRepository.GetAll();
             return models.Select(x => x.toDto()).ToList();
         }
     }

@@ -1,9 +1,6 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using Battleships.Models;
+﻿using System.Threading.Tasks;
 using Battleships.Repositories;
 using Battleships.SignalR.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace Battleships.Services
 {
@@ -34,8 +31,11 @@ namespace Battleships.Services
             
             session.CurrentRound += 1;
             await _battleshipsDatabase.GameSessionsRepository.Update(session);
-            
-            await _endgameService.RefreshEndgame(attack.GameSessionId, attack.AttackingUserId);
+
+            if (await _endgameService.IsEndgameReached(attack.GameSessionId))
+            {
+                await _endgameService.EndGameSession(attack.GameSessionId, attack.AttackingUserId);
+            }
         }
     }
 }

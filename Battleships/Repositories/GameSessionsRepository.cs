@@ -29,6 +29,11 @@ namespace Battleships.Repositories
             return GetById(gameSessionId, session => session.CurrentRound);
         }
 
+        public Task<string> GetEndgameStrategy(Guid gameSessionId)
+        {
+            return GetById(gameSessionId, gs => gs.EndgameStrategy);
+        }
+
         public GameSessionsRepository(ApplicationDbContext context) : base(context)
         {
         }

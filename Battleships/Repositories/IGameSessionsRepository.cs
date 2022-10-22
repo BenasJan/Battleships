@@ -8,5 +8,6 @@ namespace Battleships.Repositories
     {
         Task<int> GetRequiredDestroyedShipCount(Guid gameSessionId);
         Task<int> GetCurrentRound(Guid gameSessionId);
+        Task<string> GetEndgameStrategy(Guid gameSessionId);
     }
 }

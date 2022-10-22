@@ -13,6 +13,7 @@ namespace Battleships.Models
         public TimeSpan GameLength { get; set; }
         public bool IsOver { get; set; }
         public int CurrentRound { get; set; } = 1;
+        public string EndgameStrategy { get; set; }
         public List<Player> Players { get; set; }
         public GameSessionSettings Settings { get; set; }
 

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Battleships.Builders;
 using Battleships.Models;
 using Battleships.Data.Dto;
+using Battleships.Facades;
 using Battleships.Repositories;
 using Battleships.Services.Authentication.Interfaces;
 using Battleships.Services.GameSession.Interfaces;
@@ -17,7 +18,8 @@ namespace Battleships.Services.GameSession
         private readonly ICurrentUserService _currentUserService;
         private readonly IGameSessionRepository _gameSessionRepository;
 
-        public GameSessionService(IBattleshipsDatabase database, ICurrentUserService userService, IGameSessionRepository gameSessionRepository)
+        public GameSessionService(IBattleshipsDatabase database, ICurrentUserService userService,
+            IGameSessionRepository gameSessionRepository)
         {
             _database = database;
             _currentUserService = userService;
@@ -26,47 +28,7 @@ namespace Battleships.Services.GameSession
         
         public async Task<Guid> CreateSession(GameSessionRequestDto dto)
         {
-            var userId = _currentUserService.GetCurrentUserId();
-            
-            var gameSettings = new GameSessionSettings
-            {
-                GridSize = dto.SettingsDto.GridSize,
-                GameType = dto.SettingsDto.GameType
-            };
-            var players = new List<Player>
-            {
-                new Player
-                {
-                    IsHost = true,
-                    UserId = userId
-                }
-            };
-            // var gameSession = new Models.GameSession()
-            // {
-            //     Icon = dto.Icon,
-            //     Name = dto.Name,
-            //     Settings = gameSettings,
-            //     Players = new List<Player>
-            //     {
-            //         new Player
-            //         {
-            //             IsHost = true,
-            //             UserId = userId,
-            //         }
-            //     }
-            // };
-
-            var gameSession = new GameSessionBuilder()
-                .WithIcon(dto.Icon)
-                .WithName(dto.Name)
-                .WithDateCreated(DateTime.Now)
-                .WithSessionSettings(gameSettings)
-                .WithPlayers(players)
-                .Build();
-            
-            var id = await _database.GameSessionsRepository.Create(gameSession);
-            
-            return id;
+            return await new GameSessionFacade(_database, _currentUserService, dto).CreateGameSession();
         }
         
         public async Task<List<GameSessionDto>> ListAllSessions()

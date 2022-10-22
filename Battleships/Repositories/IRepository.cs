@@ -11,7 +11,6 @@ namespace Battleships.Repositories
     {
         Task<TModel> GetById(Guid id);
         Task<List<TModel>> GetAll();
-        Task<List<TModel>> GetWhere(Expression<Func<TModel, bool>> filter);
         Task<Guid> Create(TModel model);
         Task Update(TModel model);
         Task Delete(TModel model);
@@ -21,7 +20,5 @@ namespace Battleships.Repositories
         Task DeleteMany(List<TModel> models);
 
         bool IsEmpty();
-
-        IQueryable<TModel> GetQueryable();
     }
 }

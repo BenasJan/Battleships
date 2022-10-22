@@ -6,7 +6,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Battleships/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/ApplicationDbContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Battleships/Repositories/GameSessionSettingsRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Battleships/Repositories/IGameSessionSettingsRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Battleships/Services/EndgameService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Battleships/Services/IEndgameService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Models/GameSessionSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Models/GameSessionSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Models/enums/GameTypes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Models/enums/GameTypes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/BaseRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/BaseRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/BattleshipsDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/BattleshipsDatabase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/IBattleshipsDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/IBattleshipsDatabase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/IRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/AttackExecutionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/AttackExecutionService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +59,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Battleships">
+  <component name="RunManager">
     <configuration name="Battleships" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Battleships/Battleships.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net5.0" />
@@ -85,7 +96,8 @@
       <workItem from="1664726683473" duration="638000" />
       <workItem from="1664727448105" duration="695000" />
       <workItem from="1665599068752" duration="4424000" />
-      <workItem from="1666294147760" duration="352000" />
+      <workItem from="1666294147760" duration="1171000" />
+      <workItem from="1666428385027" duration="1945000" />
     </task>
     <servers />
   </component>

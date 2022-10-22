@@ -27,6 +27,8 @@ namespace Battleships.Services
                 destroyedTile.IsDestroyed = true;
                 await _battleshipsDatabase.ShipTilesRepository.Update(destroyedTile);
             }
+            
+            
         }
     }
 }

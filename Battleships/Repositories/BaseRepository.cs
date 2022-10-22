@@ -25,11 +25,6 @@ namespace Battleships.Repositories
             return await ItemSet.FirstOrDefaultAsync(m => m.Id == id);
         }
 
-        public async Task<List<TModel>> GetWhere(Expression<Func<TModel, bool>> filter)
-        {
-            return await ItemSet.Where(filter).ToListAsync();
-        }
-        
         public async Task<List<TModel>> GetAll()
         {
             return await ItemSet.ToListAsync();
@@ -80,15 +75,20 @@ namespace Battleships.Repositories
             var anyExist = ItemSet.Any();
             return !anyExist;
         }
-
-        public IQueryable<TModel> GetQueryable()
-        {
-            return ItemSet.AsQueryable();
-        }
-
+        
         private async Task SaveChanges()
         {
             await _context.SaveChangesAsync();
+        }
+        
+        protected async Task<List<TModel>> GetWhere(Expression<Func<TModel, bool>> filter)
+        {
+            return await ItemSet.Where(filter).ToListAsync();
+        }
+
+        protected async Task<TModel> GetSingle(Expression<Func<TModel, bool>> filter)
+        {
+            return (await _context.Set<TModel>().Where(filter).ToArrayAsync()).SingleOrDefault();
         }
     }
 }

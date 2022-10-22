@@ -85,6 +85,7 @@ namespace Battleships
             services
                 .AddHttpContextAccessor()
                 .AddScoped(typeof(IRepository<>), typeof(BaseRepository<>))
+                .AddScoped<IGameSessionSettingsRepository, GameSessionSettingsRepository>()
                 .AddScoped<IBattleshipsDatabase, BattleshipsDatabase>()
                 .AddScoped<IAuthenticationService, AuthenticationService>()
                 .AddScoped<ICurrentUserService, CurrentUserService>()
@@ -94,6 +95,7 @@ namespace Battleships
                 .AddScoped<IPlayersService, PlayersService>()
                 .AddScoped<IShipTilesRepository, ShipTilesRepository>()
                 .AddScoped<IAttackExecutionService, AttackExecutionService>()
+                .AddScoped<IEndgameService, EndgameService>()
                 ;
         }
 

@@ -36,5 +36,10 @@ namespace Battleships.Services.GameSession
             var models = await _gameSessionRepository.GetAll();
             return models.Select(x => x.toDto()).ToList();
         }
+        
+        public async Task<GameSessionDto> GetSession(Guid id)
+        {
+            return (await _gameSessionRepository.GetById(id)).toDto();
+        }
     }
 }

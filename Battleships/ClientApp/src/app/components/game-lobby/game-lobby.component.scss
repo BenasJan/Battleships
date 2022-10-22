@@ -1,0 +1,64 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  //justify-self: center;
+  //align-self: center;
+  //width: 100%;
+}
+
+.session-info {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-self: center;
+
+  justify-content: center;
+  //align-content: center;
+  width: 100%;
+}
+
+.session-data-item {
+  font-size: 100%;
+}
+
+.players-list {
+  justify-self: center;
+  align-self: center;
+  width: 20%;
+}
+
+.add-player-btn{
+  display: flex;
+  justify-content: center;
+}
+
+.select-player {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.mat-table {
+  justify-self: center;
+  align-self: center;
+  width: 50%;
+}
+
+.mat-row,
+.mat-header-row {
+  display: flex;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 24px;
+}
+
+.mat-cell,
+.mat-header-cell {
+  flex: 1;
+  overflow: hidden;
+  word-wrap: break-word;
+}

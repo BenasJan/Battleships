@@ -26,5 +26,13 @@ namespace Battleships.Controllers
 
             return Ok(players);
         }
+        
+        [HttpGet("listLobbyPlayers")]
+        public async Task<IActionResult> ListLobbyPlayers()
+        {
+            var players = await _playersService.ListPlayersToLobby();
+
+            return Ok(players);
+        }
     }
 }

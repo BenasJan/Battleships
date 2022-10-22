@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Battleships.Data;
@@ -14,16 +15,19 @@ namespace Battleships.Repositories
         
         public new async Task<List<GameSession>> GetAll()
         {
-            // return await ItemSet.Include(x => x.Players)
-            //     .Include(x => x.Settings)
-            //     .Include(x => (x as Player).User)
-            //     .ToListAsync();
-            
             return await ItemSet.Include(x => x.Players)
                 .ThenInclude(x => x.User)
                 .Include(x => x.Settings)
                 .ToListAsync();
             
+        }
+        
+        public new async Task<GameSession> GetById(Guid id)
+        {
+            return await ItemSet.Include(x => x.Players)
+                .ThenInclude(x => x.User)
+                .Include(x => x.Settings)
+                .FirstOrDefaultAsync();
         }
 
         public GameSessionRepository(ApplicationDbContext context) : base(context)

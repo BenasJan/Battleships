@@ -44,7 +44,7 @@ export class CreateGameSessionComponent implements OnInit {
     };
     this.gameSessionService.createSession(session).subscribe(res => {
         this.toastService.publish('Session created successfully');
-        this.router.navigateByUrl('/games');
+        this.router.navigate(['/lobby', res]);
     })
   }
 

@@ -28,6 +28,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { CreateGameSessionComponent } from './components/create-game-session/create-game-session.component';
 import {MatSelectModule} from "@angular/material/select";
 import {AuthorizeInterceptor} from "./authorize.interceptor";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatTableModule} from "@angular/material/table";
+import {CdkColumnDef} from "@angular/cdk/table";
 
 @NgModule({
   declarations: [
@@ -46,23 +49,25 @@ import {AuthorizeInterceptor} from "./authorize.interceptor";
     RegisterComponent,
     CreateGameSessionComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatInputModule,
-        MatCardModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatIconModule,
-        MatTooltipModule,
-        MatListModule,
-        FormsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        MatSelectModule
-    ],
-  providers: [{
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatListModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatSelectModule,
+    MatButtonToggleModule,
+    MatTableModule
+  ],
+  providers: [CdkColumnDef,{
     provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
     MatSnackBar],
   bootstrap: [AppComponent]

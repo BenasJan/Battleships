@@ -7,5 +7,6 @@ namespace Battleships.Services.Players.Interfaces
     public interface IPlayersService
     {
         Task<List<PlayerDto>> ListPlayers();
+        Task<List<PlayerLobbyDto>> ListPlayersToLobby();
     }
 }

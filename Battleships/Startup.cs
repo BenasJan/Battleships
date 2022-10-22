@@ -3,6 +3,8 @@ using Battleships.Data;
 using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.Services;
+using Battleships.Services.Achievement;
+using Battleships.Services.Achievement.Interfaces;
 using Battleships.Services.Authentication;
 using Battleships.Services.Authentication.Interfaces;
 using Battleships.Services.Players;
@@ -94,6 +96,7 @@ namespace Battleships
                 .AddScoped<IPlayersService, PlayersService>()
                 .AddScoped<IShipTilesRepository, ShipTilesRepository>()
                 .AddScoped<IAttackExecutionService, AttackExecutionService>()
+                .AddScoped<IAchievementService, AchievementService>()
                 ;
         }
 

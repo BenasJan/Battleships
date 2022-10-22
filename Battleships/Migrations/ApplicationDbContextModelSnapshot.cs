@@ -215,6 +215,23 @@ namespace Battleships.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("Battleships.Models.Friend", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("User1")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("User2")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Friends");
+                });
+
             modelBuilder.Entity("Battleships.Models.GameSession", b =>
                 {
                     b.Property<Guid>("Id")
@@ -239,19 +256,19 @@ namespace Battleships.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<int>("DestroyedShipPercentage")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<Guid>("GameSessionId")
                         .HasColumnType("uuid");
 
                     b.Property<int>("GameType")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<string>("GridSize")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<int>("RoundCount")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -341,9 +358,6 @@ namespace Battleships.Migrations
                     b.Property<Guid>("PlayerShipId")
                         .HasColumnType("uuid");
 
-                    b.Property<Guid?>("ShipId")
-                        .HasColumnType("uuid");
-
                     b.Property<int>("XCoordinate")
                         .HasColumnType("integer");
 
@@ -353,8 +367,6 @@ namespace Battleships.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("PlayerShipId");
-
-                    b.HasIndex("ShipId");
 
                     b.ToTable("ShipTile");
                 });
@@ -640,10 +652,6 @@ namespace Battleships.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Battleships.Models.Ships.Ship", null)
-                        .WithMany("Tiles")
-                        .HasForeignKey("ShipId");
-
                     b.Navigation("PlayerShip");
                 });
 
@@ -764,8 +772,6 @@ namespace Battleships.Migrations
             modelBuilder.Entity("Battleships.Models.Ships.Ship", b =>
                 {
                     b.Navigation("PlayerShips");
-
-                    b.Navigation("Tiles");
 
                     b.Navigation("UserCosmetics");
                 });

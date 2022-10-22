@@ -1,7 +1,6 @@
 ﻿ using System;
 using System.Collections.Generic;
 using Battleships.Data.Dto;
-using System.Collections.Generic;
 
 namespace Battleships.Models
 {

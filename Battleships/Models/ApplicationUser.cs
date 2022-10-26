@@ -11,6 +11,7 @@ namespace Battleships.Models
         public List<UserCosmetic> Cosmetics { get; set; }
         public List<Player> Players { get; set; }
         public List<UserAchievement> UserAchievements { get; set; }
+        public List<GameSession> WonGames { get; set; }
 
         public override string ToString()
         {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Battleships.Models;
+using Battleships.Models.enums;
 
 namespace Battleships.Builders;
 
@@ -32,12 +33,6 @@ public class GameSessionBuilder : IGameSessionBuilder
         return this;
     }
 
-    public GameSessionBuilder WithWinnerId(Guid id)
-    {
-        session.WinnerId = id;
-        return this;
-    }
-
     public GameSessionBuilder WithPlayers(List<Player> players)
     {
         session.Players = players;
@@ -47,7 +42,33 @@ public class GameSessionBuilder : IGameSessionBuilder
     public GameSessionBuilder WithSessionSettings(GameSessionSettings settings)
     {
         session.Settings = settings;
+        session.EndgameStrategy = GetEndgameStrategyString(settings);
         return this;
+    }
+    
+    private string GetEndgameStrategyString(GameSessionSettings settings)
+    {
+        if (settings.GameType == GameTypes.DeathMatch)
+        {
+            return Data.Constants.EndgameStrategies.DeathMatch;
+        }
+
+        if (settings.GameType == GameTypes.Classic)
+        {
+            return Data.Constants.EndgameStrategies.Classic;
+        }
+        
+        if (settings.DestroyedShipCountForEndgame > 0)
+        {
+            return Data.Constants.EndgameStrategies.DestroyedShipCount;
+        }
+
+        if (settings.RoundCountLimitForEndgame > 0)
+        {
+            return Data.Constants.EndgameStrategies.RoundCountLimit;
+        }
+
+        return null;
     }
 
     public GameSession Build()

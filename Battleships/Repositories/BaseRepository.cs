@@ -11,9 +11,9 @@ namespace Battleships.Repositories
 {
     public class BaseRepository<TModel> : IRepository<TModel> where TModel : BaseModel
     {
-        private readonly ApplicationDbContext _context;
+        protected readonly ApplicationDbContext _context;
 
-        private DbSet<TModel> ItemSet => _context.Set<TModel>();
+        protected DbSet<TModel> ItemSet => _context.Set<TModel>();
 
         public BaseRepository(ApplicationDbContext context)
         {
@@ -25,12 +25,7 @@ namespace Battleships.Repositories
             return await ItemSet.FirstOrDefaultAsync(m => m.Id == id);
         }
 
-        public async Task<List<TModel>> GetWhere(Expression<Func<TModel, bool>> filter)
-        {
-            return await ItemSet.Where(filter).ToListAsync();
-        }
-        
-        public async Task<List<TModel>> GetAll()
+        public virtual async Task<List<TModel>> GetAll()
         {
             return await ItemSet.ToListAsync();
         }
@@ -80,15 +75,41 @@ namespace Battleships.Repositories
             var anyExist = ItemSet.Any();
             return !anyExist;
         }
-
-        public IQueryable<TModel> GetQueryable()
-        {
-            return ItemSet.AsQueryable();
-        }
-
+        
         private async Task SaveChanges()
         {
             await _context.SaveChangesAsync();
+        }
+        
+        protected async Task<List<TModel>> GetWhere(Expression<Func<TModel, bool>> filter)
+        {
+            return await ItemSet.Where(filter).ToListAsync();
+        }
+
+        protected async Task<TModel> GetSingle(Expression<Func<TModel, bool>> filter)
+        {
+            return (await _context.Set<TModel>().Where(filter).ToArrayAsync()).SingleOrDefault();
+        }
+
+        protected async Task<TProjection> GetSingle<TProjection>(
+            Expression<Func<TModel, bool>> filter,
+            Expression<Func<TModel, TProjection>> projectionExpression
+        )
+        {
+            return (await _context
+                    .Set<TModel>()
+                    .Where(filter)
+                    .Select(projectionExpression)
+                    .ToArrayAsync()
+                ).SingleOrDefault();
+        }
+        
+        protected async Task<TProjection> GetById<TProjection>(Guid id, Expression<Func<TModel, TProjection>> projectionExpression)
+        {
+            return await ItemSet
+                .Where(item => item.Id == id)
+                .Select(projectionExpression)
+                .FirstOrDefaultAsync();
         }
     }
 }

@@ -3,8 +3,11 @@ using Battleships.Data;
 using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.Services;
+using Battleships.Services.Achievement;
+using Battleships.Services.Achievement.Interfaces;
 using Battleships.Services.Authentication;
 using Battleships.Services.Authentication.Interfaces;
+using Battleships.Services.EndgameStrategies;
 using Battleships.Services.Players;
 using Battleships.Services.Players.Interfaces;
 using Battleships.Services.GameSession;
@@ -85,15 +88,23 @@ namespace Battleships
             services
                 .AddHttpContextAccessor()
                 .AddScoped(typeof(IRepository<>), typeof(BaseRepository<>))
+                .AddScoped<IGameSessionSettingsRepository, GameSessionSettingsRepository>()
                 .AddScoped<IBattleshipsDatabase, BattleshipsDatabase>()
                 .AddScoped<IAuthenticationService, AuthenticationService>()
                 .AddScoped<ICurrentUserService, CurrentUserService>()
                 .AddScoped<IGameSessionService, GameSessionService>()
                 .AddScoped<IBattleshipsSynchronizationService, BattleshipsSynchronizationService>()
-                .AddScoped<IGameSessionRepository, GameSessionRepository>()
+                .AddScoped<IGameSessionsRepository, GameSessionsRepository>()
                 .AddScoped<IPlayersService, PlayersService>()
                 .AddScoped<IShipTilesRepository, ShipTilesRepository>()
                 .AddScoped<IAttackExecutionService, AttackExecutionService>()
+                .AddScoped<IEndgameService, EndgameService>()
+                .AddScoped<IEndgameStrategyService, EndgameStrategyService>()
+                .AddScoped<IEndgameStrategy, ClassicEndgameStrategy>()
+                .AddScoped<IEndgameStrategy, DeathMatchEndgameStrategy>()
+                .AddScoped<IEndgameStrategy, DestroyedShipCountEndgameStrategy>()
+                .AddScoped<IEndgameStrategy, RoundCountLimitEndgameStrategy>()
+                .AddScoped<IAchievementService, AchievementService>()
                 ;
         }
 

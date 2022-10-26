@@ -12,9 +12,14 @@ using System.Collections.Generic;
         public string Name { get; set; }
         public DateTime DateCreated { get; set; }
         public TimeSpan GameLength { get; set; }
-        public Guid WinnerId { get; set; }
+        public bool IsOver { get; set; }
+        public int CurrentRound { get; set; } = 1;
+        public string EndgameStrategy { get; set; }
         public List<Player> Players { get; set; }
         public GameSessionSettings Settings { get; set; }
+
+        public string WinnerId { get; set; }
+        public ApplicationUser Winner { get; set; }
         
         public GameSessionDto toDto()
         {
@@ -40,7 +45,7 @@ using System.Collections.Generic;
 
         public override string ToString()
         {
-            return this.Id.ToString() + " " + this.Name + " " +this.Icon;
+            return this.Id.ToString() + " " + this.Name + " " + this.Icon;
         }
     }
 }

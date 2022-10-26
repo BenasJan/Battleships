@@ -3,6 +3,8 @@ using Battleships.Data;
 using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.Services;
+using Battleships.Services.Achievement;
+using Battleships.Services.Achievement.Interfaces;
 using Battleships.Services.Authentication;
 using Battleships.Services.Authentication.Interfaces;
 using Battleships.Services.EndgameStrategies;
@@ -102,6 +104,7 @@ namespace Battleships
                 .AddScoped<IEndgameStrategy, DeathMatchEndgameStrategy>()
                 .AddScoped<IEndgameStrategy, DestroyedShipCountEndgameStrategy>()
                 .AddScoped<IEndgameStrategy, RoundCountLimitEndgameStrategy>()
+                .AddScoped<IAchievementService, AchievementService>()
                 ;
         }
 

@@ -19,6 +19,15 @@ namespace Battleships.Repositories
             
         }
 
+        public async Task<GameSession> GetWithPlayers(Guid gameSessionId)
+        {
+            return await ItemSet
+                .Include(session => session.Players)
+                .ThenInclude(player => player.User)
+                .Include(session => session.Settings)
+                .FirstOrDefaultAsync(session => session.Id == gameSessionId);
+        }
+
         public Task<int> GetRequiredDestroyedShipCount(Guid gameSessionId)
         {
             return GetById(gameSessionId, session => session.Settings.DestroyedShipCountForEndgame);

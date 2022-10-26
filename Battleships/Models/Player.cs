@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Battleships.Data.Dto;
 
 namespace Battleships.Models
 {
@@ -23,6 +24,23 @@ namespace Battleships.Models
             GameSession = gameSession;
             IsHost = isHost;
             UserId = userId;
+        }
+
+        public PlayerLobbyDto ToLobbyDto()
+        {
+            var dto = new PlayerLobbyDto();
+            Console.WriteLine("Starting convrting to LobbyDto");
+            Console.WriteLine(this.Id);
+            Console.WriteLine(this.User.Name);
+            dto.Id = this.Id;
+            dto.Name = this.User.Name;
+            
+            return dto;
+        }
+        
+        public override string ToString()
+        {
+            return $"{nameof(GameSessionId)}: {GameSessionId}, {nameof(GameSession)}: {GameSession}, {nameof(IsHost)}: {IsHost}, {nameof(UserId)}: {UserId}, {nameof(User)}: {User.ToString()}, {nameof(PlayerShips)}: {PlayerShips}";
         }
     }
 }

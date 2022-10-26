@@ -1,1 +1,50 @@
-<p>game-lobby works!</p>
+<div class="main-container">
+  <br>
+  <div class="session-info">
+      <div class="mat-table">
+        <div class="mat-header-row">
+          <div class="mat-header-cell">Session Name</div>
+          <div class="mat-header-cell">Grid Size</div>
+          <div class="mat-header-cell">Game Type</div>
+          <div class="mat-header-cell">Host Name</div>
+        </div>
+        <div class="mat-row">
+          <div class="mat-cell">{{lobbySession.name}}</div>
+          <div class="mat-cell">{{lobbySession.gridSize}}</div>
+          <div class="mat-cell">{{lobbySession.gameType}}</div>
+          <div class="mat-cell">{{lobbySession.hostName}}</div>
+        </div>
+    </div>
+  </div>
+  <br>
+  <div class="players-list">
+    <mat-list>
+      <div mat-subheader>Players</div>
+      <mat-divider></mat-divider>
+      <mat-list-item *ngFor="let player of lobbySession.players">
+        <mat-icon mat-list-icon>{{'person'}}</mat-icon>
+<!--        <div mat-line>{{player.id}}</div>-->
+        <div mat-line>{{player.name}}</div>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+
+    </mat-list>
+  </div>
+
+  <div class="select-player">
+    <mat-form-field appearance="outline">
+      <mat-label>Game Type</mat-label>
+      <mat-select required matInput>
+        <mat-option value="0">Classic</mat-option>
+        <mat-option value="1">Deathmatch</mat-option>
+        <mat-option value="2">Custom</mat-option>
+        <mat-option value="3">Limited-Time</mat-option>
+
+      </mat-select>
+      <!--      <input formControlName="gameTypeControl" type="text" matInput required placeholder="Enter Game Type">-->
+    </mat-form-field>
+    <div class="add-player-btn">
+      <button mat-raised-button color="primary">Add Player</button>
+    </div>
+  </div>
+</div>

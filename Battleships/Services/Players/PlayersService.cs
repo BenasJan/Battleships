@@ -44,5 +44,11 @@ namespace Battleships.Services.Players
 
             return test;
         }
+
+        public async Task<List<PlayerLobbyDto>> ListPlayersToLobby()
+        {
+            var allUsers = (await _db.PlayersRepository.GetAll()).Select(x => x.ToLobbyDto()).ToList();
+            return allUsers;
+        }
     }
 }

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using Battleships.Data.Dto;
 using System.Collections.Generic;
+ using System.Linq;
 
-namespace Battleships.Models
+ namespace Battleships.Models
 {
     public class GameSession : BaseModel
     {
@@ -22,6 +23,7 @@ namespace Battleships.Models
         
         public GameSessionDto toDto()
         {
+
             var dto = new GameSessionDto();
             dto.Id = this.Id;
             dto.HostId = this.Players[0].Id;
@@ -30,7 +32,9 @@ namespace Battleships.Models
             dto.Name = this.Name;
             dto.GridSize = this.Settings.GridSize;
             dto.GameType = this.Settings.GameType;
-            // dto.SettingsString = "Settingu stringas";
+            var players = this.Players.Select(player => player.ToLobbyDto()).ToList();
+            dto.Players = players;
+            
             return dto;
         }
 

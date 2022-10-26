@@ -17,15 +17,18 @@ namespace Battleships.Services.GameSession
         private readonly IBattleshipsDatabase _battleshipsDatabase;
         private readonly ICurrentUserService _currentUserService;
 
-        public GameSessionService(IBattleshipsDatabase battleshipsDatabase, ICurrentUserService userService)
+        public GameSessionService(
+            IBattleshipsDatabase battleshipsDatabase,
+            ICurrentUserService userService
+        )
         {
             _battleshipsDatabase = battleshipsDatabase;
             _currentUserService = userService;
         }
-        
+
         public async Task<Guid> CreateSession(GameSessionRequestDto dto)
         {
-            return await new GameSessionFacade(_database, _currentUserService, dto).CreateGameSession();
+            return await new GameSessionFacade(_battleshipsDatabase, _currentUserService, dto).CreateGameSession();
         }
 
         public async Task<List<GameSessionDto>> ListAllSessions()

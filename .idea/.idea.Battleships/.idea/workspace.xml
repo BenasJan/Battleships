@@ -6,21 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BattleshipsUnitTests/EndgameServiceTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BattleshipsUnitTests/EndgameStrategyServiceTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Builders/GameSessionBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Builders/GameSessionBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Models/GameSession.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Models/GameSession.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/GameSessionsRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/GameSessionsRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/IGameSessionsRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/IGameSessionsRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/AttackExecutionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/AttackExecutionService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/EndgameService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EndgameService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/EndgameStrategyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EndgameStrategyService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Services/GameSession/GameSessionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/GameSession/GameSessionService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/IEndgameService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/IEndgameService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/IEndgameStrategyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/IEndgameStrategyService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BattleshipsUnitTests/AttackExecutionServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipsUnitTests/AttackExecutionServiceTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +87,8 @@
       <workItem from="1664727448105" duration="695000" />
       <workItem from="1665599068752" duration="4424000" />
       <workItem from="1666294147760" duration="1171000" />
-      <workItem from="1666428385027" duration="20732000" />
+      <workItem from="1666428385027" duration="21351000" />
+      <workItem from="1666815603188" duration="474000" />
     </task>
     <servers />
   </component>

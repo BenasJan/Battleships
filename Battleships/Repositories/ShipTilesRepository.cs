@@ -31,4 +31,11 @@ public class ShipTilesRepository : BaseRepository<ShipTile>, IShipTilesRepositor
             .Where(tile => tile.PlayerShip.Player.GameSessionId == gameSessionId)
             .ToListAsync();
     }
+
+    public async Task<List<ShipTile>> GetPlayerTiles(Guid playerId)
+    {
+        return await ItemSet
+            .Where(tile => tile.PlayerShip.PlayerId == playerId)
+            .ToListAsync();
+    }
 }

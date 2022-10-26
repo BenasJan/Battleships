@@ -7,6 +7,8 @@ namespace Battleships.Models
     {
         public Guid GameSessionId { get; set; }
         public string GridSize { get; set; }
+        public int ColumnCount { get; set; }
+        public int RowCount { get; set; }
         public GameTypes GameType { get; set; }
         public int RoundCountLimitForEndgame { get; set; }
         public int DestroyedShipsPercentageForEndgame { get; set; }

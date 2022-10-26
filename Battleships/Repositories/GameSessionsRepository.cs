@@ -43,6 +43,14 @@ namespace Battleships.Repositories
             return GetById(gameSessionId, gs => gs.EndgameStrategy);
         }
 
+        public async Task<(Guid, Guid)> GetPlayerIds(Guid gameSessionId, string currentUserId)
+        {
+            var ownPlayerId = await GetById(gameSessionId, gs => gs.Players.First(p => p.UserId == currentUserId).Id);
+            var opponentPlayerId = await GetById(gameSessionId, gs => gs.Players.First(p => p.UserId != currentUserId).Id);
+
+            return (ownPlayerId, opponentPlayerId);
+        }
+
         public GameSessionsRepository(ApplicationDbContext context) : base(context)
         {
         }

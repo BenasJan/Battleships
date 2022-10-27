@@ -34,7 +34,7 @@ using System.Collections.Generic;
             dto.GridSize = this.Settings.GridSize;
             dto.GameType = this.Settings.GameType;
             var players = this.Players.Select(player => player.ToLobbyDto()).ToList();
-            dto.Players = players;
+            dto.LobbyPlayers = players;
             
             return dto;
         }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import jwt_decode from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class AuthorizationService {
 
   private readonly JwtTokenKey = 'JWT_TOKEN';
 
-  private readonly jwtTokenSubject = new BehaviorSubject<string | null>(null);
+  private readonly jwtTokenSubject = new BehaviorSubject<string>('');
 
   constructor() { }
 
@@ -29,14 +30,21 @@ export class AuthorizationService {
   public clearToken(): void {
     localStorage.removeItem(this.JwtTokenKey);
 
-    this.jwtTokenSubject.next(null);
+    this.jwtTokenSubject.next('');
   }
 
   public get isAuthorized(): boolean {
     return !!this.jwtTokenSubject.value;
   }
 
-  public get jwtToken(): string | null {
+  public get jwtToken(): string {
     return this.jwtTokenSubject.value;
+  }
+
+  public getUserId(): string {
+    const token = jwt_decode(this.jwtToken) as any;
+    const userId = token.USER_ID;
+
+    return userId;
   }
 }

@@ -19,18 +19,18 @@ namespace Battleships.Controllers
             _playersService = playersService;
         }
 
-        [HttpGet("listPlayers")]
+        [HttpGet("all-users")]
         public async Task<IActionResult> ListPlayers()
         {
-            var players = await _playersService.ListPlayers();
+            var allUsers = await _playersService.GetAllUsers();
 
-            return Ok(players);
+            return Ok(allUsers);
         }
         
-        [HttpGet("listLobbyPlayers")]
-        public async Task<IActionResult> ListLobbyPlayers()
+        [HttpGet("lobby-users")]
+        public async Task<IActionResult> ListLobbyPlayers([FromQuery] Guid gameSessionId)
         {
-            var players = await _playersService.ListPlayersToLobby();
+            var players = await _playersService.GetLobbyUsers(gameSessionId);
 
             return Ok(players);
         }

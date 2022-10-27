@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Battleships.Data.Dto;
 using System.Collections.Generic;
  using System.Linq;
+ using Battleships.Models.enums;
 
  namespace Battleships.Models
 {
@@ -12,7 +13,7 @@ using System.Collections.Generic;
         public string Name { get; set; }
         public DateTime DateCreated { get; set; }
         public TimeSpan GameLength { get; set; }
-        public bool IsOver { get; set; }
+        public GameSessionStatus Status { get; set; }
         public int CurrentRound { get; set; } = 1;
         public string EndgameStrategy { get; set; }
         public List<Player> Players { get; set; }

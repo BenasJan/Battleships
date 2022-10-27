@@ -1,5 +1,4 @@
 ﻿using Battleships.Models;
-using Battleships.Models.Ships;
 
 namespace Battleships.Repositories
 {
@@ -11,7 +10,7 @@ namespace Battleships.Repositories
             IGameSessionSettingsRepository gameSessionSettingsRepository,
             IRepository<Player> playersRepository,
             IRepository<PlayerShip> playerShipsRepository,
-            IRepository<Ship> shipsRepository,
+            IShipsRepository shipsRepository,
             IRepository<UserCosmetic> userCosmeticsRepository,
             IShipTilesRepository shipTilesRepository)
         {
@@ -31,7 +30,7 @@ namespace Battleships.Repositories
         public IRepository<Player> PlayersRepository { get; }
         public IRepository<PlayerShip> PlayerShipsRepository { get; }
         public IShipTilesRepository ShipTilesRepository { get; }
-        public IRepository<Ship> ShipsRepository { get; }
+        public IShipsRepository ShipsRepository { get; }
         public IRepository<UserCosmetic> UserCosmeticsRepository { get; }
     }
 }

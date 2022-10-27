@@ -59,6 +59,7 @@ namespace Battleships.Services.GameSession
 
             dto.OwnTiles = GetTileDtos(ownTiles, dto.ColumnCount, dto.RowCount);
             dto.OpponentTiles = GetTileDtos(opponentTiles, dto.ColumnCount, dto.RowCount);
+            return null;
         }
 
         private List<GameTile> GetTileDtos(List<ShipTile> shipTiles, int columnCount, int rowCount)

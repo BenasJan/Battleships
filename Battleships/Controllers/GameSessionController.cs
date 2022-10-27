@@ -50,7 +50,8 @@ namespace Battleships.Controllers
         [HttpGet("in-game/{gameSessionId:guid}")]
         public async Task<IActionResult> GetInGameSession(Guid gameSessionId)
         {
-            
+
+            return null;
         }
     }
 }

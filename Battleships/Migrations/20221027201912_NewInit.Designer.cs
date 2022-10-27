@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Battleships.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221027192328_Gameplay")]
-    partial class Gameplay
+    [Migration("20221027201912_NewInit")]
+    partial class NewInit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Battleships.Migrations
 {
-    public partial class MyFirstMigration : Migration
+    public partial class NewInit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -47,7 +47,8 @@ namespace Battleships.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     ShipTypeDiscriminator = table.Column<string>(type: "text", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: true),
-                    Description = table.Column<string>(type: "text", nullable: true)
+                    Description = table.Column<string>(type: "text", nullable: true),
+                    ShipType = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -202,7 +203,7 @@ namespace Battleships.Migrations
                     Name = table.Column<string>(type: "text", nullable: true),
                     DateCreated = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     GameLength = table.Column<TimeSpan>(type: "interval", nullable: false),
-                    IsOver = table.Column<bool>(type: "boolean", nullable: false),
+                    Status = table.Column<int>(type: "integer", nullable: false),
                     CurrentRound = table.Column<int>(type: "integer", nullable: false),
                     EndgameStrategy = table.Column<string>(type: "text", nullable: true),
                     WinnerId = table.Column<string>(type: "text", nullable: true)

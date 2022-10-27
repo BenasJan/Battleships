@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Battleships.Models.enums;
 using Battleships.Repositories;
 
 namespace Battleships.Services;
@@ -30,7 +31,7 @@ public class EndgameService : IEndgameService
         var session = await _battleshipsDatabase.GameSessionsRepository.GetById(gameSessionId);
         
         session.WinnerId = attackerId;
-        session.IsOver = true;
+        session.Status = GameSessionStatus.EndgameReached;
 
         await _battleshipsDatabase.GameSessionsRepository.Update(session);
     }

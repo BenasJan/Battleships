@@ -71,6 +71,13 @@ public class GameSessionBuilder : IGameSessionBuilder
         return null;
     }
 
+    public GameSessionBuilder WithStatus(GameSessionStatus status)
+    {
+        session.Status = status;
+
+        return this;
+    }
+
     public GameSession Build()
     {
         return this.session;

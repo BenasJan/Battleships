@@ -10,6 +10,13 @@ namespace Battleships.Repositories
 {
     public class GameSessionsRepository : BaseRepository<GameSession>, IGameSessionsRepository
     {
+        public override async Task<GameSession> GetById(Guid id)
+        {
+            return await ItemSet
+                .Include(gs => gs.Settings)
+                .FirstOrDefaultAsync(gs => gs.Id == id);
+        }
+
         public override async Task<List<GameSession>> GetAll()
         {
             return await ItemSet.Include(x => x.Players)

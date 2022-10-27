@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Battleships.Builders;
 using Battleships.Data.Dto;
 using Battleships.Models;
+using Battleships.Models.enums;
 using Battleships.Repositories;
 using Battleships.Services.Authentication.Interfaces;
 
@@ -46,6 +47,7 @@ public class GameSessionFacade
             .WithDateCreated(DateTime.UtcNow)
             .WithSessionSettings(gameSettings)
             .WithPlayers(players)
+            .WithStatus(GameSessionStatus.Created)
             .Build();
             
         var id = await _database.GameSessionsRepository.Create(gameSession);

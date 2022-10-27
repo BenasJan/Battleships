@@ -25,21 +25,21 @@ namespace Battleships.Services.Players
         public async Task<List<PlayerDto>> ListPlayers()
         {
             Random random = new Random();
-
-            var allUsers = _userManager.Users.ToList();
-
+            
+            var allPlayers = await _db.PlayersRepository.GetAll();
             var test = new List<PlayerDto>();
-
-            foreach ( var user in allUsers )
+            
+            foreach ( var player in allPlayers )
             {
-                var player = new PlayerDto()
+                var playerObj = new PlayerDto()
                 {
-                    Name = user.UserName,
+                    Id = player.Id,
+                    Name = player.User.UserName,
                     GamesPlayedCount = random.Next(25,50),
                     GamesWonCount = random.Next(0, 25)
                 };
 
-                test.Add(player);
+                test.Add(playerObj);
             }
 
             return test;

@@ -55,6 +55,16 @@ namespace Battleships.Controllers
             var game = await _gameSessionService.GetSession(id);
             return Ok(game);
         }
+        
+        [HttpPost("addPlayer")]
+        public async Task<IActionResult> GetSession(PlayerLobbyDtoWithSessionId dto)
+        {
+            Console.WriteLine("Addinam playeri");
+            // Console.WriteLine(id);
+            // var gameSessions = await _gameSessionService.ListAllSessions();
+            var game = await _gameSessionService.AddPlayerToSession(dto);
+            return Ok(game);
+        }
 
         [HttpGet("in-game/{gameSessionId:guid}")]
         public async Task<IActionResult> GetInGameSession(Guid gameSessionId)

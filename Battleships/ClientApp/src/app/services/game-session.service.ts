@@ -4,6 +4,7 @@ import {Observable, tap} from "rxjs";
 import {GameSession} from "../models/game-session";
 import {CreateGameSessionPayload} from "../models/payloads/create-game-session-payload";
 import {LobySession} from "../models/lobby-session";
+import {LobbyPlayer} from "../models/lobby-player";
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,10 @@ export class GameSessionService {
 
   public createSession(game: CreateGameSessionPayload): Observable<any> {
     return this.httpService.post('GameSession', 'createSession', game);
+  }
+
+  public addPlayerToSession(playerSession: {id: string, name: string, sessionId: string}): Observable<any> {
+    return this.httpService.post('GameSession', 'addPlayer', playerSession);
   }
 
   public register(credentials: { email: string, password: string }): Observable<any> {

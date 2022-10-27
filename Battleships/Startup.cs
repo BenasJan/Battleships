@@ -96,6 +96,7 @@ namespace Battleships
                 .AddScoped<IGameSessionService, GameSessionService>()
                 .AddScoped<IBattleshipsSynchronizationService, BattleshipsSynchronizationService>()
                 .AddScoped<IGameSessionsRepository, GameSessionsRepository>()
+                .AddScoped<IPlayersRepository, PlayersRepository>()
                 .AddScoped<IPlayersService, PlayersService>()
                 .AddScoped<IShipTilesRepository, ShipTilesRepository>()
                 .AddScoped<IAttackExecutionService, AttackExecutionService>()

@@ -15,19 +15,18 @@ namespace Battleships.Models
         [ForeignKey("ApplicationUser")]
         public Guid User2 { get; set; }
 
-        public void Invite()
-        {
+        //public void Invite()
+        //{
             
-        }
+        //}
 
-        public void Remove()
-        {
-            // call controller.removeFriend(obj)?
-        }
+        //public void Remove()
+        //{
+        //}
 
-        public void Favorite()
-        {
+        //public void Favorite()
+        //{
 
-        }
+        //}
     }
 }

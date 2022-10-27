@@ -15,7 +15,7 @@ namespace Battleships.Commands
 
         public void Execute()
         {
-            friend.Remove();
+            //friend.Remove();
         }
     }
 }

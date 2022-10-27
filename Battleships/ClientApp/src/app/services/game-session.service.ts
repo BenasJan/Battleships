@@ -27,7 +27,7 @@ export class GameSessionService {
     return this.httpService.post('GameSession', 'createSession', game);
   }
 
-  public addPlayerToSession(playerSession: {userId: string, name: string, sessionId: string}): Observable<any> {
+  public addPlayerToSession(playerSession: {id: string, name: string, sessionId: string}): Observable<any> {
     return this.httpService.post('GameSession', 'addPlayer', playerSession);
   }
 

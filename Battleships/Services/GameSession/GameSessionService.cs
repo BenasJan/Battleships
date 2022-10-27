@@ -43,18 +43,18 @@ namespace Battleships.Services.GameSession
             return (await _battleshipsDatabase.GameSessionsRepository.GetWithPlayers(id)).toDto();
         }
 
-        public async Task<Guid> AddPlayerToSession(PlayerLobbyDtoWithSessionId playerLobbyDto)
+        public async Task<PlayerLobbyDto> AddPlayerToSession(PlayerLobbyDtoWithSessionId playerLobbyDto)
         {
             var player = await _battleshipsDatabase.PlayersRepository.GetById(playerLobbyDto.Id);
             
             if (player is null)
                 throw new ArgumentNullException("GameSessionService.AddPlayerToSession() playerDto is null");
             
-            var gameSession = await _battleshipsDatabase.GameSessionsRepository.GetById(playerLobbyDto.SessionId);
+            var gameSession = await _battleshipsDatabase.GameSessionsRepository.GetWithPlayers(playerLobbyDto.SessionId);
             gameSession.Players.Add(player);
             await _battleshipsDatabase.GameSessionsRepository.Update(gameSession);
-            
-            return player.Id;
+
+            return new PlayerLobbyDto {Id = playerLobbyDto.Id, Name = playerLobbyDto.Name};
         }
 
         public async Task<InGameSessionDto> GetInGameSession(Guid gameSessionId)

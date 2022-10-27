@@ -45,7 +45,13 @@ public class GameSessionBuilder : IGameSessionBuilder
         session.EndgameStrategy = GetEndgameStrategyString(settings);
         return this;
     }
-    
+
+    public GameSessionBuilder WithCurrentRound(int round)
+    {
+        session.CurrentRound = round;
+        return this;
+    }
+
     private string GetEndgameStrategyString(GameSessionSettings settings)
     {
         if (settings.GameType == GameTypes.DeathMatch)

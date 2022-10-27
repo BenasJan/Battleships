@@ -30,6 +30,12 @@
     </div>
   </div>
 
+<!--  <div *ngIf="lobbySession?.players?.length == 2">-->
+<!--    <div class="users-container">-->
+<!--      <app-public-users-list [showAddPlayerButton]="false" [showHeader]="false"></app-public-users-list>-->
+<!--    </div>-->
+<!--  </div>-->
+
   <div class="users-container">
     <button mat-raised-button color="primary" *ngIf="lobbySession?.players?.length == 2"
             (click)="launchGame()">Launch game</button>

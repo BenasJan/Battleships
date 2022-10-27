@@ -33,30 +33,16 @@ export class GameLobbyComponent implements OnInit {
   ngOnInit(): void {
     this.sessionId = this.route.snapshot.params['id'];
     this.getSession();
-    // TODO: PAFIXINT BACKA KUR TRAUKIA PLAYERIUS TEN REIK .Include DADET KAD IMTU APPLICATIONUSERIO NAME
-    // this.getPlayers();
   }
 
   getSession(){
     this.gameSessionService.getSession(this.sessionId).subscribe(res => {
      this.lobbySession = res;
-     console.log("AA");
+     // console.log("AA");
       this.lobbySession.gameType = GameType[Number(res.gameType)];
-     console.log(this.lobbySession);
+     // console.log(this.lobbySession);
       }
     )
-  }
-
-  getPlayers() {
-    this.playerService.fetchLobbyPlayers().subscribe(res => {
-      console.log(res);
-      this.players = res;
-      // res.map((value, index) => {
-      //   let lobbyPlayer: LobbyPlayer;
-      //   lobbyPlayer.name = value.name;
-      //   this.players.push()
-      // })
-    })
   }
 
   public addPlayer(player: Player): void {
@@ -64,15 +50,19 @@ export class GameLobbyComponent implements OnInit {
     //   id: player.userId,
     //   name: player.name
     // })
-  console.log(player);
+  // console.log("player: " + player.id);
 
     this.gameSessionService.addPlayerToSession({
-      userId: player.userId,
+      id: player.id,
       name: player.name,
       sessionId: this.sessionId
     }).subscribe(res => {
-      console.log("addded player: ");
-      console.log(res);
+      // console.log("addded player: ");
+      // console.log(res);
+      this.lobbySession.players.push({
+        id: res.id,
+        name: player.name
+      })
     })
     // this.publicUsersListComponent?.removeUser(player.userId);
   }

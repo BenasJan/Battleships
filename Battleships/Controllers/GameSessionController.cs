@@ -36,5 +36,22 @@ namespace Battleships.Controllers
 
             return Ok(gameSessions);
         }
+        
+        [HttpGet("getSession")]
+        public async Task<IActionResult> GetSession(Guid id)
+        {
+            Console.WriteLine("Gettinam sessiona");
+            Console.WriteLine(id);
+            // var gameSessions = await _gameSessionService.ListAllSessions();
+            var game = await _gameSessionService.GetSession(id);
+            return Ok(game);
+        }
+
+        [HttpGet("in-game/{gameSessionId:guid}")]
+        public async Task<IActionResult> GetInGameSession(Guid gameSessionId)
+        {
+
+            return null;
+        }
     }
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {CreateGameSessionPayload} from "../../models/payloads/create-game-session-payload";
 import {GameSessionService} from "../../services/game-session.service";
+import {ToastService} from "../../services/toast.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-game-session',
@@ -12,13 +14,19 @@ export class CreateGameSessionComponent implements OnInit {
 
   public gameSessionForm = new FormGroup({
     iconControl: new FormControl('directions_boat'),
-    nameControl: new FormControl(''),
-    gridSizeControl: new FormControl(''),
+    nameControl: new FormControl('', [
+      Validators.required,
+      Validators.minLength(4)]),
+    gridSizeControl: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3)]),
     gameTypeControl: new FormControl('')
   });
 
   constructor(
-    public gameSessionService: GameSessionService
+    public gameSessionService: GameSessionService,
+    private readonly toastService: ToastService,
+    private readonly router: Router
   ) { }
 
   ngOnInit(): void {
@@ -35,7 +43,8 @@ export class CreateGameSessionComponent implements OnInit {
       settingsDto: settings,
     };
     this.gameSessionService.createSession(session).subscribe(res => {
-      console.log(res);
+        this.toastService.publish('Session created successfully');
+        this.router.navigate(['/lobby', res]);
     })
   }
 

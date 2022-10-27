@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NumberValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'app-game-session',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game-session.component.scss']
 })
 export class GameSessionComponent implements OnInit {
+
+  public columnCount: number;
+  public rowCount: number;
+  public tiles: any[] = [];
 
   constructor() { }
 

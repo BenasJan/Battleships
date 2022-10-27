@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpService } from "../../services/http.service";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Player } from '../../models/player';
 import { PlayerService } from '../../services/player.service';
 import { Player } from '../../models/player';
 import { AddFriendPayload } from '../../models/payloads/add-friend';
@@ -13,6 +13,11 @@ import { FriendService } from '../../services/friend.service';
   styleUrls: ['./public-users-list.component.scss']
 })
 export class PublicUsersListComponent implements OnInit {
+
+  @Input() showHeader = true;
+  @Input() showAddPlayerButton = false;
+
+  @Output() public addUserClicked = new EventEmitter<Player>();
 
   public users: Player[] = [];
 
@@ -36,19 +41,8 @@ export class PublicUsersListComponent implements OnInit {
     })
   }
 
-  //createSession(): void {
-  //  const settings = {
-  //    gridSize: this.gameSessionForm.get("gridSizeControl")?.value,
-  //    gameType: Number(this.gameSessionForm.get("gameTypeControl")?.value)
-  //  };
-  //  const session: CreateGameSessionPayload = {
-  //    icon: String(this.gameSessionForm.get("iconControl")?.value),
-  //    name: String(this.gameSessionForm.get("nameControl")?.value),
-  //    settingsDto: settings,
-  //  };
-  //  this.gameSessionService.createSession(session).subscribe(res => {
-  //    console.log(res);
-  //  })
-  //}
+  public removeUser(userId: string) {
+    this.users = this.users.filter(user => user.userId != userId);
+  }
 
 }

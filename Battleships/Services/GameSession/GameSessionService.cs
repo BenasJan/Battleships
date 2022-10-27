@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Battleships.Models;
+using Battleships.Builders;
 using Battleships.Data.Dto;
+using Battleships.Data.Dto.InGameSession;
+using Battleships.Models;
+using Battleships.Facades;
 using Battleships.Repositories;
 using Battleships.Services.Authentication.Interfaces;
 using Battleships.Services.GameSession.Interfaces;
@@ -12,50 +15,79 @@ namespace Battleships.Services.GameSession
 {
     public class GameSessionService : IGameSessionService
     {
-        private readonly IBattleshipsDatabase _database;
+        private readonly IBattleshipsDatabase _battleshipsDatabase;
         private readonly ICurrentUserService _currentUserService;
-        private readonly IGameSessionRepository _gameSessionRepository;
 
-        public GameSessionService(IBattleshipsDatabase database, ICurrentUserService userService, IGameSessionRepository gameSessionRepository)
+        public GameSessionService(
+            IBattleshipsDatabase battleshipsDatabase,
+            ICurrentUserService userService
+        )
         {
-            _database = database;
+            _battleshipsDatabase = battleshipsDatabase;
             _currentUserService = userService;
-            _gameSessionRepository = gameSessionRepository;
         }
-        
+
         public async Task<Guid> CreateSession(GameSessionRequestDto dto)
         {
-            var userId = _currentUserService.GetCurrentUserId();
-            
-            var gameSettings = new GameSessionSettings
-            {
-                GridSize = dto.SettingsDto.GridSize,
-                GameType = dto.SettingsDto.GameType
-            };
-            var gameSession = new Models.GameSession()
-            {
-                Icon = dto.Icon,
-                Name = dto.Name,
-                Settings = gameSettings,
-                Players = new List<Player>
-                {
-                    new Player
-                    {
-                        IsHost = true,
-                        UserId = userId,
-                    }
-                }
-            };
-
-            var id = await _database.GameSessionsRepository.Create(gameSession);
-            
-            return id;
+            return await new GameSessionFacade(_battleshipsDatabase, _currentUserService, dto).CreateGameSession();
         }
-        
+
         public async Task<List<GameSessionDto>> ListAllSessions()
         {
-            var models = await _gameSessionRepository.GetAll();
+            var models = await _battleshipsDatabase.GameSessionsRepository.GetAll();
             return models.Select(x => x.toDto()).ToList();
+        }
+        
+        public async Task<GameSessionDto> GetSession(Guid id)
+        {
+            return (await _battleshipsDatabase.GameSessionsRepository.GetWithPlayers(id)).toDto();
+        }
+
+        public async Task<InGameSessionDto> GetInGameSession(Guid gameSessionId)
+        {
+            var dto = new InGameSessionDto();
+            var userId = _currentUserService.GetCurrentUserId();
+            
+            var (ownPlayerId, opponentPlayerId) = await _battleshipsDatabase.GameSessionsRepository.GetPlayerIds(gameSessionId, userId);
+            var ownTiles = await _battleshipsDatabase.ShipTilesRepository.GetPlayerTiles(ownPlayerId);
+            var opponentTiles = await _battleshipsDatabase.ShipTilesRepository.GetPlayerTiles(opponentPlayerId);
+
+            var session = await _battleshipsDatabase.GameSessionsRepository.GetById(gameSessionId);
+
+            dto.ColumnCount = session.Settings.ColumnCount;
+            dto.RowCount = session.Settings.RowCount;
+
+            dto.OwnTiles = GetTileDtos(ownTiles, dto.ColumnCount, dto.RowCount);
+            dto.OpponentTiles = GetTileDtos(opponentTiles, dto.ColumnCount, dto.RowCount);
+            return null;
+        }
+
+        private List<GameTile> GetTileDtos(List<ShipTile> shipTiles, int columnCount, int rowCount)
+        {
+            var tiles = Enumerable.Range(1, columnCount).SelectMany(columnCoordinate =>
+            {
+                return Enumerable.Range(1, rowCount).Select(rowCoordinate =>
+                {
+                    var shipTile = shipTiles.FirstOrDefault(st =>
+                        st.XCoordinate == columnCoordinate && st.YCoordinate == rowCoordinate
+                    );
+
+                    var tile = new GameTile
+                    {
+                        ColumnCoordinate = columnCoordinate,
+                        RowCoordinate = rowCoordinate,
+                        IsShip = shipTile is not null,
+                        IsDestroyed = shipTile is not null
+                            ? shipTile.IsDestroyed
+                            : false
+                    };
+
+                    return tile;
+                });
+            });
+
+            return tiles.ToList();
+
         }
     }
 }

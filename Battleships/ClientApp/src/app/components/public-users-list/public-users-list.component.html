@@ -1,5 +1,5 @@
 <mat-list>
-    <div mat-subheader>Global users</div>
+    <div *ngIf="showHeader" mat-subheader>Global users</div>
     <mat-divider></mat-divider>
     <mat-list-item *ngFor="let user of users">
       <!--<mat-icon mat-list-icon>{{user.icon}}</mat-icon>-->
@@ -7,6 +7,8 @@
       <div mat-line>{{user.name}}</div>
       <div mat-line>Games played: {{user.gamesPlayedCount}}</div>
       <div mat-line>Games won: {{user.gamesWonCount}}</div>
+      <button mat-raised-button color="primary" *ngIf="showAddPlayerButton"
+        (click)="addUserClicked.emit(user)">Add</button>
       <mat-divider></mat-divider>
       <div mat-col>
         <button mat-icon-button matTooltip="Send friend invite" (click)="addFriend(user.userId)">

@@ -46,98 +46,6 @@ namespace Battleships.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Achievements");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("7e864ca7-2736-49d6-a733-9150b1693de5"),
-                            ActionPerformedCount = 0,
-                            Description = "Hit your first piece of a ship",
-                            Name = "First blood",
-                            RequiredAction = "Shoot a ship",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("c3c39233-588d-403b-8444-176dc17a1cbe"),
-                            ActionPerformedCount = 0,
-                            Description = "Win your first match",
-                            Name = "First Win",
-                            RequiredAction = "Win match",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("241de7b9-af56-4664-83c9-f6fe4294a1b3"),
-                            ActionPerformedCount = 0,
-                            Description = "Get hit by an enemy player for the first time",
-                            Name = "Get hit",
-                            RequiredAction = "Get one of your ships damaged",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("fb03e03f-b989-4a87-926f-55b7d74df038"),
-                            ActionPerformedCount = 0,
-                            Description = "Have your shot miss any enemy ship",
-                            Name = "Miss",
-                            RequiredAction = "Shoot an empty tile",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("915efd4f-18ac-41ac-a743-f4ca4da98945"),
-                            ActionPerformedCount = 0,
-                            Description = "Win five times against an enemy player",
-                            Name = "Fiver win",
-                            RequiredAction = "Win 5 times",
-                            RequiredActionPerformedCount = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("34574fd2-5115-40a9-917c-2d4137e0863e"),
-                            ActionPerformedCount = 0,
-                            Description = "Lose five times against an enemy player",
-                            Name = "Loser",
-                            RequiredAction = "Lose 5 times",
-                            RequiredActionPerformedCount = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("4755f58f-5964-4908-ba32-ca00d4532419"),
-                            ActionPerformedCount = 0,
-                            Description = "Lose against an enemy player",
-                            Name = "Its okay",
-                            RequiredAction = "Lose match",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("3022194d-d137-4ddb-89b0-68ce1842428c"),
-                            ActionPerformedCount = 0,
-                            Description = "Start your first match",
-                            Name = "Lets go",
-                            RequiredAction = "Start match",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("fc228190-f4fe-4777-905b-20e6cfbb5532"),
-                            ActionPerformedCount = 0,
-                            Description = "End a match before it ends",
-                            Name = "Quitter",
-                            RequiredAction = "Cancel match",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("3a1a9b33-457b-4cd4-bc61-894d63e3a653"),
-                            ActionPerformedCount = 0,
-                            Description = "Win 10 matches",
-                            Name = "Ten fingers",
-                            RequiredAction = "Win 10 Matches",
-                            RequiredActionPerformedCount = 10
-                        });
                 });
 
             modelBuilder.Entity("Battleships.Models.ApplicationUser", b =>
@@ -215,36 +123,39 @@ namespace Battleships.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("Battleships.Models.Friend", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("User1")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("User2")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Friends");
-                });
-
             modelBuilder.Entity("Battleships.Models.GameSession", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<int>("CurrentRound")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("EndgameStrategy")
+                        .HasColumnType("text");
+
+                    b.Property<TimeSpan>("GameLength")
+                        .HasColumnType("interval");
+
                     b.Property<string>("Icon")
                         .HasColumnType("text");
+
+                    b.Property<bool>("IsOver")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
+                    b.Property<string>("WinnerId")
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("WinnerId");
 
                     b.ToTable("GameSession");
                 });
@@ -255,7 +166,10 @@ namespace Battleships.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<int>("DestroyedShipPercentage")
+                    b.Property<int>("DestroyedShipCountForEndgame")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("DestroyedShipsPercentageForEndgame")
                         .HasColumnType("integer");
 
                     b.Property<Guid>("GameSessionId")
@@ -267,7 +181,7 @@ namespace Battleships.Migrations
                     b.Property<string>("GridSize")
                         .HasColumnType("text");
 
-                    b.Property<int>("RoundCount")
+                    b.Property<int>("RoundCountLimitForEndgame")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -597,6 +511,15 @@ namespace Battleships.Migrations
                         .HasForeignKey("AchievementId");
                 });
 
+            modelBuilder.Entity("Battleships.Models.GameSession", b =>
+                {
+                    b.HasOne("Battleships.Models.ApplicationUser", "Winner")
+                        .WithMany("WonGames")
+                        .HasForeignKey("WinnerId");
+
+                    b.Navigation("Winner");
+                });
+
             modelBuilder.Entity("Battleships.Models.GameSessionSettings", b =>
                 {
                     b.HasOne("Battleships.Models.GameSession", "GameSession")
@@ -750,6 +673,8 @@ namespace Battleships.Migrations
                     b.Navigation("Players");
 
                     b.Navigation("UserAchievements");
+
+                    b.Navigation("WonGames");
                 });
 
             modelBuilder.Entity("Battleships.Models.GameSession", b =>

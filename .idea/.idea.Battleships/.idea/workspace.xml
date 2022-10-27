@@ -6,10 +6,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Battleships/Data/Dto/InGameSession/GameTile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Battleships/Data/Dto/InGameSession/InGameSessionDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/Authentication/AuthenticationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Authentication/AuthenticationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/app.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Controllers/GameSessionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Controllers/GameSessionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Models/GameSessionSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Models/GameSessionSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/GameSessionsRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/GameSessionsRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/IGameSessionsRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/IGameSessionsRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/IShipTilesRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/IShipTilesRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/ShipTilesRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/ShipTilesRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/GameSession/GameSessionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/GameSession/GameSessionService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,13 +31,17 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Battleships/Startup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Battleships/Services/AttackExecutionService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/37a954845b52703c5cce1aacf8fa1292378878e82bf68c4c4b5effc447316e9/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ac26cfdf462b65acb9acc2a1373bbdb2d1e258864aa2735e55ce53ebe8b22e/UserManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Battleships/Models/Ships/Ship.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="Toolset" />
   </component>
   <component name="ProjectId" id="2EWIuwJsleYNAJwJVmDqlFDrW8Q" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -44,11 +54,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
     <configuration name="Battleships" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
@@ -86,12 +92,16 @@
       <workItem from="1664470427487" duration="7115000" />
       <workItem from="1664726683473" duration="638000" />
       <workItem from="1664727448105" duration="695000" />
+      <workItem from="1665599068752" duration="4424000" />
+      <workItem from="1666294147760" duration="352000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -111,28 +121,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Battleships/Services/Authentication/AuthenticationService.cs</url>
-          <line>28</line>
-          <properties documentPath="D:\dev\Battleships\Battleships\Services\Authentication\AuthenticationService.cs" initialLine="28" containingFunctionPresentation="method 'Login'">
-            <startOffsets>
-              <option value="858" />
-            </startOffsets>
-            <endOffsets>
-              <option value="859" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Battleships/Services/Authentication/AuthenticationService.cs</url>
           <line>42</line>
-          <properties documentPath="D:\dev\Battleships\Battleships\Services\Authentication\AuthenticationService.cs" initialLine="42" containingFunctionPresentation="method 'Register'">
-            <startOffsets>
-              <option value="1332" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1333" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="D:\dev\Battleships\Battleships\Services\Authentication\AuthenticationService.cs" initialLine="42" containingFunctionPresentation="method 'Register'" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

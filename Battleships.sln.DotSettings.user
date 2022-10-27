@@ -1,0 +1,11 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9069d6f5_002Dee01_002D45f0_002Da837_002D3d505ff14485/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ShipFactoryProducerTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::B23A899B-DA06-4403-BF77-2B71E93CA225::net6.0::BattleshipsUnitTests.FactoryTests.ShipFactoryProducerTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B23A899B-DA06-4403-BF77-2B71E93CA225::net6.0::BattleshipsUnitTests.FactoryTests.OffensiveShipFactoryTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B23A899B-DA06-4403-BF77-2B71E93CA225::net6.0::BattleshipsUnitTests.FactoryTests.DefensiveShipFactoryTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B23A899B-DA06-4403-BF77-2B71E93CA225::net6.0::BattleshipsUnitTests.AttackExecutionServiceTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B23A899B-DA06-4403-BF77-2B71E93CA225::net6.0::BattleshipsUnitTests.EndgameServiceTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B23A899B-DA06-4403-BF77-2B71E93CA225::net6.0::BattleshipsUnitTests.EndgameStrategyServiceTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

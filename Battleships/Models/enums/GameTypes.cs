@@ -2,9 +2,9 @@
 {
     public enum GameTypes
     {
-        Classic,
-        Deathmatch,
-        Custom,
-        LimitedTime
+        Undefined = 0,
+        Classic = 1,
+        DeathMatch = 2,
+        Custom = 3
     }
 }

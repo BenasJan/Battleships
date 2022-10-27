@@ -50,5 +50,16 @@ namespace Battleships.Services.Players
             var allUsers = (await _db.PlayersRepository.GetAll()).Select(x => x.ToLobbyDto()).ToList();
             return allUsers;
         }
+
+        public async Task InviteUserToGame(Guid gameSessionId, string userId)
+        {
+            var player = new Player
+            {
+                GameSessionId = gameSessionId,
+                UserId = userId
+            };
+
+            await _db.PlayersRepository.Create(player);
+        }
     }
 }

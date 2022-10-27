@@ -11,7 +11,7 @@ namespace Battleships.Repositories
         public IPlayersRepository PlayersRepository { get; }
         public IRepository<PlayerShip> PlayerShipsRepository { get; }
         public IShipTilesRepository ShipTilesRepository { get; }
-        public IRepository<Ship> ShipsRepository { get; }
+        public IShipsRepository ShipsRepository { get; }
         public IRepository<UserCosmetic> UserCosmeticsRepository { get; }
     }
 }

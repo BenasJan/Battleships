@@ -1,4 +1,5 @@
-﻿using Battleships.Data.Dto;
+﻿using System;
+using Battleships.Data.Dto;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -8,5 +9,6 @@ namespace Battleships.Services.Players.Interfaces
     {
         Task<List<PlayerDto>> ListPlayers();
         Task<List<PlayerLobbyDto>> ListPlayersToLobby();
+        Task InviteUserToGame(Guid gameSessionId, string userId);
     }
 }

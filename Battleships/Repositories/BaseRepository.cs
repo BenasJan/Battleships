@@ -20,7 +20,7 @@ namespace Battleships.Repositories
             _context = context;
         }
 
-        public async Task<TModel> GetById(Guid id)
+        public virtual async Task<TModel> GetById(Guid id)
         {
             return await ItemSet.FirstOrDefaultAsync(m => m.Id == id);
         }

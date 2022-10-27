@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Battleships.Builders;
 using Battleships.Data.Dto;
 using Battleships.Data.Dto.InGameSession;
-using Battleships.Models;
 using Battleships.Facades;
+using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.Services.Authentication.Interfaces;
 using Battleships.Services.GameSession.Interfaces;
@@ -59,7 +58,6 @@ namespace Battleships.Services.GameSession
 
         public async Task<InGameSessionDto> GetInGameSession(Guid gameSessionId)
         {
-            var dto = new InGameSessionDto();
             var userId = _currentUserService.GetCurrentUserId();
             
             var (ownPlayerId, opponentPlayerId) = await _battleshipsDatabase.GameSessionsRepository.GetPlayerIds(gameSessionId, userId);
@@ -68,12 +66,16 @@ namespace Battleships.Services.GameSession
 
             var session = await _battleshipsDatabase.GameSessionsRepository.GetById(gameSessionId);
 
-            dto.ColumnCount = session.Settings.ColumnCount;
-            dto.RowCount = session.Settings.RowCount;
-
-            dto.OwnTiles = GetTileDtos(ownTiles, dto.ColumnCount, dto.RowCount);
-            dto.OpponentTiles = GetTileDtos(opponentTiles, dto.ColumnCount, dto.RowCount);
-            return null;
+            var dto = new InGameSessionDto
+            {
+                GameSessionId = gameSessionId,
+                ColumnCount = session.Settings.ColumnCount,
+                RowCount = session.Settings.RowCount,
+                OwnTiles = GetTileDtos(ownTiles, session.Settings.ColumnCount, session.Settings.RowCount),
+                OpponentTiles = GetTileDtos(opponentTiles, session.Settings.ColumnCount, session.Settings.RowCount)
+            };
+            
+            return dto;
         }
 
         private List<GameTile> GetTileDtos(List<ShipTile> shipTiles, int columnCount, int rowCount)

@@ -1,4 +1,5 @@
 ﻿using Battleships.Models;
+using Battleships.Models.enums;
 using Battleships.Repositories;
 using Battleships.Services;
 using Moq;
@@ -38,7 +39,7 @@ public class EndgameServiceTests
         await _endgameService.EndGameSession(gameSessionId, attackerId);
 
         _gameSessionsRepositoryMock.Verify(repo => repo.Update(
-            It.Is<GameSession>(expected => expected.IsOver && expected.WinnerId == attackerId)
+            It.Is<GameSession>(expected => expected.Status == GameSessionStatus.EndgameReached && expected.WinnerId == attackerId)
         ));
     }
 

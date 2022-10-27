@@ -166,6 +166,9 @@ namespace Battleships.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<int>("ColumnCount")
+                        .HasColumnType("integer");
+
                     b.Property<int>("DestroyedShipCountForEndgame")
                         .HasColumnType("integer");
 
@@ -182,6 +185,9 @@ namespace Battleships.Migrations
                         .HasColumnType("text");
 
                     b.Property<int>("RoundCountLimitForEndgame")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("RowCount")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");

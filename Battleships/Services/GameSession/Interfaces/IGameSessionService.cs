@@ -10,5 +10,6 @@ namespace Battleships.Services.GameSession.Interfaces
         Task<List<GameSessionDto>> ListAllSessions();
         Task<Guid> CreateSession(GameSessionRequestDto gameSessionDto);
         Task<GameSessionDto> GetSession(Guid id);
+        Task<Guid> AddPlayerToSession(PlayerLobbyDtoWithSessionId playerLobbyDto);
     }
 }

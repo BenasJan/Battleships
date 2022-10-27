@@ -1,1 +1,7 @@
-<p>game-session works!</p>
+<mat-grid-list [cols]="columnCount" rowHeight="50px">
+    <ng-container *ngFor="let tile of tiles"></ng-container>
+    <mat-grid-tile>
+        <div *ngIf="tile.isShip"></div>
+        <div *ngIf="!tile.isShip"></div>
+    </mat-grid-tile>
+  </mat-grid-list>

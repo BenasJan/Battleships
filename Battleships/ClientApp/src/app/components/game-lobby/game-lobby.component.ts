@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import {GameSessionService} from "../../services/game-session.service";
-import {ToastService} from "../../services/toast.service";
-import {GameSession} from "../../models/game-session";
-import {Player} from "../../models/player";
-import {LobbyPlayer} from "../../models/lobby-player";
-import {ActivatedRoute} from "@angular/router";
-import {LobySession} from "../../models/lobby-session";
-import {GameType} from "../../models/enums/game-type";
-import {PlayerService} from "../../services/player.service";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+import { Player } from 'src/app/models/player';
+import { GameType } from "../../models/enums/game-type";
+import { LobbyPlayer } from "../../models/lobby-player";
+import { LobySession } from "../../models/lobby-session";
+import { GameSessionService } from "../../services/game-session.service";
+import { PlayerService } from "../../services/player.service";
+import { ToastService } from "../../services/toast.service";
+import { PublicUsersListComponent } from '../public-users-list/public-users-list.component';
 
 @Component({
   selector: 'app-game-lobby',
@@ -18,6 +18,9 @@ export class GameLobbyComponent implements OnInit {
 
   public players: LobbyPlayer[] = [];
   public lobbySession: LobySession = {} as LobySession;
+
+  @ViewChild(PublicUsersListComponent)
+  private publicUsersListComponent: PublicUsersListComponent | undefined;
 
   constructor(
     public gameSessionService: GameSessionService,
@@ -52,5 +55,18 @@ export class GameLobbyComponent implements OnInit {
       //   this.players.push()
       // })
     })
+  }
+
+  public addPlayer(player: Player): void {
+    this.lobbySession.players.push({
+      id: player.userId,
+      name: player.name
+    })
+
+    this.publicUsersListComponent?.removeUser(player.userId);
+  }
+
+  public launchGame(): void {
+    
   }
 }

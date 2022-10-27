@@ -1,11 +1,22 @@
-.main-container {
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  // align-content: center;
+}
+
+.lobby-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   //justify-self: center;
   //align-self: center;
-  //width: 100%;
+  width: 50vw;
+}
+
+.users-container {
+  width: 50vw;
 }
 
 .session-info {

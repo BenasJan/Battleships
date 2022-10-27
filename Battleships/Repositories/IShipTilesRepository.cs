@@ -10,4 +10,5 @@ public interface IShipTilesRepository : IRepository<ShipTile>
 {
     Task<ShipTile> GetAttackedTile(AttackPayload attack);
     Task<List<ShipTile>> GetSessionShipTiles(Guid gameSessionId);
+    Task<List<ShipTile>> GetPlayerTiles(Guid playerId);
 }

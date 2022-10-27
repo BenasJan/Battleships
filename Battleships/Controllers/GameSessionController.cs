@@ -46,5 +46,11 @@ namespace Battleships.Controllers
             var game = await _gameSessionService.GetSession(id);
             return Ok(game);
         }
+
+        [HttpGet("in-game/{gameSessionId:guid}")]
+        public async Task<IActionResult> GetInGameSession(Guid gameSessionId)
+        {
+            
+        }
     }
 }

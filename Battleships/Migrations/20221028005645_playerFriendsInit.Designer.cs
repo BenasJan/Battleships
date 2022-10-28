@@ -5,197 +5,111 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Battleships.Data.Migrations
+#nullable disable
+
+namespace Battleships.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221004192128_game-session-settings-columns")]
-    partial class gamesessionsettingscolumns
+    [Migration("20221028005645_playerFriendsInit")]
+    partial class playerFriendsInit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "5.0.14");
+                .HasAnnotation("ProductVersion", "6.0.9")
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("Battleships.Models.Achievement", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<int>("ActionPerformedCount")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("RequiredAction")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<int>("RequiredActionPerformedCount")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
                     b.ToTable("Achievements");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("7e864ca7-2736-49d6-a733-9150b1693de5"),
-                            ActionPerformedCount = 0,
-                            Description = "Hit your first piece of a ship",
-                            Name = "First blood",
-                            RequiredAction = "Shoot a ship",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("c3c39233-588d-403b-8444-176dc17a1cbe"),
-                            ActionPerformedCount = 0,
-                            Description = "Win your first match",
-                            Name = "First Win",
-                            RequiredAction = "Win match",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("241de7b9-af56-4664-83c9-f6fe4294a1b3"),
-                            ActionPerformedCount = 0,
-                            Description = "Get hit by an enemy player for the first time",
-                            Name = "Get hit",
-                            RequiredAction = "Get one of your ships damaged",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("fb03e03f-b989-4a87-926f-55b7d74df038"),
-                            ActionPerformedCount = 0,
-                            Description = "Have your shot miss any enemy ship",
-                            Name = "Miss",
-                            RequiredAction = "Shoot an empty tile",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("915efd4f-18ac-41ac-a743-f4ca4da98945"),
-                            ActionPerformedCount = 0,
-                            Description = "Win five times against an enemy player",
-                            Name = "Fiver win",
-                            RequiredAction = "Win 5 times",
-                            RequiredActionPerformedCount = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("34574fd2-5115-40a9-917c-2d4137e0863e"),
-                            ActionPerformedCount = 0,
-                            Description = "Lose five times against an enemy player",
-                            Name = "Loser",
-                            RequiredAction = "Lose 5 times",
-                            RequiredActionPerformedCount = 5
-                        },
-                        new
-                        {
-                            Id = new Guid("4755f58f-5964-4908-ba32-ca00d4532419"),
-                            ActionPerformedCount = 0,
-                            Description = "Lose against an enemy player",
-                            Name = "Its okay",
-                            RequiredAction = "Lose match",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("3022194d-d137-4ddb-89b0-68ce1842428c"),
-                            ActionPerformedCount = 0,
-                            Description = "Start your first match",
-                            Name = "Lets go",
-                            RequiredAction = "Start match",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("fc228190-f4fe-4777-905b-20e6cfbb5532"),
-                            ActionPerformedCount = 0,
-                            Description = "End a match before it ends",
-                            Name = "Quitter",
-                            RequiredAction = "Cancel match",
-                            RequiredActionPerformedCount = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("3a1a9b33-457b-4cd4-bc61-894d63e3a653"),
-                            ActionPerformedCount = 0,
-                            Description = "Win 10 matches",
-                            Name = "Ten fingers",
-                            RequiredAction = "Win 10 Matches",
-                            RequiredActionPerformedCount = 10
-                        });
                 });
 
             modelBuilder.Entity("Battleships.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<int>("AccessFailedCount")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<Guid?>("AchievementId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<string>("PasswordHash")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("Surname")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("character varying(256)");
 
                     b.HasKey("Id");
 
@@ -208,22 +122,59 @@ namespace Battleships.Data.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex");
 
-                    b.ToTable("AspNetUsers");
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("Battleships.Models.Friend", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("User1")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("User2")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Friends");
                 });
 
             modelBuilder.Entity("Battleships.Models.GameSession", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("CurrentRound")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("EndgameStrategy")
+                        .HasColumnType("text");
+
+                    b.Property<TimeSpan>("GameLength")
+                        .HasColumnType("interval");
 
                     b.Property<string>("Icon")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("WinnerId")
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("WinnerId");
 
                     b.ToTable("GameSession");
                 });
@@ -232,22 +183,31 @@ namespace Battleships.Data.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
-                    b.Property<int>("DestroyedShipPercentage")
-                        .HasColumnType("INTEGER");
+                    b.Property<int>("ColumnCount")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("DestroyedShipCountForEndgame")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("DestroyedShipsPercentageForEndgame")
+                        .HasColumnType("integer");
 
                     b.Property<Guid>("GameSessionId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<int>("GameType")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<string>("GridSize")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
-                    b.Property<int>("RoundCount")
-                        .HasColumnType("INTEGER");
+                    b.Property<int>("RoundCountLimitForEndgame")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("RowCount")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -261,16 +221,16 @@ namespace Battleships.Data.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<Guid>("GameSessionId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<bool>("IsHost")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -285,13 +245,13 @@ namespace Battleships.Data.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<Guid>("PlayerId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<Guid>("ShipId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
@@ -302,40 +262,49 @@ namespace Battleships.Data.Migrations
                     b.ToTable("PlayerShip");
                 });
 
-            modelBuilder.Entity("Battleships.Models.Ship", b =>
+            modelBuilder.Entity("Battleships.Models.Ships.Ship", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
+
+                    b.Property<string>("ShipType")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ShipTypeDiscriminator")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.ToTable("Ship");
+
+                    b.HasDiscriminator<string>("ShipTypeDiscriminator").HasValue("Ship");
                 });
 
             modelBuilder.Entity("Battleships.Models.ShipTile", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<bool>("IsDestroyed")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<Guid>("PlayerShipId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<int>("XCoordinate")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<int>("YCoordinate")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -348,13 +317,13 @@ namespace Battleships.Data.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<Guid>("AchievementId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -369,19 +338,19 @@ namespace Battleships.Data.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<Guid?>("ShipId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -395,19 +364,19 @@ namespace Battleships.Data.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("character varying(256)");
 
                     b.Property<string>("NormalizedName")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("character varying(256)");
 
                     b.HasKey("Id");
 
@@ -415,113 +384,152 @@ namespace Battleships.Data.Migrations
                         .IsUnique()
                         .HasDatabaseName("RoleNameIndex");
 
-                    b.ToTable("AspNetRoles");
+                    b.ToTable("AspNetRoles", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("RoleId")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetRoleClaims");
+                    b.ToTable("AspNetRoleClaims", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserClaims");
+                    b.ToTable("AspNetUserClaims", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("character varying(128)");
 
                     b.Property<string>("ProviderKey")
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("character varying(128)");
 
                     b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserLogins");
+                    b.ToTable("AspNetUserLogins", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("RoleId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("UserId", "RoleId");
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetUserRoles");
+                    b.ToTable("AspNetUserRoles", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("LoginProvider")
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("character varying(128)");
 
                     b.Property<string>("Name")
                         .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("character varying(128)");
 
                     b.Property<string>("Value")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("AspNetUserTokens");
+                    b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("Battleships.Models.Ships.BattleshipShip", b =>
+                {
+                    b.HasBaseType("Battleships.Models.Ships.Ship");
+
+                    b.HasDiscriminator().HasValue("BattleshipShip");
+                });
+
+            modelBuilder.Entity("Battleships.Models.Ships.CarrierShip", b =>
+                {
+                    b.HasBaseType("Battleships.Models.Ships.Ship");
+
+                    b.HasDiscriminator().HasValue("CarrierShip");
+                });
+
+            modelBuilder.Entity("Battleships.Models.Ships.CruiserShip", b =>
+                {
+                    b.HasBaseType("Battleships.Models.Ships.Ship");
+
+                    b.HasDiscriminator().HasValue("CruiserShip");
+                });
+
+            modelBuilder.Entity("Battleships.Models.Ships.DestroyerShip", b =>
+                {
+                    b.HasBaseType("Battleships.Models.Ships.Ship");
+
+                    b.HasDiscriminator().HasValue("DestroyerShip");
+                });
+
+            modelBuilder.Entity("Battleships.Models.Ships.SubmarineShip", b =>
+                {
+                    b.HasBaseType("Battleships.Models.Ships.Ship");
+
+                    b.HasDiscriminator().HasValue("SubmarineShip");
                 });
 
             modelBuilder.Entity("Battleships.Models.ApplicationUser", b =>
@@ -529,6 +537,15 @@ namespace Battleships.Data.Migrations
                     b.HasOne("Battleships.Models.Achievement", null)
                         .WithMany("Users")
                         .HasForeignKey("AchievementId");
+                });
+
+            modelBuilder.Entity("Battleships.Models.GameSession", b =>
+                {
+                    b.HasOne("Battleships.Models.ApplicationUser", "Winner")
+                        .WithMany("WonGames")
+                        .HasForeignKey("WinnerId");
+
+                    b.Navigation("Winner");
                 });
 
             modelBuilder.Entity("Battleships.Models.GameSessionSettings", b =>
@@ -567,7 +584,7 @@ namespace Battleships.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Battleships.Models.Ship", "Ship")
+                    b.HasOne("Battleships.Models.Ships.Ship", "Ship")
                         .WithMany("PlayerShips")
                         .HasForeignKey("ShipId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -608,7 +625,7 @@ namespace Battleships.Data.Migrations
 
             modelBuilder.Entity("Battleships.Models.UserCosmetic", b =>
                 {
-                    b.HasOne("Battleships.Models.Ship", "Ship")
+                    b.HasOne("Battleships.Models.Ships.Ship", "Ship")
                         .WithMany("UserCosmetics")
                         .HasForeignKey("ShipId");
 
@@ -684,6 +701,8 @@ namespace Battleships.Data.Migrations
                     b.Navigation("Players");
 
                     b.Navigation("UserAchievements");
+
+                    b.Navigation("WonGames");
                 });
 
             modelBuilder.Entity("Battleships.Models.GameSession", b =>
@@ -703,7 +722,7 @@ namespace Battleships.Data.Migrations
                     b.Navigation("Tiles");
                 });
 
-            modelBuilder.Entity("Battleships.Models.Ship", b =>
+            modelBuilder.Entity("Battleships.Models.Ships.Ship", b =>
                 {
                     b.Navigation("PlayerShips");
 

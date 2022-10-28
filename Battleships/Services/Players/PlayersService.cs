@@ -43,7 +43,7 @@ namespace Battleships.Services.Players
             var allPlayers = await _db.PlayersRepository.GetAll();
             var test = new List<PlayerDto>();
             
-            foreach ( var player in allPlayers )
+            foreach ( var user in allUsers )
             {
                 var playerObj = new PlayerDto()
                 {

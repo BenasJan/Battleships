@@ -3,7 +3,6 @@ import { Player } from '../../models/player';
 import { PlayerService } from '../../services/player.service';
 import jwt_decode from 'jwt-decode';
 import {AuthorizationService} from "../../services/authorization.service";
-import { Player } from '../../models/player';
 import { AddFriendPayload } from '../../models/payloads/add-friend';
 import { FriendService } from '../../services/friend.service';
 
@@ -26,9 +25,9 @@ export class PublicUsersListComponent implements OnInit {
 
   constructor(
     private playerService: PlayerService,
-    private authorizationService: AuthorizationService
+    private authorizationService: AuthorizationService,
+    private friendService: FriendService
   ) { }
-  constructor(private playerService: PlayerService, private friendService: FriendService) { }
 
   ngOnInit(): void {
     this.playerService.fetchPlayers().subscribe((res: Player[]) => {

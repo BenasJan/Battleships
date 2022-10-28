@@ -12,7 +12,7 @@ namespace Battleships.Repositories
             IRepository<PlayerShip> playerShipsRepository,
             IShipsRepository shipsRepository,
             IRepository<UserCosmetic> userCosmeticsRepository,
-            IRepository<ShipTile> shipTilesRepository,
+            IShipTilesRepository shipTilesRepository,
             IRepository<Friend> friendsRepository)
         {
             AchievementsRepository = achievementsRepository;

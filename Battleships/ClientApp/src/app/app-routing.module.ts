@@ -14,6 +14,7 @@ import { PublicGamesListComponent } from './components/public-games-list/public-
 import { CreateGameSessionComponent } from './components/create-game-session/create-game-session.component';
 import { PublicUsersListComponent } from './components/public-users-list/public-users-list.component';
 import { RegisterComponent } from './components/register/register.component';
+import { NotificationComponent } from './components/notification/notification.component';
 import { UnauthorizedRouteGuard } from './unauthorized-route.guard';
 
 const routes: Routes = [
@@ -30,7 +31,9 @@ const routes: Routes = [
       { path: 'players', component: PublicUsersListComponent, canActivate: [AuthorizedRouteGuard] },
       { path: 'profile', component: ProfileComponent, canActivate: [AuthorizedRouteGuard] },
       { path: 'friends', component: FriendsListComponent, canActivate: [AuthorizedRouteGuard] },
-      { path: 'lobby/:id', component: GameLobbyComponent, canActivate: [AuthorizedRouteGuard] }
+    { path: 'lobby/:id', component: GameLobbyComponent, canActivate: [AuthorizedRouteGuard] },
+    { path: 'notifications', component: NotificationComponent, canActivate: [AuthorizedRouteGuard] },
+
     ]
   }
 ];

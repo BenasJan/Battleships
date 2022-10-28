@@ -12,13 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Battleships.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-<<<<<<<< HEAD:Battleships/Migrations/20221022102651_friendsInit.Designer.cs
-    [Migration("20221022102651_friendsInit")]
-    partial class friendsInit
-========
-    [Migration("20221022092114_AddMoreSettings")]
-    partial class AddMoreSettings
->>>>>>>> origin/master:Battleships/Migrations/20221022092114_AddMoreSettings.Designer.cs
+    [Migration("20221027202249_NewInit")]
+    partial class NewInit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -128,26 +123,6 @@ namespace Battleships.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
-<<<<<<<< HEAD:Battleships/Migrations/20221022102651_friendsInit.Designer.cs
-                });
-
-            modelBuilder.Entity("Battleships.Models.Friend", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("User1")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("User2")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Friends");
-========
->>>>>>>> origin/master:Battleships/Migrations/20221022092114_AddMoreSettings.Designer.cs
                 });
 
             modelBuilder.Entity("Battleships.Models.GameSession", b =>
@@ -155,29 +130,34 @@ namespace Battleships.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
-<<<<<<<< HEAD:Battleships/Migrations/20221022102651_friendsInit.Designer.cs
-========
+
+                    b.Property<int>("CurrentRound")
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("EndgameStrategy")
+                        .HasColumnType("text");
+
                     b.Property<TimeSpan>("GameLength")
                         .HasColumnType("interval");
->>>>>>>> origin/master:Battleships/Migrations/20221022092114_AddMoreSettings.Designer.cs
 
                     b.Property<string>("Icon")
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");
-<<<<<<<< HEAD:Battleships/Migrations/20221022102651_friendsInit.Designer.cs
-========
 
-                    b.Property<Guid>("WinnerId")
-                        .HasColumnType("uuid");
->>>>>>>> origin/master:Battleships/Migrations/20221022092114_AddMoreSettings.Designer.cs
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("WinnerId")
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("WinnerId");
 
                     b.ToTable("GameSession");
                 });
@@ -188,14 +168,13 @@ namespace Battleships.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-<<<<<<<< HEAD:Battleships/Migrations/20221022102651_friendsInit.Designer.cs
-                    b.Property<int>("DestroyedShipPercentage")
-========
+                    b.Property<int>("ColumnCount")
+                        .HasColumnType("integer");
+
                     b.Property<int>("DestroyedShipCountForEndgame")
                         .HasColumnType("integer");
 
                     b.Property<int>("DestroyedShipsPercentageForEndgame")
->>>>>>>> origin/master:Battleships/Migrations/20221022092114_AddMoreSettings.Designer.cs
                         .HasColumnType("integer");
 
                     b.Property<Guid>("GameSessionId")
@@ -207,11 +186,10 @@ namespace Battleships.Migrations
                     b.Property<string>("GridSize")
                         .HasColumnType("text");
 
-<<<<<<<< HEAD:Battleships/Migrations/20221022102651_friendsInit.Designer.cs
-                    b.Property<int>("RoundCount")
-========
                     b.Property<int>("RoundCountLimitForEndgame")
->>>>>>>> origin/master:Battleships/Migrations/20221022092114_AddMoreSettings.Designer.cs
+                        .HasColumnType("integer");
+
+                    b.Property<int>("RowCount")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -277,6 +255,9 @@ namespace Battleships.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ShipType")
                         .HasColumnType("text");
 
                     b.Property<string>("ShipTypeDiscriminator")
@@ -541,6 +522,15 @@ namespace Battleships.Migrations
                         .HasForeignKey("AchievementId");
                 });
 
+            modelBuilder.Entity("Battleships.Models.GameSession", b =>
+                {
+                    b.HasOne("Battleships.Models.ApplicationUser", "Winner")
+                        .WithMany("WonGames")
+                        .HasForeignKey("WinnerId");
+
+                    b.Navigation("Winner");
+                });
+
             modelBuilder.Entity("Battleships.Models.GameSessionSettings", b =>
                 {
                     b.HasOne("Battleships.Models.GameSession", "GameSession")
@@ -694,6 +684,8 @@ namespace Battleships.Migrations
                     b.Navigation("Players");
 
                     b.Navigation("UserAchievements");
+
+                    b.Navigation("WonGames");
                 });
 
             modelBuilder.Entity("Battleships.Models.GameSession", b =>

@@ -26,11 +26,11 @@ const routes: Routes = [
       { path: 'achievements', component: AchievementsComponent, canActivate: [AuthorizedRouteGuard] },
       { path: 'games', component: PublicGamesListComponent, canActivate: [AuthorizedRouteGuard] },
       { path: 'createGame', component: CreateGameSessionComponent, canActivate: [AuthorizedRouteGuard] },
-      { path: 'lobby/:id', component: GameLobbyComponent, canActivate: [AuthorizedRouteGuard] },
       { path: 'battle', component: GameSessionComponent, canActivate: [AuthorizedRouteGuard] },
       { path: 'players', component: PublicUsersListComponent, canActivate: [AuthorizedRouteGuard] },
       { path: 'profile', component: ProfileComponent, canActivate: [AuthorizedRouteGuard] },
-      { path: 'friends', component: FriendsListComponent, canActivate: [AuthorizedRouteGuard] }
+      { path: 'friends', component: FriendsListComponent, canActivate: [AuthorizedRouteGuard] },
+      { path: 'lobby/:id', component: GameLobbyComponent, canActivate: [AuthorizedRouteGuard] }
     ]
   }
 ];

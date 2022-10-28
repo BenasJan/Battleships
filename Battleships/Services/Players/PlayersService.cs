@@ -39,11 +39,13 @@ namespace Battleships.Services.Players
             var currentUserId = _currentUserService.GetCurrentUserId();
             var allUsers = _userManager.Users.Where( user => user.Id != currentUserId).ToList();
 
+            
+            var allPlayers = await _db.PlayersRepository.GetAll();
             var test = new List<PlayerDto>();
-
-            foreach ( var user in allUsers )
+            
+            foreach ( var player in allPlayers )
             {
-                var player = new PlayerDto()
+                var playerObj = new PlayerDto()
                 {
                     Name = user.UserName,
                     GamesPlayedCount = random.Next(25, 50),
@@ -51,7 +53,7 @@ namespace Battleships.Services.Players
                     UserId = user.Id
                 };
 
-                test.Add(player);
+                test.Add(playerObj);
             }
 
             return test;
@@ -61,6 +63,17 @@ namespace Battleships.Services.Players
         {
             var allUsers = (await _db.PlayersRepository.GetAll()).Select(x => x.ToLobbyDto()).ToList();
             return allUsers;
+        }
+
+        public async Task InviteUserToGame(Guid gameSessionId, string userId)
+        {
+            var player = new Player
+            {
+                GameSessionId = gameSessionId,
+                UserId = userId
+            };
+
+            await _db.PlayersRepository.Create(player);
         }
     }
 }

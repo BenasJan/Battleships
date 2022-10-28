@@ -18,6 +18,7 @@ export class GameLobbyComponent implements OnInit {
 
   public players: LobbyPlayer[] = [];
   public lobbySession: LobySession = {} as LobySession;
+  private sessionId = "";
 
   @ViewChild(PublicUsersListComponent)
   private publicUsersListComponent: PublicUsersListComponent | undefined;
@@ -30,43 +31,43 @@ export class GameLobbyComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.sessionId = this.route.snapshot.params['id'];
     this.getSession();
-    // TODO: PAFIXINT BACKA KUR TRAUKIA PLAYERIUS TEN REIK .Include DADET KAD IMTU APPLICATIONUSERIO NAME
-    // this.getPlayers();
   }
 
   getSession(){
-    this.gameSessionService.getSession(this.route.snapshot.params['id']).subscribe(res => {
+    this.gameSessionService.getSession(this.sessionId).subscribe(res => {
      this.lobbySession = res;
-     console.log("AA");
+     // console.log("AA");
       this.lobbySession.gameType = GameType[Number(res.gameType)];
-     console.log(this.lobbySession);
+     // console.log(this.lobbySession);
       }
     )
   }
 
-  getPlayers() {
-    this.playerService.fetchLobbyPlayers().subscribe(res => {
-      console.log(res);
-      this.players = res;
-      // res.map((value, index) => {
-      //   let lobbyPlayer: LobbyPlayer;
-      //   lobbyPlayer.name = value.name;
-      //   this.players.push()
-      // })
-    })
-  }
-
   public addPlayer(player: Player): void {
-    this.lobbySession.players.push({
-      id: player.userId,
-      name: player.name
-    })
+    // this.lobbySession.players.push({
+    //   id: player.userId,
+    //   name: player.name
+    // })
+  // console.log("player: " + player.id);
 
-    this.publicUsersListComponent?.removeUser(player.userId);
+    this.gameSessionService.addPlayerToSession({
+      id: player.id,
+      name: player.name,
+      sessionId: this.sessionId
+    }).subscribe(res => {
+      // console.log("addded player: ");
+      // console.log(res);
+      this.lobbySession.players.push({
+        id: res.id,
+        name: player.name
+      })
+    })
+    // this.publicUsersListComponent?.removeUser(player.userId);
   }
 
   public launchGame(): void {
-    
+
   }
 }

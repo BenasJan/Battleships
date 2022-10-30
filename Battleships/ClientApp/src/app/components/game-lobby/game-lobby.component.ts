@@ -57,14 +57,13 @@ export class GameLobbyComponent implements OnInit {
       name: player.name,
       sessionId: this.sessionId
     }).subscribe(res => {
-      // console.log("addded player: ");
-      // console.log(res);
-      this.lobbySession.players.push({
-        id: res.id,
-        name: player.name
-      })
+      if(res != null)
+        this.toastService.publish('Session created successfully');
+        this.lobbySession.players.push({
+          id: res.id,
+          name: player.name
+        })
     })
-    // this.publicUsersListComponent?.removeUser(player.userId);
   }
 
   public launchGame(): void {

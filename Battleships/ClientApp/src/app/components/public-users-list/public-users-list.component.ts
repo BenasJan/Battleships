@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Player } from '../../models/player';
 import { PlayerService } from '../../services/player.service';
-import jwt_decode from 'jwt-decode';
+import jwt_decode, {JwtPayload} from 'jwt-decode';
 import {AuthorizationService} from "../../services/authorization.service";
 
 @Component({
@@ -27,18 +27,21 @@ export class PublicUsersListComponent implements OnInit {
   ngOnInit(): void {
     this.playerService.fetchPlayers().subscribe((res: Player[]) => {
       this.users = res;
-      // console.log(this.users);
+      console.log(this.users);
+      this.deleteCurrentUser();
     })
-
-    // if(this.excludeCurrUser) {
-    //   let token = jwt_decode(this.authorizationService.jwtToken!);
-    //   if(token != null) {
-    //     console.log("token: " + JSON.stringify(token));
-    //   }
-    // }
-
   }
 
+  public deleteCurrentUser(): void{
+    if(this.excludeCurrUser) {
+      const token = jwt_decode(this.authorizationService.jwtToken!);
+      this.users.forEach( user => {
+        if (token != null && (token as any).USER_ID == user.id) {
+          this.removeUser(user.id)
+        }
+      })
+    }
+  }
   public removeUser(userId: string) {
     this.users = this.users.filter(user => user.id != userId);
   }

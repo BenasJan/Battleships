@@ -26,20 +26,21 @@ namespace Battleships.Services.Players
         {
             Random random = new Random();
             
-            var allPlayers = await _db.PlayersRepository.GetAll();
+            var allUsers = _userManager.Users;
+
             var test = new List<PlayerDto>();
-            
-            foreach ( var player in allPlayers )
+
+            foreach ( var user in allUsers )
             {
-                var playerObj = new PlayerDto()
+                var player = new PlayerDto()
                 {
-                    Id = player.Id,
-                    Name = player.User.UserName,
+                    Id = user.Id,
+                    Name = user.UserName,
                     GamesPlayedCount = random.Next(25,50),
                     GamesWonCount = random.Next(0, 25)
                 };
 
-                test.Add(playerObj);
+                test.Add(player);
             }
 
             return test;

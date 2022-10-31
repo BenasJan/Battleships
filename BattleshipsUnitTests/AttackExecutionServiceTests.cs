@@ -1,4 +1,5 @@
-﻿using Battleships.Models;
+﻿using Battleships.Builders;
+using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.Services;
 using Battleships.SignalR.Models;
@@ -66,7 +67,10 @@ public class AttackExecutionServiceTests
     {
         ShipTile targetedTile = null;
         var attack = new AttackPayload();
-        var gameSession = new GameSession{ CurrentRound = 4 };
+        // var gameSession = new GameSession{ CurrentRound = 4 };
+        var gameSession = new GameSessionBuilder()
+            .WithCurrentRound(4)
+            .Build();
         
         SetupGetAttackedTile(targetedTile, attack);
         SetupGetGameSession(gameSession);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Battleships.Data;
+using Battleships.Data.Dto;
 using Battleships.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +11,13 @@ namespace Battleships.Repositories
 {
     public class GameSessionsRepository : BaseRepository<GameSession>, IGameSessionsRepository
     {
+        public override async Task<GameSession> GetById(Guid id)
+        {
+            return await ItemSet
+                .Include(gs => gs.Settings)
+                .FirstOrDefaultAsync(gs => gs.Id == id);
+        }
+
         public override async Task<List<GameSession>> GetAll()
         {
             return await ItemSet.Include(x => x.Players)
@@ -19,13 +27,24 @@ namespace Battleships.Repositories
             
         }
 
-        public async Task<GameSession> GetWithPlayers(Guid gameSessionId)
+        public async Task<GameSessionDto> GetWithPlayers(Guid gameSessionId)
         {
-            return await ItemSet
-                .Include(session => session.Players)
-                .ThenInclude(player => player.User)
-                .Include(session => session.Settings)
-                .FirstOrDefaultAsync(session => session.Id == gameSessionId);
+            return await GetById(gameSessionId, gs => new GameSessionDto
+            {
+                Id = gs.Id,
+                HostId = gs.Players[0].Id,
+                HostName = gs.Players[0].User.Name,
+                Icon = gs.Icon,
+                Name = gs.Name,
+                GridSize = gs.Settings.GridSize,
+                GameType = gs.Settings.GameType,
+                LobbyPlayers = gs.Players.Select(player => new PlayerLobbyDto
+                {
+                    Id = player.Id,
+                    UserId = player.UserId,
+                    Name = player.User.UserName
+                }).ToList()
+            });
         }
 
         public Task<int> GetRequiredDestroyedShipCount(Guid gameSessionId)

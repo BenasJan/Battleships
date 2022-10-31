@@ -12,6 +12,7 @@ public interface IGameSessionBuilder
     GameSessionBuilder WithGameLength(TimeSpan gameLength);
     GameSessionBuilder WithPlayers(List<Player> players);
     GameSessionBuilder WithSessionSettings(GameSessionSettings settings);
+    GameSessionBuilder WithCurrentRound(int round);
 
     GameSession Build();
 }

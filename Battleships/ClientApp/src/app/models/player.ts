@@ -1,6 +1,6 @@
 
-export interface Player {
-  userId: string;
+export interface User {
+  id: string;
   name: string;
   gamesPlayedCount: number;
   gamesWonCount: number;

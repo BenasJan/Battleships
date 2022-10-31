@@ -90,11 +90,13 @@ namespace Battleships
                 .AddScoped(typeof(IRepository<>), typeof(BaseRepository<>))
                 .AddScoped<IGameSessionSettingsRepository, GameSessionSettingsRepository>()
                 .AddScoped<IBattleshipsDatabase, BattleshipsDatabase>()
+                .AddScoped<IShipsRepository, ShipsRepository>()
                 .AddScoped<IAuthenticationService, AuthenticationService>()
                 .AddScoped<ICurrentUserService, CurrentUserService>()
                 .AddScoped<IGameSessionService, GameSessionService>()
                 .AddScoped<IBattleshipsSynchronizationService, BattleshipsSynchronizationService>()
                 .AddScoped<IGameSessionsRepository, GameSessionsRepository>()
+                .AddScoped<IPlayersRepository, PlayersRepository>()
                 .AddScoped<IPlayersService, PlayersService>()
                 .AddScoped<IShipTilesRepository, ShipTilesRepository>()
                 .AddScoped<IAttackExecutionService, AttackExecutionService>()
@@ -105,6 +107,7 @@ namespace Battleships
                 .AddScoped<IEndgameStrategy, DestroyedShipCountEndgameStrategy>()
                 .AddScoped<IEndgameStrategy, RoundCountLimitEndgameStrategy>()
                 .AddScoped<IAchievementService, AchievementService>()
+                .AddScoped<IGameLaunchService, GameLaunchService>()
                 ;
         }
 

@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Battleships.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221022092114_AddMoreSettings")]
-    partial class AddMoreSettings
+    [Migration("20221027202249_NewInit")]
+    partial class NewInit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -131,8 +131,14 @@ namespace Battleships.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<int>("CurrentRound")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("EndgameStrategy")
+                        .HasColumnType("text");
 
                     b.Property<TimeSpan>("GameLength")
                         .HasColumnType("interval");
@@ -143,10 +149,15 @@ namespace Battleships.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.Property<Guid>("WinnerId")
-                        .HasColumnType("uuid");
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("WinnerId")
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("WinnerId");
 
                     b.ToTable("GameSession");
                 });
@@ -156,6 +167,9 @@ namespace Battleships.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
+
+                    b.Property<int>("ColumnCount")
+                        .HasColumnType("integer");
 
                     b.Property<int>("DestroyedShipCountForEndgame")
                         .HasColumnType("integer");
@@ -173,6 +187,9 @@ namespace Battleships.Migrations
                         .HasColumnType("text");
 
                     b.Property<int>("RoundCountLimitForEndgame")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("RowCount")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -238,6 +255,9 @@ namespace Battleships.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ShipType")
                         .HasColumnType("text");
 
                     b.Property<string>("ShipTypeDiscriminator")
@@ -502,6 +522,15 @@ namespace Battleships.Migrations
                         .HasForeignKey("AchievementId");
                 });
 
+            modelBuilder.Entity("Battleships.Models.GameSession", b =>
+                {
+                    b.HasOne("Battleships.Models.ApplicationUser", "Winner")
+                        .WithMany("WonGames")
+                        .HasForeignKey("WinnerId");
+
+                    b.Navigation("Winner");
+                });
+
             modelBuilder.Entity("Battleships.Models.GameSessionSettings", b =>
                 {
                     b.HasOne("Battleships.Models.GameSession", "GameSession")
@@ -655,6 +684,8 @@ namespace Battleships.Migrations
                     b.Navigation("Players");
 
                     b.Navigation("UserAchievements");
+
+                    b.Navigation("WonGames");
                 });
 
             modelBuilder.Entity("Battleships.Models.GameSession", b =>

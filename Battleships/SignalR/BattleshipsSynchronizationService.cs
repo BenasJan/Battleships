@@ -19,5 +19,15 @@ namespace Battleships.SignalR
         {
             await _battleshipsHub.Clients.Group(gameSessionId.ToString()).SendAsync("underAttack", message);
         }
+
+        public async Task SendLaunchGameMessage(Guid gameSessionId)
+        {
+            await _battleshipsHub.Clients.Group(gameSessionId.ToString()).SendAsync("gameLaunched", new { gameSessionId });
+        }
+
+        public async Task InviteUserToGame(Guid gameSessionId, string userId)
+        {
+            await _battleshipsHub.Clients.Group(userId).SendAsync("invited", new { gameSessionId });
+        }
     }
 }

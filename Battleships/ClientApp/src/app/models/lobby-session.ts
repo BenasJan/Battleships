@@ -8,5 +8,5 @@ export interface LobySession {
   gameType: string;
   hostName: string;
   hostId: string;
-  players: LobbyPlayer[];
+  lobbyPlayers: LobbyPlayer[];
 }

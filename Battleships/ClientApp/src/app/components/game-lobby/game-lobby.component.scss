@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   // align-content: center;
 }
@@ -16,7 +16,10 @@
 }
 
 .users-container {
-  width: 50vw;
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+  //width: 50vw;
 }
 
 .session-info {

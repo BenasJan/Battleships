@@ -144,11 +144,11 @@ namespace Battleships.Migrations
                     b.Property<string>("Icon")
                         .HasColumnType("text");
 
-                    b.Property<bool>("IsOver")
-                        .HasColumnType("boolean");
-
                     b.Property<string>("Name")
                         .HasColumnType("text");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
 
                     b.Property<string>("WinnerId")
                         .HasColumnType("text");
@@ -166,6 +166,9 @@ namespace Battleships.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<int>("ColumnCount")
+                        .HasColumnType("integer");
+
                     b.Property<int>("DestroyedShipCountForEndgame")
                         .HasColumnType("integer");
 
@@ -182,6 +185,9 @@ namespace Battleships.Migrations
                         .HasColumnType("text");
 
                     b.Property<int>("RoundCountLimitForEndgame")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("RowCount")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -247,6 +253,9 @@ namespace Battleships.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ShipType")
                         .HasColumnType("text");
 
                     b.Property<string>("ShipTypeDiscriminator")

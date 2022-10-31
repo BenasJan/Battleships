@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-import { Player } from 'src/app/models/player';
+import { tap } from 'rxjs';
+import { User } from 'src/app/models/player';
+import { SignalRService } from 'src/app/services/signal-r.service';
 import { GameType } from "../../models/enums/game-type";
 import { LobbyPlayer } from "../../models/lobby-player";
 import { LobySession } from "../../models/lobby-session";
@@ -18,55 +20,47 @@ export class GameLobbyComponent implements OnInit {
 
   public players: LobbyPlayer[] = [];
   public lobbySession: LobySession = {} as LobySession;
+  private sessionId = "";
+
+  public availableUsers: User[] = [];
 
   @ViewChild(PublicUsersListComponent)
-  private publicUsersListComponent: PublicUsersListComponent | undefined;
+  private publicUsersListComponent: PublicUsersListComponent;
 
   constructor(
     public gameSessionService: GameSessionService,
     public playerService: PlayerService,
-    private readonly toastService: ToastService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private signalRService: SignalRService
   ) { }
 
   ngOnInit(): void {
+    this.sessionId = this.route.snapshot.params['id'];
     this.getSession();
-    // TODO: PAFIXINT BACKA KUR TRAUKIA PLAYERIUS TEN REIK .Include DADET KAD IMTU APPLICATIONUSERIO NAME
-    // this.getPlayers();
+    this.playerService.getAvailableUsers(this.sessionId).subscribe(
+      users => this.availableUsers = users
+    )
+    this.signalRService.connectToGameSession(this.sessionId);
   }
 
   getSession(){
-    this.gameSessionService.getSession(this.route.snapshot.params['id']).subscribe(res => {
+    this.gameSessionService.getSession(this.sessionId).subscribe(res => {
      this.lobbySession = res;
-     console.log("AA");
+     // console.log("AA");
       this.lobbySession.gameType = GameType[Number(res.gameType)];
-     console.log(this.lobbySession);
+     // console.log(this.lobbySession);
       }
     )
   }
 
-  getPlayers() {
-    this.playerService.fetchLobbyPlayers().subscribe(res => {
-      console.log(res);
-      this.players = res;
-      // res.map((value, index) => {
-      //   let lobbyPlayer: LobbyPlayer;
-      //   lobbyPlayer.name = value.name;
-      //   this.players.push()
-      // })
-    })
-  }
-
-  public addPlayer(player: Player): void {
-    this.lobbySession.players.push({
-      id: player.userId,
-      name: player.name
-    })
-
-    this.publicUsersListComponent?.removeUser(player.userId);
+  public addPlayer(user: User): void {
+    this.gameSessionService.inviteUser(this.sessionId, user.id).pipe(
+      tap(() => this.lobbySession.lobbyPlayers.push({ id: user.id, name: user.name })),
+      tap(() => this.publicUsersListComponent.removeUser(user.id))
+    ).subscribe()
   }
 
   public launchGame(): void {
-    
+    this.gameSessionService.launchGame(this.sessionId).subscribe();
   }
 }

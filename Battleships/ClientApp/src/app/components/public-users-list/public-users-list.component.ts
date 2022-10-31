@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Player } from '../../models/player';
+import { User } from '../../models/player';
+import { AuthorizationService } from "../../services/authorization.service";
 import { PlayerService } from '../../services/player.service';
 
 @Component({
@@ -9,24 +10,35 @@ import { PlayerService } from '../../services/player.service';
 })
 export class PublicUsersListComponent implements OnInit {
 
+  @Input() set setUsers(users: User[]) {
+    if (users) {
+      this.users = users;
+    }
+  }
   @Input() showHeader = true;
   @Input() showAddPlayerButton = false;
 
-  @Output() public addUserClicked = new EventEmitter<Player>();
+  @Output() public addUserClicked = new EventEmitter<User>();
 
-  public users: Player[] = [];
+  public users: User[] = [];
 
-  constructor(private playerService: PlayerService) { }
+  constructor(
+    private playerService: PlayerService,
+    private authorizationService: AuthorizationService
+  ) { }
 
   ngOnInit(): void {
-    this.playerService.fetchPlayers().subscribe((res: Player[]) => {
-      console.log(res);
-      this.users = res;
-    })
+    const isLobby = !this.showHeader && this.showAddPlayerButton;
+
+    if (!isLobby) {
+      this.playerService.getGlobalUsers().subscribe((res: User[]) => {
+        this.users = res;
+      })
+    }
   }
 
   public removeUser(userId: string) {
-    this.users = this.users.filter(user => user.userId != userId);
+    this.users = this.users.filter(user => user.id != userId);
   }
 
 }

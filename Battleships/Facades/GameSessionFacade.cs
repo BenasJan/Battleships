@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Battleships.Builders;
 using Battleships.Data.Dto;
 using Battleships.Models;
+using Battleships.Models.enums;
 using Battleships.Repositories;
 using Battleships.Services.Authentication.Interfaces;
 
@@ -28,7 +29,8 @@ public class GameSessionFacade
             
         var gameSettings = new GameSessionSettings
         {
-            GridSize = dto.SettingsDto.GridSize,
+            ColumnCount = dto.SettingsDto.ColumnCount,
+            RowCount = dto.SettingsDto.RowCount,
             GameType = dto.SettingsDto.GameType
         };
         var players = new List<Player>
@@ -46,6 +48,7 @@ public class GameSessionFacade
             .WithDateCreated(DateTime.UtcNow)
             .WithSessionSettings(gameSettings)
             .WithPlayers(players)
+            .WithStatus(GameSessionStatus.Created)
             .Build();
             
         var id = await _database.GameSessionsRepository.Create(gameSession);

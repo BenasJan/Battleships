@@ -1,50 +1,51 @@
 <div class="container">
-  <div class="lobby-container">
-    <div class="session-info">
-        <div class="mat-table">
-          <div class="mat-header-row">
-            <div class="mat-header-cell">Session Name</div>
-            <div class="mat-header-cell">Grid Size</div>
-            <div class="mat-header-cell">Game Type</div>
-            <div class="mat-header-cell">Host Name</div>
-          </div>
-          <div class="mat-row">
-            <div class="mat-cell">{{lobbySession.name}}</div>
-            <div class="mat-cell">{{lobbySession.gridSize}}</div>
-            <div class="mat-cell">{{lobbySession.gameType}}</div>
-            <div class="mat-cell">{{lobbySession.hostName}}</div>
-          </div>
+  <div class="users-container">
+    <h2>Game Session Overview</h2>
+  </div>
+
+  <div class="users-container">
+   <div class="mat-table">
+      <div class="mat-header-row">
+        <div class="mat-header-cell">Session Name</div>
+        <div class="mat-header-cell">Grid Size</div>
+        <div class="mat-header-cell">Game Type</div>
+        <div class="mat-header-cell">Host Name</div>
+      </div>
+      <div class="mat-row">
+        <div class="mat-cell">{{lobbySession.name}}</div>
+        <div class="mat-cell">{{lobbySession.gridSize}}</div>
+        <div class="mat-cell">{{lobbySession.gameType}}</div>
+        <div class="mat-cell">{{lobbySession.hostName}}</div>
       </div>
     </div>
-    <div class="players-list">
-      <mat-list>
-        <div mat-subheader>Players</div>
-        <mat-divider></mat-divider>
-        <mat-list-item *ngFor="let player of lobbySession.players">
-          <mat-icon mat-list-icon>{{'person'}}</mat-icon>
-  <!--        <div mat-line>{{player.id}}</div>-->
-          <div mat-line>{{player.name}}</div>
-          <mat-divider></mat-divider>
-        </mat-list-item>
-  
-      </mat-list>
+  </div>
+
+  <div class="users-container">
+    <mat-list role="list">
+      <ng-container *ngFor="let player of lobbySession.lobbyPlayers">
+        <mat-list-item role="listitem">{{player.name}}</mat-list-item>
+      </ng-container>
+    </mat-list>
+  </div>
+
+  <div *ngIf="lobbySession?.lobbyPlayers?.length == 1">
+    <div class="users-container">
+      <h2>Available Opponents</h2>
     </div>
-  
-    <div class="select-player">
-      <mat-form-field appearance="outline">
-        <mat-label>Game Type</mat-label>
-        <mat-select required matInput>
-          <mat-option value="0">Classic</mat-option>
-          <mat-option value="1">Deathmatch</mat-option>
-          <mat-option value="2">Custom</mat-option>
-          <mat-option value="3">Limited-Time</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <button mat-raised-button color="primary" *ngIf="lobbySession?.players?.length == 2"
-        (click)="launchGame()">Launch game</button>
+
+    <div class="users-container">
+      <app-public-users-list [showAddPlayerButton]="true" [showHeader]="false" [setUsers]="availableUsers" (addUserClicked)="addPlayer($event)"></app-public-users-list>
     </div>
   </div>
+
+<!--  <div *ngIf="lobbySession?.players?.length == 2">-->
+<!--    <div class="users-container">-->
+<!--      <app-public-users-list [showAddPlayerButton]="false" [showHeader]="false"></app-public-users-list>-->
+<!--    </div>-->
+<!--  </div>-->
+
   <div class="users-container">
-    <app-public-users-list [showAddPlayerButton]="true" [showHeader]="false" (addUserClicked)="addPlayer($event)"></app-public-users-list>
+    <button mat-raised-button color="primary" *ngIf="lobbySession?.lobbyPlayers?.length == 2"
+            (click)="launchGame()">Launch game</button>
   </div>
 </div>

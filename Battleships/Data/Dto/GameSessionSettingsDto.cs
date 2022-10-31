@@ -4,7 +4,8 @@ namespace Battleships.Data.Dto
 {
     public class GameSessionSettingsDto
     {
-        public string GridSize { get; set; }
+        public int RowCount { get; set; }
+        public int ColumnCount { get; set; }
         public GameTypes GameType { get; set; }
     }
 }

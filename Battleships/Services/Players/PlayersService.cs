@@ -1,54 +1,76 @@
-﻿using Battleships.Data.Dto;
-using Battleships.Models;
-using Battleships.Repositories;
-using Battleships.Services.Players.Interfaces;
-using Microsoft.AspNetCore.Identity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Battleships.Data.Dto;
+using Battleships.Models;
+using Battleships.Repositories;
+using Battleships.Services.Authentication.Interfaces;
+using Battleships.Services.Players.Interfaces;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Battleships.Services.Players
 {
     public class PlayersService : IPlayersService
     {
         private readonly IBattleshipsDatabase _db;
-
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ICurrentUserService _currentUserService;
 
-        public PlayersService (IBattleshipsDatabase database, UserManager<ApplicationUser> userManager)
+        public PlayersService(
+            IBattleshipsDatabase database,
+            UserManager<ApplicationUser> userManager,
+            ICurrentUserService currentUserService)
         {
             _db = database;
             _userManager = userManager;
-        }        
-
-        public async Task<List<PlayerDto>> ListPlayers()
-        {
-            Random random = new Random();
-
-            var allUsers = _userManager.Users.ToList();
-
-            var test = new List<PlayerDto>();
-
-            foreach ( var user in allUsers )
-            {
-                var player = new PlayerDto()
-                {
-                    Name = user.UserName,
-                    GamesPlayedCount = random.Next(25,50),
-                    GamesWonCount = random.Next(0, 25)
-                };
-
-                test.Add(player);
-            }
-
-            return test;
+            _currentUserService = currentUserService;
         }
 
-        public async Task<List<PlayerLobbyDto>> ListPlayersToLobby()
+        public async Task<List<UserDto>> GetAllUsers()
         {
-            var allUsers = (await _db.PlayersRepository.GetAll()).Select(x => x.ToLobbyDto()).ToList();
-            return allUsers;
+            var currentUserId = _currentUserService.GetCurrentUserId();
+
+            var users = await _userManager.Users
+                .Where(u => u.Id != currentUserId)
+                .Select(u => new UserDto
+                {
+                    Id = u.Id,
+                    Name = u.UserName,
+                    GamesPlayedCount = u.Players.Count,
+                    GamesWonCount = u.WonGames.Count
+                })
+                .ToListAsync();
+
+            return users;
+        }
+
+        public async Task<List<UserDto>> GetLobbyUsers(Guid gameSessionId)
+        {
+            var users = await _userManager.Users
+                .Where(u => u.Players.All(p => p.GameSessionId != gameSessionId))
+                .Select(u => new UserDto
+                {
+                    Id = u.Id,
+                    Name = u.UserName,
+                    GamesPlayedCount = u.Players.Count,
+                    GamesWonCount = u.WonGames.Count
+                })
+                .ToListAsync();
+            
+            return users;
+        }
+
+        public async Task InviteUserToGame(Guid gameSessionId, string userId)
+        {
+            var player = new Player
+            {
+                GameSessionId = gameSessionId,
+                UserId = userId
+            };
+
+            await _db.PlayersRepository.Create(player);
         }
     }
 }

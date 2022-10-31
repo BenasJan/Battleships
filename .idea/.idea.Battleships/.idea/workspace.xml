@@ -6,16 +6,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Battleships/Data/Dto/InGameSession/GameTile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/Data/Dto/InGameSession/InGameSessionDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Battleships/Controllers/UsersController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/create-game-session/create-game-session.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/create-game-session/create-game-session.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/create-game-session/create-game-session.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/create-game-session/create-game-session.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/game-lobby/game-lobby.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/game-lobby/game-lobby.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/game-lobby/game-lobby.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/game-lobby/game-lobby.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/public-users-list/public-users-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/public-users-list/public-users-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/models/lobby-session.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/models/lobby-session.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/models/player.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/models/player.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/authorization.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/authorization.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/game-session.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/game-session.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/http.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/http.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/player.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/player.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/signal-r.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/signal-r.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Controllers/GameSessionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Controllers/GameSessionController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Models/GameSessionSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Models/GameSessionSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Controllers/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Controllers/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Data/Dto/GameSessionDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/Dto/GameSessionDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Data/Dto/GameSessionSettingsDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/Dto/GameSessionSettingsDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Data/Dto/PlayerDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/Dto/UserDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Data/Dto/PlayerLobbyDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/Dto/PlayerLobbyDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Facades/GameSessionFacade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Facades/GameSessionFacade.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Factories/DefensiveShipFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Factories/DefensiveShipFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Factories/OffensiveShipFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Factories/OffensiveShipFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Models/GameSession.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Models/GameSession.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Repositories/GameSessionsRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/GameSessionsRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Repositories/IGameSessionsRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/IGameSessionsRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/IShipTilesRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/IShipTilesRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/ShipTilesRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/ShipTilesRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/GameSession/GameLaunchService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/GameSession/GameLaunchService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Services/GameSession/GameSessionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/GameSession/GameSessionService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/GameSession/Interfaces/IGameSessionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/GameSession/Interfaces/IGameSessionService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/Players/Interfaces/IPlayersService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Players/Interfaces/IPlayersService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/Players/PlayersService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Players/PlayersService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/SignalR/BattleshipsHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/SignalR/BattleshipsHub.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/SignalR/BattleshipsSynchronizationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/SignalR/BattleshipsSynchronizationService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/SignalR/Interfaces/IBattleshipsSynchronizationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/SignalR/Interfaces/IBattleshipsSynchronizationService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +59,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Battleships/Startup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Battleships/Services/AttackExecutionService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e8d3bcb75657e1215392dfd276529f3c965e923e468ed653f863cdffe755472/HttpProtocol.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/37a954845b52703c5cce1aacf8fa1292378878e82bf68c4c4b5effc447316e9/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ac26cfdf462b65acb9acc2a1373bbdb2d1e258864aa2735e55ce53ebe8b22e/UserManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Battleships/Models/Ships/Ship.cs" root0="FORCE_HIGHLIGHTING" />
@@ -41,7 +68,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="Toolset" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2EWIuwJsleYNAJwJVmDqlFDrW8Q" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -54,7 +81,9 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
     <configuration name="Battleships" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
@@ -94,6 +123,7 @@
       <workItem from="1664727448105" duration="695000" />
       <workItem from="1665599068752" duration="4424000" />
       <workItem from="1666294147760" duration="352000" />
+      <workItem from="1666885808303" duration="20609000" />
     </task>
     <servers />
   </component>
@@ -120,10 +150,30 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Battleships/Services/Authentication/AuthenticationService.cs</url>
-          <line>42</line>
-          <properties documentPath="D:\dev\Battleships\Battleships\Services\Authentication\AuthenticationService.cs" initialLine="42" containingFunctionPresentation="method 'Register'" />
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/Battleships/Controllers/GameSessionController.cs</url>
+          <line>77</line>
+          <properties documentPath="D:\dev\Battleships\Battleships\Controllers\GameSessionController.cs" initialLine="77" containingFunctionPresentation="method 'InvitePlayer'">
+            <startOffsets>
+              <option value="2905" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2906" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Battleships/SignalR/BattleshipsSynchronizationService.cs</url>
+          <line>23</line>
+          <properties documentPath="D:\dev\Battleships\Battleships\SignalR\BattleshipsSynchronizationService.cs" initialLine="23" containingFunctionPresentation="method 'SendLaunchGameMessage'">
+            <startOffsets>
+              <option value="823" />
+            </startOffsets>
+            <endOffsets>
+              <option value="824" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

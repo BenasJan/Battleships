@@ -6,6 +6,27 @@
       <mat-icon mat-list-icon>{{notification.icon}}</mat-icon>
       <div mat-line>{{notification.from + notification.title}}</div>
       <div mat-line>{{notification.text}}</div>
+      <div *ngIf="notification.type == 'news'">
+        <div mat-col>
+          <button mat-button>Read more...</button>
+        </div>
+      </div>
+      <div *ngIf="notification.type == 'request'; else otherType">
+        <div mat-col>
+          <button mat-button>Accept</button>
+          <button mat-button>Decline</button>
+        </div>
+      </div>
+      <ng-template #otherType>
+          <div mat-col>
+            <button mat-button>Close</button>
+          </div>
+        </ng-template>
+      <!--<div *ngIf="notification.type == 'request'; else otherType" >
+        <div mat-col #otherType>
+          <button mat-button>Close</button>
+        </div>
+      </div>-->
       <mat-divider></mat-divider>
     </mat-list-item>
   </div>

@@ -1,8 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Player } from '../../models/player';
+import { User } from '../../models/player';
+import { AuthorizationService } from "../../services/authorization.service";
 import { PlayerService } from '../../services/player.service';
-import jwt_decode from 'jwt-decode';
-import {AuthorizationService} from "../../services/authorization.service";
 
 @Component({
   selector: 'app-public-users-list',
@@ -11,13 +10,17 @@ import {AuthorizationService} from "../../services/authorization.service";
 })
 export class PublicUsersListComponent implements OnInit {
 
+  @Input() set setUsers(users: User[]) {
+    if (users) {
+      this.users = users;
+    }
+  }
   @Input() showHeader = true;
   @Input() showAddPlayerButton = false;
-  @Input() excludeCurrUser = true;
 
-  @Output() public addUserClicked = new EventEmitter<Player>();
+  @Output() public addUserClicked = new EventEmitter<User>();
 
-  public users: Player[] = [];
+  public users: User[] = [];
 
   constructor(
     private playerService: PlayerService,
@@ -25,18 +28,13 @@ export class PublicUsersListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.playerService.fetchPlayers().subscribe((res: Player[]) => {
-      this.users = res;
-      // console.log(this.users);
-    })
+    const isLobby = !this.showHeader && this.showAddPlayerButton;
 
-    // if(this.excludeCurrUser) {
-    //   let token = jwt_decode(this.authorizationService.jwtToken!);
-    //   if(token != null) {
-    //     console.log("token: " + JSON.stringify(token));
-    //   }
-    // }
-
+    if (!isLobby) {
+      this.playerService.getGlobalUsers().subscribe((res: User[]) => {
+        this.users = res;
+      })
+    }
   }
 
   public removeUser(userId: string) {

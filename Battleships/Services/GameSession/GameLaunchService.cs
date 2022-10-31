@@ -50,8 +50,6 @@ public class GameLaunchService : IGameLaunchService
 
         await _battleshipsDatabase.PlayerShipsRepository.CreateMany(playerShips);
         await _battleshipsDatabase.GameSessionsRepository.Update(gameSession);
-        
-        await _battleshipsSynchronizationService.SendLaunchGameMessage(gameSessionId);
     }
 
     private async Task<List<PlayerShip>> GenerateShips(Guid playerId, GameSessionSettings settings)
@@ -86,12 +84,12 @@ public class GameLaunchService : IGameLaunchService
 
             var row = rowStartGenerator.GenerateNumber();
 
-            var direction = row < rowCount / 2 ? "up" : "down";
+            var direction = row < (rowCount / 2) ? "down" : "up";
             var shipTypeTuple = shipTypeTuples[playerShips.Count];
 
             var shipTiles = Enumerable.Range(row, shipTypeTuple.Item2).Select(rawRowNumber =>
             {
-                var rowNumber = direction == "up" ? rawRowNumber : row - (rawRowNumber - row);
+                var rowNumber = direction == "down" ? rawRowNumber : row - (rawRowNumber - row);
 
                 return new ShipTile
                 {

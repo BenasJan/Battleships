@@ -32,9 +32,9 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent, canActivate: [AuthorizedRouteGuard] },
       { path: 'friends', component: FriendsListComponent, canActivate: [AuthorizedRouteGuard] },
       { path: 'lobby/:id', component: GameLobbyComponent, canActivate: [AuthorizedRouteGuard] },
-      { path: 'gameplay/:id', component: GameSessionComponent, canActivate: [AuthorizedRouteGuard] } 
-    { path: 'lobby/:id', component: GameLobbyComponent, canActivate: [AuthorizedRouteGuard] },
-    { path: 'notifications', component: NotificationComponent, canActivate: [AuthorizedRouteGuard] },
+      { path: 'gameplay/:id', component: GameSessionComponent, canActivate: [AuthorizedRouteGuard] } ,
+      { path: 'lobby/:id', component: GameLobbyComponent, canActivate: [AuthorizedRouteGuard] },
+      { path: 'notifications', component: NotificationComponent, canActivate: [AuthorizedRouteGuard] },
 
     ]
   }

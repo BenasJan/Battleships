@@ -3,7 +3,6 @@ import { User } from '../../models/player';
 import { AuthorizationService } from "../../services/authorization.service";
 import { PlayerService } from '../../services/player.service';
 import jwt_decode from 'jwt-decode';
-import {AuthorizationService} from "../../services/authorization.service";
 import { AddFriendPayload } from '../../models/payloads/add-friend';
 import { FriendService } from '../../services/friend.service';
 
@@ -35,7 +34,7 @@ export class PublicUsersListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.playerService.fetchPlayers().subscribe((res: Player[]) => {
+    this.playerService.getGlobalUsers().subscribe((res: User[]) => {
       this.users = res;
       // console.log(this.users);
     })

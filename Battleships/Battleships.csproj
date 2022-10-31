@@ -42,6 +42,7 @@
       <_ContentIncludedByDefault Remove="Pages\_ViewImports.cshtml" />
     </ItemGroup>
     <ItemGroup>
+      <Folder Include="Decorators\" />
       <Folder Include="Migrations" />
     </ItemGroup>
 

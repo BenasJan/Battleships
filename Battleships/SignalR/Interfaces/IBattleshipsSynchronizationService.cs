@@ -8,5 +8,6 @@ namespace Battleships.SignalR.Interfaces
     {
         Task SendAttackMessage(Guid gameSessionId, BattleshipsMessage<AttackPayload> message);
         Task SendLaunchGameMessage(Guid gameSessionId);
+        Task InviteUserToGame(Guid gameSessionId, string userId);
     }
 }

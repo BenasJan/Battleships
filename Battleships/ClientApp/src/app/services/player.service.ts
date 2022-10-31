@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpService } from "./http.service";
-import { Player } from "../models/player";
 import { Observable } from 'rxjs';
-import {LobbyPlayer} from "../models/lobby-player";
+import { User } from "../models/player";
+import { HttpService } from "./http.service";
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +13,11 @@ export class PlayerService {
     private httpService: HttpService
   ) { }
 
-  public fetchPlayers(): Observable<Player[]> {
-    return this.httpService.get('Player', 'listPlayers');
+  public getGlobalUsers(): Observable<User[]> {
+    return this.httpService.get('Player', 'all-users');
   }
 
-  public fetchLobbyPlayers(): Observable<LobbyPlayer[]> {
-    return this.httpService.get('Player', 'listLobbyPlayers');
+  public getAvailableUsers(gameSessionId: string): Observable<User[]> {
+    return this.httpService.get('Player', 'lobby-users', { gameSessionId });
   }
 }

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Battleships.Data.Dto;
 using Battleships.Services.GameSession.Interfaces;
 using Battleships.Services.Players.Interfaces;
+using Battleships.SignalR.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Battleships.Controllers
@@ -14,26 +15,23 @@ namespace Battleships.Controllers
         private readonly IGameSessionService _gameSessionService;
         private readonly IPlayersService _playersService;
         private readonly IGameLaunchService _gameLaunchService;
+        private readonly IBattleshipsSynchronizationService _battleshipsSynchronizationService;
 
         public GameSessionController(
             IGameSessionService gameSessionService,
             IPlayersService playersService,
-            IGameLaunchService gameLaunchService
-        )
+            IGameLaunchService gameLaunchService,
+            IBattleshipsSynchronizationService battleshipsSynchronizationService)
         {
             _gameSessionService = gameSessionService;
             _playersService = playersService;
             _gameLaunchService = gameLaunchService;
+            _battleshipsSynchronizationService = battleshipsSynchronizationService;
         }
 
         [HttpPost("createSession")]
         public async Task<IActionResult> CreateSessions([FromBody] GameSessionRequestDto gameSessionDto)
         {
-            Console.WriteLine("creating session...");
-            Console.WriteLine(gameSessionDto.Name);
-            Console.WriteLine(gameSessionDto.SettingsDto.GridSize);
-            // var gameSessions = await _gameSessionService.ListAllSessions();
-
             return Ok(await _gameSessionService.CreateSession(gameSessionDto));
         }
         
@@ -55,16 +53,6 @@ namespace Battleships.Controllers
             var game = await _gameSessionService.GetSession(id);
             return Ok(game);
         }
-        
-        [HttpPost("addPlayer")]
-        public async Task<IActionResult> GetSession(PlayerLobbyDtoWithSessionId dto)
-        {
-            Console.WriteLine("Addinam playeri");
-            // Console.WriteLine(id);
-            // var gameSessions = await _gameSessionService.ListAllSessions();
-            var game = await _gameSessionService.AddPlayerToSession(dto);
-            return Ok(game);
-        }
 
         [HttpGet("in-game/{gameSessionId:guid}")]
         public async Task<IActionResult> GetInGameSession(Guid gameSessionId)
@@ -74,10 +62,13 @@ namespace Battleships.Controllers
             return Ok(dto);
         }
 
-        [HttpPost("launch-game")]
+        [HttpPost("launch-game/{gameSessionId:guid}")]
         public async Task<IActionResult> LaunchGame(Guid gameSessionId)
         {
             await _gameLaunchService.LaunchGame(gameSessionId);
+
+            Response.OnCompleted(async () =>
+                await _battleshipsSynchronizationService.SendLaunchGameMessage(gameSessionId));
 
             return Ok();
         }
@@ -86,6 +77,9 @@ namespace Battleships.Controllers
         public async Task<IActionResult> InvitePlayer(Guid gameSessionId, [FromQuery] string userId)
         {
             await _playersService.InviteUserToGame(gameSessionId, userId);
+            
+            Response.OnCompleted(async () =>
+                await _battleshipsSynchronizationService.InviteUserToGame(gameSessionId, userId));
 
             return Ok();
         }

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Player } from '../../models/player';
+import { User } from '../../models/player';
+import { AuthorizationService } from "../../services/authorization.service";
 import { PlayerService } from '../../services/player.service';
 import jwt_decode from 'jwt-decode';
 import {AuthorizationService} from "../../services/authorization.service";
@@ -15,13 +16,17 @@ import { FriendService } from '../../services/friend.service';
 })
 export class PublicUsersListComponent implements OnInit {
 
+  @Input() set setUsers(users: User[]) {
+    if (users) {
+      this.users = users;
+    }
+  }
   @Input() showHeader = true;
   @Input() showAddPlayerButton = false;
-  @Input() excludeCurrUser = true;
 
-  @Output() public addUserClicked = new EventEmitter<Player>();
+  @Output() public addUserClicked = new EventEmitter<User>();
 
-  public users: Player[] = [];
+  public users: User[] = [];
 
   constructor(
     private playerService: PlayerService,
@@ -53,6 +58,13 @@ export class PublicUsersListComponent implements OnInit {
     this.friendService.addFriend(friend).subscribe(res => {
       console.log("addFriend res:", res);
     })
+    const isLobby = !this.showHeader && this.showAddPlayerButton;
+
+    if (!isLobby) {
+      this.playerService.getGlobalUsers().subscribe((res: User[]) => {
+        this.users = res;
+      })
+    }
   }
 
   public removeUser(userId: string) {

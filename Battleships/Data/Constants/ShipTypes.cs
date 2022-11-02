@@ -7,5 +7,6 @@
         public const string Cruiser = "Cruiser";
         public const string Submarine = "Submarine";
         public const string Destroyer = "Destroyer";
+        public const string Dummy = "Dummy";
     }
 }

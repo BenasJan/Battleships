@@ -12,5 +12,6 @@ namespace Battleships.Repositories
         Task<int> GetCurrentRound(Guid gameSessionId);
         Task<string> GetEndgameStrategy(Guid gameSessionId);
         Task<(Guid, Guid)> GetPlayerIds(Guid gameSessionId, string currentUserId);
+        Task<GameSession> GetWithPlayersForCloning(Guid gameSessionId);
     }
 }

@@ -1,7 +1,6 @@
 ﻿ using System;
 using System.Collections.Generic;
 using Battleships.Data.Dto;
-using System.Collections.Generic;
  using System.IO;
  using System.Linq;
  using System.Runtime.Serialization.Formatters.Binary;
@@ -42,6 +41,31 @@ using System.Collections.Generic;
             return dto;
         }
 
+        private GameSession DeepCopy(GameSession gameSession)
+        {
+            var shallowCopy = ShallowClone() as GameSession;
+            var settings = shallowCopy.Settings;
+
+            var playerOne = new Player(gameSession, true, gameSession.Players[0].UserId);
+            var playerTwo = new Player(gameSession, false, gameSession.Players[1].UserId);
+            var players = new List<Player>{ playerOne , playerTwo};
+
+            var session = new GameSession
+            {
+                Icon = gameSession.Icon,
+                Name = gameSession.Name,
+                DateCreated = gameSession.DateCreated,
+                GameLength = gameSession.GameLength,
+                Status = gameSession.Status,
+                CurrentRound = gameSession.CurrentRound,
+                EndgameStrategy = gameSession.EndgameStrategy,
+                Players = players,
+                Settings = settings,
+            };
+
+            return session;
+        }
+
         public GameSession()
         {
             
@@ -57,15 +81,10 @@ using System.Collections.Generic;
             return this.MemberwiseClone() as GameSessionPrototype;
         }
 
-        public override GameSessionPrototype DeepClone(GameSession gameSessionPrototype)
+        public override GameSessionPrototype DeepClone(GameSession gameSession)
         {
-            using (MemoryStream stream = new())
-            {
-                BinaryFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(stream, gameSessionPrototype);
-                stream.Position = 0;
-                return (GameSessionPrototype)formatter.Deserialize(stream);
-            }
+            var copiedSession = DeepCopy(gameSession);
+            return copiedSession as GameSessionPrototype;
         }
     }
 }

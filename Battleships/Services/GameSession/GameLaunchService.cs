@@ -34,7 +34,7 @@ public class GameLaunchService : IGameLaunchService
         _numberGeneratorFactory = new NumberGeneratorFactory();
     }
 
-    public async Task LaunchGame(Guid gameSessionId, bool rematch = false)
+    public async Task LaunchGame(Guid gameSessionId, bool rematch)
     {
         if (rematch)
         {
@@ -48,9 +48,21 @@ public class GameLaunchService : IGameLaunchService
 
     private async Task LaunchRematch(Guid gameSessionId)
     {
-        var gameSession = await _battleshipsDatabase.GameSessionsRepository.GetById(gameSessionId);
-        var deepCopy = gameSession.DeepClone(gameSession);
-        Console.WriteLine(deepCopy.ToString());
+        var gameSession = await _battleshipsDatabase.GameSessionsRepository.GetWithPlayersForCloning(gameSessionId);
+        var deepCopy = gameSession.DeepClone(gameSession) as Models.GameSession;
+
+        var ownPlayerId = deepCopy.Players[0].Id;
+        var opponentPlayerId = deepCopy.Players[1].Id;
+
+        var playerShips = Enumerable.Empty<PlayerShip>()
+            .Concat(await GenerateShips(ownPlayerId, deepCopy.Settings))
+            .Concat(await GenerateShips(opponentPlayerId, deepCopy.Settings))
+            .ToList();
+
+        deepCopy.Status = GameSessionStatus.InProgress;
+
+        await _battleshipsDatabase.PlayerShipsRepository.CreateMany(playerShips);
+        await _battleshipsDatabase.GameSessionsRepository.Update(deepCopy);
     }
 
     public async Task LaunchGame(Guid gameSessionId)

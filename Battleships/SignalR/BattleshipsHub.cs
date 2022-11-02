@@ -22,14 +22,13 @@ namespace Battleships.SignalR
         public async Task ConnectToGameSession(string gameSessionIdString)
         {
             await Clients.Group(gameSessionIdString).SendAsync("A new user has connected");
-            await Groups.AddToGroupAsync(Context.ConnectionId, $"GAME_SESSION_{gameSessionIdString}");
-            await Clients.Caller.SendAsync($"Successfully joined game {gameSessionIdString}");
-            await base.OnConnectedAsync();
+            await Groups.AddToGroupAsync(Context.ConnectionId, gameSessionIdString);
+            // await base.OnConnectedAsync();
         }
 
         public async Task DisconnectFromGameSession(string gameSessionIdString)
         {
-            await Groups.RemoveFromGroupAsync(Context.ConnectionId, $"GAME_SESSION_{gameSessionIdString}");
+            await Groups.RemoveFromGroupAsync(Context.ConnectionId, gameSessionIdString);
         }
 
         public async Task PublishAttack(string gameSessionIdString, AttackPayload attack)

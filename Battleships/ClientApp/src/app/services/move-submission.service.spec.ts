@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MoveSubmissionService } from './move-submission.service';
+import { MoveSubmissionEventsService } from './move-submission.service';
 
 describe('MoveSubmissionService', () => {
-  let service: MoveSubmissionService;
+  let service: MoveSubmissionEventsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(MoveSubmissionService);
+    service = TestBed.inject(MoveSubmissionEventsService);
   });
 
   it('should be created', () => {

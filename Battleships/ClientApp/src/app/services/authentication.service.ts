@@ -18,7 +18,7 @@ export class AuthenticationService {
   public login(login: { email: string, password: string }): Observable<{ token: string }> {
     return this.httpService.post<{ token: string }>('Authentication', 'login', login).pipe(
       tap(response => this.authorizationService.registerToken(response.token)),
-      tap(() => this.signalRService.connect())
+      tap(() => this.signalRService.connectAsUser())
     );
   }
 

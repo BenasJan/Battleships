@@ -46,7 +46,7 @@ export class SignalRService {
   }
   //#endregion
 
-  public connect(): void {
+  public connectAsUser(): void {
     const userId = this.authorizationService.getUserId();
     
     this.connectToHub().subscribe(_ => this.connection.invoke("ConnectUser", userId))
@@ -64,6 +64,10 @@ export class SignalRService {
 
   public removeGameSessionConnection(gameSessionId: string): void {
     this.connection.invoke("DisconnectFromGameSession", gameSessionId);
+  }
+
+  public callMethod(methodName: string, ...args: any[]): void {
+    this.connection.invoke(methodName, ...args);
   }
 
   private connectToHub(): Observable<void> {

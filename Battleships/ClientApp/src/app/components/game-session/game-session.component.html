@@ -1,7 +1,25 @@
-<!--<mat-grid-list [cols]="columnCount" rowHeight="50px">-->
-<!--    <ng-container *ngFor="let tile of tiles"></ng-container>-->
-<!--    <mat-grid-tile>-->
-<!--        <div *ngIf="tile.isShip"></div>-->
-<!--        <div *ngIf="!tile.isShip"></div>-->
-<!--    </mat-grid-tile>-->
-<!--  </mat-grid-list>-->
+<div style="display: flex; flex-direction: row; justify-content: space-around;">
+  <div>
+    <div></div>
+    <mat-grid-list class="ships-board" [cols]="gameSession.columnCount" rowHeight="25px" [style]="{ width: gameSession.columnCount * 25 + 'px'}">
+      <ng-container *ngFor="let ownTile of gameSession.ownTiles">
+        <mat-grid-tile class="ship-tile">
+          <div style="background-color: black; height: 25px;" *ngIf="ownTile.isShip">ship</div>
+          <div *ngIf="!ownTile.isShip"></div>
+        </mat-grid-tile>
+      </ng-container>
+    </mat-grid-list>    
+  </div>
+  <div>
+    <mat-grid-list class="ships-board" [cols]="gameSession.columnCount" rowHeight="25px" [style]="{ width: gameSession.columnCount * 25 + 'px'}">
+      <ng-container *ngFor="let opponentTile of gameSession.opponentTiles">
+        <mat-grid-tile class="ship-tile">
+          <div style="background-color: black; height: 25px;" *ngIf="opponentTile.isDestroyed"></div>
+          <div *ngIf="!opponentTile.isDestroyed"></div>
+        </mat-grid-tile>
+      </ng-container>
+    </mat-grid-list>    
+  </div>
+</div>
+
+<button mat-raised-button color="warn">ATTACK</button>

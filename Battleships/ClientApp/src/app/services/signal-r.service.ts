@@ -52,13 +52,13 @@ export class SignalRService {
     this.connectToHub().subscribe(_ => this.connection.invoke("ConnectUser", userId))
   }
 
-  public connectToGameSession(gameSessionId: string): void {
-    if (this.connection.state == HubConnectionState.Disconnected) {
+  public connectToGameSession(gameSessionIdString: string): void {
+    if (this.connection.state !== HubConnectionState.Connected) {
       this.connectToHub().subscribe(
-        _ => this.connection.invoke("ConnectToGameSession", gameSessionId)
+        _ => this.connection.invoke("ConnectToGameSession", gameSessionIdString)
       )
     } else {
-      this.connection.invoke("ConnectToGameSession", gameSessionId);
+      this.connection.invoke("ConnectToGameSession", gameSessionIdString);
     }
   }
 

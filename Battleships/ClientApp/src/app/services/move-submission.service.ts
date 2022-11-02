@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { AttackMovesObserver } from '../observer/attack-moves-observer';
 import { AttackMovesSubject } from '../observer/attack-moves-subject';
-import { Subject } from '../observer/subject';
 
 @Injectable({
   providedIn: 'root'

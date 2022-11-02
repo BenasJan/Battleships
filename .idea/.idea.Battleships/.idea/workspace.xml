@@ -5,7 +5,15 @@
     <projectFile profileName="Battleships">Battleships/Battleships.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="" />
+    <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Battleships/Data/Dto/UserInviteDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/move-submission.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/move-submission.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/signal-r.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/signal-r.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Controllers/GameSessionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Controllers/GameSessionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/SignalR/BattleshipsHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/SignalR/BattleshipsHub.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/SignalR/BattleshipsSynchronizationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/SignalR/BattleshipsSynchronizationService.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,7 +95,8 @@
       <workItem from="1665599068752" duration="4424000" />
       <workItem from="1666294147760" duration="352000" />
       <workItem from="1666885808303" duration="20609000" />
-      <workItem from="1667214699847" duration="483000" />
+      <workItem from="1667214699847" duration="4182000" />
+      <workItem from="1667408615792" duration="4833000" />
     </task>
     <servers />
   </component>
@@ -118,10 +127,10 @@
           <line>77</line>
           <properties documentPath="D:\dev\Battleships\Battleships\Controllers\GameSessionController.cs" initialLine="77" containingFunctionPresentation="method 'InvitePlayer'">
             <startOffsets>
-              <option value="2905" />
+              <option value="2911" />
             </startOffsets>
             <endOffsets>
-              <option value="2906" />
+              <option value="2912" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="9" />
@@ -138,6 +147,45 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Battleships/SignalR/BattleshipsSynchronizationService.cs</url>
+          <line>28</line>
+          <properties documentPath="D:\dev\Battleships\Battleships\SignalR\BattleshipsSynchronizationService.cs" initialLine="28" containingFunctionPresentation="method 'InviteUserToGame'">
+            <startOffsets>
+              <option value="1046" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1047" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Battleships/SignalR/BattleshipsHub.cs</url>
+          <line>22</line>
+          <properties documentPath="D:\dev\Battleships\Battleships\SignalR\BattleshipsHub.cs" initialLine="22" containingFunctionPresentation="method 'ConnectToGameSession'">
+            <startOffsets>
+              <option value="670" />
+            </startOffsets>
+            <endOffsets>
+              <option value="671" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Battleships/SignalR/BattleshipsHub.cs</url>
+          <line>17</line>
+          <properties documentPath="D:\dev\Battleships\Battleships\SignalR\BattleshipsHub.cs" initialLine="17" containingFunctionPresentation="method 'ConnectUser'">
+            <startOffsets>
+              <option value="502" />
+            </startOffsets>
+            <endOffsets>
+              <option value="503" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

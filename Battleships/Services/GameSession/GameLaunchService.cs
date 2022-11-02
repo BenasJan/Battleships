@@ -34,6 +34,25 @@ public class GameLaunchService : IGameLaunchService
         _numberGeneratorFactory = new NumberGeneratorFactory();
     }
 
+    public async Task LaunchGame(Guid gameSessionId, bool rematch = false)
+    {
+        if (rematch)
+        {
+            await LaunchRematch(gameSessionId);
+        }
+        else
+        {
+            await LaunchGame(gameSessionId);
+        }
+    }
+
+    private async Task LaunchRematch(Guid gameSessionId)
+    {
+        var gameSession = await _battleshipsDatabase.GameSessionsRepository.GetById(gameSessionId);
+        var deepCopy = gameSession.DeepClone(gameSession);
+        Console.WriteLine(deepCopy.ToString());
+    }
+
     public async Task LaunchGame(Guid gameSessionId)
     {
         var currentUserId = _currentUserService.GetCurrentUserId();

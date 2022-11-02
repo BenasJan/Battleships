@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using Battleships.Data.Dto;
 using System.Collections.Generic;
+ using System.IO;
  using System.Linq;
+ using System.Runtime.Serialization.Formatters.Binary;
  using Battleships.Models.enums;
+ using Battleships.Prototype;
 
  namespace Battleships.Models
 {
-    public class GameSession : BaseModel
+    public class GameSession : GameSessionPrototype
     {
         public string Icon { get; set; }
         public string Name { get; set; }
@@ -46,7 +49,23 @@ using System.Collections.Generic;
 
         public override string ToString()
         {
-            return this.Id.ToString() + " " + this.Name + " " + this.Icon;
+            return this.Id.ToString() + " " + this.Name + " " + this.Icon + " " + this.Players[0].Id;
+        }
+
+        public override GameSessionPrototype ShallowClone()
+        {
+            return this.MemberwiseClone() as GameSessionPrototype;
+        }
+
+        public override GameSessionPrototype DeepClone(GameSession gameSessionPrototype)
+        {
+            using (MemoryStream stream = new())
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(stream, gameSessionPrototype);
+                stream.Position = 0;
+                return (GameSessionPrototype)formatter.Deserialize(stream);
+            }
         }
     }
 }

@@ -31,10 +31,10 @@ namespace Battleships.SignalR
             await Groups.RemoveFromGroupAsync(Context.ConnectionId, gameSessionIdString);
         }
 
-        public async Task PublishAttack(string gameSessionIdString, AttackPayload attack)
+        public async Task PublishAttack(AttackPayload attack)
         {
             await _attackExecutionService.ExecuteAttack(attack);
-            await Clients.Group(gameSessionIdString).SendAsync("processAttack",  attack);
+            await Clients.Group(attack.GameSessionId.ToString()).SendAsync("processAttack",  attack);
         }
     }
 }

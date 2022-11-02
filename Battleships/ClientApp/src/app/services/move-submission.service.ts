@@ -5,7 +5,7 @@ import { AttackMovesSubject } from '../observer/attack-moves-subject';
 @Injectable({
   providedIn: 'root'
 })
-export class MoveSubmissionService {
+export class MoveSubmissionEventsService {
 
   private attacksSubject = new AttackMovesSubject();
 

@@ -9,7 +9,6 @@ using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.Services.Authentication.Interfaces;
 using Battleships.Services.GameSession.Interfaces;
-using Microsoft.AspNetCore.Identity;
 
 namespace Battleships.Services.GameSession
 {
@@ -17,17 +16,14 @@ namespace Battleships.Services.GameSession
     {
         private readonly IBattleshipsDatabase _battleshipsDatabase;
         private readonly ICurrentUserService _currentUserService;
-        private readonly UserManager<ApplicationUser> _userManager;
 
         public GameSessionService(
             IBattleshipsDatabase battleshipsDatabase,
-            ICurrentUserService userService,
-            UserManager<ApplicationUser> userManager
+            ICurrentUserService userService
         )
         {
             _battleshipsDatabase = battleshipsDatabase;
             _currentUserService = userService;
-            _userManager = userManager;
         }
 
         public async Task<Guid> CreateSession(GameSessionRequestDto dto)
@@ -43,28 +39,7 @@ namespace Battleships.Services.GameSession
         
         public async Task<GameSessionDto> GetSession(Guid id)
         {
-            return (await _battleshipsDatabase.GameSessionsRepository.GetWithPlayers(id)).toDto();
-        }
-
-        public async Task<PlayerLobbyDto> AddPlayerToSession(PlayerLobbyDtoWithSessionId playerLobbyDto)
-        {
-            var gameSession = await _battleshipsDatabase.GameSessionsRepository.GetWithPlayers(playerLobbyDto.SessionId);
-                
-            if(gameSession is null)
-                throw new ArgumentNullException("GameSessionService.AddPlayerToSession() gameSession is null");
-            
-            var player = null as Player;
-            foreach (var user in _userManager.Users)
-                if (user.Id == playerLobbyDto.Id)
-                    player = new Player
-                    {
-                        IsHost = false,
-                        UserId = playerLobbyDto.Id
-                    };
-
-            gameSession.Players.Add(player);
-            await _battleshipsDatabase.GameSessionsRepository.Update(gameSession);
-            return new PlayerLobbyDto {Id = playerLobbyDto.Id, Name = playerLobbyDto.Name};
+            return await _battleshipsDatabase.GameSessionsRepository.GetWithPlayers(id);
         }
 
         public async Task<InGameSessionDto> GetInGameSession(Guid gameSessionId)

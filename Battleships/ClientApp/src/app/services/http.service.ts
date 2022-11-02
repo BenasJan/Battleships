@@ -20,7 +20,7 @@ export class HttpService {
     return this.getHttpResponse(request);
   }
 
-  public post<TResponse = any>(controller: string, endpoint: string, body: any): Observable<TResponse> {
+  public post<TResponse = any>(controller: string, endpoint: string, body?: any): Observable<TResponse> {
     const request = this.httpClient.post<TResponse>(this.getUrl(controller, endpoint), body);
     return this.getHttpResponse(request);
   }

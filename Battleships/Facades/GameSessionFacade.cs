@@ -29,7 +29,8 @@ public class GameSessionFacade
             
         var gameSettings = new GameSessionSettings
         {
-            GridSize = dto.SettingsDto.GridSize,
+            ColumnCount = dto.SettingsDto.ColumnCount,
+            RowCount = dto.SettingsDto.RowCount,
             GameType = dto.SettingsDto.GameType
         };
         var players = new List<Player>

@@ -12,19 +12,23 @@
     </div>
     <div>
     <mat-form-field appearance="outline">
-      <mat-label>Grid Size</mat-label>
-      <input formControlName="gridSizeControl" type="text" matInput required placeholder="Grid Size (NxY)">
+      <mat-label>Rows</mat-label>
+      <input formControlName="rowCount" type="number" min="10" matInput required placeholder="Row count">
     </mat-form-field>
     </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Column</mat-label>
+        <input formControlName="columnCount" type="number" min="10" matInput required placeholder="Column count">
+      </mat-form-field>
+      </div>
     <div>
     <mat-form-field appearance="outline">
       <mat-label>Game Type</mat-label>
       <mat-select required matInput formControlName="gameTypeControl">
-        <mat-option value="0">Classic</mat-option>
-        <mat-option value="1">Deathmatch</mat-option>
-        <mat-option value="2">Custom</mat-option>
-        <mat-option value="3">Limited-Time</mat-option>
-
+        <mat-option value="1">Classic</mat-option>
+        <mat-option value="2">Deathmatch</mat-option>
+        <!-- <mat-option value="3">Custom</mat-option> -->
       </mat-select>
 <!--      <input formControlName="gameTypeControl" type="text" matInput required placeholder="Enter Game Type">-->
     </mat-form-field>

@@ -9,12 +9,18 @@ namespace Battleships.Factories
         {
             if (shipType == ShipTypes.Carrier)
             {
-                return new CarrierShip();
+                return new CarrierShip
+                {
+                    ShipType = ShipTypes.Carrier
+                };
             }
             
             if (shipType == ShipTypes.Cruiser)
             {
-                return new CruiserShip();
+                return new CruiserShip
+                {
+                    ShipType = ShipTypes.Cruiser
+                };
             }
 
             return null;

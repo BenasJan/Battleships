@@ -17,9 +17,12 @@ export class CreateGameSessionComponent implements OnInit {
     nameControl: new FormControl('', [
       Validators.required,
       Validators.minLength(4)]),
-    gridSizeControl: new FormControl('', [
+    rowCount: new FormControl('', [
       Validators.required,
-      Validators.minLength(3)]),
+      Validators.min(10)]),
+    columnCount: new FormControl('', [
+      Validators.required,
+      Validators.min(10)]),
     gameTypeControl: new FormControl('')
   });
 
@@ -34,7 +37,8 @@ export class CreateGameSessionComponent implements OnInit {
 
   createSession(): void {
     const settings = {
-      gridSize: this.gameSessionForm.get("gridSizeControl")?.value,
+      rowCount: Number(this.gameSessionForm.get('rowCount')?.value),
+      columnCount: Number(this.gameSessionForm.get('columnCount')?.value),
       gameType: Number(this.gameSessionForm.get("gameTypeControl")?.value)
     };
     const session: CreateGameSessionPayload = {

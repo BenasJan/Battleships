@@ -7,8 +7,8 @@ namespace Battleships.Services.Players.Interfaces
 {
     public interface IPlayersService
     {
-        Task<List<PlayerDto>> ListPlayers();
-        Task<List<PlayerLobbyDto>> ListPlayersToLobby();
+        Task<List<UserDto>> GetAllUsers();
+        Task<List<UserDto>> GetLobbyUsers(Guid gameSessionId);
         Task InviteUserToGame(Guid gameSessionId, string userId);
     }
 }

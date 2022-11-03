@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Battleships.Data;
 using Battleships.Data.Dto;
+using Battleships.Data.Dto.InGameSession;
 using Battleships.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -68,6 +69,20 @@ namespace Battleships.Repositories
             var opponentPlayerId = await GetById(gameSessionId, gs => gs.Players.First(p => p.UserId != currentUserId).Id);
 
             return (ownPlayerId, opponentPlayerId);
+        }
+
+        public Task<InGameSessionDto> GetInGameSession(Guid gameSessionId, string currentUserId)
+        {
+            return GetById(gameSessionId, session => new InGameSessionDto
+            {
+                GameSessionId = gameSessionId,
+                ColumnCount = session.Settings.ColumnCount,
+                RowCount = session.Settings.RowCount,
+                CurrentRound = session.CurrentRound,
+                OpponentName = session.Players.First(p => p.UserId != currentUserId).User.UserName,
+                OwnName = session.Players.First(p => p.UserId == currentUserId).User.UserName,
+                CurrentRoundPlayerUserId = session.Players.First(p => p.IsCurrentPlayerTurn).UserId
+            });
         }
 
         public GameSessionsRepository(ApplicationDbContext context) : base(context)

@@ -9,10 +9,9 @@ export class AttackPublishingService {
 
   constructor(
     private signalRService: SignalRService
-  ) {
+  ) { }
 
-  }
   public publishAttack(attack: Attack): void {
-    this.signalRService.callMethod('PublishAttack', attack)
+    this.signalRService.callMethod('PublishAttack', attack);
   }
 }

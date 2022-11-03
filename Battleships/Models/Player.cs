@@ -9,6 +9,7 @@ namespace Battleships.Models
         public Guid GameSessionId { get; set; }
         public GameSession GameSession { get; set; }
         public bool IsHost { get; set; }
+        public bool IsCurrentPlayerTurn { get; set; }
         
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }

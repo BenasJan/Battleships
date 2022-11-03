@@ -1,15 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NumberValueAccessor } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { tap } from 'rxjs';
 import { Attack } from 'src/app/models/attack';
 import { InGameSession } from 'src/app/models/in-game-session';
 import { AttackMovesObserver } from 'src/app/observer/attack-moves-observer';
 import { AttackPublishingService } from 'src/app/services/attack-publishing.service';
-import { AuthenticationService } from 'src/app/services/authentication.service';
 import { AuthorizationService } from 'src/app/services/authorization.service';
+import { GameSessionEventsService } from 'src/app/services/game-session-events.service';
 import { GameSessionService } from 'src/app/services/game-session.service';
-import { MoveSubmissionEventsService } from 'src/app/services/move-submission.service';
 
 @Component({
   selector: 'app-game-session',
@@ -25,14 +23,15 @@ export class GameSessionComponent implements OnInit, OnDestroy {
   public gameSession = {} as InGameSession;
 
   public tiles: any[] = [];
-  private attacksObserver: AttackMovesObserver;
+  private ownMovesObserver: AttackMovesObserver;
+  private opponentMovesObserver: AttackMovesObserver;
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,
     private readonly gameSessionService: GameSessionService,
     private readonly authorizationService: AuthorizationService,
     private readonly attackPublishingService: AttackPublishingService,
-    private readonly moveSubmissionEventsService: MoveSubmissionEventsService
+    private readonly gameSessionEventsService: GameSessionEventsService
   ) { }
 
   ngOnInit(): void {
@@ -42,14 +41,25 @@ export class GameSessionComponent implements OnInit, OnDestroy {
       tap(session => this.gameSession = session)
     ).subscribe();
 
-    this.attacksObserver = this.moveSubmissionEventsService.onMoveSubmitted((xCoord, yCoord) => {
+    this.ownMovesObserver = this.gameSessionEventsService.onOwnMoveSubmitted((_, __) => {
       this.gameSession.currentRound++;
+    })
+
+    this.opponentMovesObserver = this.gameSessionEventsService.onOpponentMoveSubmitted((xCorrd, yCoord) => {
+      this.gameSession.currentRound++;
+
+      const destroyedTile = this.gameSession.ownTiles.find(tile => tile.columnCoordinate == xCorrd && tile.rowCoordinate == yCoord);
       
+      if (destroyedTile) {
+        destroyedTile.isDestroyed = true;
+        this.gameSession = { ...this.gameSession };
+      }
     })
   }
 
   ngOnDestroy(): void {
-    this.moveSubmissionEventsService.discardOnMovesSubmitted(this.attacksObserver);
+    this.gameSessionEventsService.discardOwnMovesObserver(this.ownMovesObserver);
+    this.gameSessionEventsService.discardOpponentMovesObserver(this.opponentMovesObserver);
   }
 
   public get isMoveSelected(): boolean {
@@ -65,7 +75,5 @@ export class GameSessionComponent implements OnInit, OnDestroy {
     };
 
     this.attackPublishingService.publishAttack(attack);
-
-
   }
 }

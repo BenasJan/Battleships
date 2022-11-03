@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HubConnection, HubConnectionBuilder, HubConnectionState, LogLevel } from '@microsoft/signalr';
 import { from, Observable, tap } from 'rxjs';
-import { AttackPayload } from '../models/payloads/attack-payload';
+import { Attack } from '../models/attack';
 import { AuthorizationService } from './authorization.service';
 import { GameSessionEventsService } from './game-session-events.service';
 
@@ -32,8 +32,15 @@ export class SignalRService {
   }
 
   private configureMethods() {
-    this.connection.on("underAttack", (payload: AttackPayload) => {
-      this.gameSessionEventsService.publishAttackEvent(payload);
+    this.connection.on("underAttack", (payload) => {
+      const isFromOpponent = payload.callerUserId !== this.authorizationService.getUserId();
+      const attack: Attack = payload.payload;
+
+      const publishFunction = isFromOpponent
+        ? this.gameSessionEventsService.publishOpponentAttack
+        : this.gameSessionEventsService.publishOwnAttack;
+
+      publishFunction(attack.targetXCoordinate, attack.targetYCoordinate);
     })
 
     this.connection.on("gameLaunched", (payload: { gameSessionId: string }) => {

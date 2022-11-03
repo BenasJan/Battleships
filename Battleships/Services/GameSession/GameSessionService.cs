@@ -44,22 +44,15 @@ namespace Battleships.Services.GameSession
 
         public async Task<InGameSessionDto> GetInGameSession(Guid gameSessionId)
         {
-            var userId = _currentUserService.GetCurrentUserId();
+            var currentUserId = _currentUserService.GetCurrentUserId();
             
-            var (ownPlayerId, opponentPlayerId) = await _battleshipsDatabase.GameSessionsRepository.GetPlayerIds(gameSessionId, userId);
+            var (ownPlayerId, opponentPlayerId) = await _battleshipsDatabase.GameSessionsRepository.GetPlayerIds(gameSessionId, currentUserId);
             var ownTiles = await _battleshipsDatabase.ShipTilesRepository.GetPlayerTiles(ownPlayerId);
             var opponentTiles = await _battleshipsDatabase.ShipTilesRepository.GetPlayerTiles(opponentPlayerId);
-
-            var session = await _battleshipsDatabase.GameSessionsRepository.GetById(gameSessionId);
-
-            var dto = new InGameSessionDto
-            {
-                GameSessionId = gameSessionId,
-                ColumnCount = session.Settings.ColumnCount,
-                RowCount = session.Settings.RowCount,
-                OwnTiles = GetTileDtos(ownTiles, session.Settings.ColumnCount, session.Settings.RowCount),
-                OpponentTiles = GetTileDtos(opponentTiles, session.Settings.ColumnCount, session.Settings.RowCount)
-            };
+            
+            var dto = await _battleshipsDatabase.GameSessionsRepository.GetInGameSession(gameSessionId, currentUserId);
+            dto.OwnTiles = GetTileDtos(ownTiles, dto.ColumnCount, dto.RowCount);
+            dto.OpponentTiles = GetTileDtos(opponentTiles, dto.ColumnCount, dto.RowCount);
             
             return dto;
         }

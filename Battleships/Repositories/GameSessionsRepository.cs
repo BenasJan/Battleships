@@ -84,6 +84,14 @@ namespace Battleships.Repositories
                 CurrentRoundPlayerUserId = session.Players.First(p => p.IsCurrentPlayerTurn).UserId
             });
         }
+        
+        public async Task<GameSession> GetWithPlayersForCloning(Guid gameSessionId)
+        {
+            return await ItemSet
+                .Include(gs => gs.Settings)
+                .Include(gs => gs.Players)
+                .FirstOrDefaultAsync(gs => gs.Id == gameSessionId);
+        }
 
         public GameSessionsRepository(ApplicationDbContext context) : base(context)
         {

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs";
 import { GameSession } from "../models/game-session";
+import { InGameSession } from '../models/in-game-session';
 import { LobySession } from "../models/lobby-session";
 import { CreateGameSessionPayload } from "../models/payloads/create-game-session-payload";
 import { HttpService } from "./http.service";
@@ -32,6 +33,10 @@ export class GameSessionService {
 
   public launchGame(gameSessionId: string): Observable<any> {
     return this.httpService.post('GameSession', `launch-game/${gameSessionId}`)
+  }
+
+  public getGameplaySession(gameSessionId: string): Observable<InGameSession> {
+    return this.httpService.get('GameSession', `in-game/${gameSessionId}`);
   }
 
   public register(credentials: { email: string, password: string }): Observable<any> {

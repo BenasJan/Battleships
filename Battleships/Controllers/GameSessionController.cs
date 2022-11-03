@@ -74,12 +74,12 @@ namespace Battleships.Controllers
         }
         
         [HttpPost("invite/{gameSessionId:guid}")]
-        public async Task<IActionResult> InvitePlayer(Guid gameSessionId, [FromQuery] string userId)
+        public async Task<IActionResult> InvitePlayer(Guid gameSessionId, [FromBody] UserInviteDto invite)
         {
-            await _playersService.InviteUserToGame(gameSessionId, userId);
+            await _playersService.InviteUserToGame(gameSessionId, invite.UserId);
             
             Response.OnCompleted(async () =>
-                await _battleshipsSynchronizationService.InviteUserToGame(gameSessionId, userId));
+                await _battleshipsSynchronizationService.InviteUserToGame(gameSessionId, invite.UserId));
 
             return Ok();
         }

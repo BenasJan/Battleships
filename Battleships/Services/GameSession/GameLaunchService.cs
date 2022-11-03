@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Battleships.Builders;
 using Battleships.Data.Constants;
 using Battleships.Factories;
 using Battleships.Models;
@@ -122,11 +123,11 @@ public class GameLaunchService : IGameLaunchService
             {
                 var rowNumber = direction == "down" ? rawRowNumber : row - (rawRowNumber - row);
 
-                return new ShipTile
-                {
-                    XCoordinate = column,
-                    YCoordinate = rowNumber
-                };
+                return new ShipTileBuilder()
+                    .WithXCoordinate(column)
+                    .WithYCoordinate(rowNumber)
+                    .Build();
+                
             }).ToList();
 
             var ship = await _battleshipsDatabase.ShipsRepository.GetByType(shipTypeTuple.Item1);

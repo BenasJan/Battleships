@@ -1,15 +1,19 @@
-﻿using Battleships.Data.Constants;
+﻿using Battleships.Bridge;
+using Battleships.Data.Constants;
 using Battleships.Factories;
 using Battleships.Models.Ships;
+using Xunit.Abstractions;
 
 namespace BattleshipsUnitTests.FactoryTests;
 
 public class DefensiveShipFactoryTests
 {
+    private readonly ITestOutputHelper _testOutputHelper;
     private readonly DefensiveShipFactory _defensiveShipFactory;
 
-    public DefensiveShipFactoryTests()
+    public DefensiveShipFactoryTests(ITestOutputHelper testOutputHelper)
     {
+        _testOutputHelper = testOutputHelper;
         _defensiveShipFactory = new DefensiveShipFactory();
     }
     

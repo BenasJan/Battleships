@@ -71,10 +71,8 @@ namespace Battleships.Services.GameSession
                     {
                         ColumnCoordinate = columnCoordinate,
                         RowCoordinate = rowCoordinate,
-                        IsShip = shipTile is not null,
-                        IsDestroyed = shipTile is not null
-                            ? shipTile.IsDestroyed
-                            : false
+                        IsShip = shipTile?.PlayerShipId is not null,
+                        IsDestroyed = shipTile?.IsDestroyed ?? false
                     };
 
                     return tile;

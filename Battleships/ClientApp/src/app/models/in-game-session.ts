@@ -17,4 +17,6 @@ export interface GameTile {
     isDestroyed: boolean;
     columnCoordinate: number;
     rowCoordinate: number;
+
+    isSelected: boolean;
 }

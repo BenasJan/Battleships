@@ -35,7 +35,7 @@ public class ShipTilesRepository : BaseRepository<ShipTile>, IShipTilesRepositor
     public async Task<List<ShipTile>> GetPlayerTiles(Guid playerId)
     {
         return await ItemSet
-            .Where(tile => tile.PlayerShip.PlayerId == playerId)
+            .Where(tile => tile.PlayerShip.PlayerId == playerId || tile.OwnerPlayerId == playerId)
             .ToListAsync();
     }
 }

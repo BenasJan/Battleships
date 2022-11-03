@@ -49,12 +49,22 @@ export class GameSessionComponent implements OnInit, OnDestroy {
       tap(session => this.isOwnTurn = session.currentRoundPlayerUserId == this.authorizationService.getUserId())
     ).subscribe();
 
-    this.ownMovesObserver = this.gameSessionEventsService.onOwnMoveSubmitted((_, __) => {
+    this.ownMovesObserver = this.gameSessionEventsService.onOwnMoveSubmitted((xCorrd, yCoord) => {
       this.gameSession.currentRound++;
+      
+      const destroyedTile = this.gameSession.opponentTiles.find(tile => tile.columnCoordinate == xCorrd && tile.rowCoordinate == yCoord);
+      
+      if (destroyedTile) {
+        destroyedTile.isDestroyed = true;
+        this.gameSession = { ...this.gameSession };
+      }
+
       this.isOwnTurn = false;
+      
       this.attackInSubmission = false;
       this.selectedMoveXCoord = null;
       this.selectedMoveYCoord = null;
+      this.gameSession.opponentTiles.forEach(t => t.isSelected = false);
     })
 
     this.opponentMovesObserver = this.gameSessionEventsService.onOpponentMoveSubmitted((xCorrd, yCoord) => {
@@ -90,6 +100,13 @@ export class GameSessionComponent implements OnInit, OnDestroy {
   }
 
   public stageAttack(tile: GameTile): void {
+    if (!this.isOwnTurn) {
+      return;
+    }
+
+    this.gameSession.opponentTiles.forEach(t => t.isSelected = false);
+    tile.isSelected = true;
+
     this.selectedMoveXCoord = tile.columnCoordinate;
     this.selectedMoveYCoord = tile.rowCoordinate;
   }

@@ -5,7 +5,8 @@
       <ng-container *ngFor="let ownTile of gameSession.ownTiles">
         <mat-grid-tile class="normal-tile" [ngClass]="{
           'ship-tile': ownTile.isShip,
-          'destroyed-tile': ownTile.isDestroyed
+          'destroyed-tile-own': ownTile.isDestroyed && !ownTile.isShip,
+          'destroyed-ship-tile-own': ownTile.isDestroyed && ownTile.isShip
         }">
           <div></div>
         </mat-grid-tile>
@@ -17,8 +18,11 @@
     <mat-grid-list class="ships-board" [cols]="gameSession.columnCount" rowHeight="25px" [style]="{ width: gameSession.columnCount * 25 + 'px'}">
       <ng-container *ngFor="let opponentTile of gameSession.opponentTiles">
         <mat-grid-tile class="normal-tile" [ngClass]="{
-          'destroyed-tile': opponentTile.isDestroyed,
-          'disabled-tile': !isOwnTurn
+          'destroyed-tile-opponent': opponentTile.isDestroyed && !opponentTile.isShip,
+          'destroyed-ship-tile-opponent': opponentTile.isDestroyed && opponentTile.isShip,
+          'disabled-tile': !isOwnTurn,
+          'selectable-tile': isOwnTurn,
+          'selected-tile': opponentTile.isSelected
         }" (click)="stageAttack(opponentTile)">
           <div></div>
         </mat-grid-tile>

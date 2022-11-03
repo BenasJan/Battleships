@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.SignalR.Interfaces;
 using Battleships.SignalR.Models;
@@ -33,6 +34,17 @@ namespace Battleships.Services
             {
                 destroyedTile.IsDestroyed = true;
                 await _battleshipsDatabase.ShipTilesRepository.Update(destroyedTile);
+            }
+            else
+            {
+                var tile = new ShipTile
+                {
+                    IsDestroyed = true,
+                    XCoordinate = attack.TargetXCoordinate,
+                    YCoordinate = attack.TargetYCoordinate,
+                    OwnerPlayerId = currentUserPlayer.Id
+                };
+                await _battleshipsDatabase.ShipTilesRepository.Create(tile);
             }
             
             session.CurrentRound += 1;

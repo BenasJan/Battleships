@@ -28,7 +28,7 @@ namespace Battleships.Repositories
             
         }
 
-        public async Task<GameSessionDto> GetWithPlayers(Guid gameSessionId)
+        public async Task<GameSessionDto> GetDtoWithPlayers(Guid gameSessionId)
         {
             return await GetById(gameSessionId, gs => new GameSessionDto
             {
@@ -85,7 +85,7 @@ namespace Battleships.Repositories
             });
         }
         
-        public async Task<GameSession> GetWithPlayersForCloning(Guid gameSessionId)
+        public async Task<GameSession> GetWithPlayersAndSettings(Guid gameSessionId)
         {
             return await ItemSet
                 .Include(gs => gs.Settings)

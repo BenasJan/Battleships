@@ -8,12 +8,12 @@ namespace Battleships.Repositories
 {
     public interface IGameSessionsRepository : IRepository<GameSession>
     {
-        Task<GameSessionDto> GetWithPlayers(Guid gameSessionId);
+        Task<GameSessionDto> GetDtoWithPlayers(Guid gameSessionId);
         Task<int> GetRequiredDestroyedShipCount(Guid gameSessionId);
         Task<int> GetCurrentRound(Guid gameSessionId);
         Task<string> GetEndgameStrategy(Guid gameSessionId);
         Task<(Guid, Guid)> GetPlayerIds(Guid gameSessionId, string currentUserId);
         Task<InGameSessionDto> GetInGameSession(Guid gameSessionId, string currentUserId);
-        Task<GameSession> GetWithPlayersForCloning(Guid gameSessionId);
+        Task<GameSession> GetWithPlayersAndSettings(Guid gameSessionId);
     }
 }

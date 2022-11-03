@@ -39,7 +39,7 @@ namespace Battleships.Services.GameSession
         
         public async Task<GameSessionDto> GetSession(Guid id)
         {
-            return await _battleshipsDatabase.GameSessionsRepository.GetWithPlayers(id);
+            return await _battleshipsDatabase.GameSessionsRepository.GetDtoWithPlayers(id);
         }
 
         public async Task<InGameSessionDto> GetInGameSession(Guid gameSessionId)

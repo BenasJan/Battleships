@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Battleships.Repositories;
 using Battleships.SignalR.Interfaces;
 using Battleships.SignalR.Models;
@@ -23,8 +24,10 @@ namespace Battleships.Services
 
         public async Task ExecuteAttack(AttackPayload attack)
         {
-            var session = await _battleshipsDatabase.GameSessionsRepository.GetById(attack.GameSessionId);
+            var session = await _battleshipsDatabase.GameSessionsRepository.GetWithPlayersAndSettings(attack.GameSessionId);
             var destroyedTile = await _battleshipsDatabase.ShipTilesRepository.GetAttackedTile(attack);
+            var currentUserPlayer = session.Players.First(p => p.IsCurrentPlayerTurn);
+            var opponentPlayer = session.Players.First(p => !p.IsCurrentPlayerTurn);
 
             if (destroyedTile is not null)
             {
@@ -33,6 +36,9 @@ namespace Battleships.Services
             }
             
             session.CurrentRound += 1;
+            currentUserPlayer.IsCurrentPlayerTurn = false;
+            opponentPlayer.IsCurrentPlayerTurn = true;
+            
             await _battleshipsDatabase.GameSessionsRepository.Update(session);
             await _battleshipsSynchronizationService.SendAttackMessage(session.Id, new BattleshipsMessage<AttackPayload>
             {

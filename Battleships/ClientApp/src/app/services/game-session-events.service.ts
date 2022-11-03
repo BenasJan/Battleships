@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AttackMovesObserver } from '../observer/attack-moves-observer';
 import { AttackMovesSubject } from '../observer/attack-moves-subject';
+import { EndgameReachedObserver } from '../observer/endgame-reached-observer';
+import { EndgameReachedSubject } from '../observer/endgame-reached-subject';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +12,11 @@ export class GameSessionEventsService {
   private opponentAttacksSubject = new AttackMovesSubject();
   private ownAttacksSubject = new AttackMovesSubject();
 
+  private endgameReachedSubject = new EndgameReachedSubject();
+
   constructor() { }
 
+  //#region opponent attacks
   public publishOpponentAttack(xCoord: number, yCoord: number): void {
     this.opponentAttacksSubject.sendAttackMove(xCoord, yCoord);
   }
@@ -26,7 +31,9 @@ export class GameSessionEventsService {
   public discardOpponentMovesObserver(observer: AttackMovesObserver): void {
     this.opponentAttacksSubject.detach(observer);
   }
+  //#endregion
 
+  //#region own attacks
   public publishOwnAttack(xCoord: number, yCoord: number): void {
     this.ownAttacksSubject.sendAttackMove(xCoord, yCoord);
   }
@@ -41,4 +48,22 @@ export class GameSessionEventsService {
   public discardOwnMovesObserver(observer: AttackMovesObserver): void {
     this.ownAttacksSubject.detach(observer);
   }
+  //#endregion
+
+  //#region endgame
+  public publishEndgameReached(gameSessionId: string): void {
+    this.endgameReachedSubject.sendSessionId(gameSessionId);
+  }
+
+  public onEndgameReached(callback: (gameSessionId: string) => void): EndgameReachedObserver {
+    const observer = new EndgameReachedObserver(callback);
+    this.endgameReachedSubject.attach(observer);
+
+    return observer;
+  }
+
+  public discardEndgameReachedObserver(observer: EndgameReachedObserver): void {
+    this.endgameReachedSubject.detach(observer);
+  }
+  //#endregion
 }

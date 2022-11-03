@@ -9,6 +9,7 @@ namespace Battleships.Models
         public Guid GameSessionId { get; set; }
         public GameSession GameSession { get; set; }
         public bool IsHost { get; set; }
+        public bool IsCurrentPlayerTurn { get; set; }
         
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
@@ -19,6 +20,7 @@ namespace Battleships.Models
         {
             
         }
+        
         public Player(GameSession gameSession, bool isHost, string userId)
         {
             GameSession = gameSession;
@@ -28,10 +30,13 @@ namespace Battleships.Models
 
         public PlayerLobbyDto ToLobbyDto()
         {
-            var dto = new PlayerLobbyDto();
-            dto.Id = this.UserId;
-            dto.Name = this.User.Name;
-            
+            var dto = new PlayerLobbyDto
+            {
+                Id = Id,
+                Name = User.UserName,
+                UserId = UserId
+            };
+
             return dto;
         }
         

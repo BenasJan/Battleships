@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Battleships.Models.enums;
 using Battleships.Repositories;
+using Battleships.SignalR.Interfaces;
 
 namespace Battleships.Services;
 
@@ -9,14 +10,16 @@ public class EndgameService : IEndgameService
 {
     private readonly IBattleshipsDatabase _battleshipsDatabase;
     private readonly IEndgameStrategyService _endgameStrategyService;
+    private readonly IBattleshipsSynchronizationService _battleshipsSynchronizationService;
 
     public EndgameService(
         IBattleshipsDatabase battleshipsDatabase,
-        IEndgameStrategyService endgameStrategyService
-    )
+        IEndgameStrategyService endgameStrategyService,
+        IBattleshipsSynchronizationService battleshipsSynchronizationService)
     {
         _battleshipsDatabase = battleshipsDatabase;
         _endgameStrategyService = endgameStrategyService;
+        _battleshipsSynchronizationService = battleshipsSynchronizationService;
     }
 
     public async Task<bool> IsEndgameReached(Guid gameSessionId)
@@ -34,5 +37,6 @@ public class EndgameService : IEndgameService
         session.Status = GameSessionStatus.EndgameReached;
 
         await _battleshipsDatabase.GameSessionsRepository.Update(session);
+        await _battleshipsSynchronizationService.SendEndgameReached(gameSessionId);
     }
 }

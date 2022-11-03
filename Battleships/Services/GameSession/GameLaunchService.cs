@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Battleships.Builders;
 using Battleships.Data.Constants;
 using Battleships.Factories;
 using Battleships.Models;
@@ -32,6 +33,37 @@ public class GameLaunchService : IGameLaunchService
         _currentUserService = currentUserService;
 
         _numberGeneratorFactory = new NumberGeneratorFactory();
+    }
+
+    public async Task LaunchGame(Guid gameSessionId, bool rematch)
+    {
+        if (rematch)
+        {
+            await LaunchRematch(gameSessionId);
+        }
+        else
+        {
+            await LaunchGame(gameSessionId);
+        }
+    }
+
+    private async Task LaunchRematch(Guid gameSessionId)
+    {
+        var gameSession = await _battleshipsDatabase.GameSessionsRepository.GetWithPlayersAndSettings(gameSessionId);
+        var deepCopy = gameSession.DeepClone(gameSession) as Models.GameSession;
+
+        var ownPlayerId = deepCopy.Players[0].Id;
+        var opponentPlayerId = deepCopy.Players[1].Id;
+
+        var playerShips = Enumerable.Empty<PlayerShip>()
+            .Concat(await GenerateShips(ownPlayerId, deepCopy.Settings))
+            .Concat(await GenerateShips(opponentPlayerId, deepCopy.Settings))
+            .ToList();
+
+        deepCopy.Status = GameSessionStatus.InProgress;
+
+        await _battleshipsDatabase.PlayerShipsRepository.CreateMany(playerShips);
+        await _battleshipsDatabase.GameSessionsRepository.Update(deepCopy);
     }
 
     public async Task LaunchGame(Guid gameSessionId)
@@ -91,11 +123,11 @@ public class GameLaunchService : IGameLaunchService
             {
                 var rowNumber = direction == "down" ? rawRowNumber : row - (rawRowNumber - row);
 
-                return new ShipTile
-                {
-                    XCoordinate = column,
-                    YCoordinate = rowNumber
-                };
+                return new ShipTileBuilder()
+                    .WithXCoordinate(column)
+                    .WithYCoordinate(rowNumber)
+                    .Build();
+                
             }).ToList();
 
             var ship = await _battleshipsDatabase.ShipsRepository.GetByType(shipTypeTuple.Item1);

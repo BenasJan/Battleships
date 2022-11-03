@@ -1,13 +1,15 @@
 ﻿ using System;
 using System.Collections.Generic;
 using Battleships.Data.Dto;
-using System.Collections.Generic;
+ using System.IO;
  using System.Linq;
+ using System.Runtime.Serialization.Formatters.Binary;
  using Battleships.Models.enums;
+ using Battleships.Prototype;
 
  namespace Battleships.Models
 {
-    public class GameSession : BaseModel
+    public class GameSession : GameSessionPrototype
     {
         public string Icon { get; set; }
         public string Name { get; set; }
@@ -39,6 +41,31 @@ using System.Collections.Generic;
             return dto;
         }
 
+        private GameSession DeepCopy(GameSession gameSession)
+        {
+            var shallowCopy = ShallowClone() as GameSession;
+            var settings = shallowCopy.Settings;
+
+            var playerOne = new Player(gameSession, true, gameSession.Players[0].UserId);
+            var playerTwo = new Player(gameSession, false, gameSession.Players[1].UserId);
+            var players = new List<Player>{ playerOne , playerTwo};
+
+            var session = new GameSession
+            {
+                Icon = gameSession.Icon,
+                Name = gameSession.Name,
+                DateCreated = gameSession.DateCreated,
+                GameLength = gameSession.GameLength,
+                Status = gameSession.Status,
+                CurrentRound = gameSession.CurrentRound,
+                EndgameStrategy = gameSession.EndgameStrategy,
+                Players = players,
+                Settings = settings,
+            };
+
+            return session;
+        }
+
         public GameSession()
         {
             
@@ -46,7 +73,18 @@ using System.Collections.Generic;
 
         public override string ToString()
         {
-            return this.Id.ToString() + " " + this.Name + " " + this.Icon;
+            return this.Id.ToString() + " " + this.Name + " " + this.Icon + " " + this.Players[0].Id;
+        }
+
+        public override GameSessionPrototype ShallowClone()
+        {
+            return this.MemberwiseClone() as GameSessionPrototype;
+        }
+
+        public override GameSessionPrototype DeepClone(GameSession gameSession)
+        {
+            var copiedSession = DeepCopy(gameSession);
+            return copiedSession as GameSessionPrototype;
         }
     }
 }

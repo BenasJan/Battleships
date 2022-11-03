@@ -70,6 +70,14 @@ namespace Battleships.Repositories
             return (ownPlayerId, opponentPlayerId);
         }
 
+        public async Task<GameSession> GetWithPlayersForCloning(Guid gameSessionId)
+        {
+            return await ItemSet
+                .Include(gs => gs.Settings)
+                .Include(gs => gs.Players)
+                .FirstOrDefaultAsync(gs => gs.Id == gameSessionId);
+        }
+
         public GameSessionsRepository(ApplicationDbContext context) : base(context)
         {
         }

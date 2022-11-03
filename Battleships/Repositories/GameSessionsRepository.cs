@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Battleships.Data;
 using Battleships.Data.Dto;
+using Battleships.Data.Dto.InGameSession;
 using Battleships.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -27,7 +28,7 @@ namespace Battleships.Repositories
             
         }
 
-        public async Task<GameSessionDto> GetWithPlayers(Guid gameSessionId)
+        public async Task<GameSessionDto> GetDtoWithPlayers(Guid gameSessionId)
         {
             return await GetById(gameSessionId, gs => new GameSessionDto
             {
@@ -40,7 +41,7 @@ namespace Battleships.Repositories
                 GameType = gs.Settings.GameType,
                 LobbyPlayers = gs.Players.Select(player => new PlayerLobbyDto
                 {
-                    Id = player.Id,
+                    Id = player.UserId,
                     UserId = player.UserId,
                     Name = player.User.UserName
                 }).ToList()
@@ -68,6 +69,28 @@ namespace Battleships.Repositories
             var opponentPlayerId = await GetById(gameSessionId, gs => gs.Players.First(p => p.UserId != currentUserId).Id);
 
             return (ownPlayerId, opponentPlayerId);
+        }
+
+        public Task<InGameSessionDto> GetInGameSession(Guid gameSessionId, string currentUserId)
+        {
+            return GetById(gameSessionId, session => new InGameSessionDto
+            {
+                GameSessionId = gameSessionId,
+                ColumnCount = session.Settings.ColumnCount,
+                RowCount = session.Settings.RowCount,
+                CurrentRound = session.CurrentRound,
+                OpponentName = session.Players.First(p => p.UserId != currentUserId).User.UserName,
+                OwnName = session.Players.First(p => p.UserId == currentUserId).User.UserName,
+                CurrentRoundPlayerUserId = session.Players.First(p => p.IsCurrentPlayerTurn).UserId
+            });
+        }
+        
+        public async Task<GameSession> GetWithPlayersAndSettings(Guid gameSessionId)
+        {
+            return await ItemSet
+                .Include(gs => gs.Settings)
+                .Include(gs => gs.Players)
+                .FirstOrDefaultAsync(gs => gs.Id == gameSessionId);
         }
 
         public GameSessionsRepository(ApplicationDbContext context) : base(context)

@@ -207,6 +207,9 @@ namespace Battleships.Migrations
                     b.Property<Guid>("GameSessionId")
                         .HasColumnType("uuid");
 
+                    b.Property<bool>("IsCurrentPlayerTurn")
+                        .HasColumnType("boolean");
+
                     b.Property<bool>("IsHost")
                         .HasColumnType("boolean");
 

@@ -1,18 +1,69 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { AttackPayload } from '../models/payloads/attack-payload';
+import { AttackMovesObserver } from '../observer/attack-moves-observer';
+import { AttackMovesSubject } from '../observer/attack-moves-subject';
+import { EndgameReachedObserver } from '../observer/endgame-reached-observer';
+import { EndgameReachedSubject } from '../observer/endgame-reached-subject';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameSessionEventsService {
 
-  private readonly attacksSubject = new Subject<AttackPayload>();
-  public readonly enemyAttacks$ = this.attacksSubject.asObservable();
+  private opponentAttacksSubject = new AttackMovesSubject();
+  private ownAttacksSubject = new AttackMovesSubject();
+
+  private endgameReachedSubject = new EndgameReachedSubject();
 
   constructor() { }
 
-  public publishAttackEvent(attack: AttackPayload){
-    this.attacksSubject.next(attack);
+  //#region opponent attacks
+  public publishOpponentAttack(xCoord: number, yCoord: number): void {
+    this.opponentAttacksSubject.sendAttackMove(xCoord, yCoord);
   }
+
+  public onOpponentMoveSubmitted(callback: (xCoord: number, yCoord: number) => void): AttackMovesObserver {
+    const observer = new AttackMovesObserver(callback);
+    this.opponentAttacksSubject.attach(observer);
+
+    return observer;
+  }
+
+  public discardOpponentMovesObserver(observer: AttackMovesObserver): void {
+    this.opponentAttacksSubject.detach(observer);
+  }
+  //#endregion
+
+  //#region own attacks
+  public publishOwnAttack(xCoord: number, yCoord: number): void {
+    this.ownAttacksSubject.sendAttackMove(xCoord, yCoord);
+  }
+
+  public onOwnMoveSubmitted(callback: (xCoord: number, yCoord: number) => void): AttackMovesObserver {
+    const observer = new AttackMovesObserver(callback);
+    this.ownAttacksSubject.attach(observer);
+
+    return observer;
+  }
+
+  public discardOwnMovesObserver(observer: AttackMovesObserver): void {
+    this.ownAttacksSubject.detach(observer);
+  }
+  //#endregion
+
+  //#region endgame
+  public publishEndgameReached(gameSessionId: string): void {
+    this.endgameReachedSubject.sendSessionId(gameSessionId);
+  }
+
+  public onEndgameReached(callback: (gameSessionId: string) => void): EndgameReachedObserver {
+    const observer = new EndgameReachedObserver(callback);
+    this.endgameReachedSubject.attach(observer);
+
+    return observer;
+  }
+
+  public discardEndgameReachedObserver(observer: EndgameReachedObserver): void {
+    this.endgameReachedSubject.detach(observer);
+  }
+  //#endregion
 }

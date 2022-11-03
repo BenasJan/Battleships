@@ -49,7 +49,7 @@ public class GameLaunchService : IGameLaunchService
 
     private async Task LaunchRematch(Guid gameSessionId)
     {
-        var gameSession = await _battleshipsDatabase.GameSessionsRepository.GetWithPlayersForCloning(gameSessionId);
+        var gameSession = await _battleshipsDatabase.GameSessionsRepository.GetWithPlayersAndSettings(gameSessionId);
         var deepCopy = gameSession.DeepClone(gameSession) as Models.GameSession;
 
         var ownPlayerId = deepCopy.Players[0].Id;

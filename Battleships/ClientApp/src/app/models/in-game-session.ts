@@ -4,6 +4,9 @@ export interface InGameSession {
     rowCount: number;
 
     currentRound: number;
+    ownName: string;
+    opponentName: string;
+    currentRoundPlayerUserId: string;
 
     ownTiles: GameTile[];
     opponentTiles: GameTile[];

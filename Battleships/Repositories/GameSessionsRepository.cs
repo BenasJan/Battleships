@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Battleships.Data;
 using Battleships.Data.Dto;
+using Battleships.Data.Dto.InGameSession;
 using Battleships.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -27,7 +28,7 @@ namespace Battleships.Repositories
             
         }
 
-        public async Task<GameSessionDto> GetWithPlayers(Guid gameSessionId)
+        public async Task<GameSessionDto> GetDtoWithPlayers(Guid gameSessionId)
         {
             return await GetById(gameSessionId, gs => new GameSessionDto
             {
@@ -70,7 +71,21 @@ namespace Battleships.Repositories
             return (ownPlayerId, opponentPlayerId);
         }
 
-        public async Task<GameSession> GetWithPlayersForCloning(Guid gameSessionId)
+        public Task<InGameSessionDto> GetInGameSession(Guid gameSessionId, string currentUserId)
+        {
+            return GetById(gameSessionId, session => new InGameSessionDto
+            {
+                GameSessionId = gameSessionId,
+                ColumnCount = session.Settings.ColumnCount,
+                RowCount = session.Settings.RowCount,
+                CurrentRound = session.CurrentRound,
+                OpponentName = session.Players.First(p => p.UserId != currentUserId).User.UserName,
+                OwnName = session.Players.First(p => p.UserId == currentUserId).User.UserName,
+                CurrentRoundPlayerUserId = session.Players.First(p => p.IsCurrentPlayerTurn).UserId
+            });
+        }
+        
+        public async Task<GameSession> GetWithPlayersAndSettings(Guid gameSessionId)
         {
             return await ItemSet
                 .Include(gs => gs.Settings)

@@ -3,7 +3,19 @@
     border-left: 1px solid black;
 }
 
-.ship-tile {
+.normal-tile {
     border-right: 1px solid black;
     border-bottom: 1px solid black;
+}
+
+.ship-tile {
+    background-color: black;
+}
+
+.destroyed-tile {
+    background-color: rgba($color: red, $alpha: 0.5);
+}
+
+.disabled-tile {
+    background-color: rgba($color: gray, $alpha: 0.5);
 }

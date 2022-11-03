@@ -40,7 +40,7 @@ namespace Battleships.Repositories
                 GameType = gs.Settings.GameType,
                 LobbyPlayers = gs.Players.Select(player => new PlayerLobbyDto
                 {
-                    Id = player.Id,
+                    Id = player.UserId,
                     UserId = player.UserId,
                     Name = player.User.UserName
                 }).ToList()

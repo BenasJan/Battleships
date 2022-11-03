@@ -20,6 +20,7 @@ namespace Battleships.Models
         {
             
         }
+        
         public Player(GameSession gameSession, bool isHost, string userId)
         {
             GameSession = gameSession;

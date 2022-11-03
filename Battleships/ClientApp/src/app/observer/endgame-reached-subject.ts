@@ -1,10 +1,11 @@
 import { EndgameReachedObserver } from "./endgame-reached-observer";
-import { Observer } from "./observer";
 import { Subject } from "./subject";
 
 export class EndgameReachedSubject implements Subject {
     public gameSessionId: string;
     private observers: EndgameReachedObserver[] = [];
+
+    constructor() {}
 
     attach(observer: EndgameReachedObserver): void {
         const isExist = this.observers.includes(observer);

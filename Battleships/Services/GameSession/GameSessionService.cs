@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Battleships.Commands;
 using Battleships.Data.Dto;
 using Battleships.Data.Dto.InGameSession;
 using Battleships.Facades;
@@ -81,7 +83,8 @@ namespace Battleships.Services.GameSession
                         IsShip = shipTile is not null,
                         IsDestroyed = shipTile is not null
                             ? shipTile.IsDestroyed
-                            : false
+                            : false,
+                        ShipId = shipTile != null ? shipTile.PlayerShipId : null
                     };
 
                     return tile;
@@ -90,6 +93,20 @@ namespace Battleships.Services.GameSession
 
             return tiles.ToList();
 
+        }
+
+        public async Task<InGameSessionDto> MoveShipInSession (Guid gameSessionId, Guid shipId, string direction)
+        {
+            PlayerShip playerShip = await _battleshipsDatabase.PlayerShipsRepository.GetById(shipId);
+
+            if (/*direction == "Up"*/true)
+            {
+                IShipActionCommand shipMoveUpCommand = new ShipMoveUpCommand(playerShip);
+                shipMoveUpCommand.Execute();
+            }
+
+            var gameSessionDto = await this.GetInGameSession(gameSessionId);
+            return gameSessionDto;
         }
     }
 }

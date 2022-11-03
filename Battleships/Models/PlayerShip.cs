@@ -18,10 +18,13 @@ namespace Battleships.Models
 
         public void MoveUp()
         {
-            foreach (var tile in Tiles)
+            List<ShipTile> temp = this.Tiles;
+
+            foreach (var tile in temp)
             {
                 tile.YCoordinate += 1;
             }
+            this.Tiles = temp;
         }        
         public void MoveDown()
         {

@@ -10,6 +10,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { AuthorizationService } from 'src/app/services/authorization.service';
 import { GameSessionService } from 'src/app/services/game-session.service';
 import { MoveSubmissionEventsService } from 'src/app/services/move-submission.service';
+import { ShipMove } from '../../models/ship-move';
 
 @Component({
   selector: 'app-game-session',
@@ -23,6 +24,7 @@ export class GameSessionComponent implements OnInit, OnDestroy {
   public selectedMoveYCoord: number;
 
   public gameSession = {} as InGameSession;
+  public selectedShipId = "";
 
   public tiles: any[] = [];
   private attacksObserver: AttackMovesObserver;
@@ -40,7 +42,11 @@ export class GameSessionComponent implements OnInit, OnDestroy {
     
     this.gameSessionService.getGameplaySession(this.gameSessionId).pipe(
       tap(session => this.gameSession = session)
-    ).subscribe();
+    ).subscribe(session => {
+      let selectedShip = session.ownTiles.find(x => x.shipId != null)
+      this.selectedShipId = selectedShip?.shipId ? selectedShip?.shipId : "";
+      console.log(this.selectedShipId);
+    })
 
     this.attacksObserver = this.moveSubmissionEventsService.onMoveSubmitted((xCoord, yCoord) => {
       this.gameSession.currentRound++;
@@ -67,5 +73,16 @@ export class GameSessionComponent implements OnInit, OnDestroy {
     this.attackPublishingService.publishAttack(attack);
 
 
+  }
+
+  public MoveShip(shipId: string, direction: string) {
+    debugger;
+
+    const shipMove: ShipMove = {
+      gameSessionId: this.gameSessionId,
+      shipId: shipId,
+      direction: direction
+    }
+    this.gameSessionService.moveShip(shipMove);
   }
 }

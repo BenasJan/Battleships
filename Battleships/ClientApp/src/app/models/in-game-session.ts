@@ -14,4 +14,5 @@ export interface GameTile {
     isDestroyed: boolean;
     columnCoordinate: number;
     rowCoordinate: number;
+    shipId: string;
 }

@@ -29,7 +29,7 @@ namespace Battleships.Models
         public PlayerLobbyDto ToLobbyDto()
         {
             var dto = new PlayerLobbyDto();
-            dto.Id = Guid.Parse(this.UserId);
+            dto.Id = new Guid(this.UserId);
             dto.Name = this.User.Name;
             
             return dto;

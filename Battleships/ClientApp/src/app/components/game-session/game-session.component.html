@@ -4,7 +4,8 @@
     <mat-grid-list class="ships-board" [cols]="gameSession.columnCount" rowHeight="25px" [style]="{ width: gameSession.columnCount * 25 + 'px'}">
       <ng-container *ngFor="let ownTile of gameSession.ownTiles">
         <mat-grid-tile class="ship-tile">
-          <div style="background-color: black; height: 25px;" *ngIf="ownTile.isShip">ship</div>
+          <div (click)="MoveShip(ownTile.shipId, 'Up')" style="background-color: limegreen; height: 25px;" *ngIf="ownTile.isShip && ownTile.shipId == selectedShipId">ship</div>
+          <div style="background-color: black; height: 25px;" *ngIf="ownTile.isShip && ownTile.shipId != selectedShipId">ship</div>
           <div *ngIf="!ownTile.isShip"></div>
         </mat-grid-tile>
       </ng-container>

@@ -4,6 +4,7 @@ import { GameSession } from "../models/game-session";
 import { InGameSession } from '../models/in-game-session';
 import { LobySession } from "../models/lobby-session";
 import { CreateGameSessionPayload } from "../models/payloads/create-game-session-payload";
+import { ShipMove } from '../models/ship-move';
 import { HttpService } from "./http.service";
 
 @Injectable({
@@ -43,4 +44,8 @@ export class GameSessionService {
     return this.httpService.post<{ token: string }>('Authentication', 'register', credentials);
   }
 
+  public moveShip(shipMove: ShipMove): Observable<InGameSession> {
+    debugger;
+    return this.httpService.post('GameSession', `move-ship/${shipMove.gameSessionId}`, { shipId: shipMove.shipId, direction: shipMove.direction });
+  }
 }

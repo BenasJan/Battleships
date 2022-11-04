@@ -28,7 +28,9 @@ export class GameSessionComponent implements OnInit, OnDestroy {
   private ownMovesObserver: AttackMovesObserver;
   private opponentMovesObserver: AttackMovesObserver;
   private endgameObserver: EndgameReachedObserver;
+
   public endgameReached: boolean;
+  public winnerName: string;
 
   public attackInSubmission = false;
 
@@ -60,7 +62,7 @@ export class GameSessionComponent implements OnInit, OnDestroy {
       }
 
       this.isOwnTurn = false;
-      
+
       this.attackInSubmission = false;
       this.selectedMoveXCoord = null;
       this.selectedMoveYCoord = null;
@@ -80,9 +82,10 @@ export class GameSessionComponent implements OnInit, OnDestroy {
       this.isOwnTurn = true;
     })
 
-    this.endgameObserver = this.gameSessionEventsService.onEndgameReached(sessionId => {
-      if (this.gameSessionId == sessionId) {
+    this.endgameObserver = this.gameSessionEventsService.onEndgameReached(endgame => {
+      if (this.gameSessionId == endgame.gameSessionId) {
         this.endgameReached = true;
+        this.winnerName = endgame.winnerName;
       }
     })
 
@@ -100,7 +103,7 @@ export class GameSessionComponent implements OnInit, OnDestroy {
   }
 
   public stageAttack(tile: GameTile): void {
-    if (!this.isOwnTurn) {
+    if (!this.isOwnTurn || this.endgameReached) {
       return;
     }
 

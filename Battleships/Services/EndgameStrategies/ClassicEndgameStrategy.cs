@@ -21,7 +21,11 @@ public class ClassicEndgameStrategy : IEndgameStrategy
     public async Task<bool> IsEndgameReached(Guid gameSessionId)
     {
         var tiles = await _battleshipsDatabase.ShipTilesRepository.GetSessionShipTiles(gameSessionId);
-        var playerIds = tiles.Select(tile => tile.PlayerShip.PlayerId).Distinct().ToList();
+        var playerIds = tiles
+            .Where(tile => tile.PlayerShip?.PlayerId is not null)
+            .Select(tile => tile.PlayerShip.PlayerId)
+            .Distinct()
+            .ToList();
         
         var (playerOneId, playerTwoId) = (playerIds[0], playerIds[1]);
         var isPlayerOneShipsDestroyed = IsAllPlayerShipsDestroyed(tiles, playerOneId);
@@ -32,9 +36,10 @@ public class ClassicEndgameStrategy : IEndgameStrategy
 
     private bool IsAllPlayerShipsDestroyed(List<ShipTile> tiles, Guid playerId)
     {
-        return tiles
-            .Where(tile => tile.PlayerShip.PlayerId == playerId)
-            .All(tile => tile.IsDestroyed);
+        var playerTiles = tiles
+            .Where(tile => tile.PlayerShip.PlayerId == playerId);
+
+        return playerTiles.All(tile => tile.IsDestroyed);
     }
 
     public string StrategyType => Data.Constants.EndgameStrategies.Classic;

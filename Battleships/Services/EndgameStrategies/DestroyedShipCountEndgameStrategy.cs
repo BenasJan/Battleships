@@ -31,7 +31,11 @@ public class DestroyedShipCountEndgameStrategy : IEndgameStrategy
     private int GetDestroyedPlayerShipCount(List<ShipTile> tiles, Guid playerId)
     {
         var playerTiles = tiles.Where(tile => tile.PlayerShip.PlayerId == playerId).ToList();
-        var playerShipIds = playerTiles.Select(tile => tile.PlayerShipId.Value).Distinct().ToList();
+        var playerShipIds = tiles
+            .Where(tile => tile.PlayerShipId is not null)
+            .Select(tile => tile.PlayerShipId.Value)
+            .Distinct()
+            .ToList();
 
         var destroyedShipCount = playerShipIds.Count(id => IsShipDestroyed(playerTiles, id));
 

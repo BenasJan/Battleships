@@ -42,7 +42,8 @@ namespace Battleships.Services
                     IsDestroyed = true,
                     XCoordinate = attack.TargetXCoordinate,
                     YCoordinate = attack.TargetYCoordinate,
-                    OwnerPlayerId = currentUserPlayer.Id
+                    AttackerPlayerId = currentUserPlayer.Id,
+                    TargetPlayerId = opponentPlayer.Id
                 };
                 await _battleshipsDatabase.ShipTilesRepository.Create(tile);
             }

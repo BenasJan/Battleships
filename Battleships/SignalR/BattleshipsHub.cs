@@ -21,9 +21,7 @@ namespace Battleships.SignalR
 
         public async Task ConnectToGameSession(string gameSessionIdString)
         {
-            await Clients.Group(gameSessionIdString).SendAsync("A new user has connected");
             await Groups.AddToGroupAsync(Context.ConnectionId, gameSessionIdString);
-            // await base.OnConnectedAsync();
         }
 
         public async Task DisconnectFromGameSession(string gameSessionIdString)
@@ -34,7 +32,6 @@ namespace Battleships.SignalR
         public async Task PublishAttack(AttackPayload attack)
         {
             await _attackExecutionService.ExecuteAttack(attack);
-            await Clients.Group(attack.GameSessionId.ToString()).SendAsync("processAttack",  attack);
         }
     }
 }

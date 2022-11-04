@@ -52,6 +52,10 @@ export class SignalRService {
     this.connection.on("invited", (payload: { gameSessionId: string }) => {
       this.connectToGameSession(payload.gameSessionId);
     })
+
+    this.connection.on("endgameReached", (payload) => {
+      this.gameSessionEventsService.publishEndgameReached(payload);
+    })
   }
   //#endregion
 

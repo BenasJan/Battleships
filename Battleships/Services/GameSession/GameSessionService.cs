@@ -57,13 +57,20 @@ namespace Battleships.Services.GameSession
             return dto;
         }
 
-        private List<GameTile> GetTileDtos(List<ShipTile> shipTiles, int columnCount, int rowCount)
+        private List<GameTile> GetTileDtos(List<ShipTile> tiles, int columnCount, int rowCount)
         {
-            var tiles = Enumerable.Range(1, columnCount).SelectMany(columnCoordinate =>
+            var shipTiles = tiles.Where(t => t.PlayerShipId is not null).ToList();
+            var emptyTiles = tiles.Where(t => t.PlayerShipId is null).ToList();
+            
+            var dtos = Enumerable.Range(1, columnCount).SelectMany(columnCoordinate =>
             {
                 return Enumerable.Range(1, rowCount).Select(rowCoordinate =>
                 {
                     var shipTile = shipTiles.FirstOrDefault(st =>
+                        st.XCoordinate == columnCoordinate && st.YCoordinate == rowCoordinate
+                    );
+                    
+                    var emptyTile = emptyTiles.FirstOrDefault(st =>
                         st.XCoordinate == columnCoordinate && st.YCoordinate == rowCoordinate
                     );
 
@@ -72,15 +79,14 @@ namespace Battleships.Services.GameSession
                         ColumnCoordinate = columnCoordinate,
                         RowCoordinate = rowCoordinate,
                         IsShip = shipTile?.PlayerShipId is not null,
-                        IsDestroyed = shipTile?.IsDestroyed ?? false
+                        IsDestroyed = (shipTile?.IsDestroyed ?? false) || (emptyTile?.IsDestroyed ?? false)
                     };
 
                     return tile;
                 });
             });
 
-            return tiles.ToList();
-
+            return dtos.ToList();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using Battleships.Bridge;
 
 namespace Battleships.Models.Ships
@@ -14,8 +15,11 @@ namespace Battleships.Models.Ships
 
         public List<UserCosmetic> UserCosmetics { get; set; }
         public List<PlayerShip> PlayerShips { get; set; }
-        
+
+        [NotMapped]
         protected IShipState _state;
+
+        [NotMapped]
 
         public IShipState State
         {

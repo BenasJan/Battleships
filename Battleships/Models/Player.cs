@@ -32,7 +32,7 @@ namespace Battleships.Models
         {
             var dto = new PlayerLobbyDto
             {
-                Id = Id,
+                Id = Id.ToString(),
                 Name = User.UserName,
                 UserId = UserId
             };

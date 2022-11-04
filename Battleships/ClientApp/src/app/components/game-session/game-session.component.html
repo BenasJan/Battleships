@@ -8,6 +8,11 @@
           'destroyed-tile': ownTile.isDestroyed
         }">
           <div></div>
+        <!--<mat-grid-tile class="ship-tile">
+          <div style="background-color: limegreen; height: 25px;" *ngIf="ownTile.isShip && ownTile.shipId == selectedShipId">ship</div>
+          <div style="background-color: black; height: 25px;" *ngIf="ownTile.isShip && ownTile.shipId != selectedShipId">ship</div>
+          <div *ngIf="!ownTile.isShip"></div>
+        </mat-grid-tile>-->
         </mat-grid-tile>
       </ng-container>
     </mat-grid-list>    

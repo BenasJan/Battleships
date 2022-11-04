@@ -4,3 +4,9 @@ obj/
 riderModule.iml
 /_ReSharper.Caches/
 /.vs/Battleships/FileContentIndex
+/.vs/Battleships/config/applicationhost.config
+/.vs/Battleships/DesignTimeBuild/.dtbcache.v2
+/.vs/Battleships/v17/.futdcache.v2
+/.vs/Battleships/v17/fileList.bin
+/.vs/ProjectEvaluation/battleships.metadata.v5.1
+/.vs/ProjectEvaluation/battleships.projects.v5.1

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Battleships.Data.Dto;
+using Battleships.Data.Dto.InGameSession;
+using Battleships.Services.GameSession;
 using Battleships.Services.GameSession.Interfaces;
 using Battleships.Services.Players.Interfaces;
 using Battleships.SignalR.Interfaces;
@@ -83,5 +85,14 @@ namespace Battleships.Controllers
 
             return Ok();
         }
+
+        [HttpPost("move-ship/{gameSessionId:guid}")]
+        public async Task<IActionResult> MoveShip(Guid gameSessionId, [FromBody] ShipMoveDto shipMoveDto)
+        {
+            //Guid gameSessionId, [FromBody] Guid shipId, [FromBody] string direction
+            var dto = await _gameSessionService.MoveShipInSession(gameSessionId, shipMoveDto.ShipId, shipMoveDto.Direction);
+
+            return Ok(dto);
+        } 
     }
 }

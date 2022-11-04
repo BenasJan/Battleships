@@ -5,7 +5,8 @@
       <ng-container *ngFor="let ownTile of gameSession.ownTiles">
         <mat-grid-tile class="normal-tile" [ngClass]="{
           'ship-tile': ownTile.isShip,
-          'destroyed-tile': ownTile.isDestroyed
+          'destroyed-tile': ownTile.isDestroyed,
+          'skin-tile': ownTile.isShip
         }">
           <div></div>
         <!--<mat-grid-tile class="ship-tile">

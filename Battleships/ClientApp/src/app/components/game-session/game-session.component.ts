@@ -52,6 +52,7 @@ export class GameSessionComponent implements OnInit, OnDestroy {
       tap(session => this.gameSession = session),
       tap(session => this.isOwnTurn = session.currentRoundPlayerUserId == this.authorizationService.getUserId())
     ).subscribe(session => {
+      console.log(session);
       let selectedShip = session.ownTiles.find(x => x.shipId != null)
       this.selectedShipId = selectedShip?.shipId ? selectedShip?.shipId : "";
     })

@@ -7,7 +7,7 @@
         public override ShipAppearance Draw()
         {
             ShipAppearance shipAppearance = base.Draw();
-            shipAppearance.Skin = "Default";
+            shipAppearance.SkinName = "Blue";
 
             return shipAppearance;
         }

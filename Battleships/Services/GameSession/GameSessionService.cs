@@ -6,6 +6,7 @@ using System.Windows.Input;
 using Battleships.Commands;
 using Battleships.Data.Dto;
 using Battleships.Data.Dto.InGameSession;
+using Battleships.Decorators;
 using Battleships.Facades;
 using Battleships.Models;
 using Battleships.Repositories;
@@ -71,6 +72,9 @@ namespace Battleships.Services.GameSession
                         st.XCoordinate == columnCoordinate && st.YCoordinate == rowCoordinate
                     );
 
+                    IShipAppearance shipAppearance = new ShipAppearance();
+                    IShipAppearance skinDecorator = new SkinDecorator(shipAppearance).Draw();
+
                     var tile = new GameTile
                     {
                         ColumnCoordinate = columnCoordinate,
@@ -79,7 +83,8 @@ namespace Battleships.Services.GameSession
                         IsDestroyed = shipTile is not null
                             ? shipTile.IsDestroyed
                             : false,
-                        ShipId = shipTile != null ? shipTile.PlayerShipId : null
+                        ShipId = shipTile != null ? shipTile.PlayerShipId : null,
+                        SkinName = shipTile != null ? skinDecorator.SkinName : ""
                     };
 
                     return tile;

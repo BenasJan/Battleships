@@ -10,4 +10,5 @@ public class GameTile
     public int RowCoordinate { get; set; }
 
     public Guid? ShipId { get; set; }
+    public string SkinName { get; set; }
 }

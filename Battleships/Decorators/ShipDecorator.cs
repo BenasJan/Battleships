@@ -6,6 +6,8 @@ namespace Battleships.Decorators
     {
         private IShipAppearance _shipDecorator;
 
+        public string SkinName => _shipDecorator.SkinName;
+
         public ShipDecorator(IShipAppearance shipDecorator)
         {
             _shipDecorator = shipDecorator;

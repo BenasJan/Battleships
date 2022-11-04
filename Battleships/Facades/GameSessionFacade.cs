@@ -38,7 +38,8 @@ public class GameSessionFacade
             new Player
             {
                 IsHost = true,
-                UserId = userId
+                UserId = userId,
+                IsCurrentPlayerTurn = true
             }
         };
 

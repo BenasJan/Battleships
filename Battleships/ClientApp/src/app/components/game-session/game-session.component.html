@@ -1,26 +1,35 @@
 <div style="display: flex; flex-direction: row; justify-content: space-around;">
   <div>
-    <div></div>
+    <h2>{{gameSession.ownName}}</h2>
     <mat-grid-list class="ships-board" [cols]="gameSession.columnCount" rowHeight="25px" [style]="{ width: gameSession.columnCount * 25 + 'px'}">
       <ng-container *ngFor="let ownTile of gameSession.ownTiles">
-        <mat-grid-tile class="ship-tile">
+        <mat-grid-tile class="normal-tile" [ngClass]="{
+          'ship-tile': ownTile.isShip,
+          'destroyed-tile': ownTile.isDestroyed
+        }">
+          <div></div>
+        <!--<mat-grid-tile class="ship-tile">
           <div style="background-color: limegreen; height: 25px;" *ngIf="ownTile.isShip && ownTile.shipId == selectedShipId">ship</div>
           <div style="background-color: black; height: 25px;" *ngIf="ownTile.isShip && ownTile.shipId != selectedShipId">ship</div>
           <div *ngIf="!ownTile.isShip"></div>
+        </mat-grid-tile>-->
         </mat-grid-tile>
       </ng-container>
     </mat-grid-list>    
   </div>
   <div>
+    <h2>{{gameSession.opponentName}}</h2>
     <mat-grid-list class="ships-board" [cols]="gameSession.columnCount" rowHeight="25px" [style]="{ width: gameSession.columnCount * 25 + 'px'}">
       <ng-container *ngFor="let opponentTile of gameSession.opponentTiles">
-        <mat-grid-tile class="ship-tile">
-          <div style="background-color: black; height: 25px;" *ngIf="opponentTile.isDestroyed"></div>
-          <div *ngIf="!opponentTile.isDestroyed"></div>
+        <mat-grid-tile class="normal-tile" [ngClass]="{
+          'destroyed-tile': opponentTile.isDestroyed,
+          'disabled-tile': !isOwnTurn
+        }" (click)="stageAttack(opponentTile)">
+          <div></div>
         </mat-grid-tile>
       </ng-container>
-    </mat-grid-list>    
+    </mat-grid-list>
   </div>
 </div>
 
-<button mat-raised-button color="warn">ATTACK</button>
+<button *ngIf="isMoveSelected" mat-raised-button color="warn" (click)="submitAttack()" [disabled]="attackInSubmission">ATTACK</button>

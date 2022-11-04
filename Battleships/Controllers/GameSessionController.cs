@@ -65,9 +65,9 @@ namespace Battleships.Controllers
         }
 
         [HttpPost("launch-game/{gameSessionId:guid}")]
-        public async Task<IActionResult> LaunchGame(Guid gameSessionId)
+        public async Task<IActionResult> LaunchGame(Guid gameSessionId, bool rematch)
         {
-            await _gameLaunchService.LaunchGame(gameSessionId);
+            await _gameLaunchService.LaunchGame(gameSessionId, rematch);
 
             Response.OnCompleted(async () =>
                 await _battleshipsSynchronizationService.SendLaunchGameMessage(gameSessionId));

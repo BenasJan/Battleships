@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HubConnection, HubConnectionBuilder, HubConnectionState, LogLevel } from '@microsoft/signalr';
 import { from, Observable, tap } from 'rxjs';
-import { AttackPayload } from '../models/payloads/attack-payload';
+import { Attack } from '../models/attack';
 import { AuthorizationService } from './authorization.service';
 import { GameSessionEventsService } from './game-session-events.service';
 
@@ -11,6 +11,8 @@ import { GameSessionEventsService } from './game-session-events.service';
 })
 export class SignalRService {
   private readonly connection: HubConnection;
+
+  private gameSessionId: string;
 
   constructor(
     private readonly gameSessionEventsService: GameSessionEventsService,
@@ -32,8 +34,15 @@ export class SignalRService {
   }
 
   private configureMethods() {
-    this.connection.on("underAttack", (payload: AttackPayload) => {
-      this.gameSessionEventsService.publishAttackEvent(payload);
+    this.connection.on("underAttack", (payload) => {
+      const isFromOpponent = payload.callerUserId !== this.authorizationService.getUserId();
+      const attack: Attack = payload.payload;
+
+      if (isFromOpponent) {
+        this.gameSessionEventsService.publishOpponentAttack(attack.targetXCoordinate, attack.targetYCoordinate);
+      } else {
+        this.gameSessionEventsService.publishOwnAttack(attack.targetXCoordinate, attack.targetYCoordinate);
+      }
     })
 
     this.connection.on("gameLaunched", (payload: { gameSessionId: string }) => {
@@ -49,17 +58,22 @@ export class SignalRService {
   public connectAsUser(): void {
     const userId = this.authorizationService.getUserId();
     
-    this.connectToHub().subscribe(_ => this.connection.invoke("ConnectUser", userId))
+    this.connectToHub().subscribe(_ => {
+      this.connection.invoke("ConnectUser", userId);
+
+      if (this.gameSessionId) {
+        this.connection.invoke("ConnectToGameSession", this.gameSessionId);
+      }
+    })
   }
 
   public connectToGameSession(gameSessionIdString: string): void {
-    if (this.connection.state !== HubConnectionState.Connected) {
-      this.connectToHub().subscribe(
-        _ => this.connection.invoke("ConnectToGameSession", gameSessionIdString)
-      )
-    } else {
-      this.connection.invoke("ConnectToGameSession", gameSessionIdString);
+    if (this.connection.state == HubConnectionState.Connecting) {
+      this.gameSessionId = gameSessionIdString;
+      return;  
     }
+
+    this.connection.invoke("ConnectToGameSession", gameSessionIdString);
   }
 
   public removeGameSessionConnection(gameSessionId: string): void {

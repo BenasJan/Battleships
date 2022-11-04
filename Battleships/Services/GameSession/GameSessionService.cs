@@ -74,6 +74,7 @@ namespace Battleships.Services.GameSession
 
                     IShipAppearance shipAppearance = new ShipAppearance();
                     IShipAppearance skinDecorator = new SkinDecorator(shipAppearance).Draw();
+                    IShipAppearance labelDecorator = new SkinDecorator(skinDecorator).Draw();
 
                     var tile = new GameTile
                     {

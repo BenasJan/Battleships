@@ -137,19 +137,19 @@ export class GameSessionComponent implements OnInit, OnDestroy {
     switch (event.keyCode) {
       case 37:
         shipMove.direction = "Left"
-        this.gameSessionService.moveShip(shipMove).subscribe(() => location.reload());
+        this.gameSessionService.moveShip(shipMove).subscribe((session) => this.gameSession = session);
         break;
       case 38:
         shipMove.direction = "Up"
-        this.gameSessionService.moveShip(shipMove).subscribe(() => location.reload());
+        this.gameSessionService.moveShip(shipMove).subscribe((session) => this.gameSession = session);
         break;
       case 39:
         shipMove.direction = "Right"
-        this.gameSessionService.moveShip(shipMove).subscribe(() => location.reload());
+        this.gameSessionService.moveShip(shipMove).subscribe((session) => this.gameSession = session);
         break;
       case 40:
         shipMove.direction = "Down"
-        this.gameSessionService.moveShip(shipMove).subscribe(() => location.reload());
+        this.gameSessionService.moveShip(shipMove).subscribe((session) => this.gameSession = session);
         break;
       
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using Battleships.Models.enums;
 
 namespace Battleships.Models
 {
@@ -16,5 +17,12 @@ namespace Battleships.Models
 
         public Guid? PlayerShipId { get; set; }
         public PlayerShip PlayerShip { get; set; }
+        
+        public Engine Engine { get; set; }
+        public Gun Guns { get; set; }
+        public bool Shield { get; set; }
+        public int GunCount { get; set; }
+        public bool IsFlagship { get; set; }
+        
     }
 }

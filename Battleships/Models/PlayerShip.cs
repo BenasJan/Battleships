@@ -14,9 +14,37 @@ namespace Battleships.Models
 
         public List<ShipTile> Tiles { get; set; }
 
-
-
         public void MoveUp()
+        {
+            List<ShipTile> temp = this.Tiles;
+
+            foreach (var tile in temp)
+            {
+                tile.XCoordinate -= 1;
+            }
+            this.Tiles = temp;
+        }        
+        public void MoveDown()
+        {
+            List<ShipTile> temp = this.Tiles;
+
+            foreach (var tile in temp)
+            {
+                tile.XCoordinate += 1;
+            }
+            this.Tiles = temp;
+        }        
+        public void MoveLeft()
+        {
+            List<ShipTile> temp = this.Tiles;
+
+            foreach (var tile in temp)
+            {
+                tile.YCoordinate -= 1;
+            }
+            this.Tiles = temp;
+        }        
+        public void MoveRight()
         {
             List<ShipTile> temp = this.Tiles;
 
@@ -25,27 +53,6 @@ namespace Battleships.Models
                 tile.YCoordinate += 1;
             }
             this.Tiles = temp;
-        }        
-        public void MoveDown()
-        {
-            foreach (var tile in Tiles)
-            {
-                tile.YCoordinate -= 1;
-            }
-        }        
-        public void MoveLeft()
-        {
-            foreach (var tile in Tiles)
-            {
-                tile.XCoordinate -= 1;
-            }
-        }        
-        public void MoveRight()
-        {
-            foreach (var tile in Tiles)
-            {
-                tile.YCoordinate += 1;
-            }
         }
 
      

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, HostListener } from '@angular/core';
 import { NumberValueAccessor } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { tap } from 'rxjs';
@@ -75,14 +75,42 @@ export class GameSessionComponent implements OnInit, OnDestroy {
 
   }
 
-  public MoveShip(shipId: string, direction: string) {
-    debugger;
+  //public MoveShip(shipId: string, direction: string) {
 
+  //  const shipMove: ShipMove = {
+  //    gameSessionId: this.gameSessionId,
+  //    shipId: shipId,
+  //    direction: direction
+  //  }
+  //  this.gameSessionService.moveShip(shipMove).subscribe(() => location.reload());
+  //}
+
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
     const shipMove: ShipMove = {
       gameSessionId: this.gameSessionId,
-      shipId: shipId,
-      direction: direction
+      shipId: this.selectedShipId,
+      direction: ""
     }
-    this.gameSessionService.moveShip(shipMove);
+
+    switch (event.keyCode) {
+      case 37:
+        shipMove.direction = "Left"
+        this.gameSessionService.moveShip(shipMove).subscribe(() => location.reload());
+        break;
+      case 38:
+        shipMove.direction = "Up"
+        this.gameSessionService.moveShip(shipMove).subscribe(() => location.reload());
+        break;
+      case 39:
+        shipMove.direction = "Right"
+        this.gameSessionService.moveShip(shipMove).subscribe(() => location.reload());
+        break;
+      case 40:
+        shipMove.direction = "Down"
+        this.gameSessionService.moveShip(shipMove).subscribe(() => location.reload());
+        break;
+      
+    }
   }
 }

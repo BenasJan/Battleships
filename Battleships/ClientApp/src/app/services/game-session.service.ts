@@ -45,7 +45,6 @@ export class GameSessionService {
   }
 
   public moveShip(shipMove: ShipMove): Observable<InGameSession> {
-    debugger;
     return this.httpService.post('GameSession', `move-ship/${shipMove.gameSessionId}`, { shipId: shipMove.shipId, direction: shipMove.direction });
   }
 }

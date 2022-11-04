@@ -5,6 +5,7 @@ import { from, Observable, tap } from 'rxjs';
 import { Attack } from '../models/attack';
 import { AuthorizationService } from './authorization.service';
 import { GameSessionEventsService } from './game-session-events.service';
+import { SignalRConnection } from './signal-r-connection';
 
 @Injectable({
   providedIn: 'root'
@@ -20,18 +21,18 @@ export class SignalRService {
     private readonly authorizationService: AuthorizationService
   )
   {
-    this.connection = this.getConnection();
+    this.connection = SignalRConnection.getInstance();
     this.configureMethods();
   }
 
   //#region initialization
-  private getConnection(): HubConnection {
-    return new HubConnectionBuilder()
-      .withUrl('/battleshipsHub')
-      .configureLogging(LogLevel.Information)
-      .withAutomaticReconnect()
-      .build();
-  }
+  // private getConnection(): HubConnection {
+  //   return new HubConnectionBuilder()
+  //     .withUrl('/battleshipsHub')
+  //     .configureLogging(LogLevel.Information)
+  //     .withAutomaticReconnect()
+  //     .build();
+  // }
 
   private configureMethods() {
     this.connection.on("underAttack", (payload) => {

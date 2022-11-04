@@ -15,9 +15,9 @@ public class ShipTilesRepository : BaseRepository<ShipTile>, IShipTilesRepositor
     {
     }
 
-    public async Task<ShipTile> GetAttackedTile(AttackPayload attack)
+    public async Task<List<ShipTile>> GetAttackedTiles(AttackPayload attack)
     {
-        return await GetSingle(tile =>
+        return await GetWhere(tile =>
             tile.XCoordinate == attack.TargetXCoordinate && tile.YCoordinate == attack.TargetYCoordinate &&
             tile.PlayerShip.Player.UserId != attack.AttackingUserId &&
             tile.PlayerShip.Player.GameSessionId == attack.GameSessionId

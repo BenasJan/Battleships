@@ -62,9 +62,9 @@ namespace Battleships.Services.GameSession
             var shipTiles = tiles.Where(t => t.PlayerShipId is not null).ToList();
             var emptyTiles = tiles.Where(t => t.PlayerShipId is null).ToList();
             
-            var dtos = Enumerable.Range(1, columnCount).SelectMany(columnCoordinate =>
+            var dtos = Enumerable.Range(0, columnCount).SelectMany(columnCoordinate =>
             {
-                return Enumerable.Range(1, rowCount).Select(rowCoordinate =>
+                return Enumerable.Range(0, rowCount).Select(rowCoordinate =>
                 {
                     var shipTile = shipTiles.FirstOrDefault(st =>
                         st.XCoordinate == columnCoordinate && st.YCoordinate == rowCoordinate

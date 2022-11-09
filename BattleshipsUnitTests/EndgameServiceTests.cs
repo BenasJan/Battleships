@@ -2,6 +2,7 @@
 using Battleships.Models.enums;
 using Battleships.Repositories;
 using Battleships.Services;
+using Battleships.SignalR.Interfaces;
 using Moq;
 
 namespace BattleshipsUnitTests;
@@ -23,7 +24,8 @@ public class EndgameServiceTests
 
         _endgameService = new EndgameService(
             dbMock.Object,
-            new Mock<IEndgameStrategyService>().Object
+            new Mock<IEndgameStrategyService>().Object,
+            new Mock<IBattleshipsSynchronizationService>().Object
         );
     }
 

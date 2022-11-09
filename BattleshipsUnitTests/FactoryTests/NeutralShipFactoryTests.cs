@@ -16,7 +16,7 @@ namespace BattleshipsUnitTests.FactoryTests
         }
 
         [Fact]
-        public void When_GeneratingNeutralShipWithBattleshipType_ExpectCorrectShipType()
+        public void When_GeneratingNeutralShipWithDummyType_ExpectCorrectShipType()
         {
             var ship = _neutralShipFactory.GenerateShip(ShipTypes.Dummy);
 
@@ -24,7 +24,7 @@ namespace BattleshipsUnitTests.FactoryTests
         }
 
         [Fact]
-        public void When_GeneratingOffensiveShip_With_NonExistingType_Expect_Null()
+        public void When_GeneratingNeutralShipWithNonExistingType_ExpectNull()
         {
             var ship = _neutralShipFactory.GenerateShip("non existing type");
 

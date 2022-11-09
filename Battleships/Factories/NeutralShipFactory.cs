@@ -9,7 +9,7 @@ namespace Battleships.Factories
         {
             if (shipType == ShipTypes.Dummy)
             {
-                return new CarrierShip
+                return new DummyShip()
                 {
                     ShipType = ShipTypes.Dummy
                 };

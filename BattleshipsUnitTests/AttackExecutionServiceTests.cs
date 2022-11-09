@@ -2,6 +2,7 @@
 using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.Services;
+using Battleships.SignalR.Interfaces;
 using Battleships.SignalR.Models;
 using Moq;
 
@@ -14,6 +15,7 @@ public class AttackExecutionServiceTests
     private readonly Mock<IShipTilesRepository> _shipTilesRepositoryMock;
     private readonly Mock<IGameSessionsRepository> _gameSessionsRepositoryMock;
     private readonly Mock<IEndgameService> _endgameServiceMock;
+    private readonly Mock<IBattleshipsSynchronizationService> _battleshipsSynchronizationServiceMock;
 
     public AttackExecutionServiceTests()
     {
@@ -21,10 +23,12 @@ public class AttackExecutionServiceTests
         _gameSessionsRepositoryMock = new Mock<IGameSessionsRepository>();
 
         _endgameServiceMock = new Mock<IEndgameService>();
+        _battleshipsSynchronizationServiceMock = new Mock<IBattleshipsSynchronizationService>();
         
         _attackExecutionService = new AttackExecutionService(
             GetDatabaseMock(_shipTilesRepositoryMock, _gameSessionsRepositoryMock).Object,
-            _endgameServiceMock.Object
+            _endgameServiceMock.Object,
+            _battleshipsSynchronizationServiceMock.Object
         );
     }
     

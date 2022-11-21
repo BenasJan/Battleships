@@ -1,5 +1,6 @@
 using System;
 using Battleships.Data;
+using Battleships.Factories;
 using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.Services;
@@ -108,6 +109,8 @@ namespace Battleships
                 .AddScoped<IEndgameStrategy, RoundCountLimitEndgameStrategy>()
                 .AddScoped<IAchievementService, AchievementService>()
                 .AddScoped<IGameLaunchService, GameLaunchService>()
+                .AddScoped<IPlayerShipGenerationService, PlayerShipGenerationService>()
+                .AddSingleton<NumberGeneratorFactory>()
                 ;
         }
 

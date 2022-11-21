@@ -39,7 +39,7 @@ public class AttackExecutionServiceTests
         var attack = new AttackPayload();
 
         SetupGetAttackedTile(targetedTile, attack);
-        SetupGetGameSession(new GameSession());
+        SetupGetGameSession(GetGameSession());
 
         await _attackExecutionService.ExecuteAttack(attack);
 
@@ -56,7 +56,7 @@ public class AttackExecutionServiceTests
         var attack = new AttackPayload();
 
         SetupGetAttackedTile(targetedTile, attack);
-        SetupGetGameSession(new GameSession());
+        SetupGetGameSession(GetGameSession());
 
         await _attackExecutionService.ExecuteAttack(attack);
 
@@ -71,10 +71,9 @@ public class AttackExecutionServiceTests
     {
         ShipTile targetedTile = null;
         var attack = new AttackPayload();
-        // var gameSession = new GameSession{ CurrentRound = 4 };
-        var gameSession = new GameSessionBuilder()
-            .WithCurrentRound(4)
-            .Build();
+
+        var gameSession = GetGameSession();
+        gameSession.CurrentRound = 4;
         
         SetupGetAttackedTile(targetedTile, attack);
         SetupGetGameSession(gameSession);
@@ -94,7 +93,7 @@ public class AttackExecutionServiceTests
         var attackerId = Guid.NewGuid().ToString();
         var attack = new AttackPayload{ GameSessionId = gameSessionId, AttackingUserId = attackerId };
         SetupGetAttackedTile(new ShipTile(), attack);
-        SetupGetGameSession(new GameSession());
+        SetupGetGameSession(GetGameSession());
         SetupEndgameReached(gameSessionId, true);
 
         await _attackExecutionService.ExecuteAttack(attack);
@@ -117,7 +116,7 @@ public class AttackExecutionServiceTests
     private void SetupGetGameSession(GameSession gameSession)
     {
         _gameSessionsRepositoryMock
-            .Setup(repo => repo.GetById(It.IsAny<Guid>()))
+            .Setup(repo => repo.GetWithPlayersAndSettings(It.IsAny<Guid>()))
             .ReturnsAsync(gameSession);
     }
 
@@ -140,5 +139,18 @@ public class AttackExecutionServiceTests
         mock.Setup(m => m.GameSessionsRepository).Returns(gameSessionsRepositoryMock.Object);
 
         return mock;
+    }
+
+    private static GameSession GetGameSession()
+    {
+        return new GameSession
+        {
+            Id = Guid.NewGuid(),
+            Players = new List<Player>
+            {
+                new() { IsCurrentPlayerTurn = true },
+                new() { IsCurrentPlayerTurn = false },
+            }
+        };
     }
 }

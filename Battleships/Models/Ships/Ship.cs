@@ -15,12 +15,10 @@ namespace Battleships.Models.Ships
 
         public List<UserCosmetic> UserCosmetics { get; set; }
         public List<PlayerShip> PlayerShips { get; set; }
-
-        [NotMapped]
+        
         protected IShipState _state;
 
         [NotMapped]
-
         public IShipState State
         {
             get

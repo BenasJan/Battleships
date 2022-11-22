@@ -32,6 +32,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { PublicGamesListComponent } from './components/public-games-list/public-games-list.component';
 import { PublicUsersListComponent } from './components/public-users-list/public-users-list.component';
 import { RegisterComponent } from './components/register/register.component';
+import { NotificationComponent } from './components/notification/notification.component';
+
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { RegisterComponent } from './components/register/register.component';
     ProfileComponent,
     FriendsListComponent,
     RegisterComponent,
-    CreateGameSessionComponent
+    CreateGameSessionComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,

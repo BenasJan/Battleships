@@ -74,7 +74,7 @@ namespace Battleships.Services.GameSession
 
                     IShipAppearance shipAppearance = new ShipAppearance();
                     IShipAppearance skinDecorator = new SkinDecorator(shipAppearance).Draw();
-                    IShipAppearance labelDecorator = new SkinDecorator(skinDecorator).Draw();
+                    IShipAppearance labelDecorator = new LabelDecorator(skinDecorator).Draw();
 
                     var tile = new GameTile
                     {
@@ -85,7 +85,8 @@ namespace Battleships.Services.GameSession
                             ? shipTile.IsDestroyed
                             : false,
                         ShipId = shipTile != null ? shipTile.PlayerShipId : null,
-                        SkinName = shipTile != null ? skinDecorator.SkinName : ""
+                        SkinName = shipTile != null ? labelDecorator.SkinName : "",
+                        Label = shipTile != null ? labelDecorator.Label : ""
                     };
 
                     return tile;

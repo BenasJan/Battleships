@@ -1,4 +1,5 @@
-﻿using Battleships.Models.Ships;
+﻿using Battleships.Models;
+using Battleships.Models.Ships;
 
 namespace Battleships.Decorators
 {
@@ -6,5 +7,6 @@ namespace Battleships.Decorators
     {
         ShipAppearance Draw();
         string SkinName { get; }
+        string Label { get; }
     }
 }

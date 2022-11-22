@@ -23,3 +23,11 @@
 .disabled-tile {
     background-color: rgba($color: gray, $alpha: 0.5);
 }
+
+.ship-label {
+    border: 1px solid red;
+}
+
+.selected-ship {
+    background-color: lawngreen;
+}

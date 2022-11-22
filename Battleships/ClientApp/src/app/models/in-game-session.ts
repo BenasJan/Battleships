@@ -19,4 +19,5 @@ export interface GameTile {
     rowCoordinate: number;
     shipId: string;
   SkinName: string;
+  Label: string;
 }

@@ -7,7 +7,7 @@
         public override ShipAppearance Draw()
         {
             ShipAppearance shipAppearance = base.Draw();
-            shipAppearance.Label = shipAppearance.Ship.ShipType;
+            shipAppearance.Label = "ShipLabel";
 
             return shipAppearance;
 

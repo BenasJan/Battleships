@@ -7,6 +7,7 @@ namespace Battleships.Decorators
         private IShipAppearance _shipDecorator;
 
         public string SkinName => _shipDecorator.SkinName;
+        public string Label => _shipDecorator.Label;
 
         public ShipDecorator(IShipAppearance shipDecorator)
         {

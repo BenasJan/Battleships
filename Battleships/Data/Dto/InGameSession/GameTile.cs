@@ -11,4 +11,5 @@ public class GameTile
 
     public Guid? ShipId { get; set; }
     public string SkinName { get; set; }
+    public string Label { get; set; }
 }

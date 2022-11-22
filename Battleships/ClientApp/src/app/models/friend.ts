@@ -1,6 +1,5 @@
 
-export interface User {
-  id: string;
+export interface Friend {
   name: string;
   gamesPlayedCount: number;
   gamesWonCount: number;

@@ -25,6 +25,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using Battleships.Services.Friends.Interfaces;
+using Battleships.Services.Friends;
 
 namespace Battleships
 {
@@ -111,6 +113,7 @@ namespace Battleships
                 .AddScoped<IGameLaunchService, GameLaunchService>()
                 .AddScoped<IPlayerShipGenerationService, PlayerShipGenerationService>()
                 .AddSingleton<NumberGeneratorFactory>()
+                .AddScoped<IFriendsService, FriendsService>()
                 ;
         }
 

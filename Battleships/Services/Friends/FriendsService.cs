@@ -89,7 +89,7 @@ namespace Battleships.Services.Friends
             var currentUserId = _currentUserService.GetCurrentUserId();
             var friendsIds = GetFriendsIds(currentUserId).Result;
 
-            if (userId != currentUserId && !friendsIds.Contains(userId.ToString()))
+            if (userId != null && userId != currentUserId && !friendsIds.Contains(userId.ToString()))
             {
                 var newFriend = new Friend()
                 {

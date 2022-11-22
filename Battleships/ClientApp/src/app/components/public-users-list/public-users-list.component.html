@@ -11,7 +11,7 @@
         (click)="addUserClicked.emit(user)">Add</button>
       <mat-divider></mat-divider>
       <div mat-col>
-        <button mat-icon-button matTooltip="Send friend invite" (click)="addFriend(user.userId)">
+        <button mat-icon-button matTooltip="Send friend invite" (click)="addFriend(user.id)">
           <mat-icon mat-list-icon>{{'group_add'}}</mat-icon>
         </button>
 

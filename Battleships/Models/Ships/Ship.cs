@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using Battleships.Bridge;
 
 namespace Battleships.Models.Ships
@@ -17,6 +18,7 @@ namespace Battleships.Models.Ships
         
         protected IShipState _state;
 
+        [NotMapped]
         public IShipState State
         {
             get

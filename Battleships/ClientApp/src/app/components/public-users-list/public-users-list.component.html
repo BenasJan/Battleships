@@ -10,5 +10,23 @@
       <button mat-raised-button color="primary" *ngIf="showAddPlayerButton"
         (click)="addUserClicked.emit(user)">Add</button>
       <mat-divider></mat-divider>
+      <div mat-col>
+        <button mat-icon-button matTooltip="Send friend invite" (click)="addFriend(user.userId)">
+          <mat-icon mat-list-icon>{{'group_add'}}</mat-icon>
+        </button>
+
+        <!--<button mat-icon-button matTooltip="Logout" (click)="logout()">
+          <mat-icon>logout</mat-icon>
+        </button>-->
+      </div>
+          <!--<div mat-col>
+        <mat-icon mat-list-icon>{{'message'}}</mat-icon>
+      </div>-->
+      <!--<div mat-col>
+        <mat-icon mat-list-icon>{{'favorite'}}</mat-icon>
+      </div>-->
+      <!--<div mat-col>
+        <mat-icon mat-list-icon>{{'delete'}}</mat-icon>
+      </div>-->
     </mat-list-item>
 </mat-list>

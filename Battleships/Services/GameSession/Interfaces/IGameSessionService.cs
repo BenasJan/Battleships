@@ -12,5 +12,7 @@ namespace Battleships.Services.GameSession.Interfaces
         Task<Guid> CreateSession(GameSessionRequestDto gameSessionDto);
         Task<GameSessionDto> GetSession(Guid id);
         Task<InGameSessionDto> GetInGameSession(Guid gameSessionId);
+
+        Task<InGameSessionDto> MoveShipInSession(Guid gameSessionId, Guid shipId, string direction);
     }
 }

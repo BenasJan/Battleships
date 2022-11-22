@@ -4,9 +4,11 @@ namespace Battleships.Factories
 {
     public class ShipFactoryProducer
     {
-        public AbstractShipFactory ProduceFactory(bool isDefensive)
+        public AbstractShipFactory ProduceFactory(bool? isDefensive)
         {
-            if (isDefensive)
+            if (isDefensive == null) return new NeutralShipFactory();
+
+            if ((bool)isDefensive)
             {
                 return new DefensiveShipFactory();
             }

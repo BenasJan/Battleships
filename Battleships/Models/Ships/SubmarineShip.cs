@@ -2,6 +2,9 @@
 {
     public class SubmarineShip : Ship
     {
-        
+        public override void ChangeState()
+        {
+            base.Description = $"Submarine ship {_state.GetState()}!";
+        }
     }
 }

@@ -19,6 +19,7 @@ public class ShipSeeder
         if (isEmpty)
         {
             var factoryProducer = new ShipFactoryProducer();
+            var neutralShipFactory = factoryProducer.ProduceFactory(null);
             var defensiveShipsFactory = factoryProducer.ProduceFactory(true);
             var offensiveShipsFactory = factoryProducer.ProduceFactory(false);
 
@@ -29,6 +30,7 @@ public class ShipSeeder
                 offensiveShipsFactory.GenerateShip(ShipTypes.Battleship),
                 offensiveShipsFactory.GenerateShip(ShipTypes.Destroyer),
                 offensiveShipsFactory.GenerateShip(ShipTypes.Submarine),
+                neutralShipFactory.GenerateShip(ShipTypes.Dummy)
             };    
             
             battleshipsDatabase.ShipsRepository.CreateMany(ships).Wait();

@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.authorizationService.intializeAuthorization();
     if (this.authorizationService.isAuthorized){
-      this.signalRService.connect();
+      this.signalRService.connectAsUser();
     }
   }
 }

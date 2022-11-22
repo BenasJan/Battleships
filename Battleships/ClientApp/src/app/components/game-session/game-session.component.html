@@ -1,7 +1,30 @@
-<!--<mat-grid-list [cols]="columnCount" rowHeight="50px">-->
-<!--    <ng-container *ngFor="let tile of tiles"></ng-container>-->
-<!--    <mat-grid-tile>-->
-<!--        <div *ngIf="tile.isShip"></div>-->
-<!--        <div *ngIf="!tile.isShip"></div>-->
-<!--    </mat-grid-tile>-->
-<!--  </mat-grid-list>-->
+<div style="display: flex; flex-direction: row; justify-content: space-around;">
+  <div>
+    <h2>{{gameSession.ownName}}</h2>
+    <mat-grid-list class="ships-board" [cols]="gameSession.columnCount" rowHeight="25px" [style]="{ width: gameSession.columnCount * 25 + 'px'}">
+      <ng-container *ngFor="let ownTile of gameSession.ownTiles">
+        <mat-grid-tile class="normal-tile" [ngClass]="{
+          'ship-tile': ownTile.isShip,
+          'destroyed-tile': ownTile.isDestroyed
+        }">
+          <div></div>
+        </mat-grid-tile>
+      </ng-container>
+    </mat-grid-list>    
+  </div>
+  <div>
+    <h2>{{gameSession.opponentName}}</h2>
+    <mat-grid-list class="ships-board" [cols]="gameSession.columnCount" rowHeight="25px" [style]="{ width: gameSession.columnCount * 25 + 'px'}">
+      <ng-container *ngFor="let opponentTile of gameSession.opponentTiles">
+        <mat-grid-tile class="normal-tile" [ngClass]="{
+          'destroyed-tile': opponentTile.isDestroyed,
+          'disabled-tile': !isOwnTurn
+        }" (click)="stageAttack(opponentTile)">
+          <div></div>
+        </mat-grid-tile>
+      </ng-container>
+    </mat-grid-list>
+  </div>
+</div>
+
+<button *ngIf="isMoveSelected" mat-raised-button color="warn" (click)="submitAttack()" [disabled]="attackInSubmission">ATTACK</button>

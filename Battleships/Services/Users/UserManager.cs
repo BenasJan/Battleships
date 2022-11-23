@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Battleships.Models;
 using Microsoft.AspNetCore.Identity;
 
@@ -12,6 +13,8 @@ public class UserManager : IUserManager
     {
         _userManager = userManager;
     }
+
+    public IQueryable<ApplicationUser> Users => _userManager.Users;
 
     public async Task<ApplicationUser> GetById(string userId)
     {

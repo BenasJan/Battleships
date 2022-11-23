@@ -200,39 +200,17 @@ public class GameSessionServiceTests
     }
     
     private static Mock<IBattleshipsDatabase> GetDbMock(
-        // Mock<IRepository<GameSession>> sessionRepositoryMock,
         Mock<IGameSessionsRepository> gameSessionsRepositoryMock,
         Mock<IRepository<PlayerShip>> playerShipRepositoryMock,
         Mock<IShipTilesRepository> shipTileRepositoryMock
-        // Mock<IInGameSessionHelperService> inGameSessionHelperService
     )
     {
         var mock = new Mock<IBattleshipsDatabase>();
 
-        // mock.Setup(db => db.GameSessionsRepository).Returns(sessionRepositoryMock.Object);
         mock.Setup(db => db.GameSessionsRepository).Returns(gameSessionsRepositoryMock.Object);
         mock.Setup(db => db.PlayerShipsRepository).Returns(playerShipRepositoryMock.Object);
         mock.Setup(db => db.ShipTilesRepository).Returns(shipTileRepositoryMock.Object);
-        // mock.Setup(db => db.GameSessionsRepository.GetAll())
-        //     .ReturnsAsync(new List<GameSession>
-        //     {
-        //         new GameSession()
-        //         {
-        //             Players = new List<Player>()
-        //             {
-        //                 new Player()
-        //                 {
-        //                     Id = Guid.NewGuid(),
-        //                     User = new ApplicationUser()
-        //                     {
-        //                         Name = "aboba"
-        //                     },
-        //                     UserId = "aboba2"
-        //                 }
-        //             },
-        //             Settings = new GameSessionSettings()
-        //         }
-        //     });
+
         return mock;
     }
 }

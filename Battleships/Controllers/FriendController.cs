@@ -1,9 +1,6 @@
 ﻿using Battleships.Data.Dto;
-using Battleships.Models;
-using Battleships.Repositories;
 using Battleships.Services.Friends.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Threading.Tasks;
 
 namespace Battleships.Controllers
@@ -41,17 +38,5 @@ namespace Battleships.Controllers
 
             return Ok(success);
         }
-
-
-        //[HttpPost("createSession")]
-        //public async Task<IActionResult> CreateSessions([FromBody] GameSessionRequestDto gameSessionDto)
-        //{
-        //    Console.WriteLine("creating session...");
-        //    Console.WriteLine(gameSessionDto.Name);
-        //    Console.WriteLine(gameSessionDto.SettingsDto.GridSize);
-        //    // var gameSessions = await _gameSessionService.ListAllSessions();
-
-        //    return Ok(await _gameSessionService.CreateSession(gameSessionDto));
-        //}
     }
 }

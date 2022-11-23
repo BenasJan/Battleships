@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Battleships.Data.Constants;
-using Battleships.Factories;
 using Battleships.Models;
-using Battleships.Models.Ships;
 using Battleships.Prototype;
 using Battleships.Repositories;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Battleships.Data

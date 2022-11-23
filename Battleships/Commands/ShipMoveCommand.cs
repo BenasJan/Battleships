@@ -4,61 +4,61 @@ namespace Battleships.Commands
 {
     public class ShipMoveUpCommand : IShipActionCommand
     {
-        private PlayerShip ship;
+        private readonly PlayerShip _ship;
 
         public ShipMoveUpCommand(PlayerShip ship)
         {
-            this.ship = ship;
+            _ship = ship;
         }   
 
         public void Execute()
         {
-            ship.MoveUp();
+            _ship.MoveUp();
         }
     }
 
     public class ShipMoveDownCommand : IShipActionCommand
     {
-        private PlayerShip ship;
+        private readonly PlayerShip _ship;
 
         public ShipMoveDownCommand(PlayerShip ship)
         {
-            this.ship = ship;
+            this._ship = ship;
         }
 
         public void Execute()
         {
-            ship.MoveDown();
+            _ship.MoveDown();
         }
     }
 
     public class ShipMoveLeftCommand : IShipActionCommand
     {
-        private PlayerShip ship;
+        private readonly PlayerShip _ship;
 
         public ShipMoveLeftCommand(PlayerShip ship)
         {
-            this.ship = ship;
+            this._ship = ship;
         }
 
         public void Execute()
         {
-            ship.MoveLeft();
+            _ship.MoveLeft();
         }
     }
 
     public class ShipMoveRightCommand : IShipActionCommand
     {
-        private PlayerShip ship;
+        private readonly PlayerShip _ship;
 
         public ShipMoveRightCommand(PlayerShip ship)
         {
-            this.ship = ship;
+            _ship = ship;
         }
 
         public void Execute()
         {
-            ship.MoveRight();
+            _ship.MoveRight();
         }
     }
 }

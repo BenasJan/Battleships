@@ -7,7 +7,7 @@ namespace Battleships.Services.Builders;
 
 public class GameSessionBuilder : IGameSessionBuilder
 {
-    private readonly Models.GameSession _session = new();
+    private readonly GameSession _session = new GameSession();
     
     public GameSessionBuilder WithIcon(string icon)
     {

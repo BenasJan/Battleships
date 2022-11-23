@@ -108,7 +108,7 @@ public class AttackExecutionServiceTests
     {
         _shipTilesRepositoryMock
             .Setup(repo => repo
-                .GetAttackedTile(It.Is<AttackPayload>(expected => expected == attack))
+                .GetAttackedTiles(It.Is<AttackPayload>(expected => expected == attack))
             )
             .ReturnsAsync(tile);
     }

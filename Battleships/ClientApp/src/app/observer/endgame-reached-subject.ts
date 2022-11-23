@@ -1,8 +1,9 @@
+import { EndgameReachedPayload } from "../models/payloads/endgame-reached-payload";
 import { EndgameReachedObserver } from "./endgame-reached-observer";
 import { Subject } from "./subject";
 
 export class EndgameReachedSubject implements Subject {
-    public gameSessionId: string;
+    public endgame: EndgameReachedPayload;
     private observers: EndgameReachedObserver[] = [];
 
     constructor() {}
@@ -29,8 +30,8 @@ export class EndgameReachedSubject implements Subject {
         }
     }
 
-    public sendSessionId(id: string) {
-        this.gameSessionId = id;
+    public sendSession(session: EndgameReachedPayload) {
+        this.endgame = session;
         this.notify();
     }
 }

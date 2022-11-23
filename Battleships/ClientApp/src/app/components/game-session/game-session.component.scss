@@ -12,8 +12,20 @@
     background-color: black;
 }
 
-.destroyed-tile {
-    background-color: rgba($color: red, $alpha: 0.5);
+.destroyed-tile-own {
+    background-color: rgba($color: green, $alpha: 0.5) !important;
+}
+
+.destroyed-ship-tile-own {
+    background-color: rgba($color: red, $alpha: 0.5) !important;
+}
+
+.destroyed-tile-opponent {
+    background-color: rgba($color: red, $alpha: 0.5) !important;
+}
+
+.destroyed-ship-tile-opponent {
+    background-color: rgba($color: green, $alpha: 0.5) !important;
 }
 
 .skin-tile {
@@ -24,6 +36,13 @@
     background-color: rgba($color: gray, $alpha: 0.5);
 }
 
+.selectable-tile {
+    cursor: pointer;
+}
+
+.selected-tile {
+    border: 2px solid blue !important;
+}
 .ship-label {
     border: 1px solid red;
 }

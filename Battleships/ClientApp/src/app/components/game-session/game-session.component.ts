@@ -32,7 +32,9 @@ export class GameSessionComponent implements OnInit, OnDestroy {
   private ownMovesObserver: AttackMovesObserver;
   private opponentMovesObserver: AttackMovesObserver;
   private endgameObserver: EndgameReachedObserver;
+
   public endgameReached: boolean;
+  public winnerName: string;
 
   public attackInSubmission = false;
 
@@ -57,12 +59,22 @@ export class GameSessionComponent implements OnInit, OnDestroy {
       this.selectedShipId = selectedShip?.shipId ? selectedShip?.shipId : "";
     })
 
-    this.ownMovesObserver = this.gameSessionEventsService.onOwnMoveSubmitted((_, __) => {
+    this.ownMovesObserver = this.gameSessionEventsService.onOwnMoveSubmitted((xCorrd, yCoord) => {
       this.gameSession.currentRound++;
+      
+      const destroyedTile = this.gameSession.opponentTiles.find(tile => tile.columnCoordinate == xCorrd && tile.rowCoordinate == yCoord);
+      
+      if (destroyedTile) {
+        destroyedTile.isDestroyed = true;
+        this.gameSession = { ...this.gameSession };
+      }
+
       this.isOwnTurn = false;
+
       this.attackInSubmission = false;
       this.selectedMoveXCoord = null;
       this.selectedMoveYCoord = null;
+      this.gameSession.opponentTiles.forEach(t => t.isSelected = false);
     })
 
     this.opponentMovesObserver = this.gameSessionEventsService.onOpponentMoveSubmitted((xCorrd, yCoord) => {
@@ -78,9 +90,10 @@ export class GameSessionComponent implements OnInit, OnDestroy {
       this.isOwnTurn = true;
     })
 
-    this.endgameObserver = this.gameSessionEventsService.onEndgameReached(sessionId => {
-      if (this.gameSessionId == sessionId) {
+    this.endgameObserver = this.gameSessionEventsService.onEndgameReached(endgame => {
+      if (this.gameSessionId == endgame.gameSessionId) {
         this.endgameReached = true;
+        this.winnerName = endgame.winnerName;
       }
     })
 
@@ -98,6 +111,13 @@ export class GameSessionComponent implements OnInit, OnDestroy {
   }
 
   public stageAttack(tile: GameTile): void {
+    if (!this.isOwnTurn || this.endgameReached) {
+      return;
+    }
+
+    this.gameSession.opponentTiles.forEach(t => t.isSelected = false);
+    tile.isSelected = true;
+
     this.selectedMoveXCoord = tile.columnCoordinate;
     this.selectedMoveYCoord = tile.rowCoordinate;
   }

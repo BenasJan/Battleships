@@ -1,3 +1,4 @@
+<h1 *ngIf="endgameReached">Game Over, the winner is {{winnerName}}</h1>
 <div style="display: flex; flex-direction: row; justify-content: space-around;">
   <div>
     <h2>{{gameSession.ownName}}</h2>
@@ -5,17 +6,10 @@
       <ng-container *ngFor="let ownTile of gameSession.ownTiles">
         <mat-grid-tile class="normal-tile" [ngClass]="{
           'ship-tile': ownTile.isShip,
-          'destroyed-tile': ownTile.isDestroyed,
-          'skin-tile': ownTile.SkinName !== null && ownTile.SkinName !== '' && ownTile.shipId != null,
-          'ship-label': ownTile.Label !== null && ownTile.shipId !== null,
-          'selected-ship': ownTile.isShip && ownTile.shipId === selectedShipId
-        }">
-          <div>{{ownTile.Label}}</div>
-        <!--<mat-grid-tile class="ship-tile">
-          <div style="background-color: limegreen; height: 25px;" *ngIf="ownTile.isShip && ownTile.shipId == selectedShipId">ship</div>
-          <div style="background-color: black; height: 25px;" *ngIf="ownTile.isShip && ownTile.shipId != selectedShipId">ship</div>
-          <div *ngIf="!ownTile.isShip"></div>
-        </mat-grid-tile>-->
+          'destroyed-tile-own': ownTile.isDestroyed && !ownTile.isShip,
+          'destroyed-ship-tile-own': ownTile.isDestroyed && ownTile.isShip 
+        }" >
+          <div></div>
         </mat-grid-tile>
       </ng-container>
     </mat-grid-list>    
@@ -25,8 +19,11 @@
     <mat-grid-list class="ships-board" [cols]="gameSession.columnCount" rowHeight="25px" [style]="{ width: gameSession.columnCount * 25 + 'px'}">
       <ng-container *ngFor="let opponentTile of gameSession.opponentTiles">
         <mat-grid-tile class="normal-tile" [ngClass]="{
-          'destroyed-tile': opponentTile.isDestroyed,
-          'disabled-tile': !isOwnTurn
+          'destroyed-tile-opponent': opponentTile.isDestroyed && !opponentTile.isShip,
+          'destroyed-ship-tile-opponent': opponentTile.isDestroyed && opponentTile.isShip,
+          'disabled-tile': !isOwnTurn,
+          'selectable-tile': isOwnTurn,
+          'selected-tile': opponentTile.isSelected
         }" (click)="stageAttack(opponentTile)">
           <div></div>
         </mat-grid-tile>

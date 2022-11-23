@@ -32,11 +32,5 @@ namespace Battleships.Models.Ships
         }
 
         public abstract void ChangeState();
-
-        void n()
-        {
-            State.ChangeState();
-            _state.ChangeState();
-        }
     }
 }

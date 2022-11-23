@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { EndgameReachedPayload } from '../models/payloads/endgame-reached-payload';
 import { AttackMovesObserver } from '../observer/attack-moves-observer';
 import { AttackMovesSubject } from '../observer/attack-moves-subject';
 import { EndgameReachedObserver } from '../observer/endgame-reached-observer';
@@ -51,11 +52,11 @@ export class GameSessionEventsService {
   //#endregion
 
   //#region endgame
-  public publishEndgameReached(gameSessionId: string): void {
-    this.endgameReachedSubject.sendSessionId(gameSessionId);
+  public publishEndgameReached(endgame: EndgameReachedPayload): void {
+    this.endgameReachedSubject.sendSession(endgame);
   }
 
-  public onEndgameReached(callback: (gameSessionId: string) => void): EndgameReachedObserver {
+  public onEndgameReached(callback: (endgame: EndgameReachedPayload) => void): EndgameReachedObserver {
     const observer = new EndgameReachedObserver(callback);
     this.endgameReachedSubject.attach(observer);
 

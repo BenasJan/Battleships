@@ -15,9 +15,9 @@ public class ShipTilesRepository : BaseRepository<ShipTile>, IShipTilesRepositor
     {
     }
 
-    public async Task<ShipTile> GetAttackedTile(AttackPayload attack)
+    public async Task<List<ShipTile>> GetAttackedTiles(AttackPayload attack)
     {
-        return await GetSingle(tile =>
+        return await GetWhere(tile =>
             tile.XCoordinate == attack.TargetXCoordinate && tile.YCoordinate == attack.TargetYCoordinate &&
             tile.PlayerShip.Player.UserId != attack.AttackingUserId &&
             tile.PlayerShip.Player.GameSessionId == attack.GameSessionId
@@ -35,7 +35,7 @@ public class ShipTilesRepository : BaseRepository<ShipTile>, IShipTilesRepositor
     public async Task<List<ShipTile>> GetPlayerTiles(Guid playerId)
     {
         return await ItemSet
-            .Where(tile => tile.PlayerShip.PlayerId == playerId)
+            .Where(tile => tile.PlayerShip.PlayerId == playerId || tile.TargetPlayerId == playerId)
             .ToListAsync();
     }
     // add ship number to each tile if theres ship

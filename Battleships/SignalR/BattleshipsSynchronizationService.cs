@@ -15,9 +15,10 @@ namespace Battleships.SignalR
             _battleshipsHub = battleshipsHub;
         }
 
-        public async Task SendEndgameReached(Guid gameSessionId)
+        public async Task SendEndgameReached(Guid gameSessionId, string winnerName)
         {
-            await _battleshipsHub.Clients.Group(gameSessionId.ToString()).SendAsync("endgameReached");
+            var payload = new { gameSessionId, winnerName };
+            await _battleshipsHub.Clients.Group(gameSessionId.ToString()).SendAsync("endgameReached", payload);
         }
 
         public async Task SendAttackMessage(Guid gameSessionId, BattleshipsMessage<AttackPayload> message)

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.SignalR.Interfaces;
 using Battleships.SignalR.Models;
@@ -25,14 +26,26 @@ namespace Battleships.Services
         public async Task ExecuteAttack(AttackPayload attack)
         {
             var session = await _battleshipsDatabase.GameSessionsRepository.GetWithPlayersAndSettings(attack.GameSessionId);
-            var destroyedTile = await _battleshipsDatabase.ShipTilesRepository.GetAttackedTile(attack);
+            var attackedTiles = await _battleshipsDatabase.ShipTilesRepository.GetAttackedTiles(attack);
             var currentUserPlayer = session.Players.First(p => p.IsCurrentPlayerTurn);
             var opponentPlayer = session.Players.First(p => !p.IsCurrentPlayerTurn);
 
-            if (destroyedTile is not null)
+            if (attackedTiles.Any())
             {
-                destroyedTile.IsDestroyed = true;
-                await _battleshipsDatabase.ShipTilesRepository.Update(destroyedTile);
+                attackedTiles.ForEach(t => t.IsDestroyed = true);
+                await _battleshipsDatabase.ShipTilesRepository.UpdateMany(attackedTiles);
+            }
+            else
+            {
+                var tile = new ShipTile
+                {
+                    IsDestroyed = true,
+                    XCoordinate = attack.TargetXCoordinate,
+                    YCoordinate = attack.TargetYCoordinate,
+                    AttackerPlayerId = currentUserPlayer.Id,
+                    TargetPlayerId = opponentPlayer.Id
+                };
+                await _battleshipsDatabase.ShipTilesRepository.Create(tile);
             }
             
             session.CurrentRound += 1;

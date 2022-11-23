@@ -19,7 +19,11 @@ public class DeathMatchEndgameStrategy : IEndgameStrategy
     public async Task<bool> IsEndgameReached(Guid gameSessionId)
     {
         var tiles = await _battleshipsDatabase.ShipTilesRepository.GetSessionShipTiles(gameSessionId);
-        var playerShipIds = tiles.Select(tile => tile.PlayerShipId).Distinct().ToList();
+        var playerShipIds = tiles
+            .Where(tile => tile.PlayerShipId is not null)
+            .Select(tile => tile.PlayerShipId.Value)
+            .Distinct()
+            .ToList();
 
         var isAnyShipDestroyed = playerShipIds.Any(playerShipId => IsShipDestroyed(tiles, playerShipId));
 

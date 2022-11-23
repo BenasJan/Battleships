@@ -17,7 +17,10 @@ export interface GameTile {
     isDestroyed: boolean;
     columnCoordinate: number;
     rowCoordinate: number;
+
+    isSelected: boolean;
+
     shipId: string;
-  SkinName: string;
-  Label: string;
+    SkinName: string;
+    Label: string;
 }

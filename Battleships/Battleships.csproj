@@ -11,6 +11,7 @@
         <!-- Set this to true if you enable server-side prerendering -->
         <BuildServerSideRenderer>false</BuildServerSideRenderer>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <CodeAnalysisRuleSet>..\.sonarlint\battleshipscsharp.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
 
     <ItemGroup>
@@ -41,6 +42,9 @@
       <_ContentIncludedByDefault Remove="Pages\Error.cshtml" />
       <_ContentIncludedByDefault Remove="Pages\Shared\_LoginPartial.cshtml" />
       <_ContentIncludedByDefault Remove="Pages\_ViewImports.cshtml" />
+    </ItemGroup>
+    <ItemGroup>
+      <AdditionalFiles Include="..\.sonarlint\battleships\CSharp\SonarLint.xml" Link="SonarLint.xml" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="Migrations" />

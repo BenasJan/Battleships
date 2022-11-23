@@ -38,6 +38,5 @@ namespace Battleships.Repositories
                 .Where(tile => tile.PlayerShip.PlayerId == playerId || tile.TargetPlayerId == playerId)
                 .ToListAsync();
         }
-        // add ship number to each tile if theres ship
     }
 }

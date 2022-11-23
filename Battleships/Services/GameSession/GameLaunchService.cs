@@ -4,54 +4,56 @@ using Battleships.Models.enums;
 using Battleships.Repositories;
 using Battleships.Services.GameSession.Interfaces;
 
-namespace Battleships.Services.GameSession;
-
-public class GameLaunchService : IGameLaunchService
+namespace Battleships.Services.GameSession
 {
-    private readonly IBattleshipsDatabase _battleshipsDatabase;
-    private readonly IPlayerShipGenerationService _playerShipGenerationService;
-    
-    public GameLaunchService(
-        IBattleshipsDatabase battleshipsDatabase,
-        IPlayerShipGenerationService playerShipGenerationService)
+    public class GameLaunchService : IGameLaunchService
     {
-        _battleshipsDatabase = battleshipsDatabase;
-        _playerShipGenerationService = playerShipGenerationService;
-    }
+        private readonly IBattleshipsDatabase _battleshipsDatabase;
+        private readonly IPlayerShipGenerationService _playerShipGenerationService;
 
-    public async Task LaunchGame(Guid gameSessionId, bool rematch)
-    {
-        if (rematch)
+        public GameLaunchService(
+            IBattleshipsDatabase battleshipsDatabase,
+            IPlayerShipGenerationService playerShipGenerationService)
         {
-            await LaunchRematch(gameSessionId);
+            _battleshipsDatabase = battleshipsDatabase;
+            _playerShipGenerationService = playerShipGenerationService;
         }
-        else
+
+        public async Task LaunchGame(Guid gameSessionId, bool rematch)
         {
-            await LaunchGame(gameSessionId);
+            if (rematch)
+            {
+                await LaunchRematch(gameSessionId);
+            }
+            else
+            {
+                await LaunchGame(gameSessionId);
+            }
         }
-    }
 
-    private async Task LaunchRematch(Guid gameSessionId)
-    {
-        var gameSession = await _battleshipsDatabase.GameSessionsRepository.GetWithPlayersAndSettings(gameSessionId);
-        var deepCopy = gameSession.DeepClone(gameSession) as Models.GameSession;
+        private async Task LaunchRematch(Guid gameSessionId)
+        {
+            var gameSession = await _battleshipsDatabase.GameSessionsRepository.GetWithPlayersAndSettings(gameSessionId);
+            var deepCopy = gameSession.DeepClone(gameSession) as Models.GameSession;
 
-        var playerShips = await _playerShipGenerationService.GeneratePlayerShips(gameSession.Settings);
+            var playerShips = await _playerShipGenerationService.GeneratePlayerShips(gameSession.Settings);
 
-        deepCopy.Status = GameSessionStatus.InProgress;
+            deepCopy.Status = GameSessionStatus.InProgress;
 
-        await _battleshipsDatabase.PlayerShipsRepository.CreateMany(playerShips);
-        await _battleshipsDatabase.GameSessionsRepository.Update(deepCopy);
-    }
+            await _battleshipsDatabase.PlayerShipsRepository.CreateMany(playerShips);
+            await _battleshipsDatabase.GameSessionsRepository.Update(deepCopy);
+        }
 
-    public async Task LaunchGame(Guid gameSessionId)
-    {
-        var gameSession = await _battleshipsDatabase.GameSessionsRepository.GetById(gameSessionId);
-        var playerShips = await _playerShipGenerationService.GeneratePlayerShips(gameSession.Settings);
-        
-        gameSession.Status = GameSessionStatus.InProgress;
+        public async Task LaunchGame(Guid gameSessionId)
+        {
+            var gameSession = await _battleshipsDatabase.GameSessionsRepository.GetById(gameSessionId);
+            var playerShips = await _playerShipGenerationService.GeneratePlayerShips(gameSession.Settings);
 
-        await _battleshipsDatabase.PlayerShipsRepository.CreateMany(playerShips);
-        await _battleshipsDatabase.GameSessionsRepository.Update(gameSession);
+            gameSession.Status = GameSessionStatus.InProgress;
+
+            await _battleshipsDatabase.PlayerShipsRepository.CreateMany(playerShips);
+            await _battleshipsDatabase.GameSessionsRepository.Update(gameSession);
+        }
     }
 }
+

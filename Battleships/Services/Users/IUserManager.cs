@@ -3,10 +3,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Battleships.Models;
 
-namespace Battleships.Services.Users;
-
-public interface IUserManager
+namespace Battleships.Services.Users
 {
-    Task<ApplicationUser> GetById(string userId);
-    IQueryable<ApplicationUser> Users { get;  }
+    public interface IUserManager
+    {
+        Task<ApplicationUser> GetById(string userId);
+        IQueryable<ApplicationUser> Users { get; }
+    }
 }

@@ -6,7 +6,7 @@ namespace Battleships.Services.Builders
 {
     public class ShipTileBuilder : IShipTileBuilder
     {
-        private ShipTile shipTile = new ShipTile();
+        private readonly ShipTile shipTile = new();
     
         public ShipTileBuilder WithXCoordinate(int x)
         {
@@ -70,7 +70,7 @@ namespace Battleships.Services.Builders
 
         public ShipTile Build()
         {
-            return this.shipTile;
+            return shipTile;
         }
     }
 }

@@ -8,15 +8,14 @@ namespace Battleships.Services.Builders
     
         public GameSessionCreator(IGameSessionBuilder builder)
         {
-            this._builder = builder;
+            _builder = builder;
         }
 
         public void BuildDefaultMinimalSession()
         {
-            this._builder.WithIcon("");
-            this._builder.WithName("Name");
-            this._builder.WithDateCreated(DateTime.Now);
+            _builder.WithIcon("");
+            _builder.WithName("Name");
+            _builder.WithDateCreated(DateTime.Now);
         }
-    
     }
 }

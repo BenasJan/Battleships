@@ -7,48 +7,48 @@ namespace Battleships.Services.Builders;
 
 public class GameSessionBuilder : IGameSessionBuilder
 {
-    private Models.GameSession session = new Models.GameSession();
+    private readonly Models.GameSession _session = new();
     
     public GameSessionBuilder WithIcon(string icon)
     {
-        session.Icon = icon;
+        _session.Icon = icon;
         return this;
     }
 
     public GameSessionBuilder WithName(string name)
     {
-        session.Name = name;
+        _session.Name = name;
         return this;
     }
 
     public GameSessionBuilder WithDateCreated(DateTime dateCreated)
     {
-        session.DateCreated = dateCreated;
+        _session.DateCreated = dateCreated;
         return this;
     }
 
     public GameSessionBuilder WithGameLength(TimeSpan gameLength)
     {
-        session.GameLength = gameLength;
+        _session.GameLength = gameLength;
         return this;
     }
 
     public GameSessionBuilder WithPlayers(List<Player> players)
     {
-        session.Players = players;
+        _session.Players = players;
         return this;
     }
 
     public GameSessionBuilder WithSessionSettings(GameSessionSettings settings)
     {
-        session.Settings = settings;
-        session.EndgameStrategy = GetEndgameStrategyString(settings);
+        _session.Settings = settings;
+        _session.EndgameStrategy = GetEndgameStrategyString(settings);
         return this;
     }
 
     public GameSessionBuilder WithCurrentRound(int round)
     {
-        session.CurrentRound = round;
+        _session.CurrentRound = round;
         return this;
     }
 
@@ -79,13 +79,13 @@ public class GameSessionBuilder : IGameSessionBuilder
 
     public GameSessionBuilder WithStatus(GameSessionStatus status)
     {
-        session.Status = status;
+        _session.Status = status;
 
         return this;
     }
 
     public Models.GameSession Build()
     {
-        return this.session;
+        return this._session;
     }
 }

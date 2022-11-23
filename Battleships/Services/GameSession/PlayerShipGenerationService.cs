@@ -75,9 +75,9 @@ namespace Battleships.Services.GameSession
                 var row = rowStartGenerator.GenerateNumber();
 
                 var direction = row < (rowCount / 2) ? "down" : "up";
-                var shipTypeTuple = shipTypeTuples[playerShips.Count];
+                var (shipType, shipSize) = shipTypeTuples[playerShips.Count];
 
-                var shipTiles = Enumerable.Range(row, shipTypeTuple.Item2).Select(rawRowNumber =>
+                var shipTiles = Enumerable.Range(row, shipSize).Select(rawRowNumber =>
                 {
                     var rowNumber = direction == "down" ? rawRowNumber : row - (rawRowNumber - row);
 
@@ -88,7 +88,7 @@ namespace Battleships.Services.GameSession
 
                 }).ToList();
 
-                var ship = await _battleshipsDatabase.ShipsRepository.GetByType(shipTypeTuple.Item1);
+                var ship = await _battleshipsDatabase.ShipsRepository.GetByType(shipType);
 
                 var playerShip = new PlayerShip
                 {

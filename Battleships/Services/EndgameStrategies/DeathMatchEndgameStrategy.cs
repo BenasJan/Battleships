@@ -31,7 +31,7 @@ namespace Battleships.Services.EndgameStrategies
             return isAnyShipDestroyed;
         }
 
-        private bool IsShipDestroyed(List<ShipTile> tiles, Guid playerShipId)
+        private static bool IsShipDestroyed(List<ShipTile> tiles, Guid playerShipId)
         {
             return tiles
                 .Where(tile => tile.PlayerShipId == playerShipId)

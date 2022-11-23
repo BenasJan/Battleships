@@ -68,11 +68,7 @@ namespace Battleships.Services.GameSession
                     var emptyTile = emptyTiles.FirstOrDefault(st =>
                         st.XCoordinate == columnCoordinate && st.YCoordinate == rowCoordinate
                     );
-
-                    // IShipAppearance shipAppearance = new ShipAppearance();
-                    // IShipAppearance skinDecorator = new SkinDecorator(shipAppearance).Draw();
-                    // IShipAppearance labelDecorator = new LabelDecorator(skinDecorator).Draw();
-
+                    
                     var tile = new GameTile
                     {
                         ColumnCoordinate = columnCoordinate,
@@ -80,8 +76,6 @@ namespace Battleships.Services.GameSession
                         IsShip = shipTile?.PlayerShipId is not null,
                         IsDestroyed = (shipTile?.IsDestroyed ?? false) || (emptyTile?.IsDestroyed ?? false),
                         ShipId = shipTile != null ? shipTile.PlayerShipId : null,
-                        // SkinName = shipTile != null ? labelDecorator.SkinName : "",
-                        // Label = shipTile != null ? labelDecorator.Label : ""
                     };
 
                     return tile;
@@ -94,8 +88,7 @@ namespace Battleships.Services.GameSession
         public async Task<InGameSessionDto> MoveShipInSession (Guid gameSessionId, Guid shipId, string direction)
         {
 
-            PlayerShip playerShip = await _battleshipsDatabase.PlayerShipsRepository.GetById(shipId);
-
+            var playerShip = await _battleshipsDatabase.PlayerShipsRepository.GetById(shipId);
             var playerTiles = await _battleshipsDatabase.ShipTilesRepository.GetPlayerTiles(playerShip.PlayerId);
 
             switch (direction)
@@ -105,16 +98,16 @@ namespace Battleships.Services.GameSession
                     shipMoveUpCommand.Execute();
                     break;
                 case "Down":
-                    IShipActionCommand ShipMoveDownCommand = new ShipMoveDownCommand(playerShip);
-                    ShipMoveDownCommand.Execute();
+                    IShipActionCommand shipMoveDownCommand = new ShipMoveDownCommand(playerShip);
+                    shipMoveDownCommand.Execute();
                     break;                
                 case "Left":
-                    IShipActionCommand ShipMoveLeftCommand = new ShipMoveLeftCommand(playerShip);
-                    ShipMoveLeftCommand.Execute();
+                    IShipActionCommand shipMoveLeftCommand = new ShipMoveLeftCommand(playerShip);
+                    shipMoveLeftCommand.Execute();
                     break;                
                 case "Right":
-                    IShipActionCommand ShipMoveRightCommand = new ShipMoveRightCommand(playerShip);
-                    ShipMoveRightCommand.Execute();
+                    IShipActionCommand shipMoveRightCommand = new ShipMoveRightCommand(playerShip);
+                    shipMoveRightCommand.Execute();
                     break;
             }
 

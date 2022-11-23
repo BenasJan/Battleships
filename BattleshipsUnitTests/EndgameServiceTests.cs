@@ -12,14 +12,12 @@ public class EndgameServiceTests
 {
     private readonly EndgameService _endgameService;
 
-    private readonly Mock<IEndgameStrategyService> _endgameStrategyServiceMock;
     private readonly Mock<IGameSessionsRepository> _gameSessionsRepositoryMock;
     private readonly Mock<IUserManager> _userManagerMock;
     private readonly Mock<IBattleshipsSynchronizationService> _battleshipsSynchronizationServiceMock;
     
     public EndgameServiceTests()
     {
-        _endgameStrategyServiceMock = new Mock<IEndgameStrategyService>();
         _gameSessionsRepositoryMock = new Mock<IGameSessionsRepository>();
         _userManagerMock = new Mock<IUserManager>();
         _battleshipsSynchronizationServiceMock = new Mock<IBattleshipsSynchronizationService>();
@@ -27,12 +25,12 @@ public class EndgameServiceTests
         var dbMock = new Mock<IBattleshipsDatabase>();
         dbMock.Setup(db => db.GameSessionsRepository).Returns(_gameSessionsRepositoryMock.Object);
 
-        //_endgameService = new EndgameService(
-        //    dbMock.Object,
-        //    new Mock<IEndgameStrategyService>().Object,
-        //    _battleshipsSynchronizationServiceMock.Object,
-        //    _userManagerMock.Object
-        //);
+        _endgameService = new EndgameService(
+            dbMock.Object,
+            new Mock<IEndgameStrategyService>().Object,
+            _battleshipsSynchronizationServiceMock.Object,
+            _userManagerMock.Object
+        );
     }
 
     [Fact]
@@ -50,10 +48,10 @@ public class EndgameServiceTests
         _gameSessionsRepositoryMock.Verify(repo => repo.Update(
             It.Is<GameSession>(expected => expected.Status == GameSessionStatus.EndgameReached && expected.WinnerId == attackerId)
         ));
-        //_battleshipsSynchronizationServiceMock.Verify(s => s.SendEndgameReached(
-        //    It.Is<Guid>(id => id == gameSessionId),
-        //    It.Is<string>(winner => winner == "winner")
-        //));
+        _battleshipsSynchronizationServiceMock.Verify(s => s.SendEndgameReached(
+            It.Is<Guid>(id => id == gameSessionId),
+            It.Is<string>(winner => winner == "winner")
+        ));
     }
 
     private void SetupGameSession(GameSession gameSession, Guid gameSessionId)

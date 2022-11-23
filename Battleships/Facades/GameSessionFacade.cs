@@ -14,13 +14,13 @@ namespace Battleships.Facades
     {
         private readonly IBattleshipsDatabase _database;
         private readonly ICurrentUserService _currentUserService;
-        private readonly GameSessionRequestDto dto;
+        private readonly GameSessionRequestDto _dto;
 
         public GameSessionFacade(IBattleshipsDatabase database, ICurrentUserService currentUserService, GameSessionRequestDto dto)
         {
-            this._database = database;
-            this._currentUserService = currentUserService;
-            this.dto = dto;
+            _database = database;
+            _currentUserService = currentUserService;
+            this._dto = dto;
         }
 
         public async Task<Guid> CreateGameSession()
@@ -29,9 +29,9 @@ namespace Battleships.Facades
             
             var gameSettings = new GameSessionSettings
             {
-                ColumnCount = dto.SettingsDto.ColumnCount,
-                RowCount = dto.SettingsDto.RowCount,
-                GameType = dto.SettingsDto.GameType
+                ColumnCount = _dto.SettingsDto.ColumnCount,
+                RowCount = _dto.SettingsDto.RowCount,
+                GameType = _dto.SettingsDto.GameType
             };
             var players = new List<Player>
             {
@@ -43,9 +43,11 @@ namespace Battleships.Facades
                 }
             };
 
-            var gameSession = new GameSessionBuilder()
-                .WithIcon(dto.Icon)
-                .WithName(dto.Name)
+            IGameSessionBuilder builder = new GameSessionBuilder();
+            
+            var gameSession = builder
+                .WithIcon(_dto.Icon)
+                .WithName(_dto.Name)
                 .WithDateCreated(DateTime.UtcNow)
                 .WithSessionSettings(gameSettings)
                 .WithPlayers(players)

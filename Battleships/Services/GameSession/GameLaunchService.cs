@@ -38,10 +38,13 @@ namespace Battleships.Services.GameSession
 
             var playerShips = await _playerShipGenerationService.GeneratePlayerShips(gameSession.Settings);
 
-            deepCopy.Status = GameSessionStatus.InProgress;
+            if (deepCopy != null)
+            {
+                deepCopy.Status = GameSessionStatus.InProgress;
 
-            await _battleshipsDatabase.PlayerShipsRepository.CreateMany(playerShips);
-            await _battleshipsDatabase.GameSessionsRepository.Update(deepCopy);
+                await _battleshipsDatabase.PlayerShipsRepository.CreateMany(playerShips);
+                await _battleshipsDatabase.GameSessionsRepository.Update(deepCopy);
+            }
         }
 
         public async Task LaunchGame(Guid gameSessionId)

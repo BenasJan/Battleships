@@ -59,10 +59,8 @@ namespace Battleships.Services.GameSession
                         ColumnCoordinate = columnCoordinate,
                         RowCoordinate = rowCoordinate,
                         IsShip = shipTile is not null,
-                        IsDestroyed = shipTile is not null
-                            ? shipTile.IsDestroyed
-                            : false,
-                        ShipId = shipTile != null ? shipTile.PlayerShipId : null,
+                        IsDestroyed = shipTile?.IsDestroyed ?? false,
+                        ShipId = shipTile?.PlayerShipId,
                         SkinName = shipTile != null ? labelDecorator.SkinName : "",
                         Label = shipTile != null ? labelDecorator.Label : ""
                     };

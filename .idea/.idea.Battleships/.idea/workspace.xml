@@ -6,11 +6,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Adapter/SmtpEmailProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Adapter/SmtpEmailProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Facades/GameSessionFacade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Facades/GameSessionFacade.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/Achievement/AchievementService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Achievement/AchievementService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/Bridge/OffState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Bridge/OffState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/Bridge/OnState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Bridge/OnState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/Builders/GameSessionBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Builders/GameSessionBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/Builders/GameSessionCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Builders/GameSessionCreator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/Builders/ShipTileBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Builders/ShipTileBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/EmailSendingService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EmailSendingService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/ClassicEndgameStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/ClassicEndgameStrategy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/DeathMatchEndgameStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/DeathMatchEndgameStrategy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/DestroyedShipCountEndgameStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/DestroyedShipCountEndgameStrategy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/RoundCountLimitEndgameStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/RoundCountLimitEndgameStrategy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Services/Friends/FriendsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Friends/FriendsService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/Friends/Interfaces/IFriendsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Friends/Interfaces/IFriendsService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/GameSession/GameLaunchService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/GameSession/GameLaunchService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Services/GameSession/GameSessionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/GameSession/GameSessionService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/GameSession/Interfaces/IGameSessionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/GameSession/Interfaces/IGameSessionService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/GameSession/InGameSessionHelperService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/GameSession/InGameSessionHelperService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/GameSession/PlayerShipGenerationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/GameSession/PlayerShipGenerationService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/Players/PlayersService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Players/PlayersService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/Users/IUserManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Users/IUserManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Utilities/TimeUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Utilities/TimeUtility.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +119,7 @@
       <workItem from="1669056012871" duration="7268000" />
       <workItem from="1669064007403" duration="896000" />
       <workItem from="1669150087174" duration="687000" />
-      <workItem from="1669226547298" duration="6943000" />
+      <workItem from="1669226547298" duration="7795000" />
     </task>
     <servers />
   </component>
@@ -128,19 +145,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Battleships/Controllers/GameSessionController.cs</url>
-          <line>77</line>
-          <properties documentPath="D:\dev\Battleships\Battleships\Controllers\GameSessionController.cs" initialLine="77" containingFunctionPresentation="method 'InvitePlayer'">
-            <startOffsets>
-              <option value="2934" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2935" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Battleships/SignalR/BattleshipsHub.cs</url>
           <line>22</line>

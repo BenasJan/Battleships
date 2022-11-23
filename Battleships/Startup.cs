@@ -27,6 +27,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Battleships.Services.Friends.Interfaces;
 using Battleships.Services.Friends;
+using Battleships.Services.Users;
 
 namespace Battleships
 {
@@ -115,6 +116,7 @@ namespace Battleships
                 .AddSingleton<NumberGeneratorFactory>()
                 .AddScoped<IFriendsService, FriendsService>()
                 .AddScoped<IInGameSessionHelperService, InGameSessionHelperService>()
+                .AddScoped<IUserManager, UserManager>()
                 ;
         }
 

@@ -1,6 +1,4 @@
 ﻿using Battleships.Adapter;
-using SendGrid;
-using SendGrid.Helpers.Mail;
 
 namespace Battleships.Services
 {

@@ -4,12 +4,17 @@ namespace Battleships.Services.Bridge
 {
     public class OffState : IShipState
     {
-        private Ship ship;
-    
+        private readonly Ship _ship;
+
+        public OffState(Ship ship)
+        {
+            _ship = ship;
+        }
+
         public void ChangeState()
         {
-            ship.Name = "OffState No name provided";
-            ship.Description = "OffState No description provided";
+            _ship.Name = "OffState No name provided";
+            _ship.Description = "OffState No description provided";
         }
 
         public string GetState()

@@ -7,7 +7,6 @@ using Battleships.Repositories;
 
 namespace Battleships.Services.EndgameStrategies
 {
-
     public class DestroyedShipCountEndgameStrategy : IEndgameStrategy
     {
         private readonly IBattleshipsDatabase _battleshipsDatabase;
@@ -43,7 +42,7 @@ namespace Battleships.Services.EndgameStrategies
             return destroyedShipCount;
         }
 
-        private bool IsShipDestroyed(List<ShipTile> tiles, Guid playerShipId)
+        private static bool IsShipDestroyed(List<ShipTile> tiles, Guid playerShipId)
         {
             return tiles
                 .Where(tile => tile.PlayerShipId == playerShipId)

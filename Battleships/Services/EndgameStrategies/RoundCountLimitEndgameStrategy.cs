@@ -4,8 +4,6 @@ using Battleships.Repositories;
 
 namespace Battleships.Services.EndgameStrategies
 {
-
-
     public class RoundCountLimitEndgameStrategy : IEndgameStrategy
     {
         private readonly IBattleshipsDatabase _battleshipsDatabase;

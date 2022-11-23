@@ -1,5 +1,4 @@
-﻿using Battleships.Controllers;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -14,19 +13,5 @@ namespace Battleships.Models
         [Required]
         [ForeignKey("ApplicationUser")]
         public Guid User2 { get; set; }
-
-        //public void Invite()
-        //{
-            
-        //}
-
-        //public void Remove()
-        //{
-        //}
-
-        //public void Favorite()
-        //{
-
-        //}
     }
 }

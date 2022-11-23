@@ -4,6 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Authentication;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Battleships.Data;
 using Battleships.Data.Constants;
 using Battleships.Data.Dto;
 using Battleships.Models;
@@ -30,7 +31,7 @@ namespace Battleships.Services.Authentication
 
             if (user == null || !await _userManager.CheckPasswordAsync(user, userCredentialsDto.Password))
             {
-                throw new AuthenticationException("Invalid password");
+                throw new PasswordException("Invalid password");
             }
 
             var jwtToken = CreateJwtToken(user);

@@ -88,13 +88,13 @@ namespace Battleships.Services.Friends
             return  false;
         }
 
-        public async Task<bool> RemoveFriend(FriendDto friendObj)
+        public async Task<bool> RemoveFriend(FriendDto friend)
         {
             var currentUserId = _currentUserService.GetCurrentUserId();
 
             var friends = await _db.FriendsRepository.GetWhere(
-            user => (user.User1.ToString() == currentUserId && user.User2.ToString() == friendObj.UserId)
-            || (user.User1.ToString() == friendObj.UserId && user.User2.ToString() == currentUserId));
+            user => (user.User1.ToString() == currentUserId && user.User2.ToString() == friend.UserId)
+            || (user.User1.ToString() == friend.UserId && user.User2.ToString() == currentUserId));
 
             await _db.FriendsRepository.DeleteMany(friends);
 

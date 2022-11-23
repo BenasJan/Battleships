@@ -13,9 +13,9 @@ namespace Battleships.Data
         {
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder builder)
         {
-            modelBuilder.Entity<Ship>()
+            builder.Entity<Ship>()
                 .HasDiscriminator(ship => ship.ShipTypeDiscriminator)
                 .HasValue<BattleshipShip>(nameof(BattleshipShip))
                 .HasValue<CarrierShip>(nameof(CarrierShip))
@@ -24,7 +24,7 @@ namespace Battleships.Data
                 .HasValue<SubmarineShip>(nameof(SubmarineShip))
                 ;
             
-            base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(builder);
         }
     }
 }

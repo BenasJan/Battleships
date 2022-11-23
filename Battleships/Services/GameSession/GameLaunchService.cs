@@ -30,6 +30,17 @@ namespace Battleships.Services.GameSession
                 await LaunchGame(gameSessionId);
             }
         }
+        
+        public async Task LaunchGame(Guid gameSessionId)
+        {
+            var gameSession = await _battleshipsDatabase.GameSessionsRepository.GetById(gameSessionId);
+            var playerShips = await _playerShipGenerationService.GeneratePlayerShips(gameSession.Settings);
+
+            gameSession.Status = GameSessionStatus.InProgress;
+
+            await _battleshipsDatabase.PlayerShipsRepository.CreateMany(playerShips);
+            await _battleshipsDatabase.GameSessionsRepository.Update(gameSession);
+        }
 
         private async Task LaunchRematch(Guid gameSessionId)
         {
@@ -45,17 +56,6 @@ namespace Battleships.Services.GameSession
                 await _battleshipsDatabase.PlayerShipsRepository.CreateMany(playerShips);
                 await _battleshipsDatabase.GameSessionsRepository.Update(deepCopy);
             }
-        }
-
-        public async Task LaunchGame(Guid gameSessionId)
-        {
-            var gameSession = await _battleshipsDatabase.GameSessionsRepository.GetById(gameSessionId);
-            var playerShips = await _playerShipGenerationService.GeneratePlayerShips(gameSession.Settings);
-
-            gameSession.Status = GameSessionStatus.InProgress;
-
-            await _battleshipsDatabase.PlayerShipsRepository.CreateMany(playerShips);
-            await _battleshipsDatabase.GameSessionsRepository.Update(gameSession);
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Battleships.Models.Ships
     {
         public override void ChangeState()
         {
-            base.Description = $"Carrier ship {_state.GetState()}!";
+            base.Description = $"Carrier ship {State.GetState()}!";
         }
     }
 }

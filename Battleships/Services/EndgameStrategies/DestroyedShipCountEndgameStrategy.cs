@@ -28,7 +28,7 @@ namespace Battleships.Services.EndgameStrategies
             return destroyedPlayerShipCounts.Any(count => count >= requiredDestroyedShipCount);
         }
 
-        private int GetDestroyedPlayerShipCount(List<ShipTile> tiles, Guid playerId)
+        private static int GetDestroyedPlayerShipCount(List<ShipTile> tiles, Guid playerId)
         {
             var playerTiles = tiles.Where(tile => tile.PlayerShip.PlayerId == playerId).ToList();
             var playerShipIds = tiles

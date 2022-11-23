@@ -1,4 +1,5 @@
-﻿D:\dev\Battleships\BattleshipsUnitTests\AttackExecutionServiceTests.cs
+﻿D:\dev\Battleships\BattleshipsUnitTests\AchievementsServiceTests.cs
+D:\dev\Battleships\BattleshipsUnitTests\AttackExecutionServiceTests.cs
 D:\dev\Battleships\BattleshipsUnitTests\EndgameServiceTests.cs
 D:\dev\Battleships\BattleshipsUnitTests\EndgameStrategyServiceTests.cs
 D:\dev\Battleships\BattleshipsUnitTests\FactoryTests\DefensiveShipFactoryTests.cs

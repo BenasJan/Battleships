@@ -32,9 +32,9 @@ namespace Battleships.Services.GameSession
             _inGameSessionHelperService = inGameSessionHelperService;
         }
 
-        public async Task<Guid> CreateSession(GameSessionRequestDto dto)
+        public async Task<Guid> CreateSession(GameSessionRequestDto gameSessionDto)
         {
-            var facade = new GameSessionFacade(_battleshipsDatabase, _currentUserService, dto);
+            var facade = new GameSessionFacade(_battleshipsDatabase, _currentUserService, gameSessionDto);
             var guid = await facade.CreateGameSession();
             return guid;
         }
@@ -44,7 +44,7 @@ namespace Battleships.Services.GameSession
             var models = await _battleshipsDatabase.GameSessionsRepository.GetAll();
             if (models is null)
                 return new List<GameSessionDto>();
-            return models.Select(x => x.toDto()).ToList();
+            return models.Select(x => x.ToDto()).ToList();
         }
         
         public async Task<GameSessionDto> GetSession(Guid id)

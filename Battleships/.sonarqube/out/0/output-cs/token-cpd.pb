@@ -1799,32 +1799,7 @@ LaunchGameFF% /
 ;## 
 }$$ 	
 }%% 
-}&& ¡
-=D:\dev\Battleships\Battleships\Controllers\UsersController.cs
-	namespace 	
-Battleships
- 
-. 
-Controllers !
-;! "
-[ 
-Route 
-( 
-$str 
-) 
-] 
-[ 
-ApiController 
-] 
-public 
-class 
-UsersController 
-: 
-ControllerBase -
-{ 
-}
-
- î
+}&& î
 ;D:\dev\Battleships\Battleships\Data\ApplicationDbContext.cs
 	namespace 	
 Battleships
@@ -2635,7 +2610,7 @@ AD:\dev\Battleships\Battleships\Data\Dto\GameSessionSettingsDto.cs
 }
 
  
-} ê
+} °
 AD:\dev\Battleships\Battleships\Data\Dto\InGameSession\GameTile.cs
 	namespace 	
 Battleships
@@ -2645,102 +2620,97 @@ AD:\dev\Battleships\Battleships\Data\Dto\InGameSession\GameTile.cs
 . 
 Dto 
 . 
-InGameSession ,
-;, -
-public 
-class 
-GameTile 
-{ 
-public 
-
-bool 
-IsShip 
-{ 
-get 
-; 
-set !
-;! "
-}# $
-public 
-
-bool 
-IsDestroyed 
-{ 
-get !
-;! "
-set# &
-;& '
-}( )
-public		 
-
-int		 
-ColumnCoordinate		 
-{		  !
-get		" %
-;		% &
-set		' *
-;		* +
-}		, -
+InGameSession ,
+{ 
+public 
+
+class 
+GameTile 
+{ 
+public 
+bool 
+IsShip 
+{ 
+get  
+;  !
+set" %
+;% &
+}' (
+public 
+bool 
+IsDestroyed 
+{  !
+get" %
+;% &
+set' *
+;* +
+}, -
+public		 
+int		 
+ColumnCoordinate		 #
+{		$ %
+get		& )
+;		) *
+set		+ .
+;		. /
+}		0 1
 public
 
- 
-
+ 
 int
 
- 
+ 
 RowCoordinate
 
- 
+  
 {
 
- 
+! "
 get
 
- "
+# &
 ;
 
-" #
+& '
 set
 
-$ '
+( +
 ;
 
-' (
++ ,
 }
 
-) *
-public 
-
-Guid 
-? 
-ShipId 
-{ 
-get 
-; 
-set "
-;" #
-}$ %
-public 
-
-string 
-SkinName 
-{ 
-get  
-;  !
-set" %
-;% &
-}' (
-public 
-
-string 
-Label 
-{ 
-get 
-; 
-set "
-;" #
-}$ %
-} …
+- .
+public 
+Guid 
+? 
+ShipId 
+{ 
+get !
+;! "
+set# &
+;& '
+}( )
+public 
+string 
+SkinName 
+{  
+get! $
+;$ %
+set& )
+;) *
+}+ ,
+public 
+string 
+Label 
+{ 
+get !
+;! "
+set# &
+;& '
+}( )
+} 
+} ⁄
 ID:\dev\Battleships\Battleships\Data\Dto\InGameSession\InGameSessionDto.cs
 	namespace 	
 Battleships
@@ -2750,127 +2720,120 @@ ID:\dev\Battleships\Battleships\Data\Dto\InGameSession\InGameSessionDto.cs
 . 
 Dto 
 . 
-InGameSession ,
-;, -
-public 
-class 
-InGameSessionDto 
-{ 
-public 
-
-Guid 
-GameSessionId 
-{ 
-get  #
-;# $
-set% (
-;( )
-}* +
-public		 
-
-int		 
-ColumnCount		 
-{		 
-get		  
-;		  !
-set		" %
-;		% &
-}		' (
+InGameSession ,
+{ 
+public 
+
+class 
+InGameSessionDto !
+{ 
+public 
+Guid 
+GameSessionId !
+{" #
+get$ '
+;' (
+set) ,
+;, -
+}. /
+public		 
+int		 
+ColumnCount		 
+{		  
+get		! $
+;		$ %
+set		& )
+;		) *
+}		+ ,
 public
 
- 
-
+ 
 int
 
- 
+ 
 RowCount
 
- 
+ 
 {
 
- 
+ 
 get
 
- 
+ !
 ;
 
- 
+! "
 set
 
- "
+# &
 ;
 
-" #
+& '
 }
 
-$ %
-public 
-
-int 
-CurrentRound 
-{ 
-get !
-;! "
-set# &
-;& '
-}( )
-public 
-
-string 
-OwnName 
-{ 
-get 
-;  
-set! $
-;$ %
-}& '
-public 
-
-string 
-OpponentName 
-{  
-get! $
-;$ %
-set& )
-;) *
-}+ ,
-public 
-
-string $
-CurrentRoundPlayerUserId *
-{+ ,
-get- 0
-;0 1
-set2 5
-;5 6
-}7 8
-public 
-
-List 
-< 
-GameTile 
-> 
-OwnTiles "
-{# $
-get% (
-;( )
-set* -
-;- .
-}/ 0
-public 
-
-List 
-< 
-GameTile 
-> 
-OpponentTiles '
-{( )
-get* -
-;- .
-set/ 2
-;2 3
-}4 5
-} å
+( )
+public 
+int 
+CurrentRound 
+{  !
+get" %
+;% &
+set' *
+;* +
+}, -
+public 
+string 
+OwnName 
+{ 
+get  #
+;# $
+set% (
+;( )
+}* +
+public 
+string 
+OpponentName "
+{# $
+get% (
+;( )
+set* -
+;- .
+}/ 0
+public 
+string $
+CurrentRoundPlayerUserId .
+{/ 0
+get1 4
+;4 5
+set6 9
+;9 :
+}; <
+public 
+List 
+< 
+GameTile 
+> 
+OwnTiles &
+{' (
+get) ,
+;, -
+set. 1
+;1 2
+}3 4
+public 
+List 
+< 
+GameTile 
+> 
+OpponentTiles +
+{, -
+get. 1
+;1 2
+set3 6
+;6 7
+}8 9
+} 
+} å
 DD:\dev\Battleships\Battleships\Data\Dto\InGameSession\ShipMoveDto.cs
 	namespace 	
 Battleships
@@ -2987,53 +2950,50 @@ DD:\dev\Battleships\Battleships\Data\Dto\InGameSession\ShipMoveDto.cs
 ;' (
 }) *
 } 
-} ‹
+} Ì
 9D:\dev\Battleships\Battleships\Data\Dto\PlayerLobbyDto.cs
-	namespace 	
-Battleships
+	namespace 	
+Battleships
  
-. 
-Data 
-. 
-Dto 
-; 
-public 
-class 
-PlayerLobbyDto 
-{ 
-public 
-
-string 
-Id 
-{ 
-get 
-; 
-set 
-;  
-}! "
-public 
-
-string 
-UserId 
-{ 
-get 
-; 
-set  #
-;# $
-}% &
-public		 
-
-string		 
-Name		 
-{		 
-get		 
-;		 
-set		 !
-;		! "
-}		# $
-}
-
- ﬂ
+. 
+Data 
+. 
+Dto 
+{ 
+public 
+
+class 
+PlayerLobbyDto 
+{ 
+public 
+string 
+Id 
+{ 
+get 
+; 
+set  #
+;# $
+}% &
+public 
+string 
+UserId 
+{ 
+get "
+;" #
+set$ '
+;' (
+}) *
+public 
+string 
+Name 
+{ 
+get  
+;  !
+set" %
+;% &
+}' (
+} 
+}		 
 FD:\dev\Battleships\Battleships\Data\Dto\PlayerLobbyDtoWithSessionId.cs
 	namespace 	
 Battleships
@@ -3041,88 +3001,86 @@ FD:\dev\Battleships\Battleships\Data\Dto\PlayerLobbyDtoWithSessionId.cs
 . 
 Data 
 . 
-Dto 
-; 
-public 
-class '
-PlayerLobbyDtoWithSessionId (
-{ 
-public 
-
-string 
-Id 
-{ 
-get 
-; 
-set 
-;  
-}! "
-public 
-
-string 
-Name 
-{ 
-get 
-; 
-set !
-;! "
-}# $
-public		 
-
-Guid		 
-	SessionId		 
-{		 
-get		 
-;		  
-set		! $
-;		$ %
-}		& '
-public 
-
-override 
-string 
-ToString #
-(# $
-)$ %
-{ 
-return 
-$" 
-{ 
-nameof 
-( 
-Id 
-) 
-} 
-$str 
-{  
-Id  "
-}" #
-$str# %
-{% &
-nameof& ,
-(, -
-Name- 1
-)1 2
-}2 3
-$str3 5
-{5 6
-Name6 :
-}: ;
-$str; =
-{= >
-nameof> D
-(D E
-	SessionIdE N
-)N O
-}O P
-$strP R
-{R S
-	SessionIdS \
-}\ ]
-"] ^
-;^ _
-} 
-} ‚
+Dto 
+{ 
+public 
+
+class '
+PlayerLobbyDtoWithSessionId ,
+{ 
+public 
+string 
+Id 
+{ 
+get 
+; 
+set  #
+;# $
+}% &
+public 
+string 
+Name 
+{ 
+get  
+;  !
+set" %
+;% &
+}' (
+public		 
+Guid		 
+	SessionId		 
+{		 
+get		  #
+;		# $
+set		% (
+;		( )
+}		* +
+public 
+override 
+string 
+ToString '
+(' (
+)( )
+{ 	
+return 
+$" 
+{ 
+nameof 
+( 
+Id 
+)  
+}  !
+$str! #
+{# $
+Id$ &
+}& '
+$str' )
+{) *
+nameof* 0
+(0 1
+Name1 5
+)5 6
+}6 7
+$str7 9
+{9 :
+Name: >
+}> ?
+$str? A
+{A B
+nameofB H
+(H I
+	SessionIdI R
+)R S
+}S T
+$strT V
+{V W
+	SessionIdW `
+}` a
+"a b
+;b c
+} 	
+} 
+} ‚
 =D:\dev\Battleships\Battleships\Data\Dto\UserCredentialsDto.cs
 	namespace 	
 Battleships
@@ -3210,7 +3168,7 @@ FD:\dev\Battleships\Battleships\Data\Dto\PlayerLobbyDtoWithSessionId.cs
 }		 
 }
 
- ¨
+ Ω
 8D:\dev\Battleships\Battleships\Data\Dto\UserInviteDto.cs
 	namespace 	
 Battleships
@@ -3218,71 +3176,72 @@ FD:\dev\Battleships\Battleships\Data\Dto\PlayerLobbyDtoWithSessionId.cs
 . 
 Data 
 . 
-Dto 
-; 
-public 
-class 
-UserInviteDto 
-{ 
-public 
-
-string 
-UserId 
-{ 
-get 
-; 
-set  #
-;# $
-}% &
-} –
+Dto 
+{ 
+public 
+
+class 
+UserInviteDto 
+{ 
+public 
+string 
+UserId 
+{ 
+get "
+;" #
+set$ '
+;' (
+}) *
+} 
+} ·
 6D:\dev\Battleships\Battleships\Data\NumberGenerator.cs
 	namespace 	
 Battleships
  
 . 
-Data 
-; 
-public 
-class 
-NumberGenerator 
-{ 
-private 
-readonly 
-int 
-	_maxValue "
-;" #
-public		 
-
-NumberGenerator		 
-(		 
-int		 
-maxValue		 '
-)		' (
+Data 
+{ 
+public 
+
+class 
+NumberGenerator  
+{ 
+private 
+readonly 
+int 
+	_maxValue &
+;& '
+public		 
+NumberGenerator		 
+(		 
+int		 "
+maxValue		# +
+)		+ ,
 {
 
- 
-	_maxValue 
-= 
-maxValue 
-; 
-} 
-public 
-
-int 
-GenerateNumber 
-( 
-) 
-{ 
-return !
-RandomNumberGenerator $
-.$ %
-GetInt32% -
-(- .
-	_maxValue. 7
-)7 8
-;8 9
-} 
-} ÓY
+ 	
+	_maxValue 
+= 
+maxValue  
+;  !
+} 	
+public 
+int 
+GenerateNumber !
+(! "
+)" #
+{ 	
+return !
+RandomNumberGenerator (
+.( )
+GetInt32) 1
+(1 2
+	_maxValue2 ;
+); <
+;< =
+} 	
+} 
+} ÓY
 7D:\dev\Battleships\Battleships\Data\SeedAchievements.cs
 	namespace 	
 Battleships
@@ -3994,192 +3953,194 @@ CreateMany)); E
 úú 	
 }
 ùù 
-}ûû ≠
+}ûû æ
 1D:\dev\Battleships\Battleships\Data\ShipSeeder.cs
 	namespace		 	
 Battleships		
  
 .		 
-Data		 
-;		 
-public 
-class 
+Data		 
+{
+
+ 
+public 
+
+class 
 
-ShipSeeder 
-{ 
-public 
-
-static 
-void 
-	SeedShips  
-(  !
-IServiceProvider! 1
-serviceProvider2 A
-)A B
-{ 
-using 
-var 
-serviceScope 
-=  
-serviceProvider! 0
-.0 1
-CreateScope1 <
-(< =
-)= >
-;> ?
-var 
-battleshipsDatabase 
-=  !
-serviceScope" .
-.. /
-ServiceProvider/ >
-.> ?
-GetRequiredService? Q
-<Q R 
-IBattleshipsDatabaseR f
->f g
-(g h
-)h i
-;i j
-var 
-isEmpty 
-= 
-battleshipsDatabase )
-.) *
-ShipsRepository* 9
-.9 :
-IsEmpty: A
-(A B
-)B C
-;C D
-if 
-
-( 
-isEmpty 
-) 
-{ 	
-var 
-factoryProducer 
-=  !
-new" %
-ShipFactoryProducer& 9
-(9 :
-): ;
-;; <
-var 
-neutralShipFactory "
-=# $
-factoryProducer% 4
-.4 5
-ProduceFactory5 C
-(C D
-nullD H
-)H I
-;I J
-var !
-defensiveShipsFactory %
-=& '
-factoryProducer( 7
-.7 8
-ProduceFactory8 F
-(F G
-trueG K
-)K L
-;L M
-var !
-offensiveShipsFactory %
-=& '
-factoryProducer( 7
-.7 8
-ProduceFactory8 F
-(F G
-falseG L
-)L M
-;M N
-var 
-ships 
-= 
-new 
-List  
-<  !
-Ship! %
->% &
-(& '
-)' (
-{ !
-defensiveShipsFactory %
-.% &
-GenerateShip& 2
-(2 3
-	ShipTypes3 <
-.< =
-Carrier= D
-)D E
-,E F!
-defensiveShipsFactory %
-.% &
-GenerateShip& 2
-(2 3
-	ShipTypes3 <
-.< =
-Cruiser= D
-)D E
-,E F!
-offensiveShipsFactory %
-.% &
-GenerateShip& 2
-(2 3
-	ShipTypes3 <
-.< =
+ShipSeeder 
+{ 
+public 
+static 
+void 
+	SeedShips $
+($ %
+IServiceProvider% 5
+serviceProvider6 E
+)E F
+{ 	
+using 
+var 
+serviceScope "
+=# $
+serviceProvider% 4
+.4 5
+CreateScope5 @
+(@ A
+)A B
+;B C
+var 
+battleshipsDatabase #
+=$ %
+serviceScope& 2
+.2 3
+ServiceProvider3 B
+.B C
+GetRequiredServiceC U
+<U V 
+IBattleshipsDatabaseV j
+>j k
+(k l
+)l m
+;m n
+var 
+isEmpty 
+= 
+battleshipsDatabase -
+.- .
+ShipsRepository. =
+.= >
+IsEmpty> E
+(E F
+)F G
+;G H
+if 
+( 
+isEmpty 
+) 
+{ 
+var 
+factoryProducer #
+=$ %
+new& )
+ShipFactoryProducer* =
+(= >
+)> ?
+;? @
+var 
+neutralShipFactory &
+=' (
+factoryProducer) 8
+.8 9
+ProduceFactory9 G
+(G H
+nullH L
+)L M
+;M N
+var !
+defensiveShipsFactory )
+=* +
+factoryProducer, ;
+.; <
+ProduceFactory< J
+(J K
+trueK O
+)O P
+;P Q
+var !
+offensiveShipsFactory )
+=* +
+factoryProducer, ;
+.; <
+ProduceFactory< J
+(J K
+falseK P
+)P Q
+;Q R
+var 
+ships 
+= 
+new 
+List  $
+<$ %
+Ship% )
+>) *
+(* +
+)+ ,
+{ !
+defensiveShipsFactory )
+.) *
+GenerateShip* 6
+(6 7
+	ShipTypes7 @
+.@ A
+CarrierA H
+)H I
+,I J!
+defensiveShipsFactory )
+.) *
+GenerateShip* 6
+(6 7
+	ShipTypes7 @
+.@ A
+CruiserA H
+)H I
+,I J!
+offensiveShipsFactory )
+.) *
+GenerateShip* 6
+(6 7
+	ShipTypes7 @
+.@ A
 
-Battleship= G
-)G H
-,H I!
-offensiveShipsFactory %
-.% &
-GenerateShip& 2
-(2 3
-	ShipTypes3 <
-.< =
-	Destroyer= F
-)F G
-,G H!
-offensiveShipsFactory   %
-.  % &
-GenerateShip  & 2
-(  2 3
-	ShipTypes  3 <
-.  < =
-	Submarine  = F
-)  F G
-,  G H
-neutralShipFactory!! "
-.!!" #
-GenerateShip!!# /
-(!!/ 0
-	ShipTypes!!0 9
-.!!9 :
-Dummy!!: ?
-)!!? @
-}"" 
-;"" 
-battleshipsDatabase$$ 
-.$$  
-ShipsRepository$$  /
-.$$/ 0
+BattleshipA K
+)K L
+,L M!
+offensiveShipsFactory )
+.) *
+GenerateShip* 6
+(6 7
+	ShipTypes7 @
+.@ A
+	DestroyerA J
+)J K
+,K L!
+offensiveShipsFactory   )
+.  ) *
+GenerateShip  * 6
+(  6 7
+	ShipTypes  7 @
+.  @ A
+	Submarine  A J
+)  J K
+,  K L
+neutralShipFactory!! &
+.!!& '
+GenerateShip!!' 3
+(!!3 4
+	ShipTypes!!4 =
+.!!= >
+Dummy!!> C
+)!!C D
+}"" 
+;"" 
+battleshipsDatabase$$ #
+.$$# $
+ShipsRepository$$$ 3
+.$$3 4
 
-CreateMany$$0 :
-($$: ;
-ships$$; @
-)$$@ A
-.$$A B
-Wait$$B F
-($$F G
-)$$G H
-;$$H I
-}%% 	
-}&& 
-}'' ≈
+CreateMany$$4 >
+($$> ?
+ships$$? D
+)$$D E
+.$$E F
+Wait$$F J
+($$J K
+)$$K L
+;$$L M
+}%% 
+}&& 	
+}'' 
+}(( ≈
 :D:\dev\Battleships\Battleships\Decorators\InfoDecorator.cs
 	namespace 	
 Battleships
@@ -4602,214 +4563,237 @@ Decorators  
 ;! "
 } 	
 } 
-} ó
+} ⁄
 ;D:\dev\Battleships\Battleships\Facades\GameSessionFacade.cs
 	namespace 	
 Battleships
  
 . 
-Facades 
-; 
-public 
-class 
-GameSessionFacade 
-{ 
-private 
-readonly  
-IBattleshipsDatabase )
-	_database* 3
-;3 4
-private 
-readonly 
-ICurrentUserService (
-_currentUserService) <
-;< =
-private 
-readonly !
-GameSessionRequestDto *
-dto+ .
-;. /
-public 
-
-GameSessionFacade 
-(  
-IBattleshipsDatabase 1
-database2 :
-,: ;
-ICurrentUserService< O
-currentUserServiceP b
-,b c!
-GameSessionRequestDtod y
-dtoz }
-)} ~
-{ 
-this 
-. 
-	_database 
-= 
-database !
-;! "
-this 
-. 
-_currentUserService  
-=! "
-currentUserService# 5
-;5 6
-this 
-. 
-dto 
-= 
-dto 
-; 
-} 
-public 
+Facades 
+{ 
+public 
 
-async 
-Task 
-< 
-Guid 
-> 
-CreateGameSession -
-(- .
-). /
-{ 
-var 
-userId 
-= 
-_currentUserService (
-.( )
-GetCurrentUserId) 9
-(9 :
-): ;
-;; <
-var 
-gameSettings 
-= 
-new 
-GameSessionSettings 2
-{ 	
-ColumnCount   
-=   
-dto   
-.   
-SettingsDto   )
-.  ) *
-ColumnCount  * 5
-,  5 6
-RowCount!! 
-=!! 
-dto!! 
-.!! 
-SettingsDto!! &
-.!!& '
-RowCount!!' /
-,!!/ 0
-GameType"" 
-="" 
-dto"" 
-."" 
-SettingsDto"" &
-.""& '
-GameType""' /
-}## 	
-;##	 
-
-var$$ 
-players$$ 
-=$$ 
-new$$ 
-List$$ 
-<$$ 
-Player$$ %
->$$% &
-{%% 	
-new&& 
-Player&& 
-{'' 
-IsHost(( 
-=(( 
-true(( 
-,(( 
-UserId)) 
-=)) 
-userId)) 
-,))  
-IsCurrentPlayerTurn** #
-=**$ %
-true**& *
-}++ 
-},, 	
-;,,	 
-
-var.. 
-gameSession.. 
-=.. 
-new.. 
-GameSessionBuilder.. 0
-(..0 1
-)..1 2
-.// 
-WithIcon// 
-(// 
-dto// 
-.// 
-Icon// 
-)// 
-.00 
-WithName00 
-(00 
-dto00 
-.00 
-Name00 
-)00 
-.11 
-WithDateCreated11 
-(11 
-DateTime11 %
-.11% &
-UtcNow11& ,
-)11, -
-.22 
-WithSessionSettings22  
-(22  !
-gameSettings22! -
-)22- .
-.33 
-WithPlayers33 
-(33 
-players33  
-)33  !
-.44 
+class 
+GameSessionFacade "
+:# $
+IGameSessionFacade% 7
+{ 
+private 
+readonly  
+IBattleshipsDatabase -
+	_database. 7
+;7 8
+private 
+readonly 
+ICurrentUserService ,
+_currentUserService- @
+;@ A
+private 
+readonly !
+GameSessionRequestDto .
+dto/ 2
+;2 3
+public 
+GameSessionFacade  
+(  ! 
+IBattleshipsDatabase! 5
+database6 >
+,> ?
+ICurrentUserService@ S
+currentUserServiceT f
+,f g!
+GameSessionRequestDtoh }
+dto	~ Å
+)
+Å Ç
+{ 	
+this 
+. 
+	_database 
+= 
+database %
+;% &
+this 
+. 
+_currentUserService $
+=% &
+currentUserService' 9
+;9 :
+this 
+. 
+dto 
+= 
+dto 
+; 
+} 	
+public 
+async 
+Task 
+< 
+Guid 
+> 
+CreateGameSession  1
+(1 2
+)2 3
+{ 	
+var 
+userId 
+= 
+_currentUserService ,
+., -
+GetCurrentUserId- =
+(= >
+)> ?
+;? @
+var 
+gameSettings 
+= 
+new "
+GameSessionSettings# 6
+{ 
+ColumnCount   
+=   
+dto   !
+.  ! "
+SettingsDto  " -
+.  - .
+ColumnCount  . 9
+,  9 :
+RowCount!! 
+=!! 
+dto!! 
+.!! 
+SettingsDto!! *
+.!!* +
+RowCount!!+ 3
+,!!3 4
+GameType"" 
+="" 
+dto"" 
+."" 
+SettingsDto"" *
+.""* +
+GameType""+ 3
+}## 
+;## 
+var$$ 
+players$$ 
+=$$ 
+new$$ 
+List$$ "
+<$$" #
+Player$$# )
+>$$) *
+{%% 
+new&& 
+Player&& 
+{'' 
+IsHost(( 
+=(( 
+true(( !
+,((! "
+UserId)) 
+=)) 
+userId)) #
+,))# $
+IsCurrentPlayerTurn** '
+=**( )
+true*** .
+}++ 
+},, 
+;,, 
+var.. 
+gameSession.. 
+=.. 
+new.. !
+GameSessionBuilder.." 4
+(..4 5
+)..5 6
+.// 
+WithIcon// 
+(// 
+dto// 
+.// 
+Icon// "
+)//" #
+.00 
+WithName00 
+(00 
+dto00 
+.00 
+Name00 "
+)00" #
+.11 
+WithDateCreated11  
+(11  !
+DateTime11! )
+.11) *
+UtcNow11* 0
+)110 1
+.22 
+WithSessionSettings22 $
+(22$ %
+gameSettings22% 1
+)221 2
+.33 
+WithPlayers33 
+(33 
+players33 $
+)33$ %
+.44 
 
-WithStatus44 
-(44 
-GameSessionStatus44 )
-.44) *
-Created44* 1
-)441 2
-.55 
-Build55 
-(55 
-)55 
-;55 
-var77 
-id77 
-=77 
-await77 
-	_database77  
-.77  !"
-GameSessionsRepository77! 7
-.777 8
-Create778 >
-(77> ?
-gameSession77? J
-)77J K
-;77K L
-return99 
-id99 
-;99 
-}:: 
-};; ÿ
+WithStatus44 
+(44 
+GameSessionStatus44 -
+.44- .
+Created44. 5
+)445 6
+.55 
+Build55 
+(55 
+)55 
+;55 
+var77 
+id77 
+=77 
+await77 
+	_database77 $
+.77$ %"
+GameSessionsRepository77% ;
+.77; <
+Create77< B
+(77B C
+gameSession77C N
+)77N O
+;77O P
+return99 
+id99 
+;99 
+}:: 	
+};; 
+}<< §
+<D:\dev\Battleships\Battleships\Facades\IGameSessionFacade.cs
+	namespace 	
+Battleships
+ 
+. 
+Facades 
+; 
+public 
+	interface 
+IGameSessionFacade #
+{ 
+public 
+
+Task 
+< 
+Guid 
+> 
+CreateGameSession '
+(' (
+)( )
+;) *
+}		 ÿ
 ?D:\dev\Battleships\Battleships\Factories\AbstractShipFactory.cs
 	namespace 	
 Battleships
@@ -4989,41 +4973,42 @@ WithStatus44 
 ; 
 } 	
 } 
-} †
+} ±
 BD:\dev\Battleships\Battleships\Factories\NumberGeneratorFactory.cs
 	namespace 	
 Battleships
  
 . 
-	Factories 
-;  
-public 
-class "
-NumberGeneratorFactory #
-{ 
-public 
-
-NumberGenerator 
-GetNumberGenerator -
-(- .
-int. 1
-maxValue2 :
-): ;
-{ 
-var		 
-	generator		 
-=		 
-new		 
-NumberGenerator		 +
-(		+ ,
-maxValue		, 4
-)		4 5
-;		5 6
-return 
-	generator 
-; 
-} 
-} µ
+	Factories 
+{ 
+public 
+
+class "
+NumberGeneratorFactory '
+{ 
+public 
+NumberGenerator 
+GetNumberGenerator 1
+(1 2
+int2 5
+maxValue6 >
+)> ?
+{ 	
+var		 
+	generator		 
+=		 
+new		 
+NumberGenerator		  /
+(		/ 0
+maxValue		0 8
+)		8 9
+;		9 :
+return 
+	generator 
+; 
+} 	
+} 
+} µ
 @D:\dev\Battleships\Battleships\Factories\OffensiveShipFactory.cs
 	namespace 	
 Battleships
@@ -18106,7 +18091,7 @@ DropColumnAA '
 }
 
  
-} ã
+} ú
 5D:\dev\Battleships\Battleships\Models\enums\Engine.cs
 	namespace 	
 Battleships
@@ -18114,13 +18099,15 @@ DropColumnAA '
 . 
 Models 
 . 
-enums "
-;" #
-public 
-enum 
-Engine 
-{ 
-} ≤
+enums "
+{ 
+public 
+
+enum 
+Engine 
+{ 
+} 
+} √
 @D:\dev\Battleships\Battleships\Models\enums\GameSessionStatus.cs
 	namespace 	
 Battleships
@@ -18128,29 +18115,33 @@ DropColumnAA '
 . 
 Models 
 . 
-enums "
-;" #
-public 
-enum 
-GameSessionStatus 
-{ 
-	Undefined 
-= 
-$num 
-, 
-Created 
-= 
-$num 
-, 
+enums "
+{ 
+public 
+
+enum 
+GameSessionStatus !
+{ 
+	Undefined 
+= 
+$num 
+, 
+Created 
+= 
+$num 
+, 
 
-InProgress 
-= 
-$num 
-, 
-EndgameReached 
-= 
-$num 
-}		 ´
+InProgress 
+= 
+$num 
+, 
+EndgameReached 
+= 
+$num 
+}		 
+}
+
+ ´
 8D:\dev\Battleships\Battleships\Models\enums\GameTypes.cs
 	namespace 	
 Battleships
@@ -21061,89 +21052,89 @@ PlayerShip!! %
 ;%%: ;
 }%%< =
 }&& 
-}'' ¬	
+}'' ”	
 LD:\dev\Battleships\Battleships\Repositories\GameSessionSettingsRepository.cs
 	namespace 	
 Battleships
  
 . 
-Repositories "
-;" #
-public 
-class )
-GameSessionSettingsRepository *
-:+ ,
-BaseRepository- ;
-<; <
-GameSessionSettings< O
->O P
-,P Q*
-IGameSessionSettingsRepositoryR p
-{		 
+Repositories "
+{ 
+public 
+
+class )
+GameSessionSettingsRepository .
+:/ 0
+BaseRepository1 ?
+<? @
+GameSessionSettings@ S
+>S T
+,T U*
+IGameSessionSettingsRepositoryV t
+{		 
 public
 
- 
-
+ 
 async
 
- 
+ 
 Task
 
- 
+ 
 <
 
- 
+ 
 GameSessionSettings
 
- )
+ -
 >
 
-) *
+- .
 GetBySessionId
 
-+ 9
+/ =
 (
 
-9 :
+= >
 Guid
 
-: >
+> B
 gameSessionId
 
-? L
+C P
 )
 
-L M
-{ 
-return 
-await 
-	GetSingle 
-( 
-settings '
-=>( *
-settings+ 3
-.3 4
-GameSessionId4 A
-==B D
-gameSessionIdE R
-)R S
-;S T
-} 
-public 
-)
-GameSessionSettingsRepository (
-(( ) 
-ApplicationDbContext) =
-context> E
-)E F
-:G H
-baseI M
-(M N
-contextN U
-)U V
-{ 
-} 
-} õO
+P Q
+{ 	
+return 
+await 
+	GetSingle "
+(" #
+settings# +
+=>, .
+settings/ 7
+.7 8
+GameSessionId8 E
+==F H
+gameSessionIdI V
+)V W
+;W X
+} 	
+public )
+GameSessionSettingsRepository ,
+(, - 
+ApplicationDbContext- A
+contextB I
+)I J
+:K L
+baseM Q
+(Q R
+contextR Y
+)Y Z
+{ 	
+} 	
+} 
+} õO
 ED:\dev\Battleships\Battleships\Repositories\GameSessionsRepository.cs
 	namespace 	
 Battleships
@@ -21807,36 +21798,38 @@ PlayerShip %
 ;: ;
 }< =
 } 
-} “
+} „
 MD:\dev\Battleships\Battleships\Repositories\IGameSessionSettingsRepository.cs
 	namespace 	
 Battleships
  
 . 
-Repositories "
-;" #
-public 
-	interface *
-IGameSessionSettingsRepository /
-:0 1
-IRepository2 =
-<= >
-GameSessionSettings> Q
->Q R
-{ 
-Task		 
-<		 	
-GameSessionSettings			 
->		 
-GetBySessionId		 ,
-(		, -
-Guid		- 1
-gameSessionId		2 ?
-)		? @
-;		@ A
-}
+Repositories "
+{ 
+public 
+
+	interface *
+IGameSessionSettingsRepository 3
+:4 5
+IRepository6 A
+<A B
+GameSessionSettingsB U
+>U V
+{ 
+Task		 
+<		 
+GameSessionSettings		  
+>		  !
+GetBySessionId		" 0
+(		0 1
+Guid		1 5
+gameSessionId		6 C
+)		C D
+;		D E
+}
 
- à
+ 
+} à
 FD:\dev\Battleships\Battleships\Repositories\IGameSessionsRepository.cs
 	namespace 	
 Battleships
@@ -21937,26 +21930,28 @@ FD:\dev\Battleships\Battleships\Repositories\IGameSessionsRepository.cs
 )F G
 ;G H
 } 
-} Ê
+} ˜
 AD:\dev\Battleships\Battleships\Repositories\IPlayersRepository.cs
 	namespace 	
 Battleships
  
 . 
-Repositories "
-;" #
-public 
-	interface 
-IPlayersRepository #
-:$ %
-IRepository& 1
-<1 2
-Player2 8
->8 9
-{		 
-}
+Repositories "
+{ 
+public 
+
+	interface 
+IPlayersRepository '
+:( )
+IRepository* 5
+<5 6
+Player6 <
+>< =
+{		 
+}
 
- ∞
+ 
+} ∞
 :D:\dev\Battleships\Battleships\Repositories\IRepository.cs
 	namespace 	
 Battleships
@@ -22090,34 +22085,38 @@ DeleteMany 
 ) 
 ; 
 } 
-} ê
+} °
 ?D:\dev\Battleships\Battleships\Repositories\IShipsRepository.cs
 	namespace 	
 Battleships
  
 . 
-Repositories "
-;" #
-public 
-	interface 
-IShipsRepository !
-:" #
-IRepository$ /
-</ 0
-Ship0 4
->4 5
-{ 
-Task 
-< 	
-Ship	 
-> 
-	GetByType 
-( 
-string 
-shipType  (
-)( )
-;) *
-}		 ≈
+Repositories "
+{ 
+public 
+
+	interface 
+IShipsRepository %
+:& '
+IRepository( 3
+<3 4
+Ship4 8
+>8 9
+{ 
+Task 
+< 
+Ship 
+> 
+	GetByType 
+( 
+string #
+shipType$ ,
+), -
+;- .
+}		 
+}
+
+ ≈
 CD:\dev\Battleships\Battleships\Repositories\IShipTilesRepository.cs
 	namespace 	
 Battleships
@@ -22177,155 +22176,155 @@ CD:\dev\Battleships\Battleships\Repositories\IShipTilesRepository.cs
 )9 :
 ;: ;
 } 
-} Ø	
+} ¿	
 @D:\dev\Battleships\Battleships\Repositories\PlayersRepository.cs
 	namespace 	
 Battleships
  
 . 
-Repositories "
-;" #
-public
+Repositories "
+{		 
+public
 
- 
+ 
+
 class
 
- 
+ 
 PlayersRepository
 
- 
+ "
 :
 
-  
+# $
 BaseRepository
 
-! /
+% 3
 <
 
-/ 0
+3 4
 Player
 
-0 6
+4 :
 >
 
-6 7
+: ;
 ,
 
-7 8
+; <
 IPlayersRepository
 
-9 K
-{ 
-public 
-
-PlayersRepository 
-(  
-ApplicationDbContext 1
-context2 9
-)9 :
-:; <
-base= A
-(A B
-contextB I
-)I J
-{ 
-} 
-public 
-
-override 
-async 
-Task 
-< 
-List #
-<# $
-Player$ *
->* +
->+ ,
-GetAll- 3
-(3 4
-)4 5
-{ 
-return 
-await 
-ItemSet 
-. 
-Include $
-($ %
-x% &
-=>' )
-x* +
-.+ ,
-User, 0
-)0 1
-. 
-ToListAsync 
-( 
-) 
-; 
-} 
-} “
+= O
+{ 
+public 
+PlayersRepository  
+(  ! 
+ApplicationDbContext! 5
+context6 =
+)= >
+:? @
+baseA E
+(E F
+contextF M
+)M N
+{ 	
+} 	
+public 
+override 
+async 
+Task "
+<" #
+List# '
+<' (
+Player( .
+>. /
+>/ 0
+GetAll1 7
+(7 8
+)8 9
+{ 	
+return 
+await 
+ItemSet  
+.  !
+Include! (
+(( )
+x) *
+=>+ -
+x. /
+./ 0
+User0 4
+)4 5
+. 
+ToListAsync 
+( 
+) 
+; 
+} 	
+} 
+} „
 >D:\dev\Battleships\Battleships\Repositories\ShipsRepository.cs
 	namespace 	
 Battleships
  
 . 
-Repositories "
-;" #
-public 
-class 
-ShipsRepository 
-: 
-BaseRepository -
-<- .
-Ship. 2
->2 3
-,3 4
-IShipsRepository5 E
-{ 
-public		 
+Repositories "
+{ 
+public 
 
-async		 
-Task		 
-<		 
-Ship		 
->		 
-	GetByType		 %
-(		% &
-string		& ,
-shipType		- 5
-)		5 6
+class 
+ShipsRepository  
+:! "
+BaseRepository# 1
+<1 2
+Ship2 6
+>6 7
+,7 8
+IShipsRepository9 I
+{ 
+public		 
+async		 
+Task		 
+<		 
+Ship		 
+>		 
+	GetByType		  )
+(		) *
+string		* 0
+shipType		1 9
+)		9 :
 {
 
- 
-return 
-await 
-	GetSingle 
-( 
-ship #
-=>$ &
-ship' +
-.+ ,
-ShipType, 4
-==5 7
-shipType8 @
-)@ A
-;A B
-} 
-public 
-
-ShipsRepository 
-(  
-ApplicationDbContext /
-context0 7
-)7 8
-:9 :
-base; ?
-(? @
-context@ G
-)G H
-{ 
-} 
-} ¢
+ 	
+return 
+await 
+	GetSingle "
+(" #
+ship# '
+=>( *
+ship+ /
+./ 0
+ShipType0 8
+==9 ;
+shipType< D
+)D E
+;E F
+} 	
+public 
+ShipsRepository 
+(  
+ApplicationDbContext 3
+context4 ;
+); <
+:= >
+base? C
+(C D
+contextD K
+)K L
+{ 	
+} 	
+} 
+} ≥
 BD:\dev\Battleships\Battleships\Repositories\ShipTilesRepository.cs
 	namespace
 
@@ -22339,199 +22338,194 @@ BD:\dev\Battleships\Battleships\Repositories\ShipTilesRepository.cs
  
 Repositories
 
- "
-;
-
-" #
-public 
-class 
-ShipTilesRepository  
-:! "
-BaseRepository# 1
-<1 2
-ShipTile2 :
->: ;
-,; < 
-IShipTilesRepository= Q
-{ 
-public 
-
-ShipTilesRepository 
-(  
-ApplicationDbContext 3
-context4 ;
-); <
-:= >
-base? C
-(C D
-contextD K
-)K L
-{ 
-} 
-public 
+ "
+{ 
+public 
 
-async 
-Task 
-< 
-List 
-< 
-ShipTile #
-># $
->$ %
-GetAttackedTiles& 6
-(6 7
-AttackPayload7 D
-attackE K
-)K L
-{ 
-return 
-await 
-GetWhere 
-( 
-tile "
-=># %
-tile 
-. 
-XCoordinate 
-== 
-attack  &
-.& '
-TargetXCoordinate' 8
-&&9 ;
-tile< @
-.@ A
-YCoordinateA L
-==M O
-attackP V
-.V W
-TargetYCoordinateW h
-&&i k
-tile 
-. 
+class 
+ShipTilesRepository $
+:% &
+BaseRepository' 5
+<5 6
+ShipTile6 >
+>> ?
+,? @ 
+IShipTilesRepositoryA U
+{ 
+public 
+ShipTilesRepository "
+(" # 
+ApplicationDbContext# 7
+context8 ?
+)? @
+:A B
+baseC G
+(G H
+contextH O
+)O P
+{ 	
+} 	
+public 
+async 
+Task 
+< 
+List 
+< 
+ShipTile '
+>' (
+>( )
+GetAttackedTiles* :
+(: ;
+AttackPayload; H
+attackI O
+)O P
+{ 	
+return 
+await 
+GetWhere !
+(! "
+tile" &
+=>' )
+tile 
+. 
+XCoordinate  
+==! #
+attack$ *
+.* +
+TargetXCoordinate+ <
+&&= ?
+tile@ D
+.D E
+YCoordinateE P
+==Q S
+attackT Z
+.Z [
+TargetYCoordinate[ l
+&&m o
+tile 
+. 
 
-PlayerShip 
-. 
-Player "
-." #
-UserId# )
-!=* ,
-attack- 3
-.3 4
-AttackingUserId4 C
-&&D F
-tile 
-. 
+PlayerShip 
+.  
+Player  &
+.& '
+UserId' -
+!=. 0
+attack1 7
+.7 8
+AttackingUserId8 G
+&&H J
+tile 
+. 
 
-PlayerShip 
-. 
-Player "
-." #
-GameSessionId# 0
-==1 3
-attack4 :
-.: ;
-GameSessionId; H
-) 	
-;	 
-
-} 
-public 
-
-async 
-Task 
-< 
-List 
-< 
-ShipTile #
-># $
->$ %
-GetSessionShipTiles& 9
-(9 :
-Guid: >
-gameSessionId? L
-)L M
-{ 
-return 
-await 
-ItemSet 
-. 
-Include 
-( 
-tile 
-=> 
-tile !
-.! "
+PlayerShip 
+.  
+Player  &
+.& '
+GameSessionId' 4
+==5 7
+attack8 >
+.> ?
+GameSessionId? L
+) 
+; 
+} 	
+public 
+async 
+Task 
+< 
+List 
+< 
+ShipTile '
+>' (
+>( )
+GetSessionShipTiles* =
+(= >
+Guid> B
+gameSessionIdC P
+)P Q
+{ 	
+return 
+await 
+ItemSet  
+. 
+Include 
+( 
+tile 
+=>  
+tile! %
+.% &
 
-PlayerShip" ,
-), -
-. 
-Where 
-( 
-tile 
-=> 
-tile 
-.  
+PlayerShip& 0
+)0 1
+. 
+Where 
+( 
+tile 
+=> 
+tile #
+.# $
 
-PlayerShip  *
-.* +
-Player+ 1
-.1 2
-GameSessionId2 ?
-==@ B
-gameSessionIdC P
-)P Q
-.   
-ToListAsync   
-(   
-)   
-;   
-}!! 
-public## 
-
-async## 
-Task## 
-<## 
-List## 
-<## 
-ShipTile## #
->### $
->##$ %
-GetPlayerTiles##& 4
-(##4 5
-Guid##5 9
-playerId##: B
-)##B C
-{$$ 
-return%% 
-await%% 
-ItemSet%% 
-.&& 
-Where&& 
-(&& 
-tile&& 
-=>&& 
-tile&& 
-.&&  
+PlayerShip$ .
+.. /
+Player/ 5
+.5 6
+GameSessionId6 C
+==D F
+gameSessionIdG T
+)T U
+.   
+ToListAsync   
+(   
+)   
+;   
+}!! 	
+public## 
+async## 
+Task## 
+<## 
+List## 
+<## 
+ShipTile## '
+>##' (
+>##( )
+GetPlayerTiles##* 8
+(##8 9
+Guid##9 =
+playerId##> F
+)##F G
+{$$ 	
+return%% 
+await%% 
+ItemSet%%  
+.&& 
+Where&& 
+(&& 
+tile&& 
+=>&& 
+tile&& #
+.&&# $
 
-PlayerShip&&  *
-.&&* +
-PlayerId&&+ 3
-==&&4 6
-playerId&&7 ?
-||&&@ B
-tile&&C G
-.&&G H
-TargetPlayerId&&H V
-==&&W Y
-playerId&&Z b
-)&&b c
-.'' 
-ToListAsync'' 
-('' 
-)'' 
-;'' 
-}(( 
-}** ≈
+PlayerShip&&$ .
+.&&. /
+PlayerId&&/ 7
+==&&8 :
+playerId&&; C
+||&&D F
+tile&&G K
+.&&K L
+TargetPlayerId&&L Z
+==&&[ ]
+playerId&&^ f
+)&&f g
+.'' 
+ToListAsync'' 
+('' 
+)'' 
+;'' 
+}(( 	
+}** 
+}++ ≈
 ID:\dev\Battleships\Battleships\Services\Achievement\AchievementService.cs
 	namespace
 
@@ -23584,7 +23578,7 @@ Interfaces. 8
 )' (
 ;( )
 } 
-} Õ
+} ﬁ
 <D:\dev\Battleships\Battleships\Services\Bridge\IShipState.cs
 	namespace 	
 Battleships
@@ -23592,25 +23586,26 @@ Interfaces. 8
 . 
 Services 
 . 
-Bridge %
-;% &
-public 
-	interface 
+Bridge %
+{ 
+public 
+
+	interface 
 
-IShipState 
-{ 
-void 
-ChangeState	 
-( 
-) 
-; 
-string 
-
-GetState 
-( 
-) 
-; 
-} ¸
+IShipState 
+{ 
+void 
+ChangeState 
+( 
+) 
+; 
+string 
+GetState 
+( 
+) 
+; 
+} 
+} ç
 :D:\dev\Battleships\Battleships\Services\Bridge\OffState.cs
 	namespace 	
 Battleships
@@ -23618,53 +23613,53 @@ IShipState 
 . 
 Services 
 . 
-Bridge %
-;% &
-public 
-class 
-OffState 
-: 
+Bridge %
+{ 
+public 
+
+class 
+OffState 
+: 
 
-IShipState "
-{ 
-private 
-Ship 
-ship 
-; 
-public		 
-
-void		 
-ChangeState		 
-(		 
-)		 
+IShipState &
+{ 
+private 
+Ship 
+ship 
+; 
+public		 
+void		 
+ChangeState		 
+(		  
+)		  !
 {
 
- 
-ship 
-. 
-Name 
-= 
-$str /
-;/ 0
-ship 
-. 
-Description 
-= 
-$str =
-;= >
-} 
-public 
-
-string 
-GetState 
-( 
-) 
-{ 
-return 
-$str 
-; 
-} 
-} Ö	
+ 	
+ship 
+. 
+Name 
+= 
+$str 3
+;3 4
+ship 
+. 
+Description 
+= 
+$str A
+;A B
+} 	
+public 
+string 
+GetState 
+( 
+)  
+{ 	
+return 
+$str 
+; 
+} 	
+} 
+} ñ	
 9D:\dev\Battleships\Battleships\Services\Bridge\OnState.cs
 	namespace 	
 Battleships
@@ -23672,76 +23667,77 @@ IShipState "
 . 
 Services 
 . 
-Bridge %
-;% &
-public 
-class 
-OnState 
-: 
+Bridge %
+{ 
+public 
+
+class 
+OnState 
+: 
 
-IShipState !
-{ 
-private 
-Ship 
-ship 
-; 
-public		 
-
-void		 
-ChangeState		 
-(		 
-)		 
+IShipState %
+{ 
+private 
+Ship 
+ship 
+; 
+public		 
+void		 
+ChangeState		 
+(		  
+)		  !
 {
 
- 
-ship 
-. 
-Name 
-= 
-$str .
-;. /
-ship 
-. 
-Description 
-= 
-$str <
-;< =
-} 
-public 
-
-string 
-GetState 
-( 
-) 
-{ 
-return 
-$str 
-; 
-} 
-public 
-
-void 
-ni 
-( 
-) 
-{ 
-throw 
-new 
-System 
-. #
-NotImplementedException 0
-(0 1
-)1 2
-;2 3
-} 
-} ø*
+ 	
+ship 
+. 
+Name 
+= 
+$str 2
+;2 3
+ship 
+. 
+Description 
+= 
+$str @
+;@ A
+} 	
+public 
+string 
+GetState 
+( 
+)  
+{ 	
+return 
+$str 
+; 
+} 	
+public 
+void 
+ni 
+( 
+) 
+{ 	
+throw 
+new 
+System 
+. #
+NotImplementedException 4
+(4 5
+)5 6
+;6 7
+} 	
+} 
+} Õ+
 FD:\dev\Battleships\Battleships\Services\Builders\GameSessionBuilder.cs
 	namespace 	
 Battleships
  
 . 
-Builders 
-; 
+Services 
+. 
+Builders '
+;' (
 public 
 class 
 GameSessionBuilder 
@@ -23750,31 +23746,43 @@ FD:\dev\Battleships\Battleships\Services\Builders\GameSessionBuilder.cs
 {		 
 private
 
- 
+ 
+Models
+
+ 
+.
+
+ 
 GameSession
 
- 
+ 
 session
 
- 
+ &
 =
 
-  !
+' (
 new
 
-" %
+) ,
+Models
+
+- 3
+.
+
+3 4
 GameSession
 
-& 1
+4 ?
 (
 
-1 2
+? @
 )
 
-2 3
+@ A
 ;
 
-3 4
+A B
 public 
 
 GameSessionBuilder 
@@ -24042,11 +24050,13 @@ WithStatusPP (
 ;TT 
 }UU 
 publicWW 
-
-GameSessionWW 
-BuildWW 
-(WW 
-)WW 
+
+ModelsWW 
+.WW 
+GameSessionWW 
+BuildWW #
+(WW# $
+)WW$ %
 {XX 
 returnYY 
 thisYY 
@@ -24054,504 +24064,509 @@ WithStatusPP (
 sessionYY 
 ;YY 
 }ZZ 
-}[[ ê
+}[[ ∆
 
 FD:\dev\Battleships\Battleships\Services\Builders\GameSessionCreator.cs
 	namespace 	
 Battleships
  
 . 
-Builders 
-; 
-public 
-class 
-GameSessionCreator 
-{ 
-private 
-readonly 
-IGameSessionBuilder (
-_builder) 1
-;1 2
-public		 
-
-GameSessionCreator		 
-(		 
-IGameSessionBuilder		 1
-builder		2 9
-)		9 :
+Services 
+. 
+Builders '
+{ 
+public 
+
+class 
+GameSessionCreator #
+{ 
+private 
+readonly 
+IGameSessionBuilder ,
+_builder- 5
+;5 6
+public		 
+GameSessionCreator		 !
+(		! "
+IGameSessionBuilder		" 5
+builder		6 =
+)		= >
 {
 
- 
-this 
-. 
-_builder 
-= 
-builder 
-;  
-} 
-public 
-
-void &
-BuildDefaultMinimalSession *
-(* +
-)+ ,
-{ 
-this 
-. 
-_builder 
-. 
-WithIcon 
-( 
-$str !
-)! "
-;" #
-this 
-. 
-_builder 
-. 
-WithName 
-( 
-$str %
-)% &
-;& '
-this 
-. 
-_builder 
-. 
-WithDateCreated %
-(% &
-DateTime& .
-.. /
-Now/ 2
-)2 3
-;3 4
-} 
-} ù
+ 	
+this 
+. 
+_builder 
+= 
+builder #
+;# $
+} 	
+public 
+void &
+BuildDefaultMinimalSession .
+(. /
+)/ 0
+{ 	
+this 
+. 
+_builder 
+. 
+WithIcon "
+(" #
+$str# %
+)% &
+;& '
+this 
+. 
+_builder 
+. 
+WithName "
+(" #
+$str# )
+)) *
+;* +
+this 
+. 
+_builder 
+. 
+WithDateCreated )
+() *
+DateTime* 2
+.2 3
+Now3 6
+)6 7
+;7 8
+} 	
+} 
+} ˆ
 GD:\dev\Battleships\Battleships\Services\Builders\IGameSessionBuilder.cs
 	namespace 	
 Battleships
  
 . 
-Builders 
-; 
-public 
-	interface 
-IGameSessionBuilder $
-{ 
-GameSessionBuilder		 
-WithIcon		 
-(		  
-string		  &
-icon		' +
-)		+ ,
-;		, -
+Services 
+. 
+Builders '
+{ 
+public 
+
+	interface 
+IGameSessionBuilder (
+{ 
+GameSessionBuilder		 
+WithIcon		 #
+(		# $
+string		$ *
+icon		+ /
+)		/ 0
+;		0 1
 GameSessionBuilder
 
- 
+ 
 WithName
 
- 
+ #
 (
 
-  
+# $
 string
 
-  &
+$ *
 name
 
-' +
++ /
 )
 
-+ ,
+/ 0
 ;
 
-, -
-GameSessionBuilder 
-WithDateCreated &
-(& '
-DateTime' /
-dateCreated0 ;
-); <
-;< =
-GameSessionBuilder 
-WithGameLength %
-(% &
-TimeSpan& .
+0 1
+GameSessionBuilder 
+WithDateCreated *
+(* +
+DateTime+ 3
+dateCreated4 ?
+)? @
+;@ A
+GameSessionBuilder 
+WithGameLength )
+() *
+TimeSpan* 2
 
-gameLength/ 9
-)9 :
-;: ;
-GameSessionBuilder 
-WithPlayers "
-(" #
-List# '
-<' (
-Player( .
->. /
-players0 7
-)7 8
-;8 9
-GameSessionBuilder 
-WithSessionSettings *
-(* +
-GameSessionSettings+ >
-settings? G
-)G H
-;H I
-GameSessionBuilder 
-WithCurrentRound '
-(' (
-int( +
-round, 1
-)1 2
-;2 3
-GameSession 
-Build 
-( 
-) 
-; 
-} Œ
+gameLength3 =
+)= >
+;> ?
+GameSessionBuilder 
+WithPlayers &
+(& '
+List' +
+<+ ,
+Player, 2
+>2 3
+players4 ;
+); <
+;< =
+GameSessionBuilder 
+WithSessionSettings .
+(. /
+GameSessionSettings/ B
+settingsC K
+)K L
+;L M
+GameSessionBuilder 
+WithCurrentRound +
+(+ ,
+int, /
+round0 5
+)5 6
+;6 7
+Models 
+. 
+GameSession 
+Build  
+(  !
+)! "
+;" #
+} 
+} Ñ
 DD:\dev\Battleships\Battleships\Services\Builders\IShipTileBuilder.cs
 	namespace 	
 Battleships
  
 . 
-Builders 
-; 
-public 
-	interface 
-IShipTileBuilder !
-{ 
-ShipTileBuilder		 
-WithXCoordinate		 #
-(		# $
-int		$ '
-x		( )
-)		) *
-;		* +
+Services 
+. 
+Builders '
+{ 
+public 
+
+	interface 
+IShipTileBuilder %
+{ 
+ShipTileBuilder		 
+WithXCoordinate		 '
+(		' (
+int		( +
+x		, -
+)		- .
+;		. /
 ShipTileBuilder
 
- 
+ 
 WithYCoordinate
 
- #
+ '
 (
 
-# $
+' (
 int
 
-$ '
+( +
 y
 
-( )
+, -
 )
 
-) *
+- .
 ;
 
-* +
-ShipTileBuilder 
-WithIsDestroyed #
-(# $
-bool$ (
-isDestroyed) 4
-)4 5
-;5 6
-ShipTileBuilder 
-WithPlayerShipId $
-($ %
-Guid% )
-id* ,
-), -
-;- .
-ShipTileBuilder 
-WithPlayerShip "
-(" #
+. /
+ShipTileBuilder 
+WithIsDestroyed '
+(' (
+bool( ,
+isDestroyed- 8
+)8 9
+;9 :
+ShipTileBuilder 
+WithPlayerShipId (
+(( )
+Guid) -
+id. 0
+)0 1
+;1 2
+ShipTileBuilder 
+WithPlayerShip &
+(& '
 
-PlayerShip# -
+PlayerShip' 1
 
-playerShip. 8
-)8 9
-;9 :
-ShipTileBuilder 
+playerShip2 <
+)< =
+;= >
+ShipTileBuilder 
 
-WithEngine 
-( 
-Engine %
-engine& ,
-), -
-;- .
-ShipTileBuilder 
-WithGuns 
-( 
-Gun  
-gun! $
-)$ %
-;% &
-ShipTileBuilder 
+WithEngine "
+(" #
+Engine# )
+engine* 0
+)0 1
+;1 2
+ShipTileBuilder 
+WithGuns  
+(  !
+Gun! $
+gun% (
+)( )
+;) *
+ShipTileBuilder 
 
-WithShield 
-( 
-bool #
-shield$ *
-)* +
-;+ ,
-ShipTileBuilder 
-WithGunCount  
-(  !
-int! $
-gunCount% -
-)- .
-;. /
-ShipTileBuilder 
-WithIsFlagship "
-(" #
-bool# '
+WithShield "
+(" #
+bool# '
+shield( .
+). /
+;/ 0
+ShipTileBuilder 
+WithGunCount $
+($ %
+int% (
+gunCount) 1
+)1 2
+;2 3
+ShipTileBuilder 
+WithIsFlagship &
+(& '
+bool' +
 
-isFlagship( 2
-)2 3
-;3 4
-ShipTile 
-Build 
-( 
-) 
-; 
-} œ
+isFlagship, 6
+)6 7
+;7 8
+ShipTile 
+Build 
+( 
+) 
+; 
+} 
+} Ö 
 CD:\dev\Battleships\Battleships\Services\Builders\ShipTileBuilder.cs
 	namespace 	
 Battleships
  
 . 
-Builders 
-; 
-public 
-class 
-ShipTileBuilder 
-: 
-IShipTileBuilder /
-{ 
-private		 
-ShipTile		 
-shipTile		 
-=		 
-new		  #
-ShipTile		$ ,
-(		, -
-)		- .
-;		. /
-public 
-
-ShipTileBuilder 
-WithXCoordinate *
-(* +
-int+ .
-x/ 0
-)0 1
-{ 
-shipTile 
-. 
-XCoordinate 
-= 
-x  
-;  !
-return 
-this 
-; 
-} 
-public 
-
-ShipTileBuilder 
-WithYCoordinate *
-(* +
-int+ .
-y/ 0
-)0 1
-{ 
-shipTile 
-. 
-YCoordinate 
-= 
-y  
-;  !
-return 
-this 
-; 
-} 
-public 
-
-ShipTileBuilder 
-WithIsDestroyed *
-(* +
-bool+ /
-isDestroyed0 ;
-); <
-{ 
-shipTile 
-. 
-IsDestroyed 
-= 
-isDestroyed *
-;* +
-return 
-this 
-; 
-} 
-public 
-
-ShipTileBuilder 
-WithPlayerShipId +
-(+ ,
-Guid, 0
-id1 3
-)3 4
-{ 
-shipTile 
-. 
-PlayerShipId 
-= 
-id  "
-;" #
-return   
-this   
-;   
-}!! 
-public## 
-
-ShipTileBuilder## 
-WithPlayerShip## )
-(##) *
+Services 
+. 
+Builders '
+{ 
+public 
+
+class 
+ShipTileBuilder  
+:! "
+IShipTileBuilder# 3
+{ 
+private		 
+ShipTile		 
+shipTile		 !
+=		" #
+new		$ '
+ShipTile		( 0
+(		0 1
+)		1 2
+;		2 3
+public 
+ShipTileBuilder 
+WithXCoordinate .
+(. /
+int/ 2
+x3 4
+)4 5
+{ 	
+shipTile 
+. 
+XCoordinate  
+=! "
+x# $
+;$ %
+return 
+this 
+; 
+} 	
+public 
+ShipTileBuilder 
+WithYCoordinate .
+(. /
+int/ 2
+y3 4
+)4 5
+{ 	
+shipTile 
+. 
+YCoordinate  
+=! "
+y# $
+;$ %
+return 
+this 
+; 
+} 	
+public 
+ShipTileBuilder 
+WithIsDestroyed .
+(. /
+bool/ 3
+isDestroyed4 ?
+)? @
+{ 	
+shipTile 
+. 
+IsDestroyed  
+=! "
+isDestroyed# .
+;. /
+return 
+this 
+; 
+} 	
+public 
+ShipTileBuilder 
+WithPlayerShipId /
+(/ 0
+Guid0 4
+id5 7
+)7 8
+{ 	
+shipTile 
+. 
+PlayerShipId !
+=" #
+id$ &
+;& '
+return   
+this   
+;   
+}!! 	
+public## 
+ShipTileBuilder## 
+WithPlayerShip## -
+(##- .
 
-PlayerShip##* 4
+PlayerShip##. 8
 
-playerShip##5 ?
-)##? @
-{$$ 
-shipTile%% 
-.%% 
+playerShip##9 C
+)##C D
+{$$ 	
+shipTile%% 
+.%% 
 
-PlayerShip%% 
-=%% 
+PlayerShip%% 
+=%%  !
 
-playerShip%% (
-;%%( )
-return&& 
-this&& 
-;&& 
-}'' 
-public)) 
-
-ShipTileBuilder)) 
+playerShip%%" ,
+;%%, -
+return&& 
+this&& 
+;&& 
+}'' 	
+public)) 
+ShipTileBuilder)) 
 
-WithEngine)) %
-())% &
-Engine))& ,
-engine))- 3
-)))3 4
-{** 
-shipTile++ 
-.++ 
-Engine++ 
-=++ 
-engine++  
-;++  !
-return,, 
-this,, 
-;,, 
-}-- 
-public// 
-
-ShipTileBuilder// 
-WithGuns// #
-(//# $
-Gun//$ '
-gun//( +
-)//+ ,
-{00 
-shipTile11 
-.11 
-Guns11 
-=11 
-gun11 
-;11 
-return22 
-this22 
-;22 
-}33 
-public55 
-
-ShipTileBuilder55 
+WithEngine)) )
+())) *
+Engine))* 0
+engine))1 7
+)))7 8
+{** 	
+shipTile++ 
+.++ 
+Engine++ 
+=++ 
+engine++ $
+;++$ %
+return,, 
+this,, 
+;,, 
+}-- 	
+public// 
+ShipTileBuilder// 
+WithGuns// '
+(//' (
+Gun//( +
+gun//, /
+)/// 0
+{00 	
+shipTile11 
+.11 
+Guns11 
+=11 
+gun11 
+;11  
+return22 
+this22 
+;22 
+}33 	
+public55 
+ShipTileBuilder55 
 
-WithShield55 %
-(55% &
-bool55& *
-shield55+ 1
-)551 2
-{66 
-shipTile77 
-.77 
-Shield77 
-=77 
-shield77  
-;77  !
-return88 
-this88 
-;88 
-}99 
-public;; 
-
-ShipTileBuilder;; 
-WithGunCount;; '
-(;;' (
-int;;( +
-gunCount;;, 4
-);;4 5
-{<< 
-shipTile== 
-.== 
-GunCount== 
-=== 
-gunCount== $
-;==$ %
-return>> 
-this>> 
-;>> 
-}?? 
-publicAA 
-
-ShipTileBuilderAA 
-WithIsFlagshipAA )
-(AA) *
-boolAA* .
+WithShield55 )
+(55) *
+bool55* .
+shield55/ 5
+)555 6
+{66 	
+shipTile77 
+.77 
+Shield77 
+=77 
+shield77 $
+;77$ %
+return88 
+this88 
+;88 
+}99 	
+public;; 
+ShipTileBuilder;; 
+WithGunCount;; +
+(;;+ ,
+int;;, /
+gunCount;;0 8
+);;8 9
+{<< 	
+shipTile== 
+.== 
+GunCount== 
+=== 
+gunCount==  (
+;==( )
+return>> 
+this>> 
+;>> 
+}?? 	
+publicAA 
+ShipTileBuilderAA 
+WithIsFlagshipAA -
+(AA- .
+boolAA. 2
 
-isFlagshipAA/ 9
-)AA9 :
-{BB 
-shipTileCC 
-.CC 
+isFlagshipAA3 =
+)AA= >
+{BB 	
+shipTileCC 
+.CC 
 
-IsFlagshipCC 
-=CC 
+IsFlagshipCC 
+=CC  !
 
-isFlagshipCC (
-;CC( )
-returnDD 
-thisDD 
-;DD 
-}EE 
-publicGG 
-
-ShipTileGG 
-BuildGG 
-(GG 
-)GG 
-{HH 
-returnII 
-thisII 
-.II 
-shipTileII 
-;II 
-}JJ 
-}KK å
+isFlagshipCC" ,
+;CC, -
+returnDD 
+thisDD 
+;DD 
+}EE 	
+publicGG 
+ShipTileGG 
+BuildGG 
+(GG 
+)GG 
+{HH 	
+returnII 
+thisII 
+.II 
+shipTileII  
+;II  !
+}JJ 	
+}KK 
+}LL å
 
 >D:\dev\Battleships\Battleships\Services\EmailSendingService.cs
 	namespace 	
@@ -24622,200 +24637,199 @@ isFlagshipCC (
 ;2 3
 } 	
 } 
-} ”
+} ‰
 9D:\dev\Battleships\Battleships\Services\EndgameService.cs
-	namespace
-
- 	
-Battleships
-
-
+	namespace 	
+Battleships
  
-.
+. 
+Services 
+{		 
+public
 
- 
-Services
-
- 
-;
-
- 
-public 
-class 
-EndgameService 
-: 
-IEndgameService -
-{ 
-private 
-readonly  
-IBattleshipsDatabase ) 
-_battleshipsDatabase* >
-;> ?
-private 
-readonly #
-IEndgameStrategyService ,#
-_endgameStrategyService- D
-;D E
-private 
-readonly .
-"IBattleshipsSynchronizationService 7.
-"_battleshipsSynchronizationService8 Z
-;Z [
-private 
-readonly 
-IUserManager !
-_userManager" .
-;. /
-public 
-
-EndgameService 
-(  
-IBattleshipsDatabase 
-battleshipsDatabase 0
-,0 1#
-IEndgameStrategyService "
-endgameStrategyService  6
-,6 7.
-"IBattleshipsSynchronizationService *-
-!battleshipsSynchronizationService+ L
-,L M
-IUserManager 
-userManager  
-)  !
-{  
-_battleshipsDatabase 
-= 
-battleshipsDatabase 2
-;2 3#
-_endgameStrategyService 
-=  !"
-endgameStrategyService" 8
-;8 9.
-"_battleshipsSynchronizationService *
-=+ ,-
-!battleshipsSynchronizationService- N
-;N O
-_userManager 
-= 
-userManager "
-;" #
-} 
-public 
+ 
 
-async 
-Task 
-< 
-bool 
-> 
-IsEndgameReached ,
-(, -
-Guid- 1
-gameSessionId2 ?
-)? @
-{   
-var!! 
-strategy!! 
-=!! 
-await!! #
-_endgameStrategyService!! 4
-.!!4 5
-GetEndgameStrategy!!5 G
-(!!G H
-gameSessionId!!H U
-)!!U V
-;!!V W
-return## 
-await## 
-strategy## 
-.## 
-IsEndgameReached## .
-(##. /
-gameSessionId##/ <
-)##< =
-;##= >
-}$$ 
-public&& 
-
-async&& 
-Task&& 
-EndGameSession&& $
-(&&$ %
-Guid&&% )
-gameSessionId&&* 7
-,&&7 8
-string&&9 ?
+class
+
+ 
+EndgameService
+
+ 
+:
+
+  !
+IEndgameService
+
+" 1
+{ 
+private 
+readonly  
+IBattleshipsDatabase - 
+_battleshipsDatabase. B
+;B C
+private 
+readonly #
+IEndgameStrategyService 0#
+_endgameStrategyService1 H
+;H I
+private 
+readonly .
+"IBattleshipsSynchronizationService ;.
+"_battleshipsSynchronizationService< ^
+;^ _
+private 
+readonly 
+IUserManager %
+_userManager& 2
+;2 3
+public 
+EndgameService 
+(  
+IBattleshipsDatabase  
+battleshipsDatabase! 4
+,4 5#
+IEndgameStrategyService #"
+endgameStrategyService$ :
+,: ;.
+"IBattleshipsSynchronizationService .-
+!battleshipsSynchronizationService/ P
+,P Q
+IUserManager 
+userManager $
+)$ %
+{ 	 
+_battleshipsDatabase  
+=! "
+battleshipsDatabase# 6
+;6 7#
+_endgameStrategyService #
+=$ %"
+endgameStrategyService& <
+;< =.
+"_battleshipsSynchronizationService .
+=/ 0-
+!battleshipsSynchronizationService1 R
+;R S
+_userManager 
+= 
+userManager &
+;& '
+} 	
+public 
+async 
+Task 
+< 
+bool 
+> 
+IsEndgameReached  0
+(0 1
+Guid1 5
+gameSessionId6 C
+)C D
+{ 	
+var 
+strategy 
+= 
+await  #
+_endgameStrategyService! 8
+.8 9
+GetEndgameStrategy9 K
+(K L
+gameSessionIdL Y
+)Y Z
+;Z [
+return!! 
+await!! 
+strategy!! !
+.!!! "
+IsEndgameReached!!" 2
+(!!2 3
+gameSessionId!!3 @
+)!!@ A
+;!!A B
+}"" 	
+public$$ 
+async$$ 
+Task$$ 
+EndGameSession$$ (
+($$( )
+Guid$$) -
+gameSessionId$$. ;
+,$$; <
+string$$= C
 
-attackerId&&@ J
-)&&J K
-{'' 
-var(( 
+attackerId$$D N
+)$$N O
+{%% 	
+var&& 
+session&& 
+=&& 
+await&&  
+_battleshipsDatabase&&  4
+.&&4 5"
+GameSessionsRepository&&5 K
+.&&K L
+GetById&&L S
+(&&S T
+gameSessionId&&T a
+)&&a b
+;&&b c
 session(( 
-=(( 
-await((  
-_battleshipsDatabase(( 0
-.((0 1"
-GameSessionsRepository((1 G
-.((G H
-GetById((H O
-(((O P
-gameSessionId((P ]
-)((] ^
-;((^ _
-session** 
-.** 
-WinnerId** 
-=** 
+.(( 
+WinnerId(( 
+=(( 
 
-attackerId** %
-;**% &
-session++ 
-.++ 
-Status++ 
-=++ 
-GameSessionStatus++ *
-.++* +
-EndgameReached+++ 9
-;++9 :
-await--  
-_battleshipsDatabase-- "
-.--" #"
-GameSessionsRepository--# 9
-.--9 :
-Update--: @
-(--@ A
-session--A H
-)--H I
-;--I J
-var// 
+attackerId(( )
+;(() *
+session)) 
+.)) 
+Status)) 
+=)) 
+GameSessionStatus)) .
+.)). /
+EndgameReached))/ =
+;))= >
+await++  
+_battleshipsDatabase++ &
+.++& '"
+GameSessionsRepository++' =
+.++= >
+Update++> D
+(++D E
+session++E L
+)++L M
+;++M N
+var-- 
 
-winnerName// 
-=// 
-(// 
-await// 
-_userManager//  ,
-.//, -
-GetById//- 4
-(//4 5
+winnerName-- 
+=-- 
+(-- 
+await-- #
+_userManager--$ 0
+.--0 1
+GetById--1 8
+(--8 9
 
-attackerId//5 ?
-)//? @
-)//@ A
-.//A B
-UserName//B J
-;//J K
-await00 .
-"_battleshipsSynchronizationService00 0
-.000 1
-SendEndgameReached001 C
-(00C D
-gameSessionId00D Q
-,00Q R
+attackerId--9 C
+)--C D
+)--D E
+.--E F
+UserName--F N
+;--N O
+await.. .
+"_battleshipsSynchronizationService.. 4
+...4 5
+SendEndgameReached..5 G
+(..G H
+gameSessionId..H U
+,..U V
 
-winnerName00S ]
-)00] ^
-;00^ _
-}11 
-}22 Ω
+winnerName..W a
+)..a b
+;..b c
+}// 	
+}00 
+}11 Œ
 SD:\dev\Battleships\Battleships\Services\EndgameStrategies\ClassicEndgameStrategy.cs
 	namespace 	
 Battleships
@@ -24823,214 +24837,213 @@ SD:\dev\Battleships\Battleships\Services\EndgameStrategies\ClassicEndgameStrateg
 . 
 Services 
 . 
-EndgameStrategies 0
-;0 1
-public
+EndgameStrategies 0
+{		 
+public
 
- 
+ 
+
 class
 
- "
+ "
 ClassicEndgameStrategy
 
- #
+ '
 :
 
-$ %
+( )
 IEndgameStrategy
 
-& 6
-{ 
-private 
-readonly  
-IBattleshipsDatabase ) 
-_battleshipsDatabase* >
-;> ?
-public 
-"
-ClassicEndgameStrategy !
-(! " 
-IBattleshipsDatabase 
-battleshipsDatabase 0
-) 
-{  
-_battleshipsDatabase 
-= 
-battleshipsDatabase 2
-;2 3
-} 
-public 
-
-async 
-Task 
-< 
-bool 
-> 
-IsEndgameReached ,
-(, -
-Guid- 1
-gameSessionId2 ?
-)? @
-{ 
-var 
-tiles 
-= 
-await  
-_battleshipsDatabase .
-.. /
-ShipTilesRepository/ B
-.B C
-GetSessionShipTilesC V
-(V W
-gameSessionIdW d
-)d e
-;e f
-var 
-	playerIds 
-= 
-tiles 
-. 
-Where 
-( 
-tile 
-=> 
-tile 
-.  
+* :
+{ 
+private 
+readonly  
+IBattleshipsDatabase - 
+_battleshipsDatabase. B
+;B C
+public "
+ClassicEndgameStrategy %
+(% & 
+IBattleshipsDatabase  
+battleshipsDatabase! 4
+) 	
+{ 	 
+_battleshipsDatabase  
+=! "
+battleshipsDatabase# 6
+;6 7
+} 	
+public 
+async 
+Task 
+< 
+bool 
+> 
+IsEndgameReached  0
+(0 1
+Guid1 5
+gameSessionId6 C
+)C D
+{ 	
+var 
+tiles 
+= 
+await  
+_battleshipsDatabase 2
+.2 3
+ShipTilesRepository3 F
+.F G
+GetSessionShipTilesG Z
+(Z [
+gameSessionId[ h
+)h i
+;i j
+var 
+	playerIds 
+= 
+tiles !
+. 
+Where 
+( 
+tile 
+=> 
+tile #
+.# $
 
-PlayerShip  *
-?* +
-.+ ,
-PlayerId, 4
-is5 7
-not8 ;
-null< @
-)@ A
-. 
-Select 
-( 
-tile 
-=> 
-tile  
-.  !
+PlayerShip$ .
+?. /
+./ 0
+PlayerId0 8
+is9 ;
+not< ?
+null@ D
+)D E
+. 
+Select 
+( 
+tile 
+=> 
+tile  $
+.$ %
 
-PlayerShip! +
-.+ ,
-PlayerId, 4
-)4 5
-. 
-Distinct 
-( 
-) 
-. 
-ToList 
-( 
-) 
-; 
-var 
-( 
-playerOneId 
-, 
-playerTwoId %
-)% &
-=' (
-() *
-	playerIds* 3
-[3 4
-$num4 5
-]5 6
-,6 7
-	playerIds8 A
-[A B
-$numB C
-]C D
-)D E
-;E F
-var %
-isPlayerOneShipsDestroyed %
-=& '%
-IsAllPlayerShipsDestroyed( A
-(A B
-tilesB G
-,G H
-playerOneIdI T
-)T U
-;U V
-var   %
-isPlayerTwoShipsDestroyed   %
-=  & '%
-IsAllPlayerShipsDestroyed  ( A
-(  A B
-tiles  B G
-,  G H
-playerTwoId  I T
-)  T U
-;  U V
-return"" %
-isPlayerOneShipsDestroyed"" (
-||"") +%
-isPlayerTwoShipsDestroyed"", E
-;""E F
-}## 
-private%% 
-bool%% %
-IsAllPlayerShipsDestroyed%% *
-(%%* +
-List%%+ /
-<%%/ 0
-ShipTile%%0 8
->%%8 9
-tiles%%: ?
-,%%? @
-Guid%%A E
-playerId%%F N
-)%%N O
-{&& 
-var'' 
-playerTiles'' 
-='' 
-tiles'' 
-.(( 
-Where(( 
-((( 
-tile(( 
-=>(( 
-tile(( 
-.((  
+PlayerShip% /
+./ 0
+PlayerId0 8
+)8 9
+. 
+Distinct 
+( 
+) 
+. 
+ToList 
+( 
+) 
+; 
+var 
+( 
+playerOneId 
+, 
+playerTwoId )
+)) *
+=+ ,
+(- .
+	playerIds. 7
+[7 8
+$num8 9
+]9 :
+,: ;
+	playerIds< E
+[E F
+$numF G
+]G H
+)H I
+;I J
+var %
+isPlayerOneShipsDestroyed )
+=* +%
+IsAllPlayerShipsDestroyed, E
+(E F
+tilesF K
+,K L
+playerOneIdM X
+)X Y
+;Y Z
+var   %
+isPlayerTwoShipsDestroyed   )
+=  * +%
+IsAllPlayerShipsDestroyed  , E
+(  E F
+tiles  F K
+,  K L
+playerTwoId  M X
+)  X Y
+;  Y Z
+return"" %
+isPlayerOneShipsDestroyed"" ,
+||""- /%
+isPlayerTwoShipsDestroyed""0 I
+;""I J
+}## 	
+private%% 
+bool%% %
+IsAllPlayerShipsDestroyed%% .
+(%%. /
+List%%/ 3
+<%%3 4
+ShipTile%%4 <
+>%%< =
+tiles%%> C
+,%%C D
+Guid%%E I
+playerId%%J R
+)%%R S
+{&& 	
+var'' 
+playerTiles'' 
+='' 
+tiles'' #
+.(( 
+Where(( 
+((( 
+tile(( 
+=>(( 
+tile(( #
+.((# $
 
-PlayerShip((  *
-.((* +
-PlayerId((+ 3
-==((4 6
-playerId((7 ?
-)((? @
-;((@ A
-return** 
-playerTiles** 
-.** 
-All** 
-(** 
-tile** #
-=>**$ &
-tile**' +
-.**+ ,
-IsDestroyed**, 7
-)**7 8
-;**8 9
-}++ 
-public-- 
-
-string-- 
-StrategyType-- 
-=>-- !
-Data--" &
-.--& '
-	Constants--' 0
-.--0 1
-EndgameStrategies--1 B
-.--B C
-Classic--C J
-;--J K
-}.. ™
+PlayerShip(($ .
+.((. /
+PlayerId((/ 7
+==((8 :
+playerId((; C
+)((C D
+;((D E
+return** 
+playerTiles** 
+.** 
+All** "
+(**" #
+tile**# '
+=>**( *
+tile**+ /
+.**/ 0
+IsDestroyed**0 ;
+)**; <
+;**< =
+}++ 	
+public-- 
+string-- 
+StrategyType-- "
+=>--# %
+Data--& *
+.--* +
+	Constants--+ 4
+.--4 5
+EndgameStrategies--5 F
+.--F G
+Classic--G N
+;--N O
+}.. 
+}//  
 VD:\dev\Battleships\Battleships\Services\EndgameStrategies\DeathMatchEndgameStrategy.cs
 	namespace 	
 Battleships
@@ -25038,178 +25051,168 @@ VD:\dev\Battleships\Battleships\Services\EndgameStrategies\DeathMatchEndgameStra
 . 
 Services 
 . 
-EndgameStrategies 0
-;0 1
-public
-
- 
-class
-
- %
-DeathMatchEndgameStrategy
-
- &
-:
-
-' (
-IEndgameStrategy
-
-) 9
-{ 
-private 
-readonly  
-IBattleshipsDatabase ) 
-_battleshipsDatabase* >
-;> ?
-public 
-%
-DeathMatchEndgameStrategy $
-($ % 
-IBattleshipsDatabase% 9
-battleshipsDatabase: M
-)M N
-{  
-_battleshipsDatabase 
-= 
-battleshipsDatabase 2
-;2 3
-} 
-public 
+EndgameStrategies 0
+{		 
+public 
 
-async 
-Task 
-< 
-bool 
-> 
-IsEndgameReached ,
-(, -
-Guid- 1
-gameSessionId2 ?
-)? @
-{ 
-var 
-tiles 
-= 
-await  
-_battleshipsDatabase .
-.. /
-ShipTilesRepository/ B
-.B C
-GetSessionShipTilesC V
-(V W
-gameSessionIdW d
-)d e
-;e f
-var 
-playerShipIds 
-= 
-tiles !
-. 
-Where 
-( 
-tile 
-=> 
-tile 
-.  
-PlayerShipId  ,
-is- /
-not0 3
-null4 8
-)8 9
-. 
-Select 
-( 
-tile 
-=> 
-tile  
-.  !
-PlayerShipId! -
-.- .
-Value. 3
-)3 4
-. 
-Distinct 
-( 
-) 
-. 
-ToList 
-( 
-) 
-; 
-var 
-isAnyShipDestroyed 
-=  
-playerShipIds! .
-.. /
-Any/ 2
-(2 3
-playerShipId3 ?
-=>@ B
-IsShipDestroyedC R
-(R S
-tilesS X
-,X Y
-playerShipIdZ f
-)f g
-)g h
-;h i
-return 
-isAnyShipDestroyed !
-;! "
-} 
-private!! 
-bool!! 
-IsShipDestroyed!!  
-(!!  !
-List!!! %
-<!!% &
-ShipTile!!& .
->!!. /
-tiles!!0 5
-,!!5 6
-Guid!!7 ;
-playerShipId!!< H
-)!!H I
-{"" 
-return## 
-tiles## 
-.$$ 
-Where$$ 
-($$ 
-tile$$ 
-=>$$ 
-tile$$ 
-.$$  
-PlayerShipId$$  ,
-==$$- /
-playerShipId$$0 <
-)$$< =
-.%% 
-All%% 
-(%% 
-tile%% 
-=>%% 
-tile%% 
-.%% 
-IsDestroyed%% )
-)%%) *
-;%%* +
-}&& 
-public(( 
-
-string(( 
-StrategyType(( 
-=>(( !
-Data((" &
-.((& '
-	Constants((' 0
-.((0 1
-EndgameStrategies((1 B
-.((B C
+class %
+DeathMatchEndgameStrategy *
+:+ ,
+IEndgameStrategy- =
+{ 
+private 
+readonly  
+IBattleshipsDatabase - 
+_battleshipsDatabase. B
+;B C
+public %
+DeathMatchEndgameStrategy (
+(( ) 
+IBattleshipsDatabase) =
+battleshipsDatabase> Q
+)Q R
+{ 	 
+_battleshipsDatabase  
+=! "
+battleshipsDatabase# 6
+;6 7
+} 	
+public 
+async 
+Task 
+< 
+bool 
+> 
+IsEndgameReached  0
+(0 1
+Guid1 5
+gameSessionId6 C
+)C D
+{ 	
+var 
+tiles 
+= 
+await  
+_battleshipsDatabase 2
+.2 3
+ShipTilesRepository3 F
+.F G
+GetSessionShipTilesG Z
+(Z [
+gameSessionId[ h
+)h i
+;i j
+var 
+playerShipIds 
+= 
+tiles  %
+. 
+Where 
+( 
+tile 
+=> 
+tile #
+.# $
+PlayerShipId$ 0
+is1 3
+not4 7
+null8 <
+)< =
+. 
+Select 
+( 
+tile 
+=> 
+tile  $
+.$ %
+PlayerShipId% 1
+.1 2
+Value2 7
+)7 8
+. 
+Distinct 
+( 
+) 
+. 
+ToList 
+( 
+) 
+; 
+var 
+isAnyShipDestroyed "
+=# $
+playerShipIds% 2
+.2 3
+Any3 6
+(6 7
+playerShipId7 C
+=>D F
+IsShipDestroyedG V
+(V W
+tilesW \
+,\ ]
+playerShipId^ j
+)j k
+)k l
+;l m
+return 
+isAnyShipDestroyed %
+;% &
+}   	
+private"" 
+bool"" 
+IsShipDestroyed"" $
+(""$ %
+List""% )
+<"") *
+ShipTile""* 2
+>""2 3
+tiles""4 9
+,""9 :
+Guid""; ?
+playerShipId""@ L
+)""L M
+{## 	
+return$$ 
+tiles$$ 
+.%% 
+Where%% 
+(%% 
+tile%% 
+=>%% 
+tile%% #
+.%%# $
+PlayerShipId%%$ 0
+==%%1 3
+playerShipId%%4 @
+)%%@ A
+.&& 
+All&& 
+(&& 
+tile&& 
+=>&& 
+tile&& !
+.&&! "
+IsDestroyed&&" -
+)&&- .
+;&&. /
+}'' 	
+public)) 
+string)) 
+StrategyType)) "
+=>))# %
+Data))& *
+.))* +
+	Constants))+ 4
+.))4 5
+EndgameStrategies))5 F
+.))F G
 
-DeathMatch((C M
-;((M N
-})) Ù(
+DeathMatch))G Q
+;))Q R
+}** 
+}++ 
+;++ Ö)
 ^D:\dev\Battleships\Battleships\Services\EndgameStrategies\DestroyedShipCountEndgameStrategy.cs
 	namespace 	
 Battleships
@@ -25217,282 +25220,271 @@ DeathMatch((C M
 . 
 Services 
 . 
-EndgameStrategies 0
-;0 1
-public
-
- 
-class
-
- -
-!DestroyedShipCountEndgameStrategy
-
- .
-:
-
-/ 0
-IEndgameStrategy
-
-1 A
-{ 
-private 
-readonly  
-IBattleshipsDatabase ) 
-_battleshipsDatabase* >
-;> ?
-public 
--
-!DestroyedShipCountEndgameStrategy ,
-(, - 
-IBattleshipsDatabase- A
-battleshipsDatabaseB U
-)U V
-{  
-_battleshipsDatabase 
-= 
-battleshipsDatabase 2
-;2 3
-} 
-public 
+EndgameStrategies 0
+{		 
+public 
 
-async 
-Task 
-< 
-bool 
-> 
-IsEndgameReached ,
-(, -
-Guid- 1
-gameSessionId2 ?
-)? @
-{ 
-var &
-requiredDestroyedShipCount &
-=' (
-await) . 
-_battleshipsDatabase/ C
-. "
-GameSessionsRepository #
-.# $)
-GetRequiredDestroyedShipCount$ A
-(A B
-gameSessionIdB O
-)O P
-;P Q
-var 
-tiles 
-= 
-await  
-_battleshipsDatabase .
-.. /
-ShipTilesRepository/ B
-.B C
-GetSessionShipTilesC V
-(V W
-gameSessionIdW d
-)d e
-;e f
-var 
-	playerIds 
-= 
-tiles 
-. 
-Select $
-($ %
-tile% )
-=>* ,
-tile- 1
-.1 2
+class -
+!DestroyedShipCountEndgameStrategy 2
+:3 4
+IEndgameStrategy5 E
+{ 
+private 
+readonly  
+IBattleshipsDatabase - 
+_battleshipsDatabase. B
+;B C
+public -
+!DestroyedShipCountEndgameStrategy 0
+(0 1 
+IBattleshipsDatabase1 E
+battleshipsDatabaseF Y
+)Y Z
+{ 	 
+_battleshipsDatabase  
+=! "
+battleshipsDatabase# 6
+;6 7
+} 	
+public 
+async 
+Task 
+< 
+bool 
+> 
+IsEndgameReached  0
+(0 1
+Guid1 5
+gameSessionId6 C
+)C D
+{ 	
+var &
+requiredDestroyedShipCount *
+=+ ,
+await- 2 
+_battleshipsDatabase3 G
+. "
+GameSessionsRepository '
+.' ()
+GetRequiredDestroyedShipCount( E
+(E F
+gameSessionIdF S
+)S T
+;T U
+var 
+tiles 
+= 
+await  
+_battleshipsDatabase 2
+.2 3
+ShipTilesRepository3 F
+.F G
+GetSessionShipTilesG Z
+(Z [
+gameSessionId[ h
+)h i
+;i j
+var 
+	playerIds 
+= 
+tiles !
+.! "
+Select" (
+(( )
+tile) -
+=>. 0
+tile1 5
+.5 6
 
-PlayerShip2 <
-.< =
-PlayerId= E
-)E F
-.F G
-DistinctG O
-(O P
-)P Q
-.Q R
-ToListR X
-(X Y
-)Y Z
-;Z [
-var %
-destroyedPlayerShipCounts %
-=& '
-	playerIds( 1
-.1 2
-Select2 8
-(8 9
-playerId9 A
-=>B D'
-GetDestroyedPlayerShipCountE `
-(` a
-tilesa f
-,f g
-playerIdh p
-)p q
-)q r
-;r s
-return %
-destroyedPlayerShipCounts (
-.( )
-Any) ,
-(, -
-count- 2
-=>3 5
-count6 ;
->=< >&
-requiredDestroyedShipCount? Y
-)Y Z
-;Z [
-} 
-private 
-int '
-GetDestroyedPlayerShipCount +
-(+ ,
-List, 0
-<0 1
-ShipTile1 9
->9 :
-tiles; @
-,@ A
-GuidB F
-playerIdG O
-)O P
-{   
-var!! 
-playerTiles!! 
-=!! 
-tiles!! 
-.!!  
-Where!!  %
-(!!% &
-tile!!& *
-=>!!+ -
-tile!!. 2
-.!!2 3
+PlayerShip6 @
+.@ A
+PlayerIdA I
+)I J
+.J K
+DistinctK S
+(S T
+)T U
+.U V
+ToListV \
+(\ ]
+)] ^
+;^ _
+var %
+destroyedPlayerShipCounts )
+=* +
+	playerIds, 5
+.5 6
+Select6 <
+(< =
+playerId= E
+=>F H'
+GetDestroyedPlayerShipCountI d
+(d e
+tilese j
+,j k
+playerIdl t
+)t u
+)u v
+;v w
+return %
+destroyedPlayerShipCounts ,
+., -
+Any- 0
+(0 1
+count1 6
+=>7 9
+count: ?
+>=@ B&
+requiredDestroyedShipCountC ]
+)] ^
+;^ _
+} 	
+private   
+int   '
+GetDestroyedPlayerShipCount   /
+(  / 0
+List  0 4
+<  4 5
+ShipTile  5 =
+>  = >
+tiles  ? D
+,  D E
+Guid  F J
+playerId  K S
+)  S T
+{!! 	
+var"" 
+playerTiles"" 
+="" 
+tiles"" #
+.""# $
+Where""$ )
+("") *
+tile""* .
+=>""/ 1
+tile""2 6
+.""6 7
 
-PlayerShip!!3 =
-.!!= >
-PlayerId!!> F
-==!!G I
-playerId!!J R
-)!!R S
-.!!S T
-ToList!!T Z
-(!!Z [
-)!![ \
-;!!\ ]
-var"" 
-playerShipIds"" 
-="" 
-tiles"" !
-.## 
-Where## 
-(## 
-tile## 
-=>## 
-tile## 
-.##  
-PlayerShipId##  ,
-is##- /
-not##0 3
-null##4 8
-)##8 9
-.$$ 
-Select$$ 
-($$ 
-tile$$ 
-=>$$ 
-tile$$  
-.$$  !
-PlayerShipId$$! -
-.$$- .
-Value$$. 3
-)$$3 4
-.%% 
-Distinct%% 
-(%% 
-)%% 
-.&& 
-ToList&& 
-(&& 
-)&& 
-;&& 
-var(( 
-destroyedShipCount(( 
-=((  
-playerShipIds((! .
-.((. /
-Count((/ 4
-(((4 5
-id((5 7
-=>((8 :
-IsShipDestroyed((; J
-(((J K
-playerTiles((K V
-,((V W
-id((X Z
-)((Z [
-)(([ \
-;((\ ]
-return** 
-destroyedShipCount** !
-;**! "
-}++ 
-private-- 
-bool-- 
-IsShipDestroyed--  
-(--  !
-List--! %
-<--% &
-ShipTile--& .
->--. /
-tiles--0 5
-,--5 6
-Guid--7 ;
-playerShipId--< H
-)--H I
-{.. 
-return// 
-tiles// 
-.00 
-Where00 
-(00 
-tile00 
-=>00 
-tile00 
-.00  
-PlayerShipId00  ,
-==00- /
-playerShipId000 <
-)00< =
-.11 
-All11 
-(11 
-tile11 
-=>11 
-tile11 
-.11 
-IsDestroyed11 )
-)11) *
-;11* +
-}22 
-public44 
-
-string44 
-StrategyType44 
-=>44 !
-Data44" &
-.44& '
-	Constants44' 0
-.440 1
-EndgameStrategies441 B
-.44B C
-DestroyedShipCount44C U
-;44U V
-}55 ˙
+PlayerShip""7 A
+.""A B
+PlayerId""B J
+==""K M
+playerId""N V
+)""V W
+.""W X
+ToList""X ^
+(""^ _
+)""_ `
+;""` a
+var## 
+playerShipIds## 
+=## 
+tiles##  %
+.$$ 
+Where$$ 
+($$ 
+tile$$ 
+=>$$ 
+tile$$ #
+.$$# $
+PlayerShipId$$$ 0
+is$$1 3
+not$$4 7
+null$$8 <
+)$$< =
+.%% 
+Select%% 
+(%% 
+tile%% 
+=>%% 
+tile%%  $
+.%%$ %
+PlayerShipId%%% 1
+.%%1 2
+Value%%2 7
+)%%7 8
+.&& 
+Distinct&& 
+(&& 
+)&& 
+.'' 
+ToList'' 
+('' 
+)'' 
+;'' 
+var)) 
+destroyedShipCount)) "
+=))# $
+playerShipIds))% 2
+.))2 3
+Count))3 8
+())8 9
+id))9 ;
+=>))< >
+IsShipDestroyed))? N
+())N O
+playerTiles))O Z
+,))Z [
+id))\ ^
+)))^ _
+)))_ `
+;))` a
+return++ 
+destroyedShipCount++ %
+;++% &
+},, 	
+private.. 
+bool.. 
+IsShipDestroyed.. $
+(..$ %
+List..% )
+<..) *
+ShipTile..* 2
+>..2 3
+tiles..4 9
+,..9 :
+Guid..; ?
+playerShipId..@ L
+)..L M
+{// 	
+return00 
+tiles00 
+.11 
+Where11 
+(11 
+tile11 
+=>11 
+tile11 #
+.11# $
+PlayerShipId11$ 0
+==111 3
+playerShipId114 @
+)11@ A
+.22 
+All22 
+(22 
+tile22 
+=>22 
+tile22 !
+.22! "
+IsDestroyed22" -
+)22- .
+;22. /
+}33 	
+public55 
+string55 
+StrategyType55 "
+=>55# %
+Data55& *
+.55* +
+	Constants55+ 4
+.554 5
+EndgameStrategies555 F
+.55F G
+DestroyedShipCount55G Y
+;55Y Z
+}66 
+}77 ã
 MD:\dev\Battleships\Battleships\Services\EndgameStrategies\IEndgameStrategy.cs
 	namespace 	
 Battleships
@@ -25500,33 +25492,34 @@ MD:\dev\Battleships\Battleships\Services\EndgameStrategies\IEndgameStrategy.cs
 . 
 Services 
 . 
-EndgameStrategies 0
-;0 1
-public 
-	interface 
-IEndgameStrategy !
-{ 
-Task 
-< 	
-bool	 
-> 
-IsEndgameReached 
-(  
-Guid  $
-gameSessionId% 2
-)2 3
-;3 4
-public		 
-
-string		 
-StrategyType		 
-{		  
-get		! $
-;		$ %
-}		& '
-}
+EndgameStrategies 0
+{ 
+public 
+
+	interface 
+IEndgameStrategy %
+{ 
+Task 
+< 
+bool 
+> 
+IsEndgameReached #
+(# $
+Guid$ (
+gameSessionId) 6
+)6 7
+;7 8
+public		 
+string		 
+StrategyType		 "
+{		# $
+get		% (
+;		( )
+}		* +
+}
 
- ø
+ 
+} –
 [D:\dev\Battleships\Battleships\Services\EndgameStrategies\RoundCountLimitEndgameStrategy.cs
 	namespace 	
 Battleships
@@ -25534,775 +25527,769 @@ MD:\dev\Battleships\Battleships\Services\EndgameStrategies\IEndgameStrategy.cs
 . 
 Services 
 . 
-EndgameStrategies 0
-;0 1
-public 
-class *
-RoundCountLimitEndgameStrategy +
-:, -
-IEndgameStrategy. >
-{ 
-private		 
-readonly		  
-IBattleshipsDatabase		 ) 
-_battleshipsDatabase		* >
-;		> ?
-public 
-*
-RoundCountLimitEndgameStrategy )
-() * 
-IBattleshipsDatabase 
-battleshipsDatabase 0
-) 
-{  
-_battleshipsDatabase 
-= 
-battleshipsDatabase 2
-;2 3
-} 
-public 
+EndgameStrategies 0
+{ 
+public		 
 
-async 
-Task 
-< 
-bool 
-> 
-IsEndgameReached ,
-(, -
-Guid- 1
-gameSessionId2 ?
-)? @
-{ 
-var 
-round 
-= 
-await  
-_battleshipsDatabase .
-.. /"
-GameSessionsRepository/ E
-.E F
-GetCurrentRoundF U
-(U V
-gameSessionIdV c
-)c d
-;d e
-var 
-settings 
-= 
-await  
-_battleshipsDatabase 1
-.1 2)
-GameSessionSettingsRepository2 O
-.O P
-GetBySessionIdP ^
-(^ _
-gameSessionId_ l
-)l m
-;m n
-return 
-round 
->= 
-settings  
-.  !%
-RoundCountLimitForEndgame! :
-;: ;
-} 
-public 
-
-string 
-StrategyType 
-=> !
-Data" &
-.& '
-	Constants' 0
-.0 1
-EndgameStrategies1 B
-.B C
-RoundCountLimitC R
-;R S
-} ˜
+class		 *
+RoundCountLimitEndgameStrategy		 /
+:		0 1
+IEndgameStrategy		2 B
+{
+
+ 
+private 
+readonly  
+IBattleshipsDatabase - 
+_battleshipsDatabase. B
+;B C
+public *
+RoundCountLimitEndgameStrategy -
+(- . 
+IBattleshipsDatabase  
+battleshipsDatabase! 4
+) 	
+{ 	 
+_battleshipsDatabase  
+=! "
+battleshipsDatabase# 6
+;6 7
+} 	
+public 
+async 
+Task 
+< 
+bool 
+> 
+IsEndgameReached  0
+(0 1
+Guid1 5
+gameSessionId6 C
+)C D
+{ 	
+var 
+round 
+= 
+await  
+_battleshipsDatabase 2
+.2 3"
+GameSessionsRepository3 I
+.I J
+GetCurrentRoundJ Y
+(Y Z
+gameSessionIdZ g
+)g h
+;h i
+var 
+settings 
+= 
+await   
+_battleshipsDatabase! 5
+.5 6)
+GameSessionSettingsRepository6 S
+.S T
+GetBySessionIdT b
+(b c
+gameSessionIdc p
+)p q
+;q r
+return 
+round 
+>= 
+settings $
+.$ %%
+RoundCountLimitForEndgame% >
+;> ?
+} 	
+public 
+string 
+StrategyType "
+=># %
+Data& *
+.* +
+	Constants+ 4
+.4 5
+EndgameStrategies5 F
+.F G
+RoundCountLimitG V
+;V W
+} 
+} à
 AD:\dev\Battleships\Battleships\Services\EndgameStrategyService.cs
 	namespace 	
 Battleships
  
 . 
-Services 
-; 
-public
+Services 
+{		 
+public
 
- 
+ 
+
 class
 
- "
+ "
 EndgameStrategyService
 
- #
+ '
 :
 
-$ %#
+( )#
 IEndgameStrategyService
 
-& =
-{ 
-private 
-readonly  
-IBattleshipsDatabase ) 
-_battleshipsDatabase* >
-;> ?
-private 
-readonly 
-IEnumerable  
-<  !
-IEndgameStrategy! 1
->1 2
-_endgameStrategies3 E
-;E F
-public 
-"
-EndgameStrategyService !
-(! " 
-IBattleshipsDatabase 
-battleshipsDatabase 0
-,0 1
-IEnumerable 
-< 
-IEndgameStrategy $
->$ %
-endgameStrategies& 7
-) 
-{  
-_battleshipsDatabase 
-= 
-battleshipsDatabase 2
-;2 3
-_endgameStrategies 
-= 
-endgameStrategies .
-;. /
-} 
-public 
-
-async 
-Task 
-< 
-IEndgameStrategy &
->& '
-GetEndgameStrategy( :
-(: ;
-Guid; ?
-gameSessionId@ M
-)M N
-{ 
-var 
-strategyString 
-= 
-await " 
-_battleshipsDatabase# 7
-.7 8"
-GameSessionsRepository8 N
-.N O
-GetEndgameStrategyO a
-(a b
-gameSessionIdb o
-)o p
-;p q
-var 
-endgameStrategy 
-= 
-_endgameStrategies 0
-.0 1
-First1 6
-(6 7
-strategy7 ?
-=>@ B
-strategyC K
-.K L
-StrategyTypeL X
-==Y [
-strategyString\ j
-)j k
-;k l
-return 
-endgameStrategy 
-; 
-} 
-} ıO
+* A
+{ 
+private 
+readonly  
+IBattleshipsDatabase - 
+_battleshipsDatabase. B
+;B C
+private 
+readonly 
+IEnumerable $
+<$ %
+IEndgameStrategy% 5
+>5 6
+_endgameStrategies7 I
+;I J
+public "
+EndgameStrategyService %
+(% & 
+IBattleshipsDatabase  
+battleshipsDatabase! 4
+,4 5
+IEnumerable 
+< 
+IEndgameStrategy (
+>( )
+endgameStrategies* ;
+) 	
+{ 	 
+_battleshipsDatabase  
+=! "
+battleshipsDatabase# 6
+;6 7
+_endgameStrategies 
+=  
+endgameStrategies! 2
+;2 3
+} 	
+public 
+async 
+Task 
+< 
+IEndgameStrategy *
+>* +
+GetEndgameStrategy, >
+(> ?
+Guid? C
+gameSessionIdD Q
+)Q R
+{ 	
+var 
+strategyString 
+=  
+await! & 
+_battleshipsDatabase' ;
+.; <"
+GameSessionsRepository< R
+.R S
+GetEndgameStrategyS e
+(e f
+gameSessionIdf s
+)s t
+;t u
+var 
+endgameStrategy 
+=  !
+_endgameStrategies" 4
+.4 5
+First5 :
+(: ;
+strategy; C
+=>D F
+strategyG O
+.O P
+StrategyTypeP \
+==] _
+strategyString` n
+)n o
+;o p
+return 
+endgameStrategy "
+;" #
+} 	
+} 
+}   ˛N
 AD:\dev\Battleships\Battleships\Services\Friends\FriendsService.cs
-	namespace 	
-Battleships
+	namespace 	
+Battleships
  
-. 
-Services 
-. 
-Friends &
-{ 
-public 
+. 
+Services 
+. 
+Friends &
+{ 
+public 
 
-class 
-FriendsService 
-:  !
-IFriendsService" 1
-{ 
-private 
-readonly  
-IBattleshipsDatabase -
-_db. 1
-;1 2
-private 
-readonly 
-UserManager $
-<$ %
-ApplicationUser% 4
->4 5
-_userManager6 B
-;B C
-private 
-readonly 
-ICurrentUserService ,
-_currentUserService- @
-;@ A
-public 
-FriendsService 
-(  
-IBattleshipsDatabase 3
-database4 <
-,< =
-UserManager> I
-<I J
-ApplicationUserJ Y
->Y Z
-userManager[ f
-,f g
-ICurrentUserServiceh {
-currentUserService	| é
-)
-é è
-{ 	
-_db 
-= 
-database 
-; 
-_userManager 
-= 
-userManager &
-;& '
-_currentUserService 
-=  !
-currentUserService" 4
-;4 5
-}   	
-public"" 
-async"" 
-Task"" 
-<"" 
-List"" 
-<"" 
-	FriendDto"" (
->""( )
->"") *
-ListFriends""+ 6
-(""6 7
-)""7 8
-{## 	
-Random$$ 
-random$$ 
-=$$ 
-new$$ 
-Random$$  &
-($$& '
-)$$' (
-;$$( )
-var&& 
-currentUserId&& 
-=&& 
-_currentUserService&&  3
-.&&3 4
-GetCurrentUserId&&4 D
-(&&D E
-)&&E F
-;&&F G
-var(( 
+class 
+FriendsService 
+:  !
+IFriendsService" 1
+{ 
+private 
+readonly  
+IBattleshipsDatabase -
+_db. 1
+;1 2
+private 
+readonly 
+IUserManager %
+_userManager& 2
+;2 3
+private 
+readonly 
+ICurrentUserService ,
+_currentUserService- @
+;@ A
+public 
+FriendsService 
+(  
+IBattleshipsDatabase 3
+database4 <
+,< =
+IUserManager> J
+userManagerK V
+,V W
+ICurrentUserServiceX k
+currentUserServicel ~
+)~ 
+{ 	
+_db 
+= 
+database 
+; 
+_userManager 
+= 
+userManager &
+;& '
+_currentUserService   
+=    !
+currentUserService  " 4
+;  4 5
+}!! 	
+public## 
+async## 
+Task## 
+<## 
+List## 
+<## 
+	FriendDto## (
+>##( )
+>##) *
+ListFriends##+ 6
+(##6 7
+)##7 8
+{$$ 	
+Random%% 
+random%% 
+=%% 
+new%% 
+Random%%  &
+(%%& '
+)%%' (
+;%%( )
+var'' 
+currentUserId'' 
+='' 
+_currentUserService''  3
+.''3 4
+GetCurrentUserId''4 D
+(''D E
+)''E F
+;''F G
+var)) 
 
-friendsIds(( 
-=(( 
-GetFriendsIds(( *
-(((* +
-currentUserId((+ 8
-)((8 9
-.((9 :
-Result((: @
-;((@ A
-var** 
-friendsUsers** 
-=** 
-_userManager** +
-.**+ ,
-Users**, 1
-.**1 2
-Where**2 7
-(**7 8
-user**8 <
-=>**= ?
-user**@ D
-.**D E
-Id**E G
-!=**H J
-currentUserId**K X
-&&**Y [
+friendsIds)) 
+=)) 
+GetFriendsIds)) *
+())* +
+currentUserId))+ 8
+)))8 9
+.))9 :
+Result)): @
+;))@ A
+var++ 
+friendsUsers++ 
+=++ 
+_userManager++ +
+.+++ ,
+Users++, 1
+.++1 2
+Where++2 7
+(++7 8
+user++8 <
+=>++= ?
+user++@ D
+.++D E
+Id++E G
+!=++H J
+currentUserId++K X
+&&++Y [
 
-friendsIds**\ f
-.**f g
-Contains**g o
-(**o p
-user**p t
-.**t u
-Id**u w
-)**w x
-)**x y
-;**y z
-var,, 
-test,, 
-=,, 
-new,, 
-List,, 
-<,,  
-	FriendDto,,  )
->,,) *
-(,,* +
-),,+ ,
-;,,, -
-foreach.. 
-(.. 
-var.. 
-user.. 
-in.. !
-friendsUsers.." .
-)... /
-{// 
-var00 
-Friend00 
-=00 
-new00  
-	FriendDto00! *
-(00* +
-)00+ ,
-{11 
-Name22 
-=22 
-user22 
-.22  
-UserName22  (
-,22( )
-GamesPlayedCount33 $
-=33% &
-random33' -
-.33- .
-Next33. 2
-(332 3
-$num333 5
-,335 6
-$num336 8
-)338 9
-,339 :
-GamesWonCount44 !
-=44" #
-random44$ *
-.44* +
-Next44+ /
-(44/ 0
-$num440 1
-,441 2
+friendsIds++\ f
+.++f g
+Contains++g o
+(++o p
+user++p t
+.++t u
+Id++u w
+)++w x
+)++x y
+;++y z
+var-- 
+test-- 
+=-- 
+new-- 
+List-- 
+<--  
+	FriendDto--  )
+>--) *
+(--* +
+)--+ ,
+;--, -
+foreach// 
+(// 
+var// 
+user// 
+in// !
+friendsUsers//" .
+)//. /
+{00 
+var11 
+Friend11 
+=11 
+new11  
+	FriendDto11! *
+(11* +
+)11+ ,
+{22 
+Name33 
+=33 
+user33 
+.33  
+UserName33  (
+,33( )
+GamesPlayedCount44 $
+=44% &
+random44' -
+.44- .
+Next44. 2
+(442 3
 $num443 5
-)445 6
-,446 7
-UserId55 
-=55 
-user55 !
-.55! "
-Id55" $
-}66 
-;66 
-test88 
-.88 
-Add88 
-(88 
-Friend88 
-)88  
-;88  !
-}99 
-return;; 
-test;; 
-;;; 
-}<< 	
-public>> 
-async>> 
-Task>> 
-<>> 
-List>> 
-<>> 
-string>> %
->>>% &
->>>& '
-GetFriendsIds>>( 5
-(>>5 6
-string>>6 <
-currentUserId>>= J
-)>>J K
-{?? 	
-var@@ 
-friends@@ 
-=@@ 
-await@@ 
-_db@@  #
-.@@# $
-FriendsRepository@@$ 5
-.@@5 6
-GetWhere@@6 >
-(@@> ?
-userAA 
-=>AA 
-userAA 
-.AA 
-User1AA "
-.AA" #
-ToStringAA# +
-(AA+ ,
-)AA, -
-==AA. 0
-currentUserIdAA1 >
-||AA? A
-userAAB F
-.AAF G
-User2AAG L
-.AAL M
-ToStringAAM U
-(AAU V
-)AAV W
-==AAX Z
-currentUserIdAA[ h
-)AAh i
-;AAi j
-varCC 
+,445 6
+$num446 8
+)448 9
+,449 :
+GamesWonCount55 !
+=55" #
+random55$ *
+.55* +
+Next55+ /
+(55/ 0
+$num550 1
+,551 2
+$num553 5
+)555 6
+,556 7
+UserId66 
+=66 
+user66 !
+.66! "
+Id66" $
+}77 
+;77 
+test99 
+.99 
+Add99 
+(99 
+Friend99 
+)99  
+;99  !
+}:: 
+return<< 
+test<< 
+;<< 
+}== 	
+public?? 
+async?? 
+Task?? 
+<?? 
+List?? 
+<?? 
+string?? %
+>??% &
+>??& '
+GetFriendsIds??( 5
+(??5 6
+string??6 <
+currentUserId??= J
+)??J K
+{@@ 	
+varAA 
+friendsAA 
+=AA 
+awaitAA 
+_dbAA  #
+.AA# $
+FriendsRepositoryAA$ 5
+.AA5 6
+GetWhereAA6 >
+(AA> ?
+userBB 
+=>BB 
+userBB 
+.BB 
+User1BB "
+.BB" #
+ToStringBB# +
+(BB+ ,
+)BB, -
+==BB. 0
+currentUserIdBB1 >
+||BB? A
+userBBB F
+.BBF G
+User2BBG L
+.BBL M
+ToStringBBM U
+(BBU V
+)BBV W
+==BBX Z
+currentUserIdBB[ h
+)BBh i
+;BBi j
+varDD 
 
-friendsIdsCC 
-=CC 
-newCC  
-ListCC! %
-<CC% &
-stringCC& ,
->CC, -
-(CC- .
-)CC. /
-;CC/ 0
-foreachEE 
-(EE 
-varEE 
-friendEE 
-inEE  "
-friendsEE# *
-)EE* +
-{FF 
-ifGG 
-(GG 
-friendGG 
-.GG 
-User1GG  
-.GG  !
-ToStringGG! )
-(GG) *
-)GG* +
-==GG, .
-currentUserIdGG/ <
-||GG= ?
-friendGG@ F
-.GGF G
-User2GGG L
-.GGL M
-ToStringGGM U
-(GGU V
-)GGV W
-==GGX Z
-currentUserIdGG[ h
-)GGh i
-{HH 
-ifII 
-(II 
-friendII 
-.II 
-User1II $
-.II$ %
-ToStringII% -
-(II- .
-)II. /
-==II0 2
-currentUserIdII3 @
-)II@ A
-{JJ 
+friendsIdsDD 
+=DD 
+newDD  
+ListDD! %
+<DD% &
+stringDD& ,
+>DD, -
+(DD- .
+)DD. /
+;DD/ 0
+foreachFF 
+(FF 
+varFF 
+friendFF 
+inFF  "
+friendsFF# *
+)FF* +
+{GG 
+ifHH 
+(HH 
+friendHH 
+.HH 
+User1HH  
+.HH  !
+ToStringHH! )
+(HH) *
+)HH* +
+==HH, .
+currentUserIdHH/ <
+||HH= ?
+friendHH@ F
+.HHF G
+User2HHG L
+.HHL M
+ToStringHHM U
+(HHU V
+)HHV W
+==HHX Z
+currentUserIdHH[ h
+)HHh i
+{II 
+ifJJ 
+(JJ 
+friendJJ 
+.JJ 
+User1JJ $
+.JJ$ %
+ToStringJJ% -
+(JJ- .
+)JJ. /
+==JJ0 2
+currentUserIdJJ3 @
+)JJ@ A
+{KK 
 
-friendsIdsKK "
-.KK" #
-AddKK# &
-(KK& '
-friendKK' -
-.KK- .
-User2KK. 3
-.KK3 4
-ToStringKK4 <
-(KK< =
-)KK= >
-)KK> ?
-;KK? @
-}LL 
-elseMM 
-ifMM 
-(MM 
-friendMM #
-.MM# $
-User2MM$ )
-.MM) *
-ToStringMM* 2
-(MM2 3
-)MM3 4
-==MM5 7
-currentUserIdMM8 E
-)MME F
-{NN 
+friendsIdsLL "
+.LL" #
+AddLL# &
+(LL& '
+friendLL' -
+.LL- .
+User2LL. 3
+.LL3 4
+ToStringLL4 <
+(LL< =
+)LL= >
+)LL> ?
+;LL? @
+}MM 
+elseNN 
+ifNN 
+(NN 
+friendNN #
+.NN# $
+User2NN$ )
+.NN) *
+ToStringNN* 2
+(NN2 3
+)NN3 4
+==NN5 7
+currentUserIdNN8 E
+)NNE F
+{OO 
 
-friendsIdsOO "
-.OO" #
-AddOO# &
-(OO& '
-friendOO' -
-.OO- .
-User1OO. 3
-.OO3 4
-ToStringOO4 <
-(OO< =
-)OO= >
-)OO> ?
-;OO? @
-}PP 
-}QQ 
-}RR 
-returnTT 
+friendsIdsPP "
+.PP" #
+AddPP# &
+(PP& '
+friendPP' -
+.PP- .
+User1PP. 3
+.PP3 4
+ToStringPP4 <
+(PP< =
+)PP= >
+)PP> ?
+;PP? @
+}QQ 
+}RR 
+}SS 
+returnUU 
 
-friendsIdsTT 
-;TT 
-}UU 	
-publicWW 
-asyncWW 
-TaskWW 
-<WW 
-boolWW 
->WW 
-	AddFriendWW  )
-(WW) *
-stringWW* 0
-userIdWW1 7
-)WW7 8
-{XX 	
-varYY 
-currentUserIdYY 
-=YY 
-_currentUserServiceYY  3
-.YY3 4
-GetCurrentUserIdYY4 D
-(YYD E
-)YYE F
-;YYF G
-varZZ 
+friendsIdsUU 
+;UU 
+}VV 	
+publicXX 
+asyncXX 
+TaskXX 
+<XX 
+boolXX 
+>XX 
+	AddFriendXX  )
+(XX) *
+stringXX* 0
+userIdXX1 7
+)XX7 8
+{YY 	
+varZZ 
+currentUserIdZZ 
+=ZZ 
+_currentUserServiceZZ  3
+.ZZ3 4
+GetCurrentUserIdZZ4 D
+(ZZD E
+)ZZE F
+;ZZF G
+var[[ 
 
-friendsIdsZZ 
-=ZZ 
-GetFriendsIdsZZ *
-(ZZ* +
-currentUserIdZZ+ 8
-)ZZ8 9
-.ZZ9 :
-ResultZZ: @
-;ZZ@ A
-if\\ 
-(\\ 
-userId\\ 
-!=\\ 
-null\\ 
-&&\\ !
-userId\\" (
-!=\\) +
-currentUserId\\, 9
-&&\\: <
-!\\= >
+friendsIds[[ 
+=[[ 
+GetFriendsIds[[ *
+([[* +
+currentUserId[[+ 8
+)[[8 9
+.[[9 :
+Result[[: @
+;[[@ A
+if]] 
+(]] 
+userId]] 
+!=]] 
+null]] 
+&&]] !
+userId]]" (
+!=]]) +
+currentUserId]], 9
+&&]]: <
+!]]= >
 
-friendsIds\\> H
-.\\H I
-Contains\\I Q
-(\\Q R
-userId\\R X
-.\\X Y
-ToString\\Y a
-(\\a b
-)\\b c
-)\\c d
-)\\d e
-{]] 
-var^^ 
-	newFriend^^ 
-=^^ 
-new^^  #
-Friend^^$ *
-(^^* +
-)^^+ ,
-{__ 
-User1`` 
-=`` 
-Guid``  
-.``  !
-Parse``! &
-(``& '
-currentUserId``' 4
-)``4 5
-,``5 6
-User2aa 
+friendsIds]]> H
+.]]H I
+Contains]]I Q
+(]]Q R
+userId]]R X
+.]]X Y
+ToString]]Y a
+(]]a b
+)]]b c
+)]]c d
+)]]d e
+{^^ 
+var__ 
+	newFriend__ 
+=__ 
+new__  #
+Friend__$ *
+(__* +
+)__+ ,
+{`` 
+User1aa 
 =aa 
 Guidaa  
 .aa  !
 Parseaa! &
-(aa& '
-userIdaa' -
-)aa- .
-}bb 
-;bb 
-awaitcc 
-_dbcc 
-.cc 
-FriendsRepositorycc +
-.cc+ ,
-Createcc, 2
-(cc2 3
-	newFriendcc3 <
-)cc< =
-;cc= >
-returnee 
-trueee 
-;ee 
-}ff 
-elsegg 
-{hh 
-returnii 
-falseii 
-;ii 
-}jj 
-}kk 	
-publicmm 
-asyncmm 
-Taskmm 
-<mm 
-boolmm 
->mm 
-RemoveFriendmm  ,
-(mm, -
-	FriendDtomm- 6
-	friendObjmm7 @
-)mm@ A
-{nn 	
-varoo 
-currentUserIdoo 
-=oo 
-_currentUserServiceoo  3
-.oo3 4
-GetCurrentUserIdoo4 D
-(ooD E
-)ooE F
-;ooF G
-varpp 
+(aa& '
+currentUserIdaa' 4
+)aa4 5
+,aa5 6
+User2bb 
+=bb 
+Guidbb  
+.bb  !
+Parsebb! &
+(bb& '
+userIdbb' -
+)bb- .
+}cc 
+;cc 
+awaitdd 
+_dbdd 
+.dd 
+FriendsRepositorydd +
+.dd+ ,
+Createdd, 2
+(dd2 3
+	newFrienddd3 <
+)dd< =
+;dd= >
+returnff 
+trueff 
+;ff 
+}gg 
+elsehh 
+{ii 
+returnjj 
+falsejj 
+;jj 
+}kk 
+}ll 	
+publicnn 
+asyncnn 
+Tasknn 
+<nn 
+boolnn 
+>nn 
+RemoveFriendnn  ,
+(nn, -
+	FriendDtonn- 6
+	friendObjnn7 @
+)nn@ A
+{oo 	
+varpp 
+currentUserIdpp 
+=pp 
+_currentUserServicepp  3
+.pp3 4
+GetCurrentUserIdpp4 D
+(ppD E
+)ppE F
+;ppF G
+varqq 
 
-friendsIdspp 
-=pp 
-GetFriendsIdspp *
-(pp* +
-currentUserIdpp+ 8
-)pp8 9
-.pp9 :
-Resultpp: @
-;pp@ A
-varrr 
-friendsrr 
-=rr 
-awaitrr 
-_dbrr  #
-.rr# $
-FriendsRepositoryrr$ 5
-.rr5 6
-GetWhererr6 >
-(rr> ?
-userss 
-=>ss 
-(ss 
-userss 
-.ss 
-User1ss 
-.ss  
-ToStringss  (
-(ss( )
-)ss) *
-==ss+ -
-currentUserIdss. ;
-&&ss< >
-userss? C
-.ssC D
-User2ssD I
-.ssI J
-ToStringssJ R
-(ssR S
-)ssS T
-==ssU W
-	friendObjssX a
-.ssa b
-UserIdssb h
-)ssh i
-||tt 
-(tt 
-usertt 
-.tt 
-User1tt 
-.tt 
-ToStringtt #
-(tt# $
-)tt$ %
-==tt& (
-	friendObjtt) 2
-.tt2 3
-UserIdtt3 9
-&&tt: <
-usertt= A
-.ttA B
-User2ttB G
-.ttG H
-ToStringttH P
-(ttP Q
-)ttQ R
-==ttS U
-currentUserIdttV c
-)ttc d
-)ttd e
-;tte f
-awaitvv 
-_dbvv 
-.vv 
-FriendsRepositoryvv '
-.vv' (
+friendsIdsqq 
+=qq 
+GetFriendsIdsqq *
+(qq* +
+currentUserIdqq+ 8
+)qq8 9
+.qq9 :
+Resultqq: @
+;qq@ A
+varss 
+friendsss 
+=ss 
+awaitss 
+_dbss  #
+.ss# $
+FriendsRepositoryss$ 5
+.ss5 6
+GetWheress6 >
+(ss> ?
+usertt 
+=>tt 
+(tt 
+usertt 
+.tt 
+User1tt 
+.tt  
+ToStringtt  (
+(tt( )
+)tt) *
+==tt+ -
+currentUserIdtt. ;
+&&tt< >
+usertt? C
+.ttC D
+User2ttD I
+.ttI J
+ToStringttJ R
+(ttR S
+)ttS T
+==ttU W
+	friendObjttX a
+.tta b
+UserIdttb h
+)tth i
+||uu 
+(uu 
+useruu 
+.uu 
+User1uu 
+.uu 
+ToStringuu #
+(uu# $
+)uu$ %
+==uu& (
+	friendObjuu) 2
+.uu2 3
+UserIduu3 9
+&&uu: <
+useruu= A
+.uuA B
+User2uuB G
+.uuG H
+ToStringuuH P
+(uuP Q
+)uuQ R
+==uuS U
+currentUserIduuV c
+)uuc d
+)uud e
+;uue f
+awaitww 
+_dbww 
+.ww 
+FriendsRepositoryww '
+.ww' (
 
-DeleteManyvv( 2
-(vv2 3
-friendsvv3 :
-)vv: ;
-;vv; <
-returnxx 
-falsexx 
-;xx 
-}yy 	
-}zz 
-}{{ å
+DeleteManyww( 2
+(ww2 3
+friendsww3 :
+)ww: ;
+;ww; <
+returnyy 
+falseyy 
+;yy 
+}zz 	
+}{{ 
+}|| å
 MD:\dev\Battleships\Battleships\Services\Friends\Interfaces\IFriendsService.cs
 	namespace 	
 Battleships
@@ -26374,7 +26361,7 @@ Interfaces' 1
 )0 1
 ;1 2
 } 
-} é$
+} ü$
 HD:\dev\Battleships\Battleships\Services\GameSession\GameLaunchService.cs
 	namespace 	
 Battleships
@@ -26382,233 +26369,231 @@ HD:\dev\Battleships\Battleships\Services\GameSession\GameLaunchService.cs
 . 
 Services 
 . 
-GameSession *
-;* +
-public		 
-class		 
-GameLaunchService		 
-:		  
-IGameLaunchService		! 3
-{
+GameSession *
+{ 
+public		 
+
+class		 
+GameLaunchService		 "
+:		# $
+IGameLaunchService		% 7
+{
 
- 
-private 
-readonly  
-IBattleshipsDatabase ) 
-_battleshipsDatabase* >
-;> ?
-private 
-readonly (
-IPlayerShipGenerationService 1(
-_playerShipGenerationService2 N
-;N O
-public 
-
-GameLaunchService 
-(  
-IBattleshipsDatabase 
-battleshipsDatabase 0
-,0 1(
-IPlayerShipGenerationService $'
-playerShipGenerationService% @
-)@ A
-{  
-_battleshipsDatabase 
-= 
-battleshipsDatabase 2
-;2 3(
-_playerShipGenerationService $
-=% &'
-playerShipGenerationService' B
-;B C
-} 
-public 
-
-async 
-Task 
+ 
+private 
+readonly  
+IBattleshipsDatabase - 
+_battleshipsDatabase. B
+;B C
+private 
+readonly (
+IPlayerShipGenerationService 5(
+_playerShipGenerationService6 R
+;R S
+public 
+GameLaunchService  
+(  ! 
+IBattleshipsDatabase  
+battleshipsDatabase! 4
+,4 5(
+IPlayerShipGenerationService ('
+playerShipGenerationService) D
+)D E
+{ 	 
+_battleshipsDatabase  
+=! "
+battleshipsDatabase# 6
+;6 7(
+_playerShipGenerationService (
+=) *'
+playerShipGenerationService+ F
+;F G
+} 	
+public 
+async 
+Task 
 
-LaunchGame  
-(  !
-Guid! %
-gameSessionId& 3
-,3 4
-bool5 9
-rematch: A
-)A B
-{ 
-if 
-
-( 
-rematch 
-) 
-{ 	
-await 
-LaunchRematch 
-(  
-gameSessionId  -
-)- .
-;. /
-} 	
-else 
-{ 	
-await 
+LaunchGame $
+($ %
+Guid% )
+gameSessionId* 7
+,7 8
+bool9 =
+rematch> E
+)E F
+{ 	
+if 
+( 
+rematch 
+) 
+{ 
+await 
+LaunchRematch #
+(# $
+gameSessionId$ 1
+)1 2
+;2 3
+} 
+else 
+{ 
+await 
 
-LaunchGame 
-( 
-gameSessionId *
-)* +
-;+ ,
-} 	
-}   
-private"" 
-async"" 
-Task"" 
-LaunchRematch"" $
-(""$ %
-Guid""% )
-gameSessionId""* 7
-)""7 8
-{## 
-var$$ 
-gameSession$$ 
-=$$ 
-await$$  
-_battleshipsDatabase$$  4
-.$$4 5"
-GameSessionsRepository$$5 K
-.$$K L%
-GetWithPlayersAndSettings$$L e
-($$e f
-gameSessionId$$f s
-)$$s t
-;$$t u
-var%% 
-deepCopy%% 
-=%% 
-gameSession%% "
-.%%" #
-	DeepClone%%# ,
-(%%, -
-gameSession%%- 8
-)%%8 9
-as%%: <
-Models%%= C
-.%%C D
-GameSession%%D O
-;%%O P
-var'' 
-playerShips'' 
-='' 
-await'' (
-_playerShipGenerationService''  <
-.''< =
-GeneratePlayerShips''= P
-(''P Q
-gameSession''Q \
-.''\ ]
-Settings''] e
-)''e f
-;''f g
-deepCopy)) 
-.)) 
-Status)) 
-=)) 
-GameSessionStatus)) +
-.))+ ,
+LaunchGame  
+(  !
+gameSessionId! .
+). /
+;/ 0
+} 
+}   	
+private"" 
+async"" 
+Task"" 
+LaunchRematch"" (
+(""( )
+Guid"") -
+gameSessionId"". ;
+)""; <
+{## 	
+var$$ 
+gameSession$$ 
+=$$ 
+await$$ # 
+_battleshipsDatabase$$$ 8
+.$$8 9"
+GameSessionsRepository$$9 O
+.$$O P%
+GetWithPlayersAndSettings$$P i
+($$i j
+gameSessionId$$j w
+)$$w x
+;$$x y
+var%% 
+deepCopy%% 
+=%% 
+gameSession%% &
+.%%& '
+	DeepClone%%' 0
+(%%0 1
+gameSession%%1 <
+)%%< =
+as%%> @
+Models%%A G
+.%%G H
+GameSession%%H S
+;%%S T
+var'' 
+playerShips'' 
+='' 
+await'' #(
+_playerShipGenerationService''$ @
+.''@ A
+GeneratePlayerShips''A T
+(''T U
+gameSession''U `
+.''` a
+Settings''a i
+)''i j
+;''j k
+deepCopy)) 
+.)) 
+Status)) 
+=)) 
+GameSessionStatus)) /
+.))/ 0
 
-InProgress)), 6
-;))6 7
-await++  
-_battleshipsDatabase++ "
-.++" #!
-PlayerShipsRepository++# 8
-.++8 9
+InProgress))0 :
+;)): ;
+await++  
+_battleshipsDatabase++ &
+.++& '!
+PlayerShipsRepository++' <
+.++< =
 
-CreateMany++9 C
-(++C D
-playerShips++D O
-)++O P
-;++P Q
-await,,  
-_battleshipsDatabase,, "
-.,," #"
-GameSessionsRepository,,# 9
-.,,9 :
-Update,,: @
-(,,@ A
-deepCopy,,A I
-),,I J
-;,,J K
-}-- 
-public// 
-
-async// 
-Task// 
+CreateMany++= G
+(++G H
+playerShips++H S
+)++S T
+;++T U
+await,,  
+_battleshipsDatabase,, &
+.,,& '"
+GameSessionsRepository,,' =
+.,,= >
+Update,,> D
+(,,D E
+deepCopy,,E M
+),,M N
+;,,N O
+}-- 	
+public// 
+async// 
+Task// 
 
-LaunchGame//  
-(//  !
-Guid//! %
-gameSessionId//& 3
-)//3 4
-{00 
-var11 
-gameSession11 
-=11 
-await11  
-_battleshipsDatabase11  4
-.114 5"
-GameSessionsRepository115 K
-.11K L
-GetById11L S
-(11S T
-gameSessionId11T a
-)11a b
-;11b c
-var22 
-playerShips22 
-=22 
-await22 (
-_playerShipGenerationService22  <
-.22< =
-GeneratePlayerShips22= P
-(22P Q
-gameSession22Q \
-.22\ ]
-Settings22] e
-)22e f
-;22f g
-gameSession44 
-.44 
-Status44 
-=44 
-GameSessionStatus44 .
-.44. /
+LaunchGame// $
+(//$ %
+Guid//% )
+gameSessionId//* 7
+)//7 8
+{00 	
+var11 
+gameSession11 
+=11 
+await11 # 
+_battleshipsDatabase11$ 8
+.118 9"
+GameSessionsRepository119 O
+.11O P
+GetById11P W
+(11W X
+gameSessionId11X e
+)11e f
+;11f g
+var22 
+playerShips22 
+=22 
+await22 #(
+_playerShipGenerationService22$ @
+.22@ A
+GeneratePlayerShips22A T
+(22T U
+gameSession22U `
+.22` a
+Settings22a i
+)22i j
+;22j k
+gameSession44 
+.44 
+Status44 
+=44  
+GameSessionStatus44! 2
+.442 3
 
-InProgress44/ 9
-;449 :
-await66  
-_battleshipsDatabase66 "
-.66" #!
-PlayerShipsRepository66# 8
-.668 9
+InProgress443 =
+;44= >
+await66  
+_battleshipsDatabase66 &
+.66& '!
+PlayerShipsRepository66' <
+.66< =
 
-CreateMany669 C
-(66C D
-playerShips66D O
-)66O P
-;66P Q
-await77  
-_battleshipsDatabase77 "
-.77" #"
-GameSessionsRepository77# 9
-.779 :
-Update77: @
-(77@ A
-gameSession77A L
-)77L M
-;77M N
-}88 
-}99 Âc
+CreateMany66= G
+(66G H
+playerShips66H S
+)66S T
+;66T U
+await77  
+_battleshipsDatabase77 &
+.77& '"
+GameSessionsRepository77' =
+.77= >
+Update77> D
+(77D E
+gameSession77E P
+)77P Q
+;77Q R
+}88 	
+}99 
+}:: Êj
 ID:\dev\Battleships\Battleships\Services\GameSession\GameSessionService.cs
 	namespace 	
 Battleships
@@ -26634,728 +26619,1149 @@ ID:\dev\Battleships\Battleships\Services\GameSession\GameSessionService.cs
 readonly 
 ICurrentUserService ,
 _currentUserService- @
-;@ A
-public 
-GameSessionService !
-(! " 
-IBattleshipsDatabase  
-battleshipsDatabase! 4
-,4 5
-ICurrentUserService 
-userService  +
-) 	
-{ 	 
-_battleshipsDatabase  
-=! "
-battleshipsDatabase# 6
-;6 7
-_currentUserService 
-=  !
-userService" -
-;- .
-} 	
-public   
-async   
-Task   
-<   
-Guid   
->   
-CreateSession    -
-(  - .!
-GameSessionRequestDto  . C
-dto  D G
-)  G H
-{!! 	
-return"" 
-await"" 
-new"" 
-GameSessionFacade"" .
-("". / 
-_battleshipsDatabase""/ C
-,""C D
-_currentUserService""E X
-,""X Y
-dto""Z ]
-)""] ^
-.""^ _
-CreateGameSession""_ p
-(""p q
-)""q r
-;""r s
-}## 	
-public%% 
-async%% 
-Task%% 
-<%% 
-List%% 
-<%% 
-GameSessionDto%% -
->%%- .
->%%. /
-ListAllSessions%%0 ?
-(%%? @
-)%%@ A
-{&& 	
-var'' 
-models'' 
-='' 
-await''  
-_battleshipsDatabase'' 3
-.''3 4"
-GameSessionsRepository''4 J
-.''J K
-GetAll''K Q
-(''Q R
-)''R S
-;''S T
-return(( 
-models(( 
-.(( 
-Select((  
-(((  !
-x((! "
-=>((# %
-x((& '
-.((' (
-toDto((( -
-(((- .
-)((. /
-)((/ 0
-.((0 1
-ToList((1 7
-(((7 8
-)((8 9
-;((9 :
+;@ A
+private 
+readonly '
+IInGameSessionHelperService 4'
+_inGameSessionHelperService5 P
+;P Q
+public 
+GameSessionService !
+(! " 
+IBattleshipsDatabase  
+battleshipsDatabase! 4
+,4 5
+ICurrentUserService 
+userService  +
+,+ ,'
+IInGameSessionHelperService '&
+inGameSessionHelperService( B
+) 	
+{ 	 
+_battleshipsDatabase  
+=! "
+battleshipsDatabase# 6
+;6 7
+_currentUserService 
+=  !
+userService" -
+;- .'
+_inGameSessionHelperService   '
+=  ( )&
+inGameSessionHelperService  * D
+;  D E
+}!! 	
+public## 
+async## 
+Task## 
+<## 
+Guid## 
+>## 
+CreateSession##  -
+(##- .!
+GameSessionRequestDto##. C
+dto##D G
+)##G H
+{$$ 	
+var%% 
+facade%% 
+=%% 
+new%% 
+GameSessionFacade%% .
+(%%. / 
+_battleshipsDatabase%%/ C
+,%%C D
+_currentUserService%%E X
+,%%X Y
+dto%%Z ]
+)%%] ^
+;%%^ _
+var&& 
+guid&& 
+=&& 
+await&& 
+facade&& #
+.&&# $
+CreateGameSession&&$ 5
+(&&5 6
+)&&6 7
+;&&7 8
+return'' 
+guid'' 
+;'' 
 })) 	
 public++ 
 async++ 
 Task++ 
-<++ 
-GameSessionDto++ (
->++( )
+<++ 
+List++ 
+<++ 
+GameSessionDto++ -
+>++- .
+>++. /
+ListAllSessions++0 ?
+(++? @
+)++@ A
+{,, 	
+var-- 
+models-- 
+=-- 
+await--  
+_battleshipsDatabase-- 3
+.--3 4"
+GameSessionsRepository--4 J
+.--J K
+GetAll--K Q
+(--Q R
+)--R S
+;--S T
+if.. 
+(.. 
+models.. 
+is.. 
+null.. 
+).. 
+return// 
+new// 
+List// 
+<//  
+GameSessionDto//  .
+>//. /
+(/// 0
+)//0 1
+;//1 2
+return00 
+models00 
+.00 
+Select00  
+(00  !
+x00! "
+=>00# %
+x00& '
+.00' (
+toDto00( -
+(00- .
+)00. /
+)00/ 0
+.000 1
+ToList001 7
+(007 8
+)008 9
+;009 :
+}11 	
+public33 
+async33 
+Task33 
+<33 
+GameSessionDto33 (
+>33( )
 
-GetSession++* 4
-(++4 5
-Guid++5 9
-id++: <
-)++< =
-{,, 	
-return-- 
-await--  
-_battleshipsDatabase-- -
-.--- ."
-GameSessionsRepository--. D
-.--D E
-GetDtoWithPlayers--E V
-(--V W
-id--W Y
-)--Y Z
-;--Z [
-}.. 	
-public00 
-async00 
-Task00 
-<00 
-InGameSessionDto00 *
->00* +
-GetInGameSession00, <
-(00< =
-Guid00= A
-gameSessionId00B O
-)00O P
-{11 	
-var22 
-currentUserId22 
-=22 
-_currentUserService22  3
-.223 4
-GetCurrentUserId224 D
-(22D E
-)22E F
-;22F G
-var44 
-(44 
-ownPlayerId44 
-,44 
-opponentPlayerId44 .
-)44. /
-=440 1
-await442 7 
-_battleshipsDatabase448 L
-.44L M"
-GameSessionsRepository44M c
-.44c d
-GetPlayerIds44d p
-(44p q
-gameSessionId44q ~
-,44~ 
+GetSession33* 4
+(334 5
+Guid335 9
+id33: <
+)33< =
+{44 	
+return55 
+await55  
+_battleshipsDatabase55 -
+.55- ."
+GameSessionsRepository55. D
+.55D E
+GetDtoWithPlayers55E V
+(55V W
+id55W Y
+)55Y Z
+;55Z [
+}66 	
+public88 
+async88 
+Task88 
+<88 
+InGameSessionDto88 *
+>88* +
+GetInGameSession88, <
+(88< =
+Guid88= A
+gameSessionId88B O
+)88O P
+{99 	
+var:: 
+currentUserId:: 
+=:: 
+_currentUserService::  3
+.::3 4
+GetCurrentUserId::4 D
+(::D E
+)::E F
+;::F G
+var<< 
+(<< 
+ownPlayerId<< 
+,<< 
+opponentPlayerId<< .
+)<<. /
+=<<0 1
+await<<2 7 
+_battleshipsDatabase<<8 L
+.<<L M"
+GameSessionsRepository<<M c
+.<<c d
+GetPlayerIds<<d p
+(<<p q
+gameSessionId<<q ~
+,<<~ 
 currentUserId
-44Ä ç
+<<Ä ç
 )
-44ç é
+<<ç é
 ;
-44é è
-var55 
-ownTiles55 
-=55 
-await55   
-_battleshipsDatabase55! 5
-.555 6
-ShipTilesRepository556 I
-.55I J
-GetPlayerTiles55J X
-(55X Y
-ownPlayerId55Y d
-)55d e
-;55e f
-var66 
-opponentTiles66 
-=66 
-await66  % 
-_battleshipsDatabase66& :
-.66: ;
-ShipTilesRepository66; N
-.66N O
-GetPlayerTiles66O ]
-(66] ^
-opponentPlayerId66^ n
-)66n o
-;66o p
-var88 
-dto88 
-=88 
-await88  
-_battleshipsDatabase88 0
-.880 1"
-GameSessionsRepository881 G
-.88G H
-GetInGameSession88H X
-(88X Y
-gameSessionId88Y f
-,88f g
-currentUserId88h u
-)88u v
-;88v w
-dto99 
-.99 
-OwnTiles99 
-=99 
-GetTileDtos99 &
-(99& '
-ownTiles99' /
-,99/ 0
-dto991 4
-.994 5
-ColumnCount995 @
-,99@ A
-dto99B E
-.99E F
-RowCount99F N
-)99N O
-;99O P
-dto:: 
-.:: 
-OpponentTiles:: 
-=:: 
-GetTileDtos::  +
-(::+ ,
-opponentTiles::, 9
-,::9 :
-dto::; >
-.::> ?
-ColumnCount::? J
-,::J K
-dto::L O
-.::O P
-RowCount::P X
-)::X Y
-;::Y Z
-return<< 
-dto<< 
-;<< 
-}== 	
-public?? 
-List?? 
-<?? 
-GameTile?? 
->?? 
-GetTileDtos?? )
-(??) *
-List??* .
-<??. /
-ShipTile??/ 7
->??7 8
-tiles??9 >
-,??> ?
-int??@ C
-columnCount??D O
-,??O P
-int??Q T
-rowCount??U ]
-)??] ^
-{@@ 	
-varAA 
-	shipTilesAA 
-=AA 
-tilesAA !
-.AA! "
-WhereAA" '
-(AA' (
-tAA( )
-=>AA* ,
-tAA- .
-.AA. /
-PlayerShipIdAA/ ;
-isAA< >
-notAA? B
-nullAAC G
-)AAG H
-.AAH I
-ToListAAI O
-(AAO P
-)AAP Q
-;AAQ R
-varBB 
+<<é è
+var== 
+ownTiles== 
+=== 
+await==   
+_battleshipsDatabase==! 5
+.==5 6
+ShipTilesRepository==6 I
+.==I J
+GetPlayerTiles==J X
+(==X Y
+ownPlayerId==Y d
+)==d e
+;==e f
+var>> 
+opponentTiles>> 
+=>> 
+await>>  % 
+_battleshipsDatabase>>& :
+.>>: ;
+ShipTilesRepository>>; N
+.>>N O
+GetPlayerTiles>>O ]
+(>>] ^
+opponentPlayerId>>^ n
+)>>n o
+;>>o p
+var@@ 
+dto@@ 
+=@@ 
+await@@  
+_battleshipsDatabase@@ 0
+.@@0 1"
+GameSessionsRepository@@1 G
+.@@G H
+GetInGameSession@@H X
+(@@X Y
+gameSessionId@@Y f
+,@@f g
+currentUserId@@h u
+)@@u v
+;@@v w
+dtoAA 
+.AA 
+OwnTilesAA 
+=AA 
+GetTileDtosAA &
+(AA& '
+ownTilesAA' /
+,AA/ 0
+dtoAA1 4
+.AA4 5
+ColumnCountAA5 @
+,AA@ A
+dtoAAB E
+.AAE F
+RowCountAAF N
+)AAN O
+;AAO P
+dtoBB 
+.BB 
+OpponentTilesBB 
+=BB 
+GetTileDtosBB  +
+(BB+ ,
+opponentTilesBB, 9
+,BB9 :
+dtoBB; >
+.BB> ?
+ColumnCountBB? J
+,BBJ K
+dtoBBL O
+.BBO P
+RowCountBBP X
+)BBX Y
+;BBY Z
+returnDD 
+dtoDD 
+;DD 
+}EE 	
+publicGG 
+ListGG 
+<GG 
+GameTileGG 
+>GG 
+GetTileDtosGG )
+(GG) *
+ListGG* .
+<GG. /
+ShipTileGG/ 7
+>GG7 8
+tilesGG9 >
+,GG> ?
+intGG@ C
+columnCountGGD O
+,GGO P
+intGGQ T
+rowCountGGU ]
+)GG] ^
+{HH 	
+varII 
+	shipTilesII 
+=II 
+tilesII !
+.II! "
+WhereII" '
+(II' (
+tII( )
+=>II* ,
+tII- .
+.II. /
+PlayerShipIdII/ ;
+isII< >
+notII? B
+nullIIC G
+)IIG H
+.IIH I
+ToListIII O
+(IIO P
+)IIP Q
+;IIQ R
+varJJ 
 
-emptyTilesBB 
-=BB 
-tilesBB "
-.BB" #
-WhereBB# (
-(BB( )
-tBB) *
-=>BB+ -
-tBB. /
-.BB/ 0
-PlayerShipIdBB0 <
-isBB= ?
-nullBB@ D
-)BBD E
-.BBE F
-ToListBBF L
-(BBL M
-)BBM N
-;BBN O
-varDD 
-dtosDD 
-=DD 
+emptyTilesJJ 
+=JJ 
+tilesJJ "
+.JJ" #
+WhereJJ# (
+(JJ( )
+tJJ) *
+=>JJ+ -
+tJJ. /
+.JJ/ 0
+PlayerShipIdJJ0 <
+isJJ= ?
+nullJJ@ D
+)JJD E
+.JJE F
+ToListJJF L
+(JJL M
+)JJM N
+;JJN O
+varLL 
+dtosLL 
+=LL 
 
-EnumerableDD !
-.DD! "
-RangeDD" '
-(DD' (
-$numDD( )
-,DD) *
-columnCountDD+ 6
-)DD6 7
-.DD7 8
+EnumerableLL !
+.LL! "
+RangeLL" '
+(LL' (
+$numLL( )
+,LL) *
+columnCountLL+ 6
+)LL6 7
+.LL7 8
 
-SelectManyDD8 B
-(DDB C
-columnCoordinateDDC S
-=>DDT V
-{EE 
-returnFF 
+SelectManyLL8 B
+(LLB C
+columnCoordinateLLC S
+=>LLT V
+{MM 
+returnNN 
 
-EnumerableFF !
-.FF! "
-RangeFF" '
-(FF' (
-$numFF( )
-,FF) *
-rowCountFF+ 3
-)FF3 4
-.FF4 5
-SelectFF5 ;
-(FF; <
-rowCoordinateFF< I
-=>FFJ L
-{GG 
-varHH 
-shipTileHH  
-=HH! "
-	shipTilesHH# ,
-.HH, -
-FirstOrDefaultHH- ;
-(HH; <
-stHH< >
-=>HH? A
-stII 
-.II 
-XCoordinateII &
-==II' )
-columnCoordinateII* :
-&&II; =
-stII> @
-.II@ A
-YCoordinateIIA L
-==IIM O
-rowCoordinateIIP ]
-)JJ 
-;JJ 
-varLL 
-	emptyTileLL !
-=LL" #
+EnumerableNN !
+.NN! "
+RangeNN" '
+(NN' (
+$numNN( )
+,NN) *
+rowCountNN+ 3
+)NN3 4
+.NN4 5
+SelectNN5 ;
+(NN; <
+rowCoordinateNN< I
+=>NNJ L
+{OO 
+varPP 
+shipTilePP  
+=PP! "
+	shipTilesPP# ,
+.PP, -
+FirstOrDefaultPP- ;
+(PP; <
+stPP< >
+=>PP? A
+stQQ 
+.QQ 
+XCoordinateQQ &
+==QQ' )
+columnCoordinateQQ* :
+&&QQ; =
+stQQ> @
+.QQ@ A
+YCoordinateQQA L
+==QQM O
+rowCoordinateQQP ]
+)RR 
+;RR 
+varTT 
+	emptyTileTT !
+=TT" #
 
-emptyTilesLL$ .
-.LL. /
-FirstOrDefaultLL/ =
-(LL= >
-stLL> @
-=>LLA C
-stMM 
-.MM 
-XCoordinateMM &
-==MM' )
-columnCoordinateMM* :
-&&MM; =
-stMM> @
-.MM@ A
-YCoordinateMMA L
-==MMM O
-rowCoordinateMMP ]
-)NN 
-;NN 
-varTT 
-tileTT 
-=TT 
-newTT "
-GameTileTT# +
-{UU 
-ColumnCoordinateVV (
-=VV) *
-columnCoordinateVV+ ;
-,VV; <
-RowCoordinateWW %
-=WW& '
-rowCoordinateWW( 5
-,WW5 6
-IsShipXX 
-=XX  
-shipTileXX! )
-?XX) *
-.XX* +
-PlayerShipIdXX+ 7
-isXX8 :
-notXX; >
-nullXX? C
-,XXC D
-IsDestroyedYY #
-=YY$ %
-(YY& '
-shipTileYY' /
-?YY/ 0
-.YY0 1
-IsDestroyedYY1 <
-??YY= ?
-falseYY@ E
-)YYE F
-||YYG I
-(YYJ K
-	emptyTileYYK T
-?YYT U
-.YYU V
-IsDestroyedYYV a
-??YYb d
-falseYYe j
-)YYj k
-,YYk l
-ShipIdZZ 
-=ZZ  
-shipTileZZ! )
-!=ZZ* ,
-nullZZ- 1
-?ZZ2 3
-shipTileZZ4 <
-.ZZ< =
-PlayerShipIdZZ= I
-:ZZJ K
-nullZZL P
-,ZZP Q
-}]] 
-;]] 
-return__ 
-tile__ 
-;__  
-}`` 
-)`` 
-;`` 
-}aa 
-)aa 
-;aa 
-returncc 
-dtoscc 
-.cc 
-ToListcc 
-(cc 
-)cc  
-;cc  !
-}dd 	
-publicff 
-asyncff 
-Taskff 
-<ff 
-InGameSessionDtoff *
->ff* +
-MoveShipInSessionff, =
-(ff> ?
-Guidff? C
-gameSessionIdffD Q
-,ffQ R
-GuidffS W
-shipIdffX ^
-,ff^ _
-stringff` f
-	directionffg p
-)ffp q
-{gg 	
+emptyTilesTT$ .
+.TT. /
+FirstOrDefaultTT/ =
+(TT= >
+stTT> @
+=>TTA C
+stUU 
+.UU 
+XCoordinateUU &
+==UU' )
+columnCoordinateUU* :
+&&UU; =
+stUU> @
+.UU@ A
+YCoordinateUUA L
+==UUM O
+rowCoordinateUUP ]
+)VV 
+;VV 
+var\\ 
+tile\\ 
+=\\ 
+new\\ "
+GameTile\\# +
+{]] 
+ColumnCoordinate^^ (
+=^^) *
+columnCoordinate^^+ ;
+,^^; <
+RowCoordinate__ %
+=__& '
+rowCoordinate__( 5
+,__5 6
+IsShip`` 
+=``  
+shipTile``! )
+?``) *
+.``* +
+PlayerShipId``+ 7
+is``8 :
+not``; >
+null``? C
+,``C D
+IsDestroyedaa #
+=aa$ %
+(aa& '
+shipTileaa' /
+?aa/ 0
+.aa0 1
+IsDestroyedaa1 <
+??aa= ?
+falseaa@ E
+)aaE F
+||aaG I
+(aaJ K
+	emptyTileaaK T
+?aaT U
+.aaU V
+IsDestroyedaaV a
+??aab d
+falseaae j
+)aaj k
+,aak l
+ShipIdbb 
+=bb  
+shipTilebb! )
+!=bb* ,
+nullbb- 1
+?bb2 3
+shipTilebb4 <
+.bb< =
+PlayerShipIdbb= I
+:bbJ K
+nullbbL P
+,bbP Q
+}ee 
+;ee 
+returngg 
+tilegg 
+;gg  
+}hh 
+)hh 
+;hh 
+}ii 
+)ii 
+;ii 
+returnkk 
+dtoskk 
+.kk 
+ToListkk 
+(kk 
+)kk  
+;kk  !
+}ll 	
+publicnn 
+asyncnn 
+Tasknn 
+<nn 
+InGameSessionDtonn *
+>nn* +
+MoveShipInSessionnn, =
+(nn> ?
+Guidnn? C
+gameSessionIdnnD Q
+,nnQ R
+GuidnnS W
+shipIdnnX ^
+,nn^ _
+stringnn` f
+	directionnng p
+)nnp q
+{oo 	
 
-PlayerShipii 
+PlayerShipqq 
 
-playerShipii !
-=ii" #
-awaitii$ ) 
-_battleshipsDatabaseii* >
-.ii> ?!
-PlayerShipsRepositoryii? T
-.iiT U
-GetByIdiiU \
-(ii\ ]
-shipIdii] c
-)iic d
-;iid e
-varkk 
-playerTileskk 
-=kk 
-awaitkk # 
-_battleshipsDatabasekk$ 8
-.kk8 9
-ShipTilesRepositorykk9 L
-.kkL M
-GetPlayerTileskkM [
-(kk[ \
+playerShipqq !
+=qq" #
+awaitqq$ ) 
+_battleshipsDatabaseqq* >
+.qq> ?!
+PlayerShipsRepositoryqq? T
+.qqT U
+GetByIdqqU \
+(qq\ ]
+shipIdqq] c
+)qqc d
+;qqd e
+varss 
+playerTilesss 
+=ss 
+awaitss # 
+_battleshipsDatabasess$ 8
+.ss8 9
+ShipTilesRepositoryss9 L
+.ssL M
+GetPlayerTilesssM [
+(ss[ \
 
-playerShipkk\ f
-.kkf g
-PlayerIdkkg o
-)kko p
-;kkp q
-switchss 
-(ss 
-	directionss 
-)ss 
-{tt 
-caseuu 
-$struu 
-:uu 
-IShipActionCommandvv &
-shipMoveUpCommandvv' 8
-=vv9 :
-newvv; >
-ShipMoveUpCommandvv? P
-(vvP Q
+playerShipss\ f
+.ssf g
+PlayerIdssg o
+)sso p
+;ssp q
+switchuu 
+(uu 
+	directionuu 
+)uu 
+{vv 
+caseww 
+$strww 
+:ww 
+IShipActionCommandxx &
+shipMoveUpCommandxx' 8
+=xx9 :
+newxx; >
+ShipMoveUpCommandxx? P
+(xxP Q
 
-playerShipvvQ [
-)vv[ \
-;vv\ ]
-shipMoveUpCommandww %
-.ww% &
-Executeww& -
-(ww- .
-)ww. /
-;ww/ 0
-breakxx 
-;xx 
-caseyy 
-$stryy 
-:yy 
-IShipActionCommandzz &
-ShipMoveDownCommandzz' :
-=zz; <
-newzz= @
-ShipMoveDownCommandzzA T
-(zzT U
+playerShipxxQ [
+)xx[ \
+;xx\ ]
+shipMoveUpCommandyy %
+.yy% &
+Executeyy& -
+(yy- .
+)yy. /
+;yy/ 0
+breakzz 
+;zz 
+case{{ 
+$str{{ 
+:{{ 
+IShipActionCommand|| &
+ShipMoveDownCommand||' :
+=||; <
+new||= @
+ShipMoveDownCommand||A T
+(||T U
 
-playerShipzzU _
-)zz_ `
-;zz` a
-ShipMoveDownCommand{{ '
-.{{' (
-Execute{{( /
-({{/ 0
-){{0 1
-;{{1 2
-break|| 
-;|| 
-case}} 
-$str}} 
-:}} 
-IShipActionCommand~~ &
-ShipMoveLeftCommand~~' :
-=~~; <
-new~~= @
-ShipMoveLeftCommand~~A T
-(~~T U
-
-playerShip~~U _
-)~~_ `
-;~~` a
-ShipMoveLeftCommand '
-.' (
-Execute( /
-(/ 0
-)0 1
-;1 2
-break
-ÄÄ 
-;
-ÄÄ 
-case
-ÅÅ 
-$str
-ÅÅ 
-:
-ÅÅ  
+playerShip||U _
+)||_ `
+;||` a
+ShipMoveDownCommand}} '
+.}}' (
+Execute}}( /
+(}}/ 0
+)}}0 1
+;}}1 2
+break~~ 
+;~~ 
+case 
+$str 
+:  
 IShipActionCommand
-ÇÇ &"
-ShipMoveRightCommand
-ÇÇ' ;
+ÄÄ &!
+ShipMoveLeftCommand
+ÄÄ' :
 =
-ÇÇ< =
+ÄÄ; <
 new
-ÇÇ> A"
-ShipMoveRightCommand
-ÇÇB V
+ÄÄ= @!
+ShipMoveLeftCommand
+ÄÄA T
 (
-ÇÇV W
+ÄÄT U
 
 playerShip
-ÇÇW a
+ÄÄU _
 )
-ÇÇa b
+ÄÄ_ `
 ;
-ÇÇb c"
-ShipMoveRightCommand
-ÉÉ (
+ÄÄ` a!
+ShipMoveLeftCommand
+ÅÅ '
 .
-ÉÉ( )
+ÅÅ' (
 Execute
-ÉÉ) 0
+ÅÅ( /
 (
-ÉÉ0 1
+ÅÅ/ 0
 )
-ÉÉ1 2
+ÅÅ0 1
 ;
-ÉÉ2 3
+ÅÅ1 2
 break
-ÑÑ 
+ÇÇ 
 ;
-ÑÑ 
+ÇÇ 
+case
+ÉÉ 
+$str
+ÉÉ 
+:
+ÉÉ  
+IShipActionCommand
+ÑÑ &"
+ShipMoveRightCommand
+ÑÑ' ;
+=
+ÑÑ< =
+new
+ÑÑ> A"
+ShipMoveRightCommand
+ÑÑB V
+(
+ÑÑV W
+
+playerShip
+ÑÑW a
+)
+ÑÑa b
+;
+ÑÑb c"
+ShipMoveRightCommand
+ÖÖ (
+.
+ÖÖ( )
+Execute
+ÖÖ) 0
+(
+ÖÖ0 1
+)
+ÖÖ1 2
+;
+ÖÖ2 3
+break
+ÜÜ 
+;
+ÜÜ 
 }
-ÖÖ 
+áá 
 await
-áá "
+ââ "
 _battleshipsDatabase
-áá &
+ââ &
 .
-áá& '!
+ââ& '!
 ShipTilesRepository
-áá' :
+ââ' :
 .
-áá: ;
+ââ: ;
 
 UpdateMany
-áá; E
+ââ; E
 (
-ááE F
+ââE F
 
 playerShip
-ááF P
+ââF P
 .
-ááP Q
+ââP Q
 Tiles
-ááQ V
+ââQ V
 )
-ááV W
+ââV W
 ;
-ááW X
+ââW X
 var
-ââ 
+ãã 
 gameSessionDto
-ââ 
+ãã 
 =
-ââ  
+ãã  
 await
-ââ! &
-this
-ââ' +
+ãã! &)
+_inGameSessionHelperService
+ãã' B
 .
-ââ+ ,
+ããB C
 GetInGameSession
-ââ, <
+ããC S
 (
-ââ< =
+ããS T
 gameSessionId
-ââ= J
+ããT a
 )
-ââJ K
+ããa b
 ;
-ââK L
+ããb c
 var
-ää 
+åå 
 updatedPosTiles
-ää 
+åå 
 =
-ää  !
+åå  !)
+_inGameSessionHelperService
+åå" =
+.
+åå= >
 GetTileDtos
-ää" -
+åå> I
 (
-ää- .
+ååI J
 playerTiles
-ää. 9
+ååJ U
 ,
-ää9 :
+ååU V
 gameSessionDto
-ää; I
+ååW e
 .
-ääI J
+ååe f
 ColumnCount
-ääJ U
+ååf q
 ,
-ääU V
+ååq r
+gameSessionDtoåås Å
+.ååÅ Ç
+RowCountååÇ ä
+)ååä ã
+;ååã å
 gameSessionDto
-ääW e
+çç 
 .
-ääe f
-RowCount
-ääf n
-)
-ään o
-;
-ääo p
-gameSessionDto
-ãã 
-.
-ãã 
+çç 
 OwnTiles
-ãã #
+çç #
 =
-ãã$ %
+çç$ %
 updatedPosTiles
-ãã& 5
+çç& 5
 ;
-ãã5 6
+çç5 6
 return
-çç 
+èè 
 gameSessionDto
-çç !
+èè !
 ;
-çç! "
+èè! "
 }
-éé 	
+êê 	
 }
-èè 
-}êê ®
+ëë 
+}íí Ä7
+QD:\dev\Battleships\Battleships\Services\GameSession\InGameSessionHelperService.cs
+	namespace 	
+Battleships
+ 
+. 
+Services 
+. 
+GameSession *
+;* +
+public 
+class &
+InGameSessionHelperService '
+:( )'
+IInGameSessionHelperService* E
+{ 
+private 
+readonly  
+IBattleshipsDatabase ) 
+_battleshipsDatabase* >
+;> ?
+private 
+readonly 
+ICurrentUserService (
+_currentUserService) <
+;< =
+public 
+&
+InGameSessionHelperService %
+(% & 
+IBattleshipsDatabase 
+battleshipsDatabase 0
+,0 1
+ICurrentUserService 
+userService '
+) 
+{  
+_battleshipsDatabase 
+= 
+battleshipsDatabase 2
+;2 3
+_currentUserService 
+= 
+userService )
+;) *
+} 
+public 
+
+async 
+Task 
+< 
+InGameSessionDto &
+>& '
+GetInGameSession( 8
+(8 9
+Guid9 =
+gameSessionId> K
+)K L
+{ 
+var 
+currentUserId 
+= 
+_currentUserService /
+./ 0
+GetCurrentUserId0 @
+(@ A
+)A B
+;B C
+var 
+( 
+ownPlayerId 
+, 
+opponentPlayerId *
+)* +
+=, -
+await. 3 
+_battleshipsDatabase4 H
+.H I"
+GameSessionsRepositoryI _
+._ `
+GetPlayerIds` l
+(l m
+gameSessionIdm z
+,z {
+currentUserId	| â
+)
+â ä
+;
+ä ã
+var   
+ownTiles   
+=   
+await    
+_battleshipsDatabase   1
+.  1 2
+ShipTilesRepository  2 E
+.  E F
+GetPlayerTiles  F T
+(  T U
+ownPlayerId  U `
+)  ` a
+;  a b
+var!! 
+opponentTiles!! 
+=!! 
+await!! ! 
+_battleshipsDatabase!!" 6
+.!!6 7
+ShipTilesRepository!!7 J
+.!!J K
+GetPlayerTiles!!K Y
+(!!Y Z
+opponentPlayerId!!Z j
+)!!j k
+;!!k l
+var## 
+dto## 
+=## 
+await##  
+_battleshipsDatabase## ,
+.##, -"
+GameSessionsRepository##- C
+.##C D
+GetInGameSession##D T
+(##T U
+gameSessionId##U b
+,##b c
+currentUserId##d q
+)##q r
+;##r s
+dto$$ 
+.$$ 
+OwnTiles$$ 
+=$$ 
+GetTileDtos$$ "
+($$" #
+ownTiles$$# +
+,$$+ ,
+dto$$- 0
+.$$0 1
+ColumnCount$$1 <
+,$$< =
+dto$$> A
+.$$A B
+RowCount$$B J
+)$$J K
+;$$K L
+dto%% 
+.%% 
+OpponentTiles%% 
+=%% 
+GetTileDtos%% '
+(%%' (
+opponentTiles%%( 5
+,%%5 6
+dto%%7 :
+.%%: ;
+ColumnCount%%; F
+,%%F G
+dto%%H K
+.%%K L
+RowCount%%L T
+)%%T U
+;%%U V
+return'' 
+dto'' 
+;'' 
+}(( 
+public** 
+
+List** 
+<** 
+GameTile** 
+>** 
+GetTileDtos** %
+(**% &
+List**& *
+<*** +
+ShipTile**+ 3
+>**3 4
+	shipTiles**5 >
+,**> ?
+int**@ C
+columnCount**D O
+,**O P
+int**Q T
+rowCount**U ]
+)**] ^
+{++ 
+var,, 
+tiles,, 
+=,, 
+
+Enumerable,, 
+.,, 
+Range,, $
+(,,$ %
+$num,,% &
+,,,& '
+columnCount,,( 3
+),,3 4
+.,,4 5
+
+SelectMany,,5 ?
+(,,? @
+columnCoordinate,,@ P
+=>,,Q S
+{-- 	
+return.. 
+
+Enumerable.. 
+... 
+Range.. #
+(..# $
+$num..$ %
+,..% &
+rowCount..' /
+)../ 0
+...0 1
+Select..1 7
+(..7 8
+rowCoordinate..8 E
+=>..F H
+{// 
+var00 
+shipTile00 
+=00 
+	shipTiles00 (
+.00( )
+FirstOrDefault00) 7
+(007 8
+st008 :
+=>00; =
+st11 
+.11 
+XCoordinate11 "
+==11# %
+columnCoordinate11& 6
+&&117 9
+st11: <
+.11< =
+YCoordinate11= H
+==11I K
+rowCoordinate11L Y
+)22 
+;22 
+IShipAppearance44 
+shipAppearance44  .
+=44/ 0
+new441 4
+ShipAppearance445 C
+(44C D
+)44D E
+;44E F
+IShipAppearance55 
+skinDecorator55  -
+=55. /
+new550 3
+SkinDecorator554 A
+(55A B
+shipAppearance55B P
+)55P Q
+.55Q R
+Draw55R V
+(55V W
+)55W X
+;55X Y
+IShipAppearance66 
+labelDecorator66  .
+=66/ 0
+new661 4
+LabelDecorator665 C
+(66C D
+skinDecorator66D Q
+)66Q R
+.66R S
+Draw66S W
+(66W X
+)66X Y
+;66Y Z
+var88 
+tile88 
+=88 
+new88 
+GameTile88 '
+{99 
+ColumnCoordinate:: $
+=::% &
+columnCoordinate::' 7
+,::7 8
+RowCoordinate;; !
+=;;" #
+rowCoordinate;;$ 1
+,;;1 2
+IsShip<< 
+=<< 
+shipTile<< %
+is<<& (
+not<<) ,
+null<<- 1
+,<<1 2
+IsDestroyed== 
+===  !
+shipTile==" *
+is==+ -
+not==. 1
+null==2 6
+?>> 
+shipTile>> "
+.>>" #
+IsDestroyed>># .
+:?? 
+false?? 
+,??  
+ShipId@@ 
+=@@ 
+shipTile@@ %
+!=@@& (
+null@@) -
+?@@. /
+shipTile@@0 8
+.@@8 9
+PlayerShipId@@9 E
+:@@F G
+null@@H L
+,@@L M
+SkinNameAA 
+=AA 
+shipTileAA '
+!=AA( *
+nullAA+ /
+?AA0 1
+labelDecoratorAA2 @
+.AA@ A
+SkinNameAAA I
+:AAJ K
+$strAAL N
+,AAN O
+LabelBB 
+=BB 
+shipTileBB $
+!=BB% '
+nullBB( ,
+?BB- .
+labelDecoratorBB/ =
+.BB= >
+LabelBB> C
+:BBD E
+$strBBF H
+}CC 
+;CC 
+returnEE 
+tileEE 
+;EE 
+}FF 
+)FF 
+;FF 
+}GG 	
+)GG	 
+
+;GG
+ 
+returnII 
+tilesII 
+.II 
+ToListII 
+(II 
+)II 
+;II 
+}KK 
+}LL π
 TD:\dev\Battleships\Battleships\Services\GameSession\Interfaces\IGameLaunchService.cs
 	namespace 	
 Battleships
@@ -27366,34 +27772,36 @@ TD:\dev\Battleships\Battleships\Services\GameSession\Interfaces\IGameLaunchServi
 GameSession *
 .* +
 
-Interfaces+ 5
-;5 6
-public 
-	interface 
-IGameLaunchService #
-{ 
-Task 
+Interfaces+ 5
+{ 
+public 
+
+	interface 
+IGameLaunchService '
+{ 
+Task 
 
-LaunchGame	 
-( 
-Guid 
-gameSessionId &
-)& '
-;' (
-Task		 
+LaunchGame 
+( 
+Guid 
+gameSessionId *
+)* +
+;+ ,
+Task		 
 
-LaunchGame			 
-(		 
-Guid		 
-gameSessionId		 &
-,		& '
-bool		( ,
-rematch		- 4
-)		4 5
-;		5 6
-}
+LaunchGame		 
+(		 
+Guid		 
+gameSessionId		 *
+,		* +
+bool		, 0
+rematch		1 8
+)		8 9
+;		9 :
+}
 
- ª
+ 
+} ª
 UD:\dev\Battleships\Battleships\Services\GameSession\Interfaces\IGameSessionService.cs
 	namespace 	
 Battleships
@@ -27472,7 +27880,56 @@ GetSession '
 )b c
 ;c d
 } 
-} ˚
+} õ
+]D:\dev\Battleships\Battleships\Services\GameSession\Interfaces\IInGameSessionHelperService.cs
+	namespace 	
+Battleships
+ 
+. 
+Services 
+. 
+GameSession *
+;* +
+public		 
+	interface		 '
+IInGameSessionHelperService		 ,
+{
+
+ 
+public 
+
+Task 
+< 
+InGameSessionDto  
+>  !
+GetInGameSession" 2
+(2 3
+Guid3 7
+gameSessionId8 E
+)E F
+;F G
+public 
+
+List 
+< 
+GameTile 
+> 
+GetTileDtos %
+(% &
+List& *
+<* +
+ShipTile+ 3
+>3 4
+	shipTiles5 >
+,> ?
+int@ C
+columnCountD O
+,O P
+intQ T
+rowCountU ]
+)] ^
+;^ _
+} å
 ^D:\dev\Battleships\Battleships\Services\GameSession\Interfaces\IPlayerShipGenerationService.cs
 	namespace 	
 Battleships
@@ -27483,53 +27940,55 @@ GetSession '
 GameSession *
 .* +
 
-Interfaces+ 5
-;5 6
-public 
-	interface (
-IPlayerShipGenerationService -
-{		 
+Interfaces+ 5
+{ 
+public 
+
+	interface (
+IPlayerShipGenerationService 1
+{		 
 Task
 
- 
+ 
 <
 
- 	
+ 
 List
 
-	 
+ 
 <
 
- 
+ 
 
 PlayerShip
 
- 
+ 
 >
 
- 
+ 
 >
 
- 
+ 
 GeneratePlayerShips
 
- .
+ 2
 (
 
-. /
+2 3
 GameSessionSettings
 
-/ B
+3 F
 settings
 
-C K
+G O
 )
 
-K L
+O P
 ;
 
-L M
-} ÜF
+P Q
+} 
+} óF
 RD:\dev\Battleships\Battleships\Services\GameSession\PlayerShipGenerationService.cs
 	namespace 	
 Battleships
@@ -27537,214 +27996,213 @@ RD:\dev\Battleships\Battleships\Services\GameSession\PlayerShipGenerationService
 . 
 Services 
 . 
-GameSession *
-;* +
-public 
-class '
-PlayerShipGenerationService (
-:) *(
-IPlayerShipGenerationService+ G
-{ 
-private 
-readonly  
-IBattleshipsDatabase ) 
-_battleshipsDatabase* >
-;> ?
-private 
-readonly 
-ICurrentUserService (
-_currentUserService) <
-;< =
-private 
-readonly "
-NumberGeneratorFactory +#
-_numberGeneratorFactory, C
-;C D
-public 
-'
-PlayerShipGenerationService &
-(& ' 
-IBattleshipsDatabase 
-battleshipsDatabase 0
-,0 1
-ICurrentUserService 
-currentUserService .
-,. /"
-NumberGeneratorFactory "
-numberGeneratorFactory 5
-)5 6
-{  
-_battleshipsDatabase 
-= 
-battleshipsDatabase 2
-;2 3
-_currentUserService 
-= 
-currentUserService 0
-;0 1#
-_numberGeneratorFactory 
-=  !"
-numberGeneratorFactory" 8
-;8 9
-} 
-public 
+GameSession *
+{ 
+public 
 
-async 
-Task 
-< 
-List 
-< 
+class '
+PlayerShipGenerationService ,
+:- .(
+IPlayerShipGenerationService/ K
+{ 
+private 
+readonly  
+IBattleshipsDatabase - 
+_battleshipsDatabase. B
+;B C
+private 
+readonly 
+ICurrentUserService ,
+_currentUserService- @
+;@ A
+private 
+readonly "
+NumberGeneratorFactory /#
+_numberGeneratorFactory0 G
+;G H
+public '
+PlayerShipGenerationService *
+(* + 
+IBattleshipsDatabase  
+battleshipsDatabase! 4
+,4 5
+ICurrentUserService 
+currentUserService  2
+,2 3"
+NumberGeneratorFactory ""
+numberGeneratorFactory# 9
+)9 :
+{ 	 
+_battleshipsDatabase  
+=! "
+battleshipsDatabase# 6
+;6 7
+_currentUserService 
+=  !
+currentUserService" 4
+;4 5#
+_numberGeneratorFactory #
+=$ %"
+numberGeneratorFactory& <
+;< =
+} 	
+public 
+async 
+Task 
+< 
+List 
+< 
 
-PlayerShip %
->% &
->& '
-GeneratePlayerShips( ;
-(; <
-GameSessionSettings< O
-settingsP X
-)X Y
-{   
-var!! 
-currentUserId!! 
-=!! 
-_currentUserService!! /
-.!!/ 0
-GetCurrentUserId!!0 @
-(!!@ A
-)!!A B
-;!!B C
-var"" 
-("" 
-ownPlayerId"" 
-,"" 
-opponentPlayerId"" *
-)""* +
-="", -
-await##  
-_battleshipsDatabase## &
-.##& '"
-GameSessionsRepository##' =
-.##= >
-GetPlayerIds##> J
-(##J K
-settings##K S
-.##S T
-GameSessionId##T a
-,##a b
-currentUserId##c p
-)##p q
-;##q r
-var%% 
-playerShips%% 
-=%% 
+PlayerShip )
+>) *
+>* +
+GeneratePlayerShips, ?
+(? @
+GameSessionSettings@ S
+settingsT \
+)\ ]
+{   	
+var!! 
+currentUserId!! 
+=!! 
+_currentUserService!!  3
+.!!3 4
+GetCurrentUserId!!4 D
+(!!D E
+)!!E F
+;!!F G
+var"" 
+("" 
+ownPlayerId"" 
+,"" 
+opponentPlayerId"" .
+)"". /
+=""0 1
+await##  
+_battleshipsDatabase## *
+.##* +"
+GameSessionsRepository##+ A
+.##A B
+GetPlayerIds##B N
+(##N O
+settings##O W
+.##W X
+GameSessionId##X e
+,##e f
+currentUserId##g t
+)##t u
+;##u v
+var%% 
+playerShips%% 
+=%% 
 
-Enumerable%% $
-.%%$ %
-Empty%%% *
-<%%* +
+Enumerable%% (
+.%%( )
+Empty%%) .
+<%%. /
 
-PlayerShip%%+ 5
->%%5 6
-(%%6 7
-)%%7 8
-.&& 
-Concat&& 
-(&& 
-await&& 
-GenerateShips&& '
-(&&' (
-ownPlayerId&&( 3
-,&&3 4
-settings&&5 =
-)&&= >
-)&&> ?
-.'' 
-Concat'' 
-('' 
-await'' 
-GenerateShips'' '
-(''' (
-opponentPlayerId''( 8
-,''8 9
-settings'': B
-)''B C
-)''C D
-.(( 
-ToList(( 
-((( 
-)(( 
-;(( 
-return** 
-playerShips** 
-;** 
-}++ 
-private-- 
-async-- 
-Task-- 
-<-- 
-List-- 
-<-- 
+PlayerShip%%/ 9
+>%%9 :
+(%%: ;
+)%%; <
+.&& 
+Concat&& 
+(&& 
+await&& 
+GenerateShips&& +
+(&&+ ,
+ownPlayerId&&, 7
+,&&7 8
+settings&&9 A
+)&&A B
+)&&B C
+.'' 
+Concat'' 
+('' 
+await'' 
+GenerateShips'' +
+(''+ ,
+opponentPlayerId'', <
+,''< =
+settings''> F
+)''F G
+)''G H
+.(( 
+ToList(( 
+((( 
+)(( 
+;(( 
+return** 
+playerShips** 
+;** 
+}++ 	
+private-- 
+async-- 
+Task-- 
+<-- 
+List-- 
+<--  
 
-PlayerShip-- &
->--& '
->--' (
-GenerateShips--) 6
-(--6 7
-Guid--7 ;
-playerId--< D
-,--D E
-GameSessionSettings--F Y
-settings--Z b
-)--b c
-{.. 
-var// 
-columnCount// 
-=// 
-settings// "
-.//" #
-ColumnCount//# .
-;//. /
-var00 
-rowCount00 
-=00 
-settings00 
-.00  
-RowCount00  (
-;00( )
-var22 
-rowStartGenerator22 
-=22 #
-_numberGeneratorFactory22  7
-.227 8
-GetNumberGenerator228 J
-(22J K
-rowCount22K S
-)22S T
-;22T U
-var33  
-columnStartGenerator33  
-=33! "#
-_numberGeneratorFactory33# :
-.33: ;
-GetNumberGenerator33; M
-(33M N
-columnCount33N Y
-)33Y Z
-;33Z [
-var55 
-shipTypeTuples55 
-=55 
-new55  
-List55! %
-<55% &
-(55& '
-string55' -
-,55- .
-int55/ 2
-)552 3
->553 4
-(554 5
-)555 6
+PlayerShip--  *
+>--* +
+>--+ ,
+GenerateShips--- :
+(--: ;
+Guid--; ?
+playerId--@ H
+,--H I
+GameSessionSettings--J ]
+settings--^ f
+)--f g
+{.. 	
+var// 
+columnCount// 
+=// 
+settings// &
+.//& '
+ColumnCount//' 2
+;//2 3
+var00 
+rowCount00 
+=00 
+settings00 #
+.00# $
+RowCount00$ ,
+;00, -
+var22 
+rowStartGenerator22 !
+=22" ##
+_numberGeneratorFactory22$ ;
+.22; <
+GetNumberGenerator22< N
+(22N O
+rowCount22O W
+)22W X
+;22X Y
+var33  
+columnStartGenerator33 $
+=33% &#
+_numberGeneratorFactory33' >
+.33> ?
+GetNumberGenerator33? Q
+(33Q R
+columnCount33R ]
+)33] ^
+;33^ _
+var55 
+shipTypeTuples55 
+=55  
+new55! $
+List55% )
+<55) *
+(55* +
+string55+ 1
+,551 2
+int553 6
+)556 7
+>557 8
+(558 9
+)559 :
 {66 	
 (77 
 	ShipTypes77 
@@ -27805,214 +28263,215 @@ Battleship88 !
 }>> 	
 ;>>	 
 
-var@@ 
-playerShips@@ 
-=@@ 
-new@@ 
-List@@ "
-<@@" #
+var@@ 
+playerShips@@ 
+=@@ 
+new@@ !
+List@@" &
+<@@& '
 
-PlayerShip@@# -
->@@- .
-(@@. /
-)@@/ 0
-;@@0 1
-whileBB 
-(BB 
-playerShipsBB 
-.BB 
-CountBB  
-<BB! "
-$numBB# $
-)BB$ %
-{CC 	
-varDD 
-columnDD 
-=DD  
-columnStartGeneratorDD -
-.DD- .
-GenerateNumberDD. <
-(DD< =
-)DD= >
-;DD> ?
-ifFF 
-(FF 
-playerShipsFF 
-.FF 
-AnyFF 
-(FF  
-shipFF  $
-=>FF% '
-shipFF( ,
-.FF, -
-TilesFF- 2
-.FF2 3
-AnyFF3 6
-(FF6 7
-tileFF7 ;
-=>FF< >
-tileFF? C
-.FFC D
-XCoordinateFFD O
-==FFP R
-columnFFS Y
-)FFY Z
-)FFZ [
-)FF[ \
-{GG 
-continueHH 
-;HH 
-}II 
-varKK 
-rowKK 
-=KK 
-rowStartGeneratorKK '
-.KK' (
-GenerateNumberKK( 6
-(KK6 7
-)KK7 8
-;KK8 9
-varMM 
-	directionMM 
-=MM 
-rowMM 
-<MM  !
-(MM" #
-rowCountMM# +
-/MM, -
-$numMM. /
-)MM/ 0
-?MM1 2
-$strMM3 9
-:MM: ;
-$strMM< @
-;MM@ A
-varNN 
-shipTypeTupleNN 
-=NN 
-shipTypeTuplesNN  .
-[NN. /
-playerShipsNN/ :
-.NN: ;
-CountNN; @
-]NN@ A
-;NNA B
-varPP 
-	shipTilesPP 
-=PP 
+PlayerShip@@' 1
+>@@1 2
+(@@2 3
+)@@3 4
+;@@4 5
+whileBB 
+(BB 
+playerShipsBB 
+.BB 
+CountBB $
+<BB% &
+$numBB' (
+)BB( )
+{CC 
+varDD 
+columnDD 
+=DD  
+columnStartGeneratorDD 1
+.DD1 2
+GenerateNumberDD2 @
+(DD@ A
+)DDA B
+;DDB C
+ifFF 
+(FF 
+playerShipsFF 
+.FF  
+AnyFF  #
+(FF# $
+shipFF$ (
+=>FF) +
+shipFF, 0
+.FF0 1
+TilesFF1 6
+.FF6 7
+AnyFF7 :
+(FF: ;
+tileFF; ?
+=>FF@ B
+tileFFC G
+.FFG H
+XCoordinateFFH S
+==FFT V
+columnFFW ]
+)FF] ^
+)FF^ _
+)FF_ `
+{GG 
+continueHH 
+;HH 
+}II 
+varKK 
+rowKK 
+=KK 
+rowStartGeneratorKK +
+.KK+ ,
+GenerateNumberKK, :
+(KK: ;
+)KK; <
+;KK< =
+varMM 
+	directionMM 
+=MM 
+rowMM  #
+<MM$ %
+(MM& '
+rowCountMM' /
+/MM0 1
+$numMM2 3
+)MM3 4
+?MM5 6
+$strMM7 =
+:MM> ?
+$strMM@ D
+;MMD E
+varNN 
+shipTypeTupleNN !
+=NN" #
+shipTypeTuplesNN$ 2
+[NN2 3
+playerShipsNN3 >
+.NN> ?
+CountNN? D
+]NND E
+;NNE F
+varPP 
+	shipTilesPP 
+=PP 
 
-EnumerablePP &
-.PP& '
-RangePP' ,
-(PP, -
-rowPP- 0
-,PP0 1
-shipTypeTuplePP2 ?
-.PP? @
-Item2PP@ E
-)PPE F
-.PPF G
-SelectPPG M
-(PPM N
-rawRowNumberPPN Z
-=>PP[ ]
-{QQ 
-varRR 
-	rowNumberRR 
-=RR 
-	directionRR  )
-==RR* ,
-$strRR- 3
-?RR4 5
-rawRowNumberRR6 B
-:RRC D
-rowRRE H
--RRI J
-(RRK L
-rawRowNumberRRL X
--RRY Z
-rowRR[ ^
-)RR^ _
-;RR_ `
-returnTT 
-newTT 
-ShipTileBuilderTT *
-(TT* +
-)TT+ ,
-.UU 
-WithXCoordinateUU $
-(UU$ %
-columnUU% +
-)UU+ ,
-.VV 
-WithYCoordinateVV $
-(VV$ %
-	rowNumberVV% .
-)VV. /
-.WW 
-BuildWW 
-(WW 
-)WW 
-;WW 
-}YY 
-)YY 
-.YY 
-ToListYY 
-(YY 
-)YY 
-;YY 
-var[[ 
-ship[[ 
-=[[ 
-await[[  
-_battleshipsDatabase[[ 1
-.[[1 2
-ShipsRepository[[2 A
-.[[A B
-	GetByType[[B K
-([[K L
-shipTypeTuple[[L Y
-.[[Y Z
-Item1[[Z _
-)[[_ `
-;[[` a
-var]] 
+EnumerablePP  *
+.PP* +
+RangePP+ 0
+(PP0 1
+rowPP1 4
+,PP4 5
+shipTypeTuplePP6 C
+.PPC D
+Item2PPD I
+)PPI J
+.PPJ K
+SelectPPK Q
+(PPQ R
+rawRowNumberPPR ^
+=>PP_ a
+{QQ 
+varRR 
+	rowNumberRR !
+=RR" #
+	directionRR$ -
+==RR. 0
+$strRR1 7
+?RR8 9
+rawRowNumberRR: F
+:RRG H
+rowRRI L
+-RRM N
+(RRO P
+rawRowNumberRRP \
+-RR] ^
+rowRR_ b
+)RRb c
+;RRc d
+returnTT 
+newTT 
+ShipTileBuilderTT .
+(TT. /
+)TT/ 0
+.UU 
+WithXCoordinateUU (
+(UU( )
+columnUU) /
+)UU/ 0
+.VV 
+WithYCoordinateVV (
+(VV( )
+	rowNumberVV) 2
+)VV2 3
+.WW 
+BuildWW 
+(WW 
+)WW  
+;WW  !
+}YY 
+)YY 
+.YY 
+ToListYY 
+(YY 
+)YY 
+;YY 
+var[[ 
+ship[[ 
+=[[ 
+await[[   
+_battleshipsDatabase[[! 5
+.[[5 6
+ShipsRepository[[6 E
+.[[E F
+	GetByType[[F O
+([[O P
+shipTypeTuple[[P ]
+.[[] ^
+Item1[[^ c
+)[[c d
+;[[d e
+var]] 
 
-playerShip]] 
-=]] 
-new]]  
+playerShip]] 
+=]]  
+new]]! $
 
-PlayerShip]]! +
-{^^ 
-PlayerId__ 
-=__ 
-playerId__ #
-,__# $
-Tiles`` 
-=`` 
-	shipTiles`` !
-,``! "
-ShipIdaa 
-=aa 
-shipaa 
-.aa 
-Idaa  
-}bb 
-;bb 
-playerShipsdd 
-.dd 
-Adddd 
-(dd 
+PlayerShip]]% /
+{^^ 
+PlayerId__ 
+=__ 
+playerId__ '
+,__' (
+Tiles`` 
+=`` 
+	shipTiles`` %
+,``% &
+ShipIdaa 
+=aa 
+shipaa !
+.aa! "
+Idaa" $
+}bb 
+;bb 
+playerShipsdd 
+.dd 
+Adddd 
+(dd  
 
-playerShipdd &
-)dd& '
-;dd' (
-}ee 	
-returngg 
-playerShipsgg 
-;gg 
-}hh 
-}ii ®
+playerShipdd  *
+)dd* +
+;dd+ ,
+}ee 
+returngg 
+playerShipsgg 
+;gg 
+}hh 	
+}ii 
+}jj ®
 BD:\dev\Battleships\Battleships\Services\IAttackExecutionService.cs
 	namespace 	
 Battleships
@@ -28035,66 +28494,70 @@ BD:\dev\Battleships\Battleships\Services\IAttackExecutionService.cs
 }		 
 }
 
- ˚
+ å
 :D:\dev\Battleships\Battleships\Services\IEndgameService.cs
 	namespace 	
 Battleships
  
 . 
-Services 
-; 
-public 
-	interface 
-IEndgameService  
-{ 
-Task 
-< 	
-bool	 
-> 
-IsEndgameReached 
-(  
-Guid  $
-gameSessionId% 2
-)2 3
-;3 4
-Task		 
-EndGameSession			 
-(		 
-Guid		 
-gameSessionId		 *
-,		* +
-string		, 2
+Services 
+{ 
+public 
+
+	interface 
+IEndgameService $
+{ 
+Task 
+< 
+bool 
+> 
+IsEndgameReached #
+(# $
+Guid$ (
+gameSessionId) 6
+)6 7
+;7 8
+Task		 
+EndGameSession		 
+(		 
+Guid		  
+gameSessionId		! .
+,		. /
+string		0 6
 
-attackerId		3 =
-)		= >
-;		> ?
-}
+attackerId		7 A
+)		A B
+;		B C
+}
 
- ÷
+ 
+} Á
 BD:\dev\Battleships\Battleships\Services\IEndgameStrategyService.cs
 	namespace 	
 Battleships
  
 . 
-Services 
-; 
-public 
-	interface #
-IEndgameStrategyService (
-{ 
-Task		 
-<		 	
-IEndgameStrategy			 
->		 
-GetEndgameStrategy		 -
-(		- .
-Guid		. 2
-gameSessionId		3 @
-)		@ A
-;		A B
-}
+Services 
+{ 
+public 
+
+	interface #
+IEndgameStrategyService ,
+{ 
+Task		 
+<		 
+IEndgameStrategy		 
+>		 
+GetEndgameStrategy		 1
+(		1 2
+Guid		2 6
+gameSessionId		7 D
+)		D E
+;		E F
+}
 
- ”
+ 
+} ”
 MD:\dev\Battleships\Battleships\Services\Players\Interfaces\IPlayersService.cs
 	namespace 	
 Battleships
@@ -28446,94 +28909,154 @@ AD:\dev\Battleships\Battleships\Services\Players\PlayersService.cs
 ;OO6 7
 }PP 	
 }QQ 
-}RR ◊
+}RR å
 =D:\dev\Battleships\Battleships\Services\Users\IUserManager.cs
-	namespace 	
-Battleships
+	namespace 	
+Battleships
  
-. 
-Services 
-. 
-Users $
-;$ %
-public 
-	interface 
-IUserManager 
-{ 
-Task 
-< 	
-ApplicationUser	 
-> 
-GetById !
-(! "
-string" (
-userId) /
-)/ 0
-;0 1
-}		 ´	
+. 
+Services 
+. 
+Users $
+{ 
+public 
+
+	interface 
+IUserManager !
+{		 
+Task
+
+ 
+<
+
+ 
+ApplicationUser
+
+ 
+>
+
+ 
+GetById
+
+ %
+(
+
+% &
+string
+
+& ,
+userId
+
+- 3
+)
+
+3 4
+;
+
+4 5
+
+IQueryable 
+< 
+ApplicationUser "
+>" #
+Users$ )
+{* +
+get, /
+;/ 0
+}1 2
+} 
+} ë
 <D:\dev\Battleships\Battleships\Services\Users\UserManager.cs
-	namespace 	
-Battleships
+	namespace 	
+Battleships
  
-. 
-Services 
-. 
-Users $
-;$ %
-public 
-class 
-UserManager 
-: 
-IUserManager '
-{ 
-private		 
-readonly		 
-UserManager		  
-<		  !
-ApplicationUser		! 0
->		0 1
-_userManager		2 >
-;		> ?
-public 
-
-UserManager 
-( 
-UserManager "
-<" #
-ApplicationUser# 2
->2 3
-userManager4 ?
-)? @
-{ 
-_userManager 
-= 
-userManager "
-;" #
-} 
-public 
+. 
+Services 
+. 
+Users $
+{ 
+public 
 
-async 
-Task 
-< 
-ApplicationUser %
->% &
-GetById' .
-(. /
-string/ 5
-userId6 <
-)< =
-{ 
-return 
-await 
-_userManager !
-.! "
-FindByIdAsync" /
-(/ 0
-userId0 6
-)6 7
-;7 8
-} 
-} æ
+class 
+UserManager 
+: 
+IUserManager +
+{		 
+private
+
+ 
+readonly
+
+ 
+UserManager
+
+ $
+<
+
+$ %
+ApplicationUser
+
+% 4
+>
+
+4 5
+_userManager
+
+6 B
+;
+
+B C
+public 
+UserManager 
+( 
+UserManager &
+<& '
+ApplicationUser' 6
+>6 7
+userManager8 C
+)C D
+{ 	
+_userManager 
+= 
+userManager &
+;& '
+} 	
+public 
+
+IQueryable 
+< 
+ApplicationUser )
+>) *
+Users+ 0
+=>1 3
+_userManager4 @
+.@ A
+UsersA F
+;F G
+public 
+async 
+Task 
+< 
+ApplicationUser )
+>) *
+GetById+ 2
+(2 3
+string3 9
+userId: @
+)@ A
+{ 	
+return 
+await 
+_userManager %
+.% &
+FindByIdAsync& 3
+(3 4
+userId4 :
+): ;
+;; <
+} 	
+} 
+} æ
 8D:\dev\Battleships\Battleships\SignalR\BattleshipsHub.cs
 	namespace 	
 Battleships

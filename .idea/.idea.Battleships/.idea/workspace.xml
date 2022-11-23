@@ -39,7 +39,6 @@
       <change beforePath="$PROJECT_DIR$/Battleships/Data/Dto/UserInviteDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/Dto/UserInviteDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Data/NumberGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/NumberGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Data/ShipSeeder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/ShipSeeder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Facades/GameSessionFacade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Facades/GameSessionFacade.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Factories/NumberGeneratorFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Factories/NumberGeneratorFactory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Models/Ships/Ship.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Models/Ships/Ship.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Models/enums/Engine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Models/enums/Engine.cs" afterDir="false" />
@@ -59,7 +58,6 @@
       <change beforePath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/IEndgameStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/IEndgameStrategy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/RoundCountLimitEndgameStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/RoundCountLimitEndgameStrategy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Services/EndgameStrategyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EndgameStrategyService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/GameSession/PlayerShipGenerationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/GameSession/PlayerShipGenerationService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BattleshipsUnitTests/AttackExecutionServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipsUnitTests/AttackExecutionServiceTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BattleshipsUnitTests/FactoryTests/DefensiveShipFactoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipsUnitTests/FactoryTests/DefensiveShipFactoryTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BattleshipsUnitTests/FactoryTests/NeutralShipFactoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipsUnitTests/FactoryTests/NeutralShipFactoryTests.cs" afterDir="false" />
@@ -105,6 +103,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -153,7 +152,7 @@
       <workItem from="1669056012871" duration="7268000" />
       <workItem from="1669064007403" duration="896000" />
       <workItem from="1669150087174" duration="687000" />
-      <workItem from="1669226547298" duration="5266000" />
+      <workItem from="1669226547298" duration="5948000" />
     </task>
     <servers />
   </component>

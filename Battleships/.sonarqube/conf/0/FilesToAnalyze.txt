@@ -12,7 +12,6 @@ D:\dev\Battleships\Battleships\Controllers\AuthenticationController.cs
 D:\dev\Battleships\Battleships\Controllers\FriendController.cs
 D:\dev\Battleships\Battleships\Controllers\GameSessionController.cs
 D:\dev\Battleships\Battleships\Controllers\PlayerController.cs
-D:\dev\Battleships\Battleships\Controllers\UsersController.cs
 D:\dev\Battleships\Battleships\Data\ApplicationDbContext.cs
 D:\dev\Battleships\Battleships\Data\Constants\BattleshipClaims.cs
 D:\dev\Battleships\Battleships\Data\Constants\EndgameStrategies.cs
@@ -42,6 +41,7 @@ D:\dev\Battleships\Battleships\Decorators\ShipAppearance.cs
 D:\dev\Battleships\Battleships\Decorators\ShipDecorator.cs
 D:\dev\Battleships\Battleships\Decorators\SkinDecorator.cs
 D:\dev\Battleships\Battleships\Facades\GameSessionFacade.cs
+D:\dev\Battleships\Battleships\Facades\IGameSessionFacade.cs
 D:\dev\Battleships\Battleships\Factories\AbstractShipFactory.cs
 D:\dev\Battleships\Battleships\Factories\DefensiveShipFactory.cs
 D:\dev\Battleships\Battleships\Factories\NeutralShipFactory.cs
@@ -133,8 +133,10 @@ D:\dev\Battleships\Battleships\Services\Friends\FriendsService.cs
 D:\dev\Battleships\Battleships\Services\Friends\Interfaces\IFriendsService.cs
 D:\dev\Battleships\Battleships\Services\GameSession\GameLaunchService.cs
 D:\dev\Battleships\Battleships\Services\GameSession\GameSessionService.cs
+D:\dev\Battleships\Battleships\Services\GameSession\InGameSessionHelperService.cs
 D:\dev\Battleships\Battleships\Services\GameSession\Interfaces\IGameLaunchService.cs
 D:\dev\Battleships\Battleships\Services\GameSession\Interfaces\IGameSessionService.cs
+D:\dev\Battleships\Battleships\Services\GameSession\Interfaces\IInGameSessionHelperService.cs
 D:\dev\Battleships\Battleships\Services\GameSession\Interfaces\IPlayerShipGenerationService.cs
 D:\dev\Battleships\Battleships\Services\GameSession\PlayerShipGenerationService.cs
 D:\dev\Battleships\Battleships\Services\IAttackExecutionService.cs

@@ -12,8 +12,7 @@ CD:\dev\Battleships\Battleships\Controllers\AchievementController.csutf-8O
 FD:\dev\Battleships\Battleships\Controllers\AuthenticationController.csutf-8G
 >D:\dev\Battleships\Battleships\Controllers\FriendController.csutf-8L
 CD:\dev\Battleships\Battleships\Controllers\GameSessionController.csutf-8G
->D:\dev\Battleships\Battleships\Controllers\PlayerController.csutf-8F
-=D:\dev\Battleships\Battleships\Controllers\UsersController.csutf-8D
+>D:\dev\Battleships\Battleships\Controllers\PlayerController.csutf-8D
 ;D:\dev\Battleships\Battleships\Data\ApplicationDbContext.csutf-8J
 AD:\dev\Battleships\Battleships\Data\Constants\BattleshipClaims.csutf-8K
 BD:\dev\Battleships\Battleships\Data\Constants\EndgameStrategies.csutf-8C
@@ -42,7 +41,8 @@ FD:\dev\Battleships\Battleships\Data\Dto\PlayerLobbyDtoWithSessionId.csutf-8F
 ;D:\dev\Battleships\Battleships\Decorators\ShipAppearance.csutf-8C
 :D:\dev\Battleships\Battleships\Decorators\ShipDecorator.csutf-8C
 :D:\dev\Battleships\Battleships\Decorators\SkinDecorator.csutf-8D
-;D:\dev\Battleships\Battleships\Facades\GameSessionFacade.csutf-8H
+;D:\dev\Battleships\Battleships\Facades\GameSessionFacade.csutf-8E
+<D:\dev\Battleships\Battleships\Facades\IGameSessionFacade.csutf-8H
 ?D:\dev\Battleships\Battleships\Factories\AbstractShipFactory.csutf-8I
 @D:\dev\Battleships\Battleships\Factories\DefensiveShipFactory.csutf-8G
 >D:\dev\Battleships\Battleships\Factories\NeutralShipFactory.csutf-8K
@@ -133,9 +133,11 @@ AD:\dev\Battleships\Battleships\Services\EndgameStrategyService.csutf-8J
 AD:\dev\Battleships\Battleships\Services\Friends\FriendsService.csutf-8V
 MD:\dev\Battleships\Battleships\Services\Friends\Interfaces\IFriendsService.csutf-8Q
 HD:\dev\Battleships\Battleships\Services\GameSession\GameLaunchService.csutf-8R
-ID:\dev\Battleships\Battleships\Services\GameSession\GameSessionService.csutf-8]
+ID:\dev\Battleships\Battleships\Services\GameSession\GameSessionService.csutf-8Z
+QD:\dev\Battleships\Battleships\Services\GameSession\InGameSessionHelperService.csutf-8]
 TD:\dev\Battleships\Battleships\Services\GameSession\Interfaces\IGameLaunchService.csutf-8^
-UD:\dev\Battleships\Battleships\Services\GameSession\Interfaces\IGameSessionService.csutf-8g
+UD:\dev\Battleships\Battleships\Services\GameSession\Interfaces\IGameSessionService.csutf-8f
+]D:\dev\Battleships\Battleships\Services\GameSession\Interfaces\IInGameSessionHelperService.csutf-8g
 ^D:\dev\Battleships\Battleships\Services\GameSession\Interfaces\IPlayerShipGenerationService.csutf-8[
 RD:\dev\Battleships\Battleships\Services\GameSession\PlayerShipGenerationService.csutf-8K
 BD:\dev\Battleships\Battleships\Services\IAttackExecutionService.csutf-8C

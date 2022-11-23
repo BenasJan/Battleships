@@ -4,5 +4,6 @@ export interface User {
   name: string;
   gamesPlayedCount: number;
   gamesWonCount: number;
+  userId: string;
 }
 

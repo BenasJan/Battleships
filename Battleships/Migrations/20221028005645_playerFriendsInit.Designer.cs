@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Battleships.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221027202249_NewInit")]
-    partial class NewInit
+    [Migration("20221028005645_playerFriendsInit")]
+    partial class playerFriendsInit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -123,6 +123,23 @@ namespace Battleships.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("Battleships.Models.Friend", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("User1")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("User2")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Friends");
                 });
 
             modelBuilder.Entity("Battleships.Models.GameSession", b =>

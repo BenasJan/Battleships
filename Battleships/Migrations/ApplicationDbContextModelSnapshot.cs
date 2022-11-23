@@ -45,7 +45,7 @@ namespace Battleships.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Achievements");
+                    b.ToTable("Achievements", (string)null);
                 });
 
             modelBuilder.Entity("Battleships.Models.ApplicationUser", b =>
@@ -123,6 +123,23 @@ namespace Battleships.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("Battleships.Models.Friend", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("User1")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("User2")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Friends", (string)null);
+                });
+
             modelBuilder.Entity("Battleships.Models.GameSession", b =>
                 {
                     b.Property<Guid>("Id")
@@ -157,7 +174,7 @@ namespace Battleships.Migrations
 
                     b.HasIndex("WinnerId");
 
-                    b.ToTable("GameSession");
+                    b.ToTable("GameSession", (string)null);
                 });
 
             modelBuilder.Entity("Battleships.Models.GameSessionSettings", b =>
@@ -195,7 +212,7 @@ namespace Battleships.Migrations
                     b.HasIndex("GameSessionId")
                         .IsUnique();
 
-                    b.ToTable("GameSessionSettings");
+                    b.ToTable("GameSessionSettings", (string)null);
                 });
 
             modelBuilder.Entity("Battleships.Models.Player", b =>
@@ -222,7 +239,7 @@ namespace Battleships.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Player");
+                    b.ToTable("Player", (string)null);
                 });
 
             modelBuilder.Entity("Battleships.Models.PlayerShip", b =>
@@ -243,7 +260,7 @@ namespace Battleships.Migrations
 
                     b.HasIndex("ShipId");
 
-                    b.ToTable("PlayerShip");
+                    b.ToTable("PlayerShip", (string)null);
                 });
 
             modelBuilder.Entity("Battleships.Models.Ships.Ship", b =>
@@ -267,7 +284,7 @@ namespace Battleships.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Ship");
+                    b.ToTable("Ship", (string)null);
 
                     b.HasDiscriminator<string>("ShipTypeDiscriminator").HasValue("Ship");
                 });
@@ -305,6 +322,9 @@ namespace Battleships.Migrations
                     b.Property<Guid?>("TargetPlayerId")
                         .HasColumnType("uuid");
 
+                    b.Property<bool>("Shield")
+                        .HasColumnType("boolean");
+
                     b.Property<int>("XCoordinate")
                         .HasColumnType("integer");
 
@@ -317,9 +337,7 @@ namespace Battleships.Migrations
 
                     b.HasIndex("PlayerShipId");
 
-                    b.HasIndex("TargetPlayerId");
-
-                    b.ToTable("ShipTile");
+                    b.ToTable("ShipTile", (string)null);
                 });
 
             modelBuilder.Entity("Battleships.Models.UserAchievement", b =>
@@ -340,7 +358,7 @@ namespace Battleships.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserAchievement");
+                    b.ToTable("UserAchievement", (string)null);
                 });
 
             modelBuilder.Entity("Battleships.Models.UserCosmetic", b =>
@@ -367,7 +385,7 @@ namespace Battleships.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserCosmetic");
+                    b.ToTable("UserCosmetic", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

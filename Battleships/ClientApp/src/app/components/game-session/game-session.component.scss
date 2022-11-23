@@ -28,6 +28,10 @@
     background-color: rgba($color: green, $alpha: 0.5) !important;
 }
 
+.skin-tile {
+    background-color: blue;
+}
+
 .disabled-tile {
     background-color: rgba($color: gray, $alpha: 0.5);
 }
@@ -38,4 +42,11 @@
 
 .selected-tile {
     border: 2px solid blue !important;
+}
+.ship-label {
+    border: 1px solid red;
+}
+
+.selected-ship {
+    background-color: lawngreen;
 }

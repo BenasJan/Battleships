@@ -1,95 +1,176 @@
-ä
-=D:\dev\Battleships\Battleships\Builders\GameSessionBuilder.cs 8r/	 !#$%&')*+,-/012356789Ç %&+,127`
+Y
+/D:\dev\Battleships\Battleships\Adapter\Email.cs 8r	
+ÇE
+8D:\dev\Battleships\Battleships\Adapter\IEmailProvider.csrÑ
+?D:\dev\Battleships\Battleships\Adapter\SendGridEmailProvider.cs 8r.	
+ !"#$%'()*+,-./01Ç'.b
+;D:\dev\Battleships\Battleships\Adapter\SmtpEmailProvider.cs 8r	
+Ç?
+3D:\dev\Battleships\Battleships\Bridge\IShipState.csrR
+1D:\dev\Battleships\Battleships\Bridge\OffState.cs 8r	
+ÇV
+0D:\dev\Battleships\Battleships\Bridge\OnState.cs 8r	
+Ç≥
+=D:\dev\Battleships\Battleships\Builders\GameSessionBuilder.cs 
+8rJ	
+ !"$%&'(*+,-./12345789:;<>?@ACDEFHIJKMNPQRTUWXYZ[xÇ !&',-.349;>@CEHJMRTY`
 =D:\dev\Battleships\Battleships\Builders\GameSessionCreator.cs 8r	
 ÇS
 >D:\dev\Battleships\Battleships\Builders\IGameSessionBuilder.csr	
-w
+S
+;D:\dev\Battleships\Battleships\Builders\IShipTileBuilder.csr	
+ú
+:D:\dev\Battleships\Battleships\Builders\ShipTileBuilder.cs 8r>	 !#$%&')*+,-/012356789;<=>?ABCDEGHIJKÇ %&+,1278=>CDIl
+CD:\dev\Battleships\Battleships\Controllers\AchievementController.cs 8r	
+Çw
 FD:\dev\Battleships\Battleships\Controllers\AuthenticationController.cs 8r	
- !"#Ç ~
-CD:\dev\Battleships\Battleships\Controllers\GameSessionController.cs 8jr!	
- !"#%&'(Ç"#%j
->D:\dev\Battleships\Battleships\Controllers\PlayerController.cs 8r	
-Çn
-;D:\dev\Battleships\Battleships\Data\ApplicationDbContext.cs 8r	
-Ç	N
-AD:\dev\Battleships\Battleships\Data\Constants\BattleshipClaims.csrK
-:D:\dev\Battleships\Battleships\Data\Constants\ShipTypes.csr	
-_
-9D:\dev\Battleships\Battleships\Data\Dto\GameSessionDto.cs 8j
-r	
-S
-@D:\dev\Battleships\Battleships\Data\Dto\GameSessionRequestDto.cs 8r		T
-AD:\dev\Battleships\Battleships\Data\Dto\GameSessionSettingsDto.cs 8r		
-J
-4D:\dev\Battleships\Battleships\Data\Dto\PlayerDto.cs 8r	
-O
-=D:\dev\Battleships\Battleships\Data\Dto\UserCredentialsDto.cs 8rØ
-/D:\dev\Battleships\Battleships\Data\SeedData.cs 8rf	
- !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefgÇ(1:CLU^n
-1D:\dev\Battleships\Battleships\Data\ShipSeeder.cs	 8r 	 "#$%xÇ"M
-?D:\dev\Battleships\Battleships\Factories\AbstractShipFactory.csr	j
-@D:\dev\Battleships\Battleships\Factories\DefensiveShipFactory.cs 8r	
-xÇ
-p
-@D:\dev\Battleships\Battleships\Factories\OffensiveShipFactory.cs 8r	
-xÇ
-b
-?D:\dev\Battleships\Battleships\Factories\ShipFactoryProducer.cs 8r	
-xÇ	K
-4D:\dev\Battleships\Battleships\Models\Achievement.cs 8r	
-O
-8D:\dev\Battleships\Battleships\Models\ApplicationUser.cs 
-8
-r	F
+ !"#Ç ≥
+CD:\dev\Battleships\Battleships\Controllers\GameSessionController.cs 8j4rH	
+ !"#$&'()*,-/01235679:;<>?ABCDFGIJLMNOQRTUVWÇ#)*,2356<>DFGIOQRTr
+>D:\dev\Battleships\Battleships\Controllers\PlayerController.cs 8r 	
+ !#$%&Ç!#J
+=D:\dev\Battleships\Battleships\Controllers\UsersController.csr
+l
+;D:\dev\Battleships\Battleships\Data\ApplicationDbContext.cs 8r	
+ÇN
+AD:\dev\Battleships\Battleships\Data\Constants\BattleshipClaims.csrP
+BD:\dev\Battleships\Battleships\Data\Constants\EndgameStrategies.csr	L
+:D:\dev\Battleships\Battleships\Data\Constants\ShipTypes.csr	
+K
+9D:\dev\Battleships\Battleships\Data\Dto\AchievementDto.cs 8rs
+9D:\dev\Battleships\Battleships\Data\Dto\GameSessionDto.cs 8j
+ !#$%&r	
+()xÇS
+@D:\dev\Battleships\Battleships\Data\Dto\GameSessionRequestDto.cs 8r		U
+AD:\dev\Battleships\Battleships\Data\Dto\GameSessionSettingsDto.cs 8r
+	
+S
+AD:\dev\Battleships\Battleships\Data\Dto\InGameSession\GameTile.cs 8r	b
+ID:\dev\Battleships\Battleships\Data\Dto\InGameSession\InGameSessionDto.cs 8r	
+K
+9D:\dev\Battleships\Battleships\Data\Dto\PlayerLobbyDto.cs 8r	
+b
+FD:\dev\Battleships\Battleships\Data\Dto\PlayerLobbyDtoWithSessionId.cs 8r	ÇO
+=D:\dev\Battleships\Battleships\Data\Dto\UserCredentialsDto.cs 8rF
+2D:\dev\Battleships\Battleships\Data\Dto\UserDto.cs 8r
+	
+G
+8D:\dev\Battleships\Battleships\Data\Dto\UserInviteDto.cs 8rU
+6D:\dev\Battleships\Battleships\Data\NumberGenerator.cs 8r	
+Çñ
+7D:\dev\Battleships\Battleships\Data\SeedAchievements.cs 8r¨	
+ !"#$%&')*+-./012345679:;<=>?@ACDEFGHIJKMNOPQRSTUWXYZ[\]^_abcdefghiklmnopqrsuvwxyz{|}ÄÅÇÉÑÖÜáâäãåçéèêëìîïñóòôöõúùûxÇ!)/19;CEMOWYackmuwÅâãìïr
+1D:\dev\Battleships\Battleships\Data\ShipSeeder.cs
+ 8r"	 !"$%&'xÇ !$ã
+;D:\dev\Battleships\Battleships\Facades\GameSessionFacade.cs	 8r3	 !"#$%&'()*+,./01234579:;Ç !"./01479M
+?D:\dev\Battleships\Battleships\Factories\AbstractShipFactory.csr	r
+@D:\dev\Battleships\Battleships\Factories\DefensiveShipFactory.cs 8r	
+xÇ
+f
+>D:\dev\Battleships\Battleships\Factories\NeutralShipFactory.cs 8r	
+xÇ
+\
+BD:\dev\Battleships\Battleships\Factories\NumberGeneratorFactory.cs 8r
+	Ç|
+@D:\dev\Battleships\Battleships\Factories\OffensiveShipFactory.cs 8r!	
+ "#$%xÇ
+
+"d
+?D:\dev\Battleships\Battleships\Factories\ShipFactoryProducer.cs 8r	xÇ	ç
+
+CD:\dev\Battleships\Battleships\Migrations\20221027202249_NewInit.csU 8rß	
+ !"#$%&'()+,-./012345678:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXY[\]^_`abcdefghijklmnpqrstuvwxyz{|}~ÄÅÇÉÖÜáàâäãåçéèêëíìîïñóôöõúùûü†°¢£§•¶ß®©™´¨≠ÆØ±≤≥¥µ∂∑∏π∫ªºΩæø¿¡¬√≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€›ﬁﬂ‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛıˆ˜¯˘˙˚¸˝˛ˇÄÅÇÉÑÖÜáàâäãåéèêëíìîïñóòôöõúùûü†°¢£§•ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæ¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊Ÿ⁄€‹›ﬁﬂ‡·‚„‰ÂÊÁËÈÍÎÏÓÔÒÛÙıˆ˜˘˙˚¸˛ˇÄÅÉÑÖÜàâäãçéèêíìîïñòôöõùûü†°£§•¶®©™´≠ÆØ∞≤≥¥µ∑∏π∫ºΩæø¡¬√ƒ∆«»…ÀÃÕŒœ—“”‘÷◊Ÿ⁄‹›ﬂ‡‚„ÂÊËÈÎÏÓÔÒÚÙı˜¯˙˚˝˛ÄÅÇÉÑÇí!"#$&(+-/012357:<>?@ABCDEFGHIJKLMNOQSTV[]_`abceghjmprtuvwxz|}ÇÖáâäãåéêëìñôõùû†¢£•®©´Æ±≥µ∂∑∏∫ºΩø¬≈«… ÀÃÕŒœ–—”’÷ÿ›ﬂ·‚„ÂÁËÍÌÓı˜˘˙˚¸˝ˇÅÇÑáâéêíìîïñóòôöúûü°§ß©´¨≠Æ∞≤≥µ∏∫Ω¿¬ƒ≈∆» ÀÕ–—”÷Ÿ€›ﬁﬂ‡·„ÂÊËÎÓÛ˘˛Éàçíòù£®≠≤∑º¡∆À”÷Ÿ‹ﬂ‚ÂËÎÓÒÙ˜˙˝Äo
+HD:\dev\Battleships\Battleships\Migrations\20221103203611_UpdatePlayer.cs 8r	
+ÇX
+4D:\dev\Battleships\Battleships\Models\Achievement.cs 8r	
+ÇZ
+8D:\dev\Battleships\Battleships\Models\ApplicationUser.cs 8r	ÇF
 2D:\dev\Battleships\Battleships\Models\BaseModel.cs 8r
 	
-F
+=
+5D:\dev\Battleships\Battleships\Models\enums\Engine.csrL
+@D:\dev\Battleships\Battleships\Models\enums\GameSessionStatus.csr	F
 8D:\dev\Battleships\Battleships\Models\enums\GameTypes.csr
 	
-s
-4D:\dev\Battleships\Battleships\Models\GameSession.cs
- 8jr$	
- !#%&'()*Ç	'T
-<D:\dev\Battleships\Battleships\Models\GameSessionSettings.cs 8r	
-X
-/D:\dev\Battleships\Battleships\Models\Player.cs 8r	
-ÇK
+:
+2D:\dev\Battleships\Battleships\Models\enums\Gun.csr©
+4D:\dev\Battleships\Battleships\Models\GameSession.cs 8rL
+ !"#$%&')*,-./12356789:;<=>?@BCEFHJKLMOPQRTUVWXYZÇ !"#$%&')./12789:;<=BLQVWW
+<D:\dev\Battleships\Battleships\Models\GameSessionSettings.cs 8r	
+l
+/D:\dev\Battleships\Battleships\Models\Player.cs 8r'	
+ !"#$%&()+,-./0Ç#$(-K
 3D:\dev\Battleships\Battleships\Models\PlayerShip.cs 
 8
 r	
-I
-=D:\dev\Battleships\Battleships\Models\Ships\BattleshipShip.csrF
-:D:\dev\Battleships\Battleships\Models\Ships\CarrierShip.csrF
-:D:\dev\Battleships\Battleships\Models\Ships\CruiserShip.csrH
-<D:\dev\Battleships\Battleships\Models\Ships\DestroyerShip.csrI
-3D:\dev\Battleships\Battleships\Models\Ships\Ship.cs 
-8
-r	
-H
-<D:\dev\Battleships\Battleships\Models\Ships\SubmarineShip.csrG
-1D:\dev\Battleships\Battleships\Models\ShipTile.cs 
-8
-r	M
+W
+=D:\dev\Battleships\Battleships\Models\Ships\BattleshipShip.cs 8r
+	
+ÇU
+:D:\dev\Battleships\Battleships\Models\Ships\CarrierShip.cs 8r	
+Ç	T
+:D:\dev\Battleships\Battleships\Models\Ships\CruiserShip.cs 8r
+	
+ÇV
+<D:\dev\Battleships\Battleships\Models\Ships\DestroyerShip.cs 8r
+	
+ÇR
+8D:\dev\Battleships\Battleships\Models\Ships\DummyShip.cs 8r
+	
+Çf
+3D:\dev\Battleships\Battleships\Models\Ships\Ship.cs 8r 
+ "#$%&'(Ç$%V
+<D:\dev\Battleships\Battleships\Models\Ships\SubmarineShip.cs 8r
+	
+ÇM
+1D:\dev\Battleships\Battleships\Models\ShipTile.cs 8r	
+M
 8D:\dev\Battleships\Battleships\Models\UserAchievement.cs 8r	
 M
 5D:\dev\Battleships\Battleships\Models\UserCosmetic.cs 8r	P
 )D:\dev\Battleships\Battleships\Program.cs 8r
-Çµ
-=D:\dev\Battleships\Battleships\Repositories\BaseRepository.cs 8rQ
-!"#$&'()+,./01245678:;<=?@BCDEFHIJKLNOPQRTUVWYZ[\^_`abcÇ#()+0167<=?DEJKPQV[`|
-BD:\dev\Battleships\Battleships\Repositories\BattleshipsDatabase.cs 	8	r#	
- !"#$%Çw
-DD:\dev\Battleships\Battleships\Repositories\GameSessionRepository.cs 8jr	
- !"Ç[
+Ç\
+>D:\dev\Battleships\Battleships\Prototype\AchievementManager.cs 8r	
+Ç
+N
+@D:\dev\Battleships\Battleships\Prototype\AchievementPrototype.csr	O
+@D:\dev\Battleships\Battleships\Prototype\GameSessionPrototype.csr		
+∆
+=D:\dev\Battleships\Battleships\Repositories\BaseRepository.cs 8r`
+!"#$&')*+,-/01235678:;=>?@ACDEFGIJKLMOPQRTUVWYZ[\^_`abcdefghiklmnopqrsÇ#$&+,1278:?@EFKLQV[cmn{
+BD:\dev\Battleships\Battleships\Repositories\BattleshipsDatabase.cs 	8	r"	
+ !"#$Çk
+LD:\dev\Battleships\Battleships\Repositories\GameSessionSettingsRepository.cs 8r	
+Çœ
+ED:\dev\Battleships\Battleships\Repositories\GameSessionsRepository.cs 
+8
+rX	 !"#$%&'()*+,-./01345689:;=>?@BCDEGHJKLMNOPQRSTUVXYZ[\]^`abcdÇ#!#$%&'()*,-.5:?DEGLOPQRSTZ[\][
 CD:\dev\Battleships\Battleships\Repositories\IBattleshipsDatabase.cs8r	
-U
-ED:\dev\Battleships\Battleships\Repositories\IGameSessionRepository.csr
+[
+MD:\dev\Battleships\Battleships\Repositories\IGameSessionSettingsRepository.csr	
+^
+FD:\dev\Battleships\Battleships\Repositories\IGameSessionsRepository.csr	
+O
+AD:\dev\Battleships\Battleships\Repositories\IPlayersRepository.csr	
+S
+:D:\dev\Battleships\Battleships\Repositories\IRepository.csr	
+L
+?D:\dev\Battleships\Battleships\Repositories\IShipsRepository.csr	U
+CD:\dev\Battleships\Battleships\Repositories\IShipTilesRepository.csr	
+b
+@D:\dev\Battleships\Battleships\Repositories\PlayersRepository.cs 8r
+Ç\
+>D:\dev\Battleships\Battleships\Repositories\ShipsRepository.cs 8r	
+ÇÄ
+BD:\dev\Battleships\Battleships\Repositories\ShipTilesRepository.cs 8r$
+ !#$%&'()xÇ	%&É
+ID:\dev\Battleships\Battleships\Services\Achievement\AchievementService.cs 8r"
+ !#$&'()xÇ #&e
+UD:\dev\Battleships\Battleships\Services\Achievement\Interfaces\IAchievementService.csr
 	
-W
-:D:\dev\Battleships\Battleships\Repositories\IRepository.csr	
-y
-AD:\dev\Battleships\Battleships\Services\AttackExecutionService.cs 8r	
- !"#xÇÕ
+î
+AD:\dev\Battleships\Battleships\Services\AttackExecutionService.cs 8r0	
+ !"#$&'(*+,-./1234567xÇ "#&'(*+-13Õ
 OD:\dev\Battleships\Battleships\Services\Authentication\AuthenticationService.cs 8	rU	
  !"#%'(*+,-./01235789:;<=?@ABCDEFGHIJLMNPQSTUVXY[\]^_`bcdexÇ "%'./5789;CDGHMNPUX_bl
 OD:\dev\Battleships\Battleships\Services\Authentication\AuthenticationUtility.cs 8r
@@ -99,28 +180,57 @@ LD:\dev\Battleships\Battleships\Services\Authentication\CurrentUserService.cs
 [D:\dev\Battleships\Battleships\Services\Authentication\Interfaces\IAuthenticationService.csr
 	
 e
-XD:\dev\Battleships\Battleships\Services\Authentication\Interfaces\ICurrentUserService.csr®
-ID:\dev\Battleships\Battleships\Services\GameSession\GameSessionService.cs 8j,./01356r8	
- !"#$%&'()*+;<=>?@ACEFHIJKLMNÇ!";<=>CEJKg
-UD:\dev\Battleships\Battleships\Services\GameSession\Interfaces\IGameSessionService.csr	
-Q
+XD:\dev\Battleships\Battleships\Services\Authentication\Interfaces\ICurrentUserService.csri
+>D:\dev\Battleships\Battleships\Services\EmailSendingService.cs 8r	
+xÇt
+9D:\dev\Battleships\Battleships\Services\EndgameService.cs
+ 8r"	
+ !"$%'()*Ç
+"$%'(ê
+SD:\dev\Battleships\Battleships\Services\EndgameStrategies\ClassicEndgameStrategy.cs 8r!
+!"#$%&()xÇ#$%(ã
+VD:\dev\Battleships\Battleships\Services\EndgameStrategies\DeathMatchEndgameStrategy.cs 8r
+ !"$%Ç	 !$°
+^D:\dev\Battleships\Battleships\Services\EndgameStrategies\DestroyedShipCountEndgameStrategy.cs 8r&
+ !"$&')*+,-.01Ç!"$&+,-0]
+MD:\dev\Battleships\Battleships\Services\EndgameStrategies\IEndgameStrategy.cs8r	
+Ñ
+[D:\dev\Battleships\Battleships\Services\EndgameStrategies\RoundCountLimitEndgameStrategy.cs 8r	Ço
+AD:\dev\Battleships\Battleships\Services\EndgameStrategyService.cs 8r
+Çó
+HD:\dev\Battleships\Battleships\Services\GameSession\GameLaunchService.cs 8r.	
+ "#$%')+,-/01246789xÇ$%')+,12467∫
+ID:\dev\Battleships\Battleships\Services\GameSession\GameSessionService.cs 8rJ	
+ "#$%&()*+-./1235679:<=>?@ABCDFGHIJKLMNPQRTVWXxÇ$%*/1235679>@BCKLPTb
+TD:\dev\Battleships\Battleships\Services\GameSession\Interfaces\IGameLaunchService.csr	
+j
+UD:\dev\Battleships\Battleships\Services\GameSession\Interfaces\IGameSessionService.csr	
+m
+^D:\dev\Battleships\Battleships\Services\GameSession\Interfaces\IPlayerShipGenerationService.csr		
+⁄
+RD:\dev\Battleships\Battleships\Services\GameSession\PlayerShipGenerationService.cs 8rT	
+ !"#%&'(*+-./02356789:;<=>@BCDFGHIKMNPQRTUVWY[]^_`abdeghixÇ#!"#%&'*/023789:;<=BDFHKMNPRT[adgQ
 BD:\dev\Battleships\Battleships\Services\IAttackExecutionService.csr		
-]
-MD:\dev\Battleships\Battleships\Services\Players\Interfaces\IPlayersService.csr
-	
-Ç
-AD:\dev\Battleships\Battleships\Services\Players\PlayersService.cs	 8r'	!"#$%&'(*+-./0xÇ	!%&'*-n
-8D:\dev\Battleships\Battleships\SignalR\BattleshipsHub.cs 8r	
- !"#$Ç !p
-KD:\dev\Battleships\Battleships\SignalR\BattleshipsSynchronizationService.cs 8r	
-Çg
-WD:\dev\Battleships\Battleships\SignalR\Interfaces\IBattleshipsSynchronizationService.csr
-	
-S
+H
+:D:\dev\Battleships\Battleships\Services\IEndgameService.csr	
+P
+BD:\dev\Battleships\Battleships\Services\IEndgameStrategyService.csr	
+`
+MD:\dev\Battleships\Battleships\Services\Players\Interfaces\IPlayersService.csr	
+®
+AD:\dev\Battleships\Battleships\Services\Players\PlayersService.cs
+ 8rC	
+ !#$%&'()*+,./123456789:;<>?ABCDEFGIJKLÇ!#$%'()*.345789:>Ir
+8D:\dev\Battleships\Battleships\SignalR\BattleshipsHub.cs 8jr!	
+ "#$%&'(Ç$%Å
+KD:\dev\Battleships\Battleships\SignalR\BattleshipsSynchronizationService.cs 8r!	
+!"#$%&'Ç#$j
+WD:\dev\Battleships\Battleships\SignalR\Interfaces\IBattleshipsSynchronizationService.csr	
+S
 >D:\dev\Battleships\Battleships\SignalR\Models\AttackPayload.cs 8r	
 U
-CD:\dev\Battleships\Battleships\SignalR\Models\BattleshipsMessage.cs 8rë
-)D:\dev\Battleships\Battleships\Startup.cs, 8j#78MOPaklzäãrè	
-!$%&')+,-./012345:;<=>?@ABCDEFGHIJKLNQRTUVWXYZ[\]^_bcdefghijmnpqrstuwy{|}~ÄÅÇÉÑÖÜàâçèêëíìïñóòxÇ7&')+-./0123:<=>@BCDGJNQRTdfgmpqrtwy{|~ÅÇÑàçèëïc
+CD:\dev\Battleships\Battleships\SignalR\Models\BattleshipsMessage.cs 8rƒ
+)D:\dev\Battleships\Battleships\Startup.cs- 8j(<=RTUuÄéûür¥	
+ !"#$&)*+,.0123456789:?@ABCDEFGHIJKLMNOPQSVWYZ[\]^_`abcdefghijklmnopqrsvwxyz{|}~ÅÇÑÖÜáàâãçèêëíìîïñóòôöúù°£§•¶ß©™´¨≠xÇC#+,.02345678?ABCEGHILOSVWYxz{ÅÑÖÜàãçèêíïñòú°£•©™c
 7D:\dev\Battleships\Battleships\Utilities\TimeUtility.cs 8r	
 xÇ

@@ -13,7 +13,6 @@ namespace Battleships.Adapter
             _smtpClient.Port = 587;
             _smtpClient.UseDefaultCredentials = false;
             _smtpClient.EnableSsl = true;
-            _smtpClient.Credentials = new NetworkCredential("noreply@battleships.com", "password");
             _smtpClient.Send("noreply@battleships.com", email.To, email.Subject, email.Body);
 
             await Task.Yield();

@@ -18,17 +18,20 @@ namespace Battleships.Controllers
         private readonly IPlayersService _playersService;
         private readonly IGameLaunchService _gameLaunchService;
         private readonly IBattleshipsSynchronizationService _battleshipsSynchronizationService;
+        private readonly IInGameSessionHelperService _inGameSessionHelperService;
 
         public GameSessionController(
             IGameSessionService gameSessionService,
             IPlayersService playersService,
             IGameLaunchService gameLaunchService,
-            IBattleshipsSynchronizationService battleshipsSynchronizationService)
+            IBattleshipsSynchronizationService battleshipsSynchronizationService,
+            IInGameSessionHelperService inGameSessionHelperService)
         {
             _gameSessionService = gameSessionService;
             _playersService = playersService;
             _gameLaunchService = gameLaunchService;
             _battleshipsSynchronizationService = battleshipsSynchronizationService;
+            _inGameSessionHelperService = inGameSessionHelperService;
         }
 
         [HttpPost("createSession")]
@@ -59,7 +62,7 @@ namespace Battleships.Controllers
         [HttpGet("in-game/{gameSessionId:guid}")]
         public async Task<IActionResult> GetInGameSession(Guid gameSessionId)
         {
-            var dto = await _gameSessionService.GetInGameSession(gameSessionId);
+            var dto = await _inGameSessionHelperService.GetInGameSession(gameSessionId);
 
             return Ok(dto);
         }

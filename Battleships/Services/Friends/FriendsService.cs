@@ -12,7 +12,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Battleships.Services.Friends
 {
@@ -34,30 +36,22 @@ namespace Battleships.Services.Friends
 
         public async Task<List<FriendDto>> ListFriends()
         {
-            Random random = new Random();
-
             var currentUserId = _currentUserService.GetCurrentUserId();
-
             var friendsIds = GetFriendsIds(currentUserId).Result;
+            var friendsUsers = await _userManager.Users
+                    .Where(user => user.Id != currentUserId && friendsIds.Contains(user.Id))
+                    .ToListAsync()
+                ;
 
-            var friendsUsers = _userManager.Users.Where(user => user.Id != currentUserId && friendsIds.Contains(user.Id));
-
-            var test = new List<FriendDto>();
-
-            foreach ( var user in friendsUsers)
+            var friends = friendsUsers.Select(user => new FriendDto
             {
-                var Friend = new FriendDto()
-                {
-                    Name = user.UserName,
-                    GamesPlayedCount = random.Next(25,50),
-                    GamesWonCount = random.Next(0, 25),
-                    UserId = user.Id
-                };
+                Name = user.UserName,
+                GamesPlayedCount = RandomNumberGenerator.GetInt32(25, 50),
+                GamesWonCount = RandomNumberGenerator.GetInt32(25),
+                UserId = user.Id
+            }).ToList();
 
-                test.Add(Friend);
-            }
-
-            return test;
+            return friends;
         }
 
         public async Task<List<string>> GetFriendsIds(string currentUserId)
@@ -110,7 +104,6 @@ namespace Battleships.Services.Friends
         public async Task<bool> RemoveFriend(FriendDto friendObj)
         {
             var currentUserId = _currentUserService.GetCurrentUserId();
-            var friendsIds = GetFriendsIds(currentUserId).Result;
 
             var friends = await _db.FriendsRepository.GetWhere(
             user => (user.User1.ToString() == currentUserId && user.User2.ToString() == friendObj.UserId)

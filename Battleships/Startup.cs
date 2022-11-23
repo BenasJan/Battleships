@@ -114,6 +114,7 @@ namespace Battleships
                 .AddScoped<IPlayerShipGenerationService, PlayerShipGenerationService>()
                 .AddSingleton<NumberGeneratorFactory>()
                 .AddScoped<IFriendsService, FriendsService>()
+                .AddScoped<IInGameSessionHelperService, InGameSessionHelperService>()
                 ;
         }
 

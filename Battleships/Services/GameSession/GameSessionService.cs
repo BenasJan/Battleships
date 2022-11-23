@@ -37,7 +37,6 @@ namespace Battleships.Services.GameSession
             var facade = new GameSessionFacade(_battleshipsDatabase, _currentUserService, dto);
             var guid = await facade.CreateGameSession();
             return guid;
-            // return await new GameSessionFacade(_battleshipsDatabase, _currentUserService, dto).CreateGameSession();
         }
 
         public async Task<List<GameSessionDto>> ListAllSessions()
@@ -52,22 +51,7 @@ namespace Battleships.Services.GameSession
         {
             return await _battleshipsDatabase.GameSessionsRepository.GetDtoWithPlayers(id);
         }
-
-        public async Task<InGameSessionDto> GetInGameSession(Guid gameSessionId)
-        {
-            var currentUserId = _currentUserService.GetCurrentUserId();
-            
-            var (ownPlayerId, opponentPlayerId) = await _battleshipsDatabase.GameSessionsRepository.GetPlayerIds(gameSessionId, currentUserId);
-            var ownTiles = await _battleshipsDatabase.ShipTilesRepository.GetPlayerTiles(ownPlayerId);
-            var opponentTiles = await _battleshipsDatabase.ShipTilesRepository.GetPlayerTiles(opponentPlayerId);
-            
-            var dto = await _battleshipsDatabase.GameSessionsRepository.GetInGameSession(gameSessionId, currentUserId);
-            dto.OwnTiles = GetTileDtos(ownTiles, dto.ColumnCount, dto.RowCount);
-            dto.OpponentTiles = GetTileDtos(opponentTiles, dto.ColumnCount, dto.RowCount);
-            
-            return dto;
-        }
-
+        
         public List<GameTile> GetTileDtos(List<ShipTile> tiles, int columnCount, int rowCount)
         {
             var shipTiles = tiles.Where(t => t.PlayerShipId is not null).ToList();

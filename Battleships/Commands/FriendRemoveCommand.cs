@@ -6,16 +6,15 @@ namespace Battleships.Commands
 {
     public class FriendRemoveCommand : IFriendCommand
     {
-        private Friend friend;
+        private Friend _friend;
 
         public FriendRemoveCommand(Friend friend)
         {
-            this.friend = friend;
+            _friend = friend;
         }
 
         public void Execute()
         {
-            //friend.Remove();
         }
     }
 }

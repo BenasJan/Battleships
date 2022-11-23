@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Battleships.Data.Dto;
+﻿namespace Battleships.Data.Dto;
 
 public class PlayerLobbyDto
 {

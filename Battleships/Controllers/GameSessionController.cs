@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Battleships.Data.Dto;
 using Battleships.Data.Dto.InGameSession;
-using Battleships.Services.GameSession;
 using Battleships.Services.GameSession.Interfaces;
 using Battleships.Services.Players.Interfaces;
 using Battleships.SignalR.Interfaces;
@@ -49,9 +48,6 @@ namespace Battleships.Controllers
         [HttpGet("getSession")]
         public async Task<IActionResult> GetSession(Guid id)
         {
-            Console.WriteLine("Gettinam sessiona");
-            Console.WriteLine(id);
-            // var gameSessions = await _gameSessionService.ListAllSessions();
             var game = await _gameSessionService.GetSession(id);
             return Ok(game);
         }

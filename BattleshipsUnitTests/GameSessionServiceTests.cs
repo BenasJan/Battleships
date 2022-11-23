@@ -2,11 +2,9 @@
 using Battleships.Data.Dto.InGameSession;
 using Battleships.Facades;
 using Battleships.Models;
-using Battleships.Models.enums;
 using Battleships.Repositories;
 using Battleships.Services.Authentication.Interfaces;
 using Battleships.Services.GameSession;
-using Battleships.Services.GameSession.Interfaces;
 using Moq;
 
 namespace BattleshipsUnitTests;

@@ -10,7 +10,7 @@ using Battleships.Services.Authentication.Interfaces;
 
 namespace Battleships.Facades;
 
-public class GameSessionFacade
+public class GameSessionFacade : IGameSessionFacade
 {
     private readonly IBattleshipsDatabase _database;
     private readonly ICurrentUserService _currentUserService;

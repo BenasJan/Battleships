@@ -13,5 +13,6 @@ namespace Battleships.Repositories
         public IShipTilesRepository ShipTilesRepository { get; }
         public IShipsRepository ShipsRepository { get; }
         public IRepository<UserCosmetic> UserCosmeticsRepository { get; }
+        public IRepository<Friend> FriendsRepository { get; }
     }
 }

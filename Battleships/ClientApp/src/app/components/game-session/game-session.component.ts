@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, HostListener } from '@angular/core';
+import { NumberValueAccessor } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { tap } from 'rxjs';
 import { Attack } from 'src/app/models/attack';
@@ -9,7 +10,9 @@ import { AttackPublishingService } from 'src/app/services/attack-publishing.serv
 import { AuthorizationService } from 'src/app/services/authorization.service';
 import { GameSessionEventsService } from 'src/app/services/game-session-events.service';
 import { GameSessionService } from 'src/app/services/game-session.service';
-import { SignalRService } from 'src/app/services/signal-r.service';
+//import { MoveSubmissionEventsService } from 'src/app/services/move-submission.service';
+import { ShipMove } from '../../models/ship-move';
+import { SignalRService } from '../../services/signal-r.service';
 
 @Component({
   selector: 'app-game-session',
@@ -23,6 +26,7 @@ export class GameSessionComponent implements OnInit, OnDestroy {
   public selectedMoveYCoord: number | null;
 
   public gameSession = {} as InGameSession;
+  public selectedShipId = "";
   public isOwnTurn: boolean;
 
   private ownMovesObserver: AttackMovesObserver;
@@ -47,7 +51,11 @@ export class GameSessionComponent implements OnInit, OnDestroy {
     this.gameSessionService.getGameplaySession(this.gameSessionId).pipe(
       tap(session => this.gameSession = session),
       tap(session => this.isOwnTurn = session.currentRoundPlayerUserId == this.authorizationService.getUserId())
-    ).subscribe();
+    ).subscribe(session => {
+      console.log(session);
+      let selectedShip = session.ownTiles.find(x => x.shipId != null)
+      this.selectedShipId = selectedShip?.shipId ? selectedShip?.shipId : "";
+    })
 
     this.ownMovesObserver = this.gameSessionEventsService.onOwnMoveSubmitted((_, __) => {
       this.gameSession.currentRound++;
@@ -104,5 +112,46 @@ export class GameSessionComponent implements OnInit, OnDestroy {
     };
 
     this.attackPublishingService.publishAttack(attack);
+
+
+  }
+
+  //public MoveShip(shipId: string, direction: string) {
+
+  //  const shipMove: ShipMove = {
+  //    gameSessionId: this.gameSessionId,
+  //    shipId: shipId,
+  //    direction: direction
+  //  }
+  //  this.gameSessionService.moveShip(shipMove).subscribe(() => location.reload());
+  //}
+
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    const shipMove: ShipMove = {
+      gameSessionId: this.gameSessionId,
+      shipId: this.selectedShipId,
+      direction: ""
+    }
+
+    switch (event.keyCode) {
+      case 37:
+        shipMove.direction = "Left"
+        this.gameSessionService.moveShip(shipMove).subscribe((session) => this.gameSession = session);
+        break;
+      case 38:
+        shipMove.direction = "Up"
+        this.gameSessionService.moveShip(shipMove).subscribe((session) => this.gameSession = session);
+        break;
+      case 39:
+        shipMove.direction = "Right"
+        this.gameSessionService.moveShip(shipMove).subscribe((session) => this.gameSession = session);
+        break;
+      case 40:
+        shipMove.direction = "Down"
+        this.gameSessionService.moveShip(shipMove).subscribe((session) => this.gameSession = session);
+        break;
+      
+    }
   }
 }

@@ -12,7 +12,8 @@ namespace Battleships.Repositories
             IRepository<PlayerShip> playerShipsRepository,
             IShipsRepository shipsRepository,
             IRepository<UserCosmetic> userCosmeticsRepository,
-            IShipTilesRepository shipTilesRepository)
+            IShipTilesRepository shipTilesRepository,
+            IRepository<Friend> friendsRepository)
         {
             AchievementsRepository = achievementsRepository;
             GameSessionsRepository = gameSessionsRepository;
@@ -22,6 +23,7 @@ namespace Battleships.Repositories
             ShipsRepository = shipsRepository;
             UserCosmeticsRepository = userCosmeticsRepository;
             ShipTilesRepository = shipTilesRepository;
+            FriendsRepository = friendsRepository;
         }
 
         public IRepository<Achievement> AchievementsRepository { get; }
@@ -32,5 +34,6 @@ namespace Battleships.Repositories
         public IShipTilesRepository ShipTilesRepository { get; }
         public IShipsRepository ShipsRepository { get; }
         public IRepository<UserCosmetic> UserCosmeticsRepository { get; }
+        public IRepository<Friend> FriendsRepository { get; }
     }
 }

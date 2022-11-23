@@ -8,6 +8,7 @@ namespace Battleships.Data
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Achievement> Achievements { get; set; }
+        public DbSet<Friend> Friends { get; set; }
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
         }

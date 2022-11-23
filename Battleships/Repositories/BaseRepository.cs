@@ -25,6 +25,12 @@ namespace Battleships.Repositories
             return await ItemSet.FirstOrDefaultAsync(m => m.Id == id);
         }
 
+        public async Task<List<TModel>> GetWhere(Expression<Func<TModel, bool>> filter)
+        {
+            return await ItemSet.Where(filter).ToListAsync();
+        }
+
+
         public virtual async Task<List<TModel>> GetAll()
         {
             return await ItemSet.ToListAsync();
@@ -79,11 +85,6 @@ namespace Battleships.Repositories
         private async Task SaveChanges()
         {
             await _context.SaveChangesAsync();
-        }
-        
-        protected async Task<List<TModel>> GetWhere(Expression<Func<TModel, bool>> filter)
-        {
-            return await ItemSet.Where(filter).ToListAsync();
         }
 
         protected async Task<TModel> GetSingle(Expression<Func<TModel, bool>> filter)

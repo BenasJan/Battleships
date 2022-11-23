@@ -2,9 +2,10 @@
 using System.Threading.Tasks;
 using Battleships.Models;
 
-namespace Battleships.Repositories;
-
-public interface IGameSessionSettingsRepository : IRepository<GameSessionSettings>
+namespace Battleships.Repositories
 {
-    Task<GameSessionSettings> GetBySessionId(Guid gameSessionId);
+    public interface IGameSessionSettingsRepository : IRepository<GameSessionSettings>
+    {
+        Task<GameSessionSettings> GetBySessionId(Guid gameSessionId);
+    }
 }

@@ -12,6 +12,111 @@
       },
       "results": [
         {
+          "ruleId": "CS0105",
+          "level": "warning",
+          "message": "The using directive for 'System' appeared previously in this namespace",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Players/PlayersService.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 7,
+                  "endLine": 12,
+                  "endColumn": 13
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 3
+          }
+        },
+        {
+          "ruleId": "CS0105",
+          "level": "warning",
+          "message": "The using directive for 'System.Collections.Generic' appeared previously in this namespace",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Players/PlayersService.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 7,
+                  "endLine": 13,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 3
+          }
+        },
+        {
+          "ruleId": "CS0105",
+          "level": "warning",
+          "message": "The using directive for 'System.Linq' appeared previously in this namespace",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Players/PlayersService.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 7,
+                  "endLine": 14,
+                  "endColumn": 18
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 3
+          }
+        },
+        {
+          "ruleId": "CS0105",
+          "level": "warning",
+          "message": "The using directive for 'System.Threading.Tasks' appeared previously in this namespace",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Players/PlayersService.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 7,
+                  "endLine": 16,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 3
+          }
+        },
+        {
+          "ruleId": "CS1998",
+          "level": "warning",
+          "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Friends/FriendsService.cs",
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 44,
+                  "endLine": 34,
+                  "endColumn": 55
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
           "ruleId": "CS1998",
           "level": "warning",
           "message": "This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.",
@@ -39,7 +144,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Bridge/OffState.cs",
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Bridge/OffState.cs",
                 "region": {
                   "startLine": 7,
                   "startColumn": 18,
@@ -60,7 +165,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Bridge/OnState.cs",
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Bridge/OnState.cs",
                 "region": {
                   "startLine": 7,
                   "startColumn": 18,
@@ -81,11 +186,53 @@
           "locations": [
             {
               "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Commands/FriendRemoveCommand.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 13,
+                  "endLine": 18,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Controllers/FriendController.cs",
+                "region": {
+                  "startLine": 48,
+                  "startColumn": 9,
+                  "endLine": 48,
+                  "endColumn": 12
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
                 "uri": "file:///D:/dev/Battleships/Battleships/Controllers/GameSessionController.cs",
                 "region": {
-                  "startLine": 52,
+                  "startLine": 54,
                   "startColumn": 13,
-                  "endLine": 52,
+                  "endLine": 54,
                   "endColumn": 79
                 }
               }
@@ -144,12 +291,75 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/SignalR/BattleshipsHub.cs",
+                "uri": "file:///D:/dev/Battleships/Battleships/Models/Friend.cs",
                 "region": {
-                  "startLine": 26,
+                  "startLine": 19,
+                  "startColumn": 9,
+                  "endLine": 19,
+                  "endColumn": 12
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Models/GameSession.cs",
+                "region": {
+                  "startLine": 33,
                   "startColumn": 13,
-                  "endLine": 26,
-                  "endColumn": 46
+                  "endLine": 33,
+                  "endColumn": 56
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/GameSession/GameSessionService.cs",
+                "region": {
+                  "startLine": 80,
+                  "startColumn": 21,
+                  "endLine": 80,
+                  "endColumn": 78
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/GameSession/GameSessionService.cs",
+                "region": {
+                  "startLine": 109,
+                  "startColumn": 13,
+                  "endLine": 109,
+                  "endColumn": 37
                 }
               }
             }
@@ -167,9 +377,9 @@
               "resultFile": {
                 "uri": "file:///D:/dev/Battleships/Battleships/Startup.cs",
                 "region": {
-                  "startLine": 61,
+                  "startLine": 63,
                   "startColumn": 13,
-                  "endLine": 61,
+                  "endLine": 63,
                   "endColumn": 82
                 }
               }
@@ -188,9 +398,9 @@
               "resultFile": {
                 "uri": "file:///D:/dev/Battleships/Battleships/Startup.cs",
                 "region": {
-                  "startLine": 82,
+                  "startLine": 84,
                   "startColumn": 17,
-                  "endLine": 82,
+                  "endLine": 84,
                   "endColumn": 44
                 }
               }
@@ -209,9 +419,9 @@
               "resultFile": {
                 "uri": "file:///D:/dev/Battleships/Battleships/Startup.cs",
                 "region": {
-                  "startLine": 84,
+                  "startLine": 86,
                   "startColumn": 13,
-                  "endLine": 84,
+                  "endLine": 86,
                   "endColumn": 41
                 }
               }
@@ -230,9 +440,9 @@
               "resultFile": {
                 "uri": "file:///D:/dev/Battleships/Battleships/Startup.cs",
                 "region": {
-                  "startLine": 127,
+                  "startLine": 130,
                   "startColumn": 17,
-                  "endLine": 127,
+                  "endLine": 130,
                   "endColumn": 54
                 }
               }
@@ -251,9 +461,9 @@
               "resultFile": {
                 "uri": "file:///D:/dev/Battleships/Battleships/Startup.cs",
                 "region": {
-                  "startLine": 142,
+                  "startLine": 145,
                   "startColumn": 13,
-                  "endLine": 142,
+                  "endLine": 145,
                   "endColumn": 40
                 }
               }
@@ -266,11 +476,53 @@
         {
           "ruleId": "S2933",
           "level": "warning",
-          "message": "Make 'client' 'readonly'.",
+          "message": "Make '_shipDecorator' 'readonly'.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Adapter/SendGridEmailProvider.cs",
+                "uri": "file:///D:/dev/Battleships/Battleships/Decorators/ShipDecorator.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 33,
+                  "endLine": 7,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3903",
+          "level": "warning",
+          "message": "Move 'GameSessionFacade' into a named namespace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Facades/GameSessionFacade.cs",
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 14,
+                  "endLine": 13,
+                  "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'friend' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Commands/FriendRemoveCommand.cs",
                 "region": {
                   "startLine": 9,
                   "startColumn": 24,
@@ -285,18 +537,18 @@
           }
         },
         {
-          "ruleId": "S2933",
+          "ruleId": "S4487",
           "level": "warning",
-          "message": "Make 'from' 'readonly'.",
+          "message": "Remove this unread private field 'friend' or refactor the code to use its value.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Adapter/SendGridEmailProvider.cs",
+                "uri": "file:///D:/dev/Battleships/Battleships/Commands/FriendRemoveCommand.cs",
                 "region": {
-                  "startLine": 10,
-                  "startColumn": 22,
-                  "endLine": 10,
-                  "endColumn": 26
+                  "startLine": 9,
+                  "startColumn": 24,
+                  "endLine": 9,
+                  "endColumn": 30
                 }
               }
             }
@@ -306,18 +558,144 @@
           }
         },
         {
-          "ruleId": "S1118",
+          "ruleId": "S3903",
           "level": "warning",
-          "message": "Add a 'protected' constructor or the 'static' keyword to the class declaration.",
+          "message": "Move 'NumberGeneratorFactory' into a named namespace.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Data/Constants/BattleshipClaims.cs",
+                "uri": "file:///D:/dev/Battleships/Battleships/Factories/NumberGeneratorFactory.cs",
                 "region": {
-                  "startLine": 3,
-                  "startColumn": 18,
-                  "endLine": 3,
-                  "endColumn": 34
+                  "startLine": 5,
+                  "startColumn": 14,
+                  "endLine": 5,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'friendRemoveCommand' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Commands/FriendsActionCommands.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 32,
+                  "endLine": 8,
+                  "endColumn": 51
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'ship' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Commands/ShipMoveCommand.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 28,
+                  "endLine": 7,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'ship' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Commands/ShipMoveCommand.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 28,
+                  "endLine": 22,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'ship' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Commands/ShipMoveCommand.cs",
+                "region": {
+                  "startLine": 37,
+                  "startColumn": 28,
+                  "endLine": 37,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'ship' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Commands/ShipMoveCommand.cs",
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 28,
+                  "endLine": 52,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S101",
+          "level": "warning",
+          "message": "Rename class 'friendsInit' to match pascal case naming rules, consider using 'FriendsInit'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Migrations/20221022102651_friendsInit.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 26,
+                  "endLine": 9,
+                  "endColumn": 37
                 }
               }
             }
@@ -371,27 +749,6 @@
         {
           "ruleId": "S3903",
           "level": "warning",
-          "message": "Move 'EndgameStrategies' into a named namespace.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Data/Constants/EndgameStrategies.cs",
-                "region": {
-                  "startLine": 3,
-                  "startColumn": 21,
-                  "endLine": 3,
-                  "endColumn": 38
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3903",
-          "level": "warning",
           "message": "Move 'Gun' into a named namespace.",
           "locations": [
             {
@@ -402,342 +759,6 @@
                   "startColumn": 13,
                   "endLine": 3,
                   "endColumn": 16
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3903",
-          "level": "warning",
-          "message": "Move 'GameTile' into a named namespace.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Data/Dto/InGameSession/GameTile.cs",
-                "region": {
-                  "startLine": 3,
-                  "startColumn": 14,
-                  "endLine": 3,
-                  "endColumn": 22
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3903",
-          "level": "warning",
-          "message": "Move 'InGameSessionDto' into a named namespace.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Data/Dto/InGameSession/InGameSessionDto.cs",
-                "region": {
-                  "startLine": 6,
-                  "startColumn": 14,
-                  "endLine": 6,
-                  "endColumn": 30
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3903",
-          "level": "warning",
-          "message": "Move 'PlayerLobbyDto' into a named namespace.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Data/Dto/PlayerLobbyDto.cs",
-                "region": {
-                  "startLine": 5,
-                  "startColumn": 14,
-                  "endLine": 5,
-                  "endColumn": 28
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3903",
-          "level": "warning",
-          "message": "Move 'PlayerLobbyDtoWithSessionId' into a named namespace.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Data/Dto/PlayerLobbyDtoWithSessionId.cs",
-                "region": {
-                  "startLine": 5,
-                  "startColumn": 14,
-                  "endLine": 5,
-                  "endColumn": 41
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3903",
-          "level": "warning",
-          "message": "Move 'IShipState' into a named namespace.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Bridge/IShipState.cs",
-                "region": {
-                  "startLine": 3,
-                  "startColumn": 18,
-                  "endLine": 3,
-                  "endColumn": 28
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3459",
-          "level": "warning",
-          "message": "Remove unassigned field 'ship', or set its value.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Bridge/OffState.cs",
-                "region": {
-                  "startLine": 7,
-                  "startColumn": 18,
-                  "endLine": 7,
-                  "endColumn": 22
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3459",
-          "level": "warning",
-          "message": "Remove unassigned field 'ship', or set its value.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Bridge/OnState.cs",
-                "region": {
-                  "startLine": 7,
-                  "startColumn": 18,
-                  "endLine": 7,
-                  "endColumn": 22
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3903",
-          "level": "warning",
-          "message": "Move 'OffState' into a named namespace.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Bridge/OffState.cs",
-                "region": {
-                  "startLine": 5,
-                  "startColumn": 14,
-                  "endLine": 5,
-                  "endColumn": 22
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3903",
-          "level": "warning",
-          "message": "Move 'OnState' into a named namespace.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Bridge/OnState.cs",
-                "region": {
-                  "startLine": 5,
-                  "startColumn": 14,
-                  "endLine": 5,
-                  "endColumn": 21
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3903",
-          "level": "warning",
-          "message": "Move 'UserInviteDto' into a named namespace.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Data/Dto/UserInviteDto.cs",
-                "region": {
-                  "startLine": 3,
-                  "startColumn": 14,
-                  "endLine": 3,
-                  "endColumn": 27
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3903",
-          "level": "warning",
-          "message": "Move 'NumberGenerator' into a named namespace.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Data/NumberGenerator.cs",
-                "region": {
-                  "startLine": 5,
-                  "startColumn": 14,
-                  "endLine": 5,
-                  "endColumn": 29
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1118",
-          "level": "warning",
-          "message": "Add a 'protected' constructor or the 'static' keyword to the class declaration.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Data/ShipSeeder.cs",
-                "region": {
-                  "startLine": 11,
-                  "startColumn": 14,
-                  "endLine": 11,
-                  "endColumn": 24
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3903",
-          "level": "warning",
-          "message": "Move 'ShipSeeder' into a named namespace.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Data/ShipSeeder.cs",
-                "region": {
-                  "startLine": 11,
-                  "startColumn": 14,
-                  "endLine": 11,
-                  "endColumn": 24
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S1144",
-          "level": "warning",
-          "message": "Remove the unused private method 'n'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Models/Ships/Ship.cs",
-                "region": {
-                  "startLine": 34,
-                  "startColumn": 9,
-                  "endLine": 38,
-                  "endColumn": 10
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2292",
-          "level": "warning",
-          "message": "Make this an auto-implemented property and remove its backing field.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Models/Ships/Ship.cs",
-                "region": {
-                  "startLine": 20,
-                  "startColumn": 27,
-                  "endLine": 20,
-                  "endColumn": 32
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3903",
-          "level": "warning",
-          "message": "Move 'GameSessionFacade' into a named namespace.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Facades/GameSessionFacade.cs",
-                "region": {
-                  "startLine": 13,
-                  "startColumn": 14,
-                  "endLine": 13,
-                  "endColumn": 31
                 }
               }
             }
@@ -768,18 +789,81 @@
           }
         },
         {
-          "ruleId": "S3903",
+          "ruleId": "S1118",
           "level": "warning",
-          "message": "Move 'NumberGeneratorFactory' into a named namespace.",
+          "message": "Add a 'protected' constructor or the 'static' keyword to the class declaration.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Factories/NumberGeneratorFactory.cs",
+                "uri": "file:///D:/dev/Battleships/Battleships/Program.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 18,
+                  "endLine": 12,
+                  "endColumn": 25
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3903",
+          "level": "warning",
+          "message": "Move 'IShipState' into a named namespace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Bridge/IShipState.cs",
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 18,
+                  "endLine": 3,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3459",
+          "level": "warning",
+          "message": "Remove unassigned field 'ship', or set its value.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Bridge/OffState.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 18,
+                  "endLine": 7,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3903",
+          "level": "warning",
+          "message": "Move 'OffState' into a named namespace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Bridge/OffState.cs",
                 "region": {
                   "startLine": 5,
                   "startColumn": 14,
                   "endLine": 5,
-                  "endColumn": 36
+                  "endColumn": 22
                 }
               }
             }
@@ -791,16 +875,37 @@
         {
           "ruleId": "S2933",
           "level": "warning",
-          "message": "Make 'session' 'readonly'.",
+          "message": "Make 'achievements' 'readonly'.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Builders/GameSessionBuilder.cs",
+                "uri": "file:///D:/dev/Battleships/Battleships/Prototype/AchievementManager.cs",
                 "region": {
-                  "startLine": 10,
-                  "startColumn": 25,
-                  "endLine": 10,
-                  "endColumn": 32
+                  "startLine": 7,
+                  "startColumn": 58,
+                  "endLine": 7,
+                  "endColumn": 70
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3459",
+          "level": "warning",
+          "message": "Remove unassigned field 'ship', or set its value.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Bridge/OnState.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 18,
+                  "endLine": 7,
+                  "endColumn": 22
                 }
               }
             }
@@ -812,37 +917,16 @@
         {
           "ruleId": "S3903",
           "level": "warning",
-          "message": "Move 'GameSessionBuilder' into a named namespace.",
+          "message": "Move 'OnState' into a named namespace.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Builders/GameSessionBuilder.cs",
-                "region": {
-                  "startLine": 8,
-                  "startColumn": 14,
-                  "endLine": 8,
-                  "endColumn": 32
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3903",
-          "level": "warning",
-          "message": "Move 'GameSessionCreator' into a named namespace.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Builders/GameSessionCreator.cs",
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Bridge/OnState.cs",
                 "region": {
                   "startLine": 5,
                   "startColumn": 14,
                   "endLine": 5,
-                  "endColumn": 32
+                  "endColumn": 21
                 }
               }
             }
@@ -854,37 +938,16 @@
         {
           "ruleId": "S3903",
           "level": "warning",
-          "message": "Move 'IGameSessionBuilder' into a named namespace.",
+          "message": "Move 'EndgameService' into a named namespace.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Builders/IGameSessionBuilder.cs",
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/EndgameService.cs",
                 "region": {
-                  "startLine": 7,
-                  "startColumn": 18,
-                  "endLine": 7,
-                  "endColumn": 37
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3903",
-          "level": "warning",
-          "message": "Move 'IShipTileBuilder' into a named namespace.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Builders/IShipTileBuilder.cs",
-                "region": {
-                  "startLine": 7,
-                  "startColumn": 18,
-                  "endLine": 7,
-                  "endColumn": 34
+                  "startLine": 12,
+                  "startColumn": 14,
+                  "endLine": 12,
+                  "endColumn": 28
                 }
               }
             }
@@ -906,69 +969,6 @@
                   "startColumn": 14,
                   "endLine": 10,
                   "endColumn": 36
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3903",
-          "level": "warning",
-          "message": "Move 'EndgameService' into a named namespace.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Services/EndgameService.cs",
-                "region": {
-                  "startLine": 9,
-                  "startColumn": 14,
-                  "endLine": 9,
-                  "endColumn": 28
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2933",
-          "level": "warning",
-          "message": "Make 'shipTile' 'readonly'.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Builders/ShipTileBuilder.cs",
-                "region": {
-                  "startLine": 9,
-                  "startColumn": 22,
-                  "endLine": 9,
-                  "endColumn": 30
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3903",
-          "level": "warning",
-          "message": "Move 'ShipTileBuilder' into a named namespace.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Builders/ShipTileBuilder.cs",
-                "region": {
-                  "startLine": 7,
-                  "startColumn": 14,
-                  "endLine": 7,
-                  "endColumn": 29
                 }
               }
             }
@@ -1183,6 +1183,27 @@
           }
         },
         {
+          "ruleId": "S2292",
+          "level": "warning",
+          "message": "Make this an auto-implemented property and remove its backing field.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Models/Ships/Ship.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 27,
+                  "endLine": 22,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
           "ruleId": "S3903",
           "level": "warning",
           "message": "Move 'PlayerShipGenerationService' into a named namespace.",
@@ -1246,17 +1267,38 @@
           }
         },
         {
-          "ruleId": "S1118",
+          "ruleId": "S3903",
           "level": "warning",
-          "message": "Add a 'protected' constructor or the 'static' keyword to the class declaration.",
+          "message": "Move 'IUserManager' into a named namespace.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Program.cs",
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Users/IUserManager.cs",
                 "region": {
-                  "startLine": 12,
+                  "startLine": 6,
                   "startColumn": 18,
-                  "endLine": 12,
+                  "endLine": 6,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3903",
+          "level": "warning",
+          "message": "Move 'UserManager' into a named namespace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Users/UserManager.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 14,
+                  "endLine": 7,
                   "endColumn": 25
                 }
               }
@@ -1269,16 +1311,16 @@
         {
           "ruleId": "S2933",
           "level": "warning",
-          "message": "Make 'achievements' 'readonly'.",
+          "message": "Make 'session' 'readonly'.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Prototype/AchievementManager.cs",
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Builders/GameSessionBuilder.cs",
                 "region": {
-                  "startLine": 7,
-                  "startColumn": 58,
-                  "endLine": 7,
-                  "endColumn": 70
+                  "startLine": 10,
+                  "startColumn": 25,
+                  "endLine": 10,
+                  "endColumn": 32
                 }
               }
             }
@@ -1290,11 +1332,116 @@
         {
           "ruleId": "S3903",
           "level": "warning",
-          "message": "Move 'UsersController' into a named namespace.",
+          "message": "Move 'GameSessionBuilder' into a named namespace.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Controllers/UsersController.cs",
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Builders/GameSessionBuilder.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 14,
+                  "endLine": 8,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3903",
+          "level": "warning",
+          "message": "Move 'GameSessionCreator' into a named namespace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Builders/GameSessionCreator.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 14,
+                  "endLine": 5,
+                  "endColumn": 32
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3903",
+          "level": "warning",
+          "message": "Move 'IGameSessionBuilder' into a named namespace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Builders/IGameSessionBuilder.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 18,
+                  "endLine": 7,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3903",
+          "level": "warning",
+          "message": "Move 'IShipTileBuilder' into a named namespace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Builders/IShipTileBuilder.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 18,
+                  "endLine": 7,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2933",
+          "level": "warning",
+          "message": "Make 'shipTile' 'readonly'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Builders/ShipTileBuilder.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 22,
+                  "endLine": 9,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3903",
+          "level": "warning",
+          "message": "Move 'ShipTileBuilder' into a named namespace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Builders/ShipTileBuilder.cs",
                 "region": {
                   "startLine": 7,
                   "startColumn": 14,
@@ -1309,38 +1456,17 @@
           }
         },
         {
-          "ruleId": "S3903",
+          "ruleId": "S1118",
           "level": "warning",
-          "message": "Move 'IPlayersRepository' into a named namespace.",
+          "message": "Add a 'protected' constructor or the 'static' keyword to the class declaration.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Repositories/IPlayersRepository.cs",
+                "uri": "file:///D:/dev/Battleships/Battleships/Data/Constants/BattleshipClaims.cs",
                 "region": {
-                  "startLine": 8,
+                  "startLine": 3,
                   "startColumn": 18,
-                  "endLine": 8,
-                  "endColumn": 36
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3903",
-          "level": "warning",
-          "message": "Move 'IShipsRepository' into a named namespace.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Repositories/IShipsRepository.cs",
-                "region": {
-                  "startLine": 6,
-                  "startColumn": 18,
-                  "endLine": 6,
+                  "endLine": 3,
                   "endColumn": 34
                 }
               }
@@ -1353,36 +1479,15 @@
         {
           "ruleId": "S3903",
           "level": "warning",
-          "message": "Move 'GameSessionSettingsRepository' into a named namespace.",
+          "message": "Move 'EndgameStrategies' into a named namespace.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Repositories/GameSessionSettingsRepository.cs",
+                "uri": "file:///D:/dev/Battleships/Battleships/Data/Constants/EndgameStrategies.cs",
                 "region": {
-                  "startLine": 8,
-                  "startColumn": 14,
-                  "endLine": 8,
-                  "endColumn": 43
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3903",
-          "level": "warning",
-          "message": "Move 'IShipTilesRepository' into a named namespace.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Repositories/IShipTilesRepository.cs",
-                "region": {
-                  "startLine": 9,
-                  "startColumn": 18,
-                  "endLine": 9,
+                  "startLine": 3,
+                  "startColumn": 21,
+                  "endLine": 3,
                   "endColumn": 38
                 }
               }
@@ -1395,16 +1500,100 @@
         {
           "ruleId": "S3903",
           "level": "warning",
-          "message": "Move 'ShipsRepository' into a named namespace.",
+          "message": "Move 'GameTile' into a named namespace.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Repositories/ShipsRepository.cs",
+                "uri": "file:///D:/dev/Battleships/Battleships/Data/Dto/InGameSession/GameTile.cs",
                 "region": {
-                  "startLine": 7,
+                  "startLine": 5,
                   "startColumn": 14,
-                  "endLine": 7,
-                  "endColumn": 29
+                  "endLine": 5,
+                  "endColumn": 22
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3903",
+          "level": "warning",
+          "message": "Move 'InGameSessionDto' into a named namespace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Data/Dto/InGameSession/InGameSessionDto.cs",
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 14,
+                  "endLine": 6,
+                  "endColumn": 30
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3903",
+          "level": "warning",
+          "message": "Move 'PlayerLobbyDto' into a named namespace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Data/Dto/PlayerLobbyDto.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 14,
+                  "endLine": 5,
+                  "endColumn": 28
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3903",
+          "level": "warning",
+          "message": "Move 'PlayerLobbyDtoWithSessionId' into a named namespace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Data/Dto/PlayerLobbyDtoWithSessionId.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 14,
+                  "endLine": 5,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3903",
+          "level": "warning",
+          "message": "Move 'UserInviteDto' into a named namespace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Data/Dto/UserInviteDto.cs",
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 14,
+                  "endLine": 3,
+                  "endColumn": 27
                 }
               }
             }
@@ -1437,6 +1626,153 @@
         {
           "ruleId": "S3903",
           "level": "warning",
+          "message": "Move 'NumberGenerator' into a named namespace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Data/NumberGenerator.cs",
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 14,
+                  "endLine": 5,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1118",
+          "level": "warning",
+          "message": "Add a 'protected' constructor or the 'static' keyword to the class declaration.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Data/ShipSeeder.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 14,
+                  "endLine": 11,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3903",
+          "level": "warning",
+          "message": "Move 'ShipSeeder' into a named namespace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Data/ShipSeeder.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 14,
+                  "endLine": 11,
+                  "endColumn": 24
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3903",
+          "level": "warning",
+          "message": "Move 'UsersController' into a named namespace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Controllers/UsersController.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 14,
+                  "endLine": 7,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3903",
+          "level": "warning",
+          "message": "Move 'IShipsRepository' into a named namespace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Repositories/IShipsRepository.cs",
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 18,
+                  "endLine": 6,
+                  "endColumn": 34
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3903",
+          "level": "warning",
+          "message": "Move 'IPlayersRepository' into a named namespace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Repositories/IPlayersRepository.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 18,
+                  "endLine": 8,
+                  "endColumn": 36
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3903",
+          "level": "warning",
+          "message": "Move 'GameSessionSettingsRepository' into a named namespace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Repositories/GameSessionSettingsRepository.cs",
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 14,
+                  "endLine": 8,
+                  "endColumn": 43
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3903",
+          "level": "warning",
           "message": "Move 'PlayersRepository' into a named namespace.",
           "locations": [
             {
@@ -1447,6 +1783,27 @@
                   "startColumn": 14,
                   "endLine": 10,
                   "endColumn": 31
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3903",
+          "level": "warning",
+          "message": "Move 'ShipsRepository' into a named namespace.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Repositories/ShipsRepository.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 14,
+                  "endLine": 7,
+                  "endColumn": 29
                 }
               }
             }
@@ -1485,9 +1842,9 @@
               "resultFile": {
                 "uri": "file:///D:/dev/Battleships/Battleships/Adapter/SmtpEmailProvider.cs",
                 "region": {
-                  "startLine": 15,
+                  "startLine": 16,
                   "startColumn": 39,
-                  "endLine": 15,
+                  "endLine": 16,
                   "endColumn": 99
                 }
               }
@@ -1506,52 +1863,10 @@
               "resultFile": {
                 "uri": "file:///D:/dev/Battleships/Battleships/Adapter/SendGridEmailProvider.cs",
                 "region": {
-                  "startLine": 18,
+                  "startLine": 19,
                   "startColumn": 17,
-                  "endLine": 18,
+                  "endLine": 19,
                   "endColumn": 25
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3168",
-          "level": "warning",
-          "message": "Return 'Task' instead.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Adapter/SendGridEmailProvider.cs",
-                "region": {
-                  "startLine": 21,
-                  "startColumn": 22,
-                  "endLine": 21,
-                  "endColumn": 26
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'GetEndgameStrategyString' does not access instance data and can be marked as static",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Builders/GameSessionBuilder.cs",
-                "region": {
-                  "startLine": 55,
-                  "startColumn": 20,
-                  "endLine": 55,
-                  "endColumn": 44
                 }
               }
             }
@@ -1569,9 +1884,9 @@
               "resultFile": {
                 "uri": "file:///D:/dev/Battleships/Battleships/Adapter/SendGridEmailProvider.cs",
                 "region": {
-                  "startLine": 46,
+                  "startLine": 47,
                   "startColumn": 17,
-                  "endLine": 46,
+                  "endLine": 47,
                   "endColumn": 25
                 }
               }
@@ -1590,10 +1905,31 @@
               "resultFile": {
                 "uri": "file:///D:/dev/Battleships/Battleships/Data/ApplicationDbContext.cs",
                 "region": {
-                  "startLine": 15,
+                  "startLine": 16,
                   "startColumn": 62,
-                  "endLine": 15,
+                  "endLine": 16,
                   "endColumn": 74
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'GetEndgameStrategyString' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Builders/GameSessionBuilder.cs",
+                "region": {
+                  "startLine": 55,
+                  "startColumn": 20,
+                  "endLine": 55,
+                  "endColumn": 44
                 }
               }
             }
@@ -1611,9 +1947,9 @@
               "resultFile": {
                 "uri": "file:///D:/dev/Battleships/Battleships/Models/GameSession.cs",
                 "region": {
-                  "startLine": 84,
+                  "startLine": 85,
                   "startColumn": 68,
-                  "endLine": 84,
+                  "endLine": 85,
                   "endColumn": 79
                 }
               }
@@ -1632,9 +1968,9 @@
               "resultFile": {
                 "uri": "file:///D:/dev/Battleships/Battleships/Services/GameSession/GameSessionService.cs",
                 "region": {
-                  "startLine": 29,
+                  "startLine": 32,
                   "startColumn": 69,
-                  "endLine": 29,
+                  "endLine": 32,
                   "endColumn": 72
                 }
               }
@@ -1645,60 +1981,18 @@
           }
         },
         {
-          "ruleId": "S1125",
+          "ruleId": "S107",
           "level": "warning",
-          "message": "Remove the unnecessary Boolean literal(s).",
+          "message": "Constructor has 9 parameters, which is greater than the 7 authorized.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Services/GameSession/GameSessionService.cs",
+                "uri": "file:///D:/dev/Battleships/Battleships/Repositories/BattleshipsDatabase.cs",
                 "region": {
-                  "startLine": 77,
-                  "startColumn": 31,
-                  "endLine": 77,
-                  "endColumn": 36
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'GetTileDtos' does not access instance data and can be marked as static",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Services/GameSession/GameSessionService.cs",
-                "region": {
-                  "startLine": 60,
-                  "startColumn": 32,
-                  "endLine": 60,
-                  "endColumn": 43
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'GetAgencyEmailProvider' does not access instance data and can be marked as static",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Services/EmailSendingService.cs",
-                "region": {
-                  "startLine": 16,
-                  "startColumn": 32,
+                  "startLine": 7,
+                  "startColumn": 35,
                   "endLine": 16,
-                  "endColumn": 54
+                  "endColumn": 51
                 }
               }
             }
@@ -1708,18 +2002,60 @@
           }
         },
         {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'IsShipDestroyed' does not access instance data and can be marked as static",
+          "ruleId": "S2245",
+          "level": "warning",
+          "message": "Make sure that using this pseudorandom number generator is safe here.",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Services/EndgameStrategies/DestroyedShipCountEndgameStrategy.cs",
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Friends/FriendsService.cs",
                 "region": {
-                  "startLine": 41,
-                  "startColumn": 18,
-                  "endLine": 41,
-                  "endColumn": 33
+                  "startLine": 36,
+                  "startColumn": 29,
+                  "endLine": 36,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S927",
+          "level": "warning",
+          "message": "Rename parameter 'friendObj' to 'friend' to match the interface declaration.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Friends/FriendsService.cs",
+                "region": {
+                  "startLine": 109,
+                  "startColumn": 56,
+                  "endLine": 109,
+                  "endColumn": 65
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S1481",
+          "level": "warning",
+          "message": "Remove the unused local variable 'friendsIds'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Friends/FriendsService.cs",
+                "region": {
+                  "startLine": 112,
+                  "startColumn": 17,
+                  "endLine": 112,
+                  "endColumn": 27
                 }
               }
             }
@@ -1756,33 +2092,12 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Services/EndgameStrategies/DeathMatchEndgameStrategy.cs",
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/EndgameStrategies/DestroyedShipCountEndgameStrategy.cs",
                 "region": {
-                  "startLine": 29,
+                  "startLine": 45,
                   "startColumn": 18,
-                  "endLine": 29,
+                  "endLine": 45,
                   "endColumn": 33
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CA1822",
-          "level": "note",
-          "message": "Member 'IsAllPlayerShipsDestroyed' does not access instance data and can be marked as static",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Services/EndgameStrategies/ClassicEndgameStrategy.cs",
-                "region": {
-                  "startLine": 33,
-                  "startColumn": 18,
-                  "endLine": 33,
-                  "endColumn": 43
                 }
               }
             }
@@ -1813,17 +2128,59 @@
           }
         },
         {
-          "ruleId": "S107",
-          "level": "warning",
-          "message": "Constructor has 8 parameters, which is greater than the 7 authorized.",
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'IsShipDestroyed' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Repositories/BattleshipsDatabase.cs",
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/EndgameStrategies/DeathMatchEndgameStrategy.cs",
                 "region": {
-                  "startLine": 7,
-                  "startColumn": 35,
-                  "endLine": 15,
+                  "startLine": 33,
+                  "startColumn": 18,
+                  "endLine": 33,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'IsAllPlayerShipsDestroyed' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/EndgameStrategies/ClassicEndgameStrategy.cs",
+                "region": {
+                  "startLine": 37,
+                  "startColumn": 18,
+                  "endLine": 37,
+                  "endColumn": 43
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CA1822",
+          "level": "note",
+          "message": "Member 'GetAgencyEmailProvider' does not access instance data and can be marked as static",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/EmailSendingService.cs",
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 32,
+                  "endLine": 16,
                   "endColumn": 54
                 }
               }
@@ -1848,6 +2205,20 @@
               "PortedFromFxCop",
               "Telemetry",
               "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "CS0105": {
+          "id": "CS0105",
+          "shortDescription": "Using directive appeared previously in this namespace",
+          "defaultLevel": "warning",
+          "helpUri": "https://msdn.microsoft.com/query/roslyn.query?appId=roslyn&k=k(CS0105)",
+          "properties": {
+            "category": "Compiler",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Compiler",
+              "Telemetry"
             ]
           }
         },
@@ -1876,6 +2247,23 @@
             "tags": [
               "Compiler",
               "Telemetry"
+            ]
+          }
+        },
+        "S101": {
+          "id": "S101",
+          "shortDescription": "Types should be named in PascalCase",
+          "fullDescription": "Shared naming conventions allow teams to collaborate efficiently. This rule checks whether or not type names are using PascalCase. To reduce noise, two consecutive upper case characters are allowed unless they form the whole type name. So, MyXClass is compliant, but XC on its own is not.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-101",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "SonarWay",
+              "MainSourceScope",
+              "TestSourceScope"
             ]
           }
         },
@@ -1926,41 +2314,6 @@
               "C#",
               "SonarWay",
               "MainSourceScope"
-            ]
-          }
-        },
-        "S1125": {
-          "id": "S1125",
-          "shortDescription": "Boolean literals should not be redundant",
-          "fullDescription": "Redundant Boolean literals should be removed from expressions to improve readability.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1125",
-          "properties": {
-            "category": "Minor Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "SonarWay",
-              "MainSourceScope",
-              "TestSourceScope"
-            ]
-          }
-        },
-        "S1144": {
-          "id": "S1144",
-          "shortDescription": "Unused private types or members should be removed",
-          "fullDescription": "private or internal types or private members that are never executed or referenced are dead code: unnecessary, inoperative code that should be removed. Cleaning out dead code decreases the size of the maintained codebase, making it easier to understand the program and preventing bugs from being introduced.",
-          "defaultLevel": "note",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-1144",
-          "properties": {
-            "category": "Major Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "SonarWay",
-              "MainSourceScope",
-              "TestSourceScope",
-              "Unnecessary"
             ]
           }
         },
@@ -2015,6 +2368,23 @@
             ]
           }
         },
+        "S2245": {
+          "id": "S2245",
+          "shortDescription": "Using pseudorandom number generators (PRNGs) is security-sensitive",
+          "fullDescription": "Using pseudorandom number generators (PRNGs) is security-sensitive. For example, it has led in the past to the following vulnerabilities:",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2245",
+          "properties": {
+            "category": "Critical Security Hotspot",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "SonarWay",
+              "MainSourceScope",
+              "NotConfigurable"
+            ]
+          }
+        },
         "S2292": {
           "id": "S2292",
           "shortDescription": "Trivial properties should be auto-implemented",
@@ -2040,23 +2410,6 @@
           "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2933",
           "properties": {
             "category": "Major Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "SonarWay",
-              "MainSourceScope",
-              "TestSourceScope"
-            ]
-          }
-        },
-        "S3168": {
-          "id": "S3168",
-          "shortDescription": "\"async\" methods should not return \"void\"",
-          "fullDescription": "An async method with a void return type is a \"fire and forget\" method best reserved for event handlers because there's no way to wait for the method's execution to complete and respond accordingly. There's also no way to catch exceptions thrown from the method.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3168",
-          "properties": {
-            "category": "Major Bug",
             "isEnabledByDefault": true,
             "tags": [
               "C#",
@@ -2114,6 +2467,24 @@
               "SonarWay",
               "MainSourceScope",
               "TestSourceScope"
+            ]
+          }
+        },
+        "S4487": {
+          "id": "S4487",
+          "shortDescription": "Unread \"private\" fields should be removed",
+          "fullDescription": "Private fields only used to store values without reading them later is a case of dead store. So changing the value of such field is useless and most probably indicates a serious error in the code.",
+          "defaultLevel": "note",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-4487",
+          "properties": {
+            "category": "Critical Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "SonarWay",
+              "MainSourceScope",
+              "TestSourceScope",
+              "Unnecessary"
             ]
           }
         },

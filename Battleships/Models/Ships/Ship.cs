@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using Battleships.Bridge;
+using Battleships.Services.Bridge;
 
 namespace Battleships.Models.Ships
 {

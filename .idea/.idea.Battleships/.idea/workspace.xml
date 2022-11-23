@@ -6,13 +6,63 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Battleships/Services/Users/IUserManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/Services/Users/UserManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/Battleships/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Battleships/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/Battleships/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Battleships/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/.sonarqube/conf/0/FilesToAnalyze.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/.sonarqube/conf/0/FilesToAnalyze.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/.sonarqube/conf/SonarQubeAnalysisConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/.sonarqube/conf/SonarQubeAnalysisConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/.sonarqube/out/.sonar/report-task.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/.sonarqube/out/.sonar/report-task.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/.sonarqube/out/0/Issues.json" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/.sonarqube/out/0/Issues.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/.sonarqube/out/0/ProjectInfo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/.sonarqube/out/0/ProjectInfo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/.sonarqube/out/0/output-cs/file-metadata.pb" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/.sonarqube/out/0/output-cs/file-metadata.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/.sonarqube/out/0/output-cs/metrics.pb" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/.sonarqube/out/0/output-cs/metrics.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/.sonarqube/out/0/output-cs/symrefs.pb" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/.sonarqube/out/0/output-cs/symrefs.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/.sonarqube/out/0/output-cs/token-cpd.pb" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/.sonarqube/out/0/output-cs/token-cpd.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/.sonarqube/out/0/output-cs/token-type.pb" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/.sonarqube/out/0/output-cs/token-type.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/.sonarqube/out/sonar-project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/.sonarqube/out/sonar-project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Adapter/IEmailProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Adapter/IEmailProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Adapter/SendGridEmailProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Adapter/SendGridEmailProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Adapter/SmtpEmailProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Adapter/SmtpEmailProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Bridge/IShipState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Bridge/IShipState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Bridge/OffState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Bridge/OffState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Bridge/OnState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Bridge/OnState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Builders/GameSessionBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Builders/GameSessionBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Builders/GameSessionCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Builders/GameSessionCreator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Builders/IGameSessionBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Builders/IGameSessionBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Builders/IShipTileBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Builders/IShipTileBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Builders/ShipTileBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Builders/ShipTileBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Controllers/UsersController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Data/Dto/InGameSession/GameTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/Dto/InGameSession/GameTile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Data/Dto/InGameSession/InGameSessionDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/Dto/InGameSession/InGameSessionDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Data/Dto/PlayerLobbyDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/Dto/PlayerLobbyDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Data/Dto/PlayerLobbyDtoWithSessionId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/Dto/PlayerLobbyDtoWithSessionId.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Data/Dto/UserInviteDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/Dto/UserInviteDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Data/NumberGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/NumberGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Data/ShipSeeder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/ShipSeeder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Facades/GameSessionFacade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Facades/GameSessionFacade.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Factories/NumberGeneratorFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Factories/NumberGeneratorFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Models/Ships/Ship.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Models/Ships/Ship.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Models/enums/Engine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Models/enums/Engine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Models/enums/GameSessionStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Models/enums/GameSessionStatus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/GameSessionSettingsRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/GameSessionSettingsRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/IGameSessionSettingsRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/IGameSessionSettingsRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/IPlayersRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/IPlayersRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/IShipTilesRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/IShipTilesRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/IShipsRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/IShipsRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/PlayersRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/PlayersRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/ShipTilesRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/ShipTilesRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/ShipsRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/ShipsRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Services/EndgameService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EndgameService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/GameSession/GameSessionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/GameSession/GameSessionService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/ClassicEndgameStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/ClassicEndgameStrategy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/DeathMatchEndgameStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/DeathMatchEndgameStrategy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/DestroyedShipCountEndgameStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/DestroyedShipCountEndgameStrategy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/IEndgameStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/IEndgameStrategy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/RoundCountLimitEndgameStrategy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EndgameStrategies/RoundCountLimitEndgameStrategy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/EndgameStrategyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EndgameStrategyService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/GameSession/PlayerShipGenerationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/GameSession/PlayerShipGenerationService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BattleshipsUnitTests/AttackExecutionServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipsUnitTests/AttackExecutionServiceTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BattleshipsUnitTests/EndgameServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipsUnitTests/EndgameServiceTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BattleshipsUnitTests/FactoryTests/DefensiveShipFactoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipsUnitTests/FactoryTests/DefensiveShipFactoryTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BattleshipsUnitTests/FactoryTests/NeutralShipFactoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipsUnitTests/FactoryTests/NeutralShipFactoryTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +107,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Battleships">
+  <component name="RunManager">
     <configuration name="Battleships" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Battleships/Battleships.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net5.0" />
@@ -103,7 +153,7 @@
       <workItem from="1669056012871" duration="7268000" />
       <workItem from="1669064007403" duration="896000" />
       <workItem from="1669150087174" duration="687000" />
-      <workItem from="1669226547298" duration="1291000" />
+      <workItem from="1669226547298" duration="5266000" />
     </task>
     <servers />
   </component>
@@ -170,13 +220,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BattleshipsUnitTests/AttackExecutionServiceTests.cs</url>
-          <line>92</line>
+          <line>91</line>
           <properties documentPath="D:\dev\Battleships\BattleshipsUnitTests\AttackExecutionServiceTests.cs" initialLine="92" containingFunctionPresentation="method 'When_ExecutingAttack_WithFinishedSession_Expect_EndgameServiceCalled'">
             <startOffsets>
-              <option value="3120" />
+              <option value="3092" />
             </startOffsets>
             <endOffsets>
-              <option value="3155" />
+              <option value="3127" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="18" />

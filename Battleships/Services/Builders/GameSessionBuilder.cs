@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Battleships.Models;
 using Battleships.Models.enums;
 
-namespace Battleships.Builders;
+namespace Battleships.Services.Builders;
 
 public class GameSessionBuilder : IGameSessionBuilder
 {
-    private GameSession session = new GameSession();
+    private Models.GameSession session = new Models.GameSession();
     
     public GameSessionBuilder WithIcon(string icon)
     {
@@ -84,7 +84,7 @@ public class GameSessionBuilder : IGameSessionBuilder
         return this;
     }
 
-    public GameSession Build()
+    public Models.GameSession Build()
     {
         return this.session;
     }

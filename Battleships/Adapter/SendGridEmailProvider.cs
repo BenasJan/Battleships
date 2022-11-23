@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 
@@ -6,9 +7,9 @@ namespace Battleships.Adapter
 {
     public class SendGridEmailProvider : IEmailProvider
     {
-        SendGridClient client = new SendGridClient("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");
-        EmailAddress from = new EmailAddress("noreply@battleships.com", "Battleships");
-        public async void SendEmail(Email email)
+        private readonly SendGridClient client = new SendGridClient("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");
+        private readonly EmailAddress from = new EmailAddress("noreply@battleships.com", "Battleships");
+        public async Task SendEmail(Email email)
         {
             var subject = email.Subject;
             var to = new EmailAddress(email.To, email.Name);
@@ -18,7 +19,7 @@ namespace Battleships.Adapter
             var response = await client.SendEmailAsync(msg);
         }
 
-        public async void SendToAllRecipients()
+        public async Task SendToAllRecipients()
         {
             var tos = new List<EmailAddress>
             {

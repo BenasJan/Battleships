@@ -1,6 +1,7 @@
-﻿namespace Battleships.Data.Dto;
-
-public class UserInviteDto
+﻿namespace Battleships.Data.Dto
 {
-    public string UserId { get; set; }
+    public class UserInviteDto
+    {
+        public string UserId { get; set; }
+    }
 }

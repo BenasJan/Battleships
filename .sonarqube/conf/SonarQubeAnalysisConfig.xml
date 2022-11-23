@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <AnalysisConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
-  <SonarConfigDir>D:\dev\Battleships\Battleships\.sonarqube\conf</SonarConfigDir>
-  <SonarOutputDir>D:\dev\Battleships\Battleships\.sonarqube\out</SonarOutputDir>
-  <SonarBinDir>D:\dev\Battleships\Battleships\.sonarqube\bin</SonarBinDir>
-  <SonarScannerWorkingDirectory>D:\dev\Battleships\Battleships</SonarScannerWorkingDirectory>
+  <SonarConfigDir>D:\dev\Battleships\.sonarqube\conf</SonarConfigDir>
+  <SonarOutputDir>D:\dev\Battleships\.sonarqube\out</SonarOutputDir>
+  <SonarBinDir>D:\dev\Battleships\.sonarqube\bin</SonarBinDir>
+  <SonarScannerWorkingDirectory>D:\dev\Battleships</SonarScannerWorkingDirectory>
   <HasBeginStepCommandLineCredentials>true</HasBeginStepCommandLineCredentials>
   <SonarQubeHostUrl>http://localhost:9000</SonarQubeHostUrl>
   <SonarQubeVersion>8.9.9.56886</SonarQubeVersion>
@@ -110,8 +110,8 @@
   <AnalyzersSettings>
     <AnalyzerSettings>
       <Language>cs</Language>
-      <RulesetPath>D:\dev\Battleships\Battleships\.sonarqube\conf\Sonar-cs.ruleset</RulesetPath>
-      <DeactivatedRulesetPath>D:\dev\Battleships\Battleships\.sonarqube\conf\Sonar-cs-none.ruleset</DeactivatedRulesetPath>
+      <RulesetPath>D:\dev\Battleships\.sonarqube\conf\Sonar-cs.ruleset</RulesetPath>
+      <DeactivatedRulesetPath>D:\dev\Battleships\.sonarqube\conf\Sonar-cs-none.ruleset</DeactivatedRulesetPath>
       <AnalyzerPlugins>
         <AnalyzerPlugin Key="csharp" Version="8.22.0.31243" StaticResourceName="SonarAnalyzer-8.22.0.31243.zip">
           <AssemblyPaths>
@@ -130,13 +130,13 @@
         </AnalyzerPlugin>
       </AnalyzerPlugins>
       <AdditionalFilePaths>
-        <Path>D:\dev\Battleships\Battleships\.sonarqube\conf\cs\SonarLint.xml</Path>
+        <Path>D:\dev\Battleships\.sonarqube\conf\cs\SonarLint.xml</Path>
       </AdditionalFilePaths>
     </AnalyzerSettings>
     <AnalyzerSettings>
       <Language>vbnet</Language>
-      <RulesetPath>D:\dev\Battleships\Battleships\.sonarqube\conf\Sonar-vbnet.ruleset</RulesetPath>
-      <DeactivatedRulesetPath>D:\dev\Battleships\Battleships\.sonarqube\conf\Sonar-vbnet-none.ruleset</DeactivatedRulesetPath>
+      <RulesetPath>D:\dev\Battleships\.sonarqube\conf\Sonar-vbnet.ruleset</RulesetPath>
+      <DeactivatedRulesetPath>D:\dev\Battleships\.sonarqube\conf\Sonar-vbnet-none.ruleset</DeactivatedRulesetPath>
       <AnalyzerPlugins>
         <AnalyzerPlugin Key="csharp" Version="8.22.0.31243" StaticResourceName="SonarAnalyzer-8.22.0.31243.zip">
           <AssemblyPaths>
@@ -155,7 +155,7 @@
         </AnalyzerPlugin>
       </AnalyzerPlugins>
       <AdditionalFilePaths>
-        <Path>D:\dev\Battleships\Battleships\.sonarqube\conf\vbnet\SonarLint.xml</Path>
+        <Path>D:\dev\Battleships\.sonarqube\conf\vbnet\SonarLint.xml</Path>
       </AdditionalFilePaths>
     </AnalyzerSettings>
   </AnalyzersSettings>

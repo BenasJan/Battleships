@@ -1,13 +1,14 @@
 ﻿using Battleships.Data;
 
-namespace Battleships.Factories;
-
-public class NumberGeneratorFactory
+namespace Battleships.Factories
 {
-    public NumberGenerator GetNumberGenerator(int maxValue)
+    public class NumberGeneratorFactory
     {
-        var generator = new NumberGenerator(maxValue);
+        public NumberGenerator GetNumberGenerator(int maxValue)
+        {
+            var generator = new NumberGenerator(maxValue);
 
-        return generator;
+            return generator;
+        }
     }
 }

@@ -5,6 +5,7 @@ using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.Services.Authentication.Interfaces;
 using Battleships.Services.GameSession;
+using Battleships.Services.GameSession.Interfaces;
 using Moq;
 
 namespace BattleshipsUnitTests;
@@ -16,13 +17,12 @@ public class GameSessionServiceTests
     private readonly Mock<IShipTilesRepository> _shipTileRepository;
     private readonly Mock<IGameSessionFacade> _gameSessionsFacadeMock;
     private readonly Mock<IGameSessionsRepository> _gameSessionsRepositoryMock;
-    private readonly Mock<ICurrentUserService> _currentUserServiceMock;
     private readonly Mock<IInGameSessionHelperService> _inGameSessionMock;
 
     public GameSessionServiceTests()
     {
         _gameSessionsRepositoryMock = new Mock<IGameSessionsRepository>();
-        _currentUserServiceMock = new Mock<ICurrentUserService>();
+        var currentUserServiceMock = new Mock<ICurrentUserService>();
         _gameSessionsFacadeMock = new Mock<IGameSessionFacade>();
         _shipTileRepository = new Mock<IShipTilesRepository>();
         _playerShipRepository = new Mock<IRepository<PlayerShip>>();
@@ -32,7 +32,7 @@ public class GameSessionServiceTests
         
         _gameSessionService = new GameSessionService(
             databaseMock.Object,
-            _currentUserServiceMock.Object,
+            currentUserServiceMock.Object,
             _inGameSessionMock.Object
         );
     }
@@ -167,7 +167,7 @@ public class GameSessionServiceTests
             .ReturnsAsync(guid);
     }
     
-    private void SetupGameSessionRepositoryGetAll(Mock<IGameSessionsRepository> repository)
+    private static void SetupGameSessionRepositoryGetAll(Mock<IGameSessionsRepository> repository)
     {
         repository.Setup(db => db.GetAll())
             .ReturnsAsync(new List<GameSession>
@@ -191,7 +191,7 @@ public class GameSessionServiceTests
             });
     }
     
-    private void SetupGameSessionRepositoryGetDtoWithPlayers(Mock<IGameSessionsRepository> repository, Guid guid)
+    private static void SetupGameSessionRepositoryGetDtoWithPlayers(Mock<IGameSessionsRepository> repository, Guid guid)
     {
         repository.Setup(db => db.GetDtoWithPlayers(guid))
             .ReturnsAsync(new GameSessionDto(){Id = guid});

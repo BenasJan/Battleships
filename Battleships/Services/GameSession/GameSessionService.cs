@@ -32,12 +32,11 @@ namespace Battleships.Services.GameSession
             _inGameSessionHelperService = inGameSessionHelperService;
         }
 
-        public async Task<Guid> CreateSession(GameSessionRequestDto dto)
+        public async Task<Guid> CreateSession(GameSessionRequestDto gameSessionDto)
         {
-            var facade = new GameSessionFacade(_battleshipsDatabase, _currentUserService, dto);
+            var facade = new GameSessionFacade(_battleshipsDatabase, _currentUserService, gameSessionDto);
             var guid = await facade.CreateGameSession();
             return guid;
-            // return await new GameSessionFacade(_battleshipsDatabase, _currentUserService, dto).CreateGameSession();
         }
 
         public async Task<List<GameSessionDto>> ListAllSessions()
@@ -45,29 +44,14 @@ namespace Battleships.Services.GameSession
             var models = await _battleshipsDatabase.GameSessionsRepository.GetAll();
             if (models is null)
                 return new List<GameSessionDto>();
-            return models.Select(x => x.toDto()).ToList();
+            return models.Select(x => x.ToDto()).ToList();
         }
         
         public async Task<GameSessionDto> GetSession(Guid id)
         {
             return await _battleshipsDatabase.GameSessionsRepository.GetDtoWithPlayers(id);
         }
-
-        public async Task<InGameSessionDto> GetInGameSession(Guid gameSessionId)
-        {
-            var currentUserId = _currentUserService.GetCurrentUserId();
-            
-            var (ownPlayerId, opponentPlayerId) = await _battleshipsDatabase.GameSessionsRepository.GetPlayerIds(gameSessionId, currentUserId);
-            var ownTiles = await _battleshipsDatabase.ShipTilesRepository.GetPlayerTiles(ownPlayerId);
-            var opponentTiles = await _battleshipsDatabase.ShipTilesRepository.GetPlayerTiles(opponentPlayerId);
-            
-            var dto = await _battleshipsDatabase.GameSessionsRepository.GetInGameSession(gameSessionId, currentUserId);
-            dto.OwnTiles = GetTileDtos(ownTiles, dto.ColumnCount, dto.RowCount);
-            dto.OpponentTiles = GetTileDtos(opponentTiles, dto.ColumnCount, dto.RowCount);
-            
-            return dto;
-        }
-
+        
         public List<GameTile> GetTileDtos(List<ShipTile> tiles, int columnCount, int rowCount)
         {
             var shipTiles = tiles.Where(t => t.PlayerShipId is not null).ToList();
@@ -84,11 +68,7 @@ namespace Battleships.Services.GameSession
                     var emptyTile = emptyTiles.FirstOrDefault(st =>
                         st.XCoordinate == columnCoordinate && st.YCoordinate == rowCoordinate
                     );
-
-                    // IShipAppearance shipAppearance = new ShipAppearance();
-                    // IShipAppearance skinDecorator = new SkinDecorator(shipAppearance).Draw();
-                    // IShipAppearance labelDecorator = new LabelDecorator(skinDecorator).Draw();
-
+                    
                     var tile = new GameTile
                     {
                         ColumnCoordinate = columnCoordinate,
@@ -96,8 +76,6 @@ namespace Battleships.Services.GameSession
                         IsShip = shipTile?.PlayerShipId is not null,
                         IsDestroyed = (shipTile?.IsDestroyed ?? false) || (emptyTile?.IsDestroyed ?? false),
                         ShipId = shipTile != null ? shipTile.PlayerShipId : null,
-                        // SkinName = shipTile != null ? labelDecorator.SkinName : "",
-                        // Label = shipTile != null ? labelDecorator.Label : ""
                     };
 
                     return tile;
@@ -110,8 +88,7 @@ namespace Battleships.Services.GameSession
         public async Task<InGameSessionDto> MoveShipInSession (Guid gameSessionId, Guid shipId, string direction)
         {
 
-            PlayerShip playerShip = await _battleshipsDatabase.PlayerShipsRepository.GetById(shipId);
-
+            var playerShip = await _battleshipsDatabase.PlayerShipsRepository.GetById(shipId);
             var playerTiles = await _battleshipsDatabase.ShipTilesRepository.GetPlayerTiles(playerShip.PlayerId);
 
             switch (direction)
@@ -121,16 +98,16 @@ namespace Battleships.Services.GameSession
                     shipMoveUpCommand.Execute();
                     break;
                 case "Down":
-                    IShipActionCommand ShipMoveDownCommand = new ShipMoveDownCommand(playerShip);
-                    ShipMoveDownCommand.Execute();
+                    IShipActionCommand shipMoveDownCommand = new ShipMoveDownCommand(playerShip);
+                    shipMoveDownCommand.Execute();
                     break;                
                 case "Left":
-                    IShipActionCommand ShipMoveLeftCommand = new ShipMoveLeftCommand(playerShip);
-                    ShipMoveLeftCommand.Execute();
+                    IShipActionCommand shipMoveLeftCommand = new ShipMoveLeftCommand(playerShip);
+                    shipMoveLeftCommand.Execute();
                     break;                
                 case "Right":
-                    IShipActionCommand ShipMoveRightCommand = new ShipMoveRightCommand(playerShip);
-                    ShipMoveRightCommand.Execute();
+                    IShipActionCommand shipMoveRightCommand = new ShipMoveRightCommand(playerShip);
+                    shipMoveRightCommand.Execute();
                     break;
             }
 

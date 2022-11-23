@@ -4,16 +4,16 @@ namespace Battleships.Utilities
 {
     public class TimeUtility
     {
-        private static TimeUtility timeUtilityInstance = null;
+        private static TimeUtility _timeUtilityInstance;
 
         public static TimeUtility GetTimeUtility()
         {
-            if (timeUtilityInstance is null)
+            if (_timeUtilityInstance is null)
             {
-                timeUtilityInstance = new TimeUtility();
+                _timeUtilityInstance = new TimeUtility();
             }
 
-            return timeUtilityInstance;
+            return _timeUtilityInstance;
         }
 
         private TimeUtility()

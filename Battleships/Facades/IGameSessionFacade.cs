@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Battleships.Facades;
-
-public interface IGameSessionFacade
+namespace Battleships.Facades
 {
-    public Task<Guid> CreateGameSession();
+    public interface IGameSessionFacade
+    {
+        public Task<Guid> CreateGameSession();
+    }
 }

@@ -11,7 +11,7 @@ namespace Battleships.Repositories
 {
     public class BaseRepository<TModel> : IRepository<TModel> where TModel : BaseModel
     {
-        protected readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         protected DbSet<TModel> ItemSet => _context.Set<TModel>();
 

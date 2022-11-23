@@ -1,9 +1,7 @@
 ﻿ using System;
-using System.Collections.Generic;
-using Battleships.Data.Dto;
- using System.IO;
+ using System.Collections.Generic;
  using System.Linq;
- using System.Runtime.Serialization.Formatters.Binary;
+ using Battleships.Data.Dto;
  using Battleships.Models.enums;
  using Battleships.Prototype;
 
@@ -24,13 +22,12 @@ using Battleships.Data.Dto;
         public string WinnerId { get; set; }
         public ApplicationUser Winner { get; set; }
         
-        public GameSessionDto toDto()
+        public GameSessionDto ToDto()
         {
 
             var dto = new GameSessionDto();
             dto.Id = this.Id;
             dto.HostId = this.Players[0].Id;
-            //dto.HostName = this.Players[0].User.Name;
             dto.HostName = this.Players[0].Id.ToString();
             dto.Icon = this.Icon;
             dto.Name = this.Name;
@@ -82,10 +79,10 @@ using Battleships.Data.Dto;
             return this.MemberwiseClone() as GameSessionPrototype;
         }
 
-        public override GameSessionPrototype DeepClone(GameSession gameSession)
+        public override GameSessionPrototype DeepClone(GameSession gameSessionPrototype)
         {
-            var copiedSession = DeepCopy(gameSession);
-            return copiedSession as GameSessionPrototype;
+            var copiedSession = DeepCopy(gameSessionPrototype);
+            return copiedSession;
         }
     }
 }

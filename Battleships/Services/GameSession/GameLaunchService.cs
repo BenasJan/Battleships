@@ -30,20 +30,7 @@ namespace Battleships.Services.GameSession
                 await LaunchGame(gameSessionId);
             }
         }
-
-        private async Task LaunchRematch(Guid gameSessionId)
-        {
-            var gameSession = await _battleshipsDatabase.GameSessionsRepository.GetWithPlayersAndSettings(gameSessionId);
-            var deepCopy = gameSession.DeepClone(gameSession) as Models.GameSession;
-
-            var playerShips = await _playerShipGenerationService.GeneratePlayerShips(gameSession.Settings);
-
-            deepCopy.Status = GameSessionStatus.InProgress;
-
-            await _battleshipsDatabase.PlayerShipsRepository.CreateMany(playerShips);
-            await _battleshipsDatabase.GameSessionsRepository.Update(deepCopy);
-        }
-
+        
         public async Task LaunchGame(Guid gameSessionId)
         {
             var gameSession = await _battleshipsDatabase.GameSessionsRepository.GetById(gameSessionId);
@@ -53,6 +40,22 @@ namespace Battleships.Services.GameSession
 
             await _battleshipsDatabase.PlayerShipsRepository.CreateMany(playerShips);
             await _battleshipsDatabase.GameSessionsRepository.Update(gameSession);
+        }
+
+        private async Task LaunchRematch(Guid gameSessionId)
+        {
+            var gameSession = await _battleshipsDatabase.GameSessionsRepository.GetWithPlayersAndSettings(gameSessionId);
+            var deepCopy = gameSession.DeepClone(gameSession) as Models.GameSession;
+
+            var playerShips = await _playerShipGenerationService.GeneratePlayerShips(gameSession.Settings);
+
+            if (deepCopy != null)
+            {
+                deepCopy.Status = GameSessionStatus.InProgress;
+
+                await _battleshipsDatabase.PlayerShipsRepository.CreateMany(playerShips);
+                await _battleshipsDatabase.GameSessionsRepository.Update(deepCopy);
+            }
         }
     }
 }

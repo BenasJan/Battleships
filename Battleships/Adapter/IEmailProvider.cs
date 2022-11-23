@@ -1,7 +1,10 @@
-﻿namespace Battleships.Adapter
+﻿using System.Threading.Tasks;
+
+namespace Battleships.Adapter
 {
     public interface IEmailProvider
     {
-        void SendEmail(Email email);
+        Task SendEmail(Email email);
+        Task SendToAllRecipients();
     }
 }

@@ -80,7 +80,7 @@ namespace Battleships.Services.Authentication
             return token;
         }
 
-        private ClaimsIdentity GetClaimsIdentity(ApplicationUser user)
+        private static ClaimsIdentity GetClaimsIdentity(ApplicationUser user)
         {
             var claims = GetClaims(user);
             var claimsIdentity = new ClaimsIdentity(claims);

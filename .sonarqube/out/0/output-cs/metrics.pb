@@ -6,8 +6,9 @@ m
 ?D:\dev\Battleships\Battleships\Adapter\SendGridEmailProvider.cs 8r	
 Çh
 ;D:\dev\Battleships\Battleships\Adapter\SmtpEmailProvider.cs 8r	
-Ç_
->D:\dev\Battleships\Battleships\Commands\FriendRemoveCommand.cs 8r	Ça
+Ç`
+>D:\dev\Battleships\Battleships\Commands\FriendRemoveCommand.cs 8r
+Ça
 @D:\dev\Battleships\Battleships\Commands\FriendsActionCommands.cs 8r
 ÇF
 9D:\dev\Battleships\Battleships\Commands\IFriendCommand.csrJ
@@ -60,7 +61,9 @@ FD:\dev\Battleships\Battleships\Data\Dto\PlayerLobbyDtoWithSessionId.cs 8r
 I
 8D:\dev\Battleships\Battleships\Data\Dto\UserInviteDto.cs 8rW
 6D:\dev\Battleships\Battleships\Data\NumberGenerator.cs 8r	
-Çç
+ÇJ
+8D:\dev\Battleships\Battleships\Data\PasswordException.cs 8r
+ç
 7D:\dev\Battleships\Battleships\Data\SeedAchievements.cs 8r§	
  !"#%&')*+,-./012356789:;<=?@ABCDEFGIJKLMNOPQSTUVWXYZ[]^_`abcdeghijklmnoqrstuvwxy{|}~ÄÅÇÉÖÜáàâäãåçèêëíìîïñóòôöxÇ %+-57?AIKSU]_giqs{}Öáèët
 1D:\dev\Battleships\Battleships\Data\ShipSeeder.cs
@@ -133,11 +136,11 @@ F
 8D:\dev\Battleships\Battleships\Models\enums\GameTypes.csr
 	
 <
-2D:\dev\Battleships\Battleships\Models\enums\Gun.csrN
-/D:\dev\Battleships\Battleships\Models\Friend.cs 8jr	
- ¨
-4D:\dev\Battleships\Battleships\Models\GameSession.cs 8j!rL
- "#$%&'(*+-./02346789:;<=>?@ACDFGIKLMNPQRSUVWXYZ[Ç "#$%&'(*/02389:;<=>CMRWXW
+2D:\dev\Battleships\Battleships\Models\enums\Gun.csrH
+/D:\dev\Battleships\Battleships\Models\Friend.cs 8r	
+ß
+4D:\dev\Battleships\Battleships\Models\GameSession.cs 8rJ	
+ !"#$%'(*+,-/013456789:;<=>@ACDFHIJKMNOPRSTUVWXÇ !"#$%',-/056789:;@JOTUW
 <D:\dev\Battleships\Battleships\Models\GameSessionSettings.cs 8r	
 J
 5D:\dev\Battleships\Battleships\Models\Notification.cs 8r	
@@ -159,8 +162,8 @@ F
 ÇR
 8D:\dev\Battleships\Battleships\Models\Ships\DummyShip.cs 8r
 	
-Ça
-3D:\dev\Battleships\Battleships\Models\Ships\Ship.cs 8r	 "#$ÇV
+ÇO
+3D:\dev\Battleships\Battleships\Models\Ships\Ship.cs 8r	V
 <D:\dev\Battleships\Battleships\Models\Ships\SubmarineShip.cs 8r
 	
 ÇQ
@@ -170,10 +173,9 @@ F
 M
 5D:\dev\Battleships\Battleships\Models\UserCosmetic.cs 8r	P
 )D:\dev\Battleships\Battleships\Program.cs 8r
-Ç\
->D:\dev\Battleships\Battleships\Prototype\AchievementManager.cs 8r	
-Ç
-N
+ÇY
+>D:\dev\Battleships\Battleships\Prototype\AchievementManager.cs 8r	
+ÇN
 @D:\dev\Battleships\Battleships\Prototype\AchievementPrototype.csr	O
 @D:\dev\Battleships\Battleships\Prototype\GameSessionPrototype.csr		
 ∆
@@ -258,7 +260,7 @@ AD:\dev\Battleships\Battleships\Services\Friends\FriendsService.cs 8rW
  !"#$&'()*+,./1234689:;<=>?@ABDEGHIJLMNOPQRSUVXY[\]_`acefghxÇ# !"&()*+.348:<>@DIJLPQSUX]_`ace_
 MD:\dev\Battleships\Battleships\Services\Friends\Interfaces\IFriendsService.csr	ù
 HD:\dev\Battleships\Battleships\Services\GameSession\GameLaunchService.cs 8r3	
- "#$%')*+-./0234579:;<=xÇ$%')+-.4579:Î
+ "#$%')*+-./0245689:;<=xÇ$%')*/024689Î
 ID:\dev\Battleships\Battleships\Services\GameSession\GameSessionService.cs( 8rj	
  !#$%&'(*+,-./02345789:<=>?@ABDEFHIJKLMNOQRSUVXY[\^_`abcdefghijklmnoprtuvxyz{xÇ' &',-./49:<>@ADELMNQU[\^bcfgjknortuvx∏
 QD:\dev\Battleships\Battleships\Services\GameSession\InGameSessionHelperService.cs 8	r@	
@@ -299,8 +301,8 @@ WD:\dev\Battleships\Battleships\SignalR\Interfaces\IBattleshipsSynchronizationSe
 S
 >D:\dev\Battleships\Battleships\SignalR\Models\AttackPayload.cs 8r	
 U
-CD:\dev\Battleships\Battleships\SignalR\Models\BattleshipsMessage.cs 8r“
-)D:\dev\Battleships\Battleships\Startup.cs- 8j+?@UWX{ÖÜî§•rø	
- !"#$%&'),-./13456789:;<=BCDEFGHIJKLMNOPQRSTVYZ\]^_`abcdefghijklmnopqrstuvwxy|}~ÄÅÇÉÑáàäãåçéèëìïñóòôöõúùûü†¢£ß©™´¨≠Ø∞±≤≥xÇE&./1356789:;BDEFHJKLORVYZ\~ÄÅáäãåéëìïñòõúû¢ß©´Ø∞c
+CD:\dev\Battleships\Battleships\SignalR\Models\BattleshipsMessage.cs 8rµ
+)D:\dev\Battleships\Battleships\Startup.cs- 8r∏	
+ !"#$%&')+,-.023456789:;<>?@ABCDEFGHIJKLMNOPQRSUVWXYZ[\]^_`abcdefghijklmnopqrtuvwxyz{|}~ÄÅÇÉÑÖáâäãåçéèêëíìîïóòôõúùûü°¢£§•xÇB&-.02456789:>@ABDFGHKNQRSUvxy}ÄÅÇÑáâäãçêëìóôõù°¢c
 7D:\dev\Battleships\Battleships\Utilities\TimeUtility.cs 8r	
 xÇ

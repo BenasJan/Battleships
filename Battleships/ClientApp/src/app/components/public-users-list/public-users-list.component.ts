@@ -1,17 +1,15 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AddFriendPayload } from '../../models/payloads/add-friend';
 import { User } from '../../models/player';
 import { AuthorizationService } from "../../services/authorization.service";
-import { PlayerService } from '../../services/player.service';
-import jwt_decode from 'jwt-decode';
-import { AddFriendPayload } from '../../models/payloads/add-friend';
 import { FriendService } from '../../services/friend.service';
+import { PlayerService } from '../../services/player.service';
 
 
 
 @Component({
   selector: 'app-public-users-list',
-  templateUrl: './public-users-list.component.html',
-  styleUrls: ['./public-users-list.component.scss']
+  templateUrl: './public-users-list.component.html'
 })
 export class PublicUsersListComponent implements OnInit {
 

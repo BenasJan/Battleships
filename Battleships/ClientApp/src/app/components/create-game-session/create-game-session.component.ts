@@ -7,8 +7,7 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-game-session',
-  templateUrl: './create-game-session.component.html',
-  styleUrls: ['./create-game-session.component.scss']
+  templateUrl: './create-game-session.component.html'
 })
 export class CreateGameSessionComponent implements OnInit {
 

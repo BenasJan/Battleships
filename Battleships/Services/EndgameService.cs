@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Battleships.Models;
 using Battleships.Models.enums;
 using Battleships.Repositories;
+using Battleships.Services.Users;
 using Battleships.SignalR.Interfaces;
 using Microsoft.AspNetCore.Identity;
 
@@ -13,14 +14,13 @@ public class EndgameService : IEndgameService
     private readonly IBattleshipsDatabase _battleshipsDatabase;
     private readonly IEndgameStrategyService _endgameStrategyService;
     private readonly IBattleshipsSynchronizationService _battleshipsSynchronizationService;
-    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly IUserManager _userManager;
 
     public EndgameService(
         IBattleshipsDatabase battleshipsDatabase,
         IEndgameStrategyService endgameStrategyService,
         IBattleshipsSynchronizationService battleshipsSynchronizationService,
-        UserManager<ApplicationUser> userManager
-    )
+        IUserManager userManager)
     {
         _battleshipsDatabase = battleshipsDatabase;
         _endgameStrategyService = endgameStrategyService;
@@ -44,7 +44,7 @@ public class EndgameService : IEndgameService
 
         await _battleshipsDatabase.GameSessionsRepository.Update(session);
 
-        var winnerName = (await _userManager.FindByIdAsync(attackerId)).UserName;
+        var winnerName = (await _userManager.GetById(attackerId)).UserName;
         await _battleshipsSynchronizationService.SendEndgameReached(gameSessionId, winnerName);
     }
 }

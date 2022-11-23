@@ -1,4 +1,5 @@
 ﻿using Battleships.Builders;
+using Battleships.Data.Constants;
 using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.Services;
@@ -35,7 +36,7 @@ public class AttackExecutionServiceTests
     [Fact]
     public async Task When_ExecutingAttack_With_TargetTileWithShip_Expect_UpdateCalled()
     {
-        var targetedTile = new ShipTile();
+        var targetedTile = new List<ShipTile> { new ShipTile() };
         var attack = new AttackPayload();
 
         SetupGetAttackedTile(targetedTile, attack);
@@ -44,7 +45,7 @@ public class AttackExecutionServiceTests
         await _attackExecutionService.ExecuteAttack(attack);
 
         _shipTilesRepositoryMock.Verify(
-            repo => repo.Update(It.Is<ShipTile>(expected => expected == targetedTile)),
+            repo => repo.UpdateMany(It.Is<List<ShipTile>>(expected => expected == targetedTile)),
             Times.Once
         );
     }
@@ -52,7 +53,7 @@ public class AttackExecutionServiceTests
     [Fact]
     public async Task When_ExecutingAttack_With_TargetTileWithoutShip_Expect_UpdateNotCalled()
     {
-        ShipTile targetedTile = null;
+        var targetedTile = new List<ShipTile>();
         var attack = new AttackPayload();
 
         SetupGetAttackedTile(targetedTile, attack);
@@ -69,7 +70,7 @@ public class AttackExecutionServiceTests
     [Fact]
     public async Task When_ExecutingAttack_Expect_RoundIncremented()
     {
-        ShipTile targetedTile = null;
+        var targetedTile = new List<ShipTile>();
         var attack = new AttackPayload();
 
         var gameSession = GetGameSession();
@@ -92,7 +93,7 @@ public class AttackExecutionServiceTests
         var gameSessionId = Guid.NewGuid();
         var attackerId = Guid.NewGuid().ToString();
         var attack = new AttackPayload{ GameSessionId = gameSessionId, AttackingUserId = attackerId };
-        SetupGetAttackedTile(new ShipTile(), attack);
+        SetupGetAttackedTile(new List<ShipTile>{ new ShipTile() }, attack);
         SetupGetGameSession(GetGameSession());
         SetupEndgameReached(gameSessionId, true);
 
@@ -104,13 +105,13 @@ public class AttackExecutionServiceTests
         ), Times.Once);
     }
 
-    private void SetupGetAttackedTile(ShipTile tile, AttackPayload attack)
+    private void SetupGetAttackedTile(List<ShipTile> tiles, AttackPayload attack)
     {
         _shipTilesRepositoryMock
             .Setup(repo => repo
                 .GetAttackedTiles(It.Is<AttackPayload>(expected => expected == attack))
             )
-            .ReturnsAsync(tile);
+            .ReturnsAsync(tiles);
     }
 
     private void SetupGetGameSession(GameSession gameSession)

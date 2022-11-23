@@ -60,9 +60,7 @@ namespace Battleships.Services.GameSession
             return dto;
         }
 
-
-
-        public List<GameTile> GetTileDtos(List<ShipTile> shipTiles, int columnCount, int rowCount)
+        public List<GameTile> GetTileDtos(List<ShipTile> tiles, int columnCount, int rowCount)
         {
             var shipTiles = tiles.Where(t => t.PlayerShipId is not null).ToList();
             var emptyTiles = tiles.Where(t => t.PlayerShipId is null).ToList();
@@ -79,9 +77,9 @@ namespace Battleships.Services.GameSession
                         st.XCoordinate == columnCoordinate && st.YCoordinate == rowCoordinate
                     );
 
-                    IShipAppearance shipAppearance = new ShipAppearance();
-                    IShipAppearance skinDecorator = new SkinDecorator(shipAppearance).Draw();
-                    IShipAppearance labelDecorator = new LabelDecorator(skinDecorator).Draw();
+                    // IShipAppearance shipAppearance = new ShipAppearance();
+                    // IShipAppearance skinDecorator = new SkinDecorator(shipAppearance).Draw();
+                    // IShipAppearance labelDecorator = new LabelDecorator(skinDecorator).Draw();
 
                     var tile = new GameTile
                     {
@@ -90,8 +88,8 @@ namespace Battleships.Services.GameSession
                         IsShip = shipTile?.PlayerShipId is not null,
                         IsDestroyed = (shipTile?.IsDestroyed ?? false) || (emptyTile?.IsDestroyed ?? false),
                         ShipId = shipTile != null ? shipTile.PlayerShipId : null,
-                        SkinName = shipTile != null ? labelDecorator.SkinName : "",
-                        Label = shipTile != null ? labelDecorator.Label : ""
+                        // SkinName = shipTile != null ? labelDecorator.SkinName : "",
+                        // Label = shipTile != null ? labelDecorator.Label : ""
                     };
 
                     return tile;

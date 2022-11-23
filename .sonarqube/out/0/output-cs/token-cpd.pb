@@ -22821,7 +22821,7 @@ UpdateMany$$? I
 }AA 
 }BB 	
 }CC 
-}DD «4
+}DD ü1
 OD:\dev\Battleships\Battleships\Services\Authentication\AuthenticationService.cs
 	namespace 	
 Battleships
@@ -22986,195 +22986,177 @@ OD:\dev\Battleships\Battleships\Services\Authentication\AuthenticationService.cs
 .77I J
 Email77J O
 )77O P
-;77P Q
-var88 
-result88 
-=88 
-await88 
-_userManager88 +
-.88+ ,
-AddPasswordAsync88, <
-(88< =
-createdUser88= H
-,88H I
-userCredentialsDto88J \
-.88\ ]
-Password88] e
-)88e f
-;88f g
-if99 
-(99 
-!99 
-result99 
-.99 
-	Succeeded99 !
-)99! "
-{:: 
-throw;; 
-new;; 
-	Exception;; #
-(;;# $
-$str;;$ ,
-);;, -
-;;;- .
-}<< 
-}== 	
-private?? 
-string?? 
-CreateJwtToken?? %
-(??% &
-ApplicationUser??& 5
-user??6 :
-)??: ;
-{@@ 	
-varAA 
-tokenDescriptorAA 
-=AA  !
-newAA" %#
-SecurityTokenDescriptorAA& =
-{BB 
-SubjectCC 
-=CC 
-GetClaimsIdentityCC +
-(CC+ ,
-userCC, 0
-)CC0 1
-,CC1 2
-ExpiresDD 
-=DD 
-DateTimeDD "
-.DD" #
-UtcNowDD# )
-.DD) *
-AddHoursDD* 2
-(DD2 3
-$numDD3 5
-)DD5 6
-,DD6 7
-SigningCredentialsEE "
-=EE# $
-newFF 
-SigningCredentialsFF *
-(FF* +!
-AuthenticationUtilityGG -
-.GG- .#
-GetSymmetricSecurityKeyGG. E
-(GGE F
-)GGF G
-,GGG H
-SecurityAlgorithmsHH *
-.HH* +
+;77P Q
+await88 
+_userManager88 
+.88 
+AddPasswordAsync88 /
+(88/ 0
+createdUser880 ;
+,88; <
+userCredentialsDto88= O
+.88O P
+Password88P X
+)88X Y
+;88Y Z
+}99 	
+private;; 
+static;; 
+string;; 
+CreateJwtToken;; ,
+(;;, -
+ApplicationUser;;- <
+user;;= A
+);;A B
+{<< 	
+var== 
+tokenDescriptor== 
+===  !
+new==" %#
+SecurityTokenDescriptor==& =
+{>> 
+Subject?? 
+=?? 
+GetClaimsIdentity?? +
+(??+ ,
+user??, 0
+)??0 1
+,??1 2
+Expires@@ 
+=@@ 
+DateTime@@ "
+.@@" #
+UtcNow@@# )
+.@@) *
+AddHours@@* 2
+(@@2 3
+$num@@3 5
+)@@5 6
+,@@6 7
+SigningCredentialsAA "
+=AA# $
+newBB 
+SigningCredentialsBB *
+(BB* +!
+AuthenticationUtilityCC -
+.CC- .#
+GetSymmetricSecurityKeyCC. E
+(CCE F
+)CCF G
+,CCG H
+SecurityAlgorithmsDD *
+.DD* +
 
-HmacSha256HH+ 5
-)II 
-}JJ 
-;JJ 
-varLL 
-tokenHandlerLL 
-=LL 
-newLL "#
-JwtSecurityTokenHandlerLL# :
-(LL: ;
-)LL; <
-;LL< =
-varMM 
-securityTokenMM 
-=MM 
-tokenHandlerMM  ,
-.MM, -
-CreateTokenMM- 8
-(MM8 9
-tokenDescriptorMM9 H
-)MMH I
-;MMI J
-varNN 
-tokenNN 
-=NN 
-tokenHandlerNN $
-.NN$ %
+HmacSha256DD+ 5
+)EE 
+}FF 
+;FF 
+varHH 
+tokenHandlerHH 
+=HH 
+newHH "#
+JwtSecurityTokenHandlerHH# :
+(HH: ;
+)HH; <
+;HH< =
+varII 
+securityTokenII 
+=II 
+tokenHandlerII  ,
+.II, -
+CreateTokenII- 8
+(II8 9
+tokenDescriptorII9 H
+)IIH I
+;III J
+varJJ 
+tokenJJ 
+=JJ 
+tokenHandlerJJ $
+.JJ$ %
 
-WriteTokenNN% /
-(NN/ 0
-securityTokenNN0 =
-)NN= >
-;NN> ?
-returnPP 
-tokenPP 
-;PP 
-}QQ 	
-privateSS 
-staticSS 
-ClaimsIdentitySS %
-GetClaimsIdentitySS& 7
-(SS7 8
-ApplicationUserSS8 G
-userSSH L
-)SSL M
-{TT 	
-varUU 
-claimsUU 
-=UU 
-	GetClaimsUU "
-(UU" #
-userUU# '
-)UU' (
-;UU( )
-varVV 
-claimsIdentityVV 
-=VV  
-newVV! $
-ClaimsIdentityVV% 3
-(VV3 4
-claimsVV4 :
-)VV: ;
-;VV; <
-returnXX 
-claimsIdentityXX !
-;XX! "
-}YY 	
-private[[ 
-static[[ 
-List[[ 
-<[[ 
-Claim[[ !
->[[! "
-	GetClaims[[# ,
-([[, -
-ApplicationUser[[- <
-user[[= A
-)[[A B
-{\\ 	
-var]] 
-claims]] 
-=]] 
-new]] 
-List]] !
-<]]! "
-Claim]]" '
->]]' (
-{^^ 
-new__ 
-(__ 
-BattleshipClaims__ $
-.__$ %
-UserId__% +
-,__+ ,
-user__- 1
-.__1 2
-Id__2 4
-.__4 5
-ToString__5 =
-(__= >
-)__> ?
-)__? @
-}`` 
-;`` 
-returnbb 
-claimsbb 
-;bb 
-}cc 	
-}dd 
-}ee Œ
+WriteTokenJJ% /
+(JJ/ 0
+securityTokenJJ0 =
+)JJ= >
+;JJ> ?
+returnLL 
+tokenLL 
+;LL 
+}MM 	
+privateOO 
+staticOO 
+ClaimsIdentityOO %
+GetClaimsIdentityOO& 7
+(OO7 8
+ApplicationUserOO8 G
+userOOH L
+)OOL M
+{PP 	
+varQQ 
+claimsQQ 
+=QQ 
+	GetClaimsQQ "
+(QQ" #
+userQQ# '
+)QQ' (
+;QQ( )
+varRR 
+claimsIdentityRR 
+=RR  
+newRR! $
+ClaimsIdentityRR% 3
+(RR3 4
+claimsRR4 :
+)RR: ;
+;RR; <
+returnTT 
+claimsIdentityTT !
+;TT! "
+}UU 	
+privateWW 
+staticWW 
+ListWW 
+<WW 
+ClaimWW !
+>WW! "
+	GetClaimsWW# ,
+(WW, -
+ApplicationUserWW- <
+userWW= A
+)WWA B
+{XX 	
+varYY 
+claimsYY 
+=YY 
+newYY 
+ListYY !
+<YY! "
+ClaimYY" '
+>YY' (
+{ZZ 
+new[[ 
+([[ 
+BattleshipClaims[[ $
+.[[$ %
+UserId[[% +
+,[[+ ,
+user[[- 1
+.[[1 2
+Id[[2 4
+.[[4 5
+ToString[[5 =
+([[= >
+)[[> ?
+)[[? @
+}\\ 
+;\\ 
+return^^ 
+claims^^ 
+;^^ 
+}__ 	
+}`` 
+}aa Œ
 OD:\dev\Battleships\Battleships\Services\Authentication\AuthenticationUtility.cs
 	namespace 	
 Battleships

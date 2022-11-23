@@ -217,9 +217,9 @@ UD:\dev\Battleships\Battleships\Services\Achievement\Interfaces\IAchievementServ
 	
 ¦
 AD:\dev\Battleships\Battleships\Services\AttackExecutionService.cs 8r=	
-!"#$%&'()*+,-./01345789:;<>?@ABCDx‚!#$+,-.034578:>@Í
-OD:\dev\Battleships\Battleships\Services\Authentication\AuthenticationService.cs 8	rU	
- !"#%'(*+,-./01235789:;<=?@ABCDEFGHIJLMNPQSTUVXY[\]^_`bcdex‚ "%'./5789;CDGHMNPUX_bl
+!"#$%&'()*+,-./01345789:;<>?@ABCDx‚!#$+,-.034578:>@Ç
+OD:\dev\Battleships\Battleships\Services\Authentication\AuthenticationService.cs 8rQ	
+ !"#%'(*+,-./01235789;<=>?@ABCDEFHIJLMOPQRTUWXYZ[\^_`ax‚ "%'./578?@CDIJLQT[^l
 OD:\dev\Battleships\Battleships\Services\Authentication\AuthenticationUtility.cs 8r
 ‚‚
 LD:\dev\Battleships\Battleships\Services\Authentication\CurrentUserService.cs 8r	

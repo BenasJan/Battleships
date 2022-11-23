@@ -810,7 +810,6 @@ D:\dev\Battleships\Battleships\ClientApp\src\app\components\login\login.componen
 D:\dev\Battleships\Battleships\ClientApp\src\app\components\notification\notification.component.html
 D:\dev\Battleships\Battleships\ClientApp\src\app\components\notification\notification.component.ts
 D:\dev\Battleships\Battleships\ClientApp\src\app\components\profile\profile.component.html
-D:\dev\Battleships\Battleships\ClientApp\src\app\components\profile\profile.component.scss
 D:\dev\Battleships\Battleships\ClientApp\src\app\components\profile\profile.component.spec.ts
 D:\dev\Battleships\Battleships\ClientApp\src\app\components\profile\profile.component.ts
 D:\dev\Battleships\Battleships\ClientApp\src\app\components\public-games-list\public-games-list.component.html

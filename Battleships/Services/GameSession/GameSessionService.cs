@@ -19,24 +19,32 @@ namespace Battleships.Services.GameSession
     {
         private readonly IBattleshipsDatabase _battleshipsDatabase;
         private readonly ICurrentUserService _currentUserService;
+        private readonly IInGameSessionHelperService _inGameSessionHelperService;
 
         public GameSessionService(
             IBattleshipsDatabase battleshipsDatabase,
-            ICurrentUserService userService
+            ICurrentUserService userService,
+            IInGameSessionHelperService inGameSessionHelperService
         )
         {
             _battleshipsDatabase = battleshipsDatabase;
             _currentUserService = userService;
+            _inGameSessionHelperService = inGameSessionHelperService;
         }
 
         public async Task<Guid> CreateSession(GameSessionRequestDto dto)
         {
-            return await new GameSessionFacade(_battleshipsDatabase, _currentUserService, dto).CreateGameSession();
+            var facade = new GameSessionFacade(_battleshipsDatabase, _currentUserService, dto);
+            var guid = await facade.CreateGameSession();
+            return guid;
+            // return await new GameSessionFacade(_battleshipsDatabase, _currentUserService, dto).CreateGameSession();
         }
 
         public async Task<List<GameSessionDto>> ListAllSessions()
         {
             var models = await _battleshipsDatabase.GameSessionsRepository.GetAll();
+            if (models is null)
+                return new List<GameSessionDto>();
             return models.Select(x => x.toDto()).ToList();
         }
         
@@ -106,12 +114,6 @@ namespace Battleships.Services.GameSession
 
             var playerTiles = await _battleshipsDatabase.ShipTilesRepository.GetPlayerTiles(playerShip.PlayerId);
 
-            //if (direction == "Up")
-            //{
-            //    IShipActionCommand shipMoveUpCommand = new ShipMoveUpCommand(playerShip);
-            //    shipMoveUpCommand.Execute();
-            //}
-
             switch (direction)
             {
                 case "Up":
@@ -134,8 +136,8 @@ namespace Battleships.Services.GameSession
 
             await _battleshipsDatabase.ShipTilesRepository.UpdateMany(playerShip.Tiles);
 
-            var gameSessionDto = await this.GetInGameSession(gameSessionId);
-            var updatedPosTiles = GetTileDtos(playerTiles, gameSessionDto.ColumnCount, gameSessionDto.RowCount);
+            var gameSessionDto = await _inGameSessionHelperService.GetInGameSession(gameSessionId);
+            var updatedPosTiles = _inGameSessionHelperService.GetTileDtos(playerTiles, gameSessionDto.ColumnCount, gameSessionDto.RowCount);
             gameSessionDto.OwnTiles = updatedPosTiles;
 
             return gameSessionDto;

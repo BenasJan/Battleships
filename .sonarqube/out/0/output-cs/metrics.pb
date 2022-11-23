@@ -61,9 +61,10 @@ FD:\dev\Battleships\Battleships\Data\Dto\PlayerLobbyDtoWithSessionId.cs 8r
 I
 8D:\dev\Battleships\Battleships\Data\Dto\UserInviteDto.cs 8rW
 6D:\dev\Battleships\Battleships\Data\NumberGenerator.cs 8r	
-ÇJ
-8D:\dev\Battleships\Battleships\Data\PasswordException.cs 8r
-ç
+ÇL
+8D:\dev\Battleships\Battleships\Data\PasswordException.cs 8r
+
+ç
 7D:\dev\Battleships\Battleships\Data\SeedAchievements.cs 8r§	
  !"#%&')*+,-./012356789:;<=?@ABCDEFGIJKLMNOPQSTUVWXYZ[]^_`abcdeghijklmnoqrstuvwxy{|}~ÄÅÇÉÖÜáàâäãåçèêëíìîïñóòôöxÇ %+-57?AIKSU]_giqs{}Öáèët
 1D:\dev\Battleships\Battleships\Data\ShipSeeder.cs

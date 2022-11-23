@@ -33,27 +33,6 @@
           }
         },
         {
-          "ruleId": "S3903",
-          "level": "warning",
-          "message": "Move 'PasswordException' into a named namespace.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Data/PasswordException.cs",
-                "region": {
-                  "startLine": 5,
-                  "startColumn": 14,
-                  "endLine": 5,
-                  "endColumn": 31
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "S3925",
           "level": "warning",
           "message": "Update this implementation of 'ISerializable' to conform to the recommended serialization pattern.",
@@ -63,9 +42,9 @@
                 "uri": "file:///D:/dev/Battleships/Battleships/Data/PasswordException.cs",
                 "region": {
                   "startLine": 5,
-                  "startColumn": 14,
+                  "startColumn": 18,
                   "endLine": 5,
-                  "endColumn": 31
+                  "endColumn": 35
                 }
               }
             }
@@ -76,9 +55,9 @@
                 "uri": "file:///D:/dev/Battleships/Battleships/Data/PasswordException.cs",
                 "region": {
                   "startLine": 5,
-                  "startColumn": 8,
+                  "startColumn": 12,
                   "endLine": 5,
-                  "endColumn": 13
+                  "endColumn": 17
                 }
               }
             },
@@ -87,9 +66,9 @@
                 "uri": "file:///D:/dev/Battleships/Battleships/Data/PasswordException.cs",
                 "region": {
                   "startLine": 5,
-                  "startColumn": 8,
+                  "startColumn": 12,
                   "endLine": 5,
-                  "endColumn": 13
+                  "endColumn": 17
                 }
               }
             }
@@ -100,27 +79,6 @@
               "0": "Add 'System.SerializableAttribute' attribute on 'PasswordException' because it implements 'ISerializable'.",
               "1": "Add a 'protected' constructor 'PasswordException(SerializationInfo, StreamingContext)'."
             }
-          }
-        },
-        {
-          "ruleId": "S107",
-          "level": "warning",
-          "message": "Constructor has 9 parameters, which is greater than the 7 authorized.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Repositories/BattleshipsDatabase.cs",
-                "region": {
-                  "startLine": 7,
-                  "startColumn": 35,
-                  "endLine": 16,
-                  "endColumn": 51
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
           }
         },
         {
@@ -147,16 +105,37 @@
         {
           "ruleId": "CA1822",
           "level": "note",
-          "message": "Member 'GetClaimsIdentity' does not access instance data and can be marked as static",
+          "message": "Member 'CreateJwtToken' does not access instance data and can be marked as static",
           "locations": [
             {
               "resultFile": {
                 "uri": "file:///D:/dev/Battleships/Battleships/Services/Authentication/AuthenticationService.cs",
                 "region": {
-                  "startLine": 83,
-                  "startColumn": 32,
-                  "endLine": 83,
-                  "endColumn": 49
+                  "startLine": 63,
+                  "startColumn": 24,
+                  "endLine": 63,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S107",
+          "level": "warning",
+          "message": "Constructor has 9 parameters, which is greater than the 7 authorized.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Repositories/BattleshipsDatabase.cs",
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 35,
+                  "endLine": 16,
+                  "endColumn": 51
                 }
               }
             }
@@ -230,23 +209,6 @@
               "C#",
               "SonarWay",
               "MainSourceScope"
-            ]
-          }
-        },
-        "S3903": {
-          "id": "S3903",
-          "shortDescription": "Types should be defined in named namespaces",
-          "fullDescription": "Types are declared in namespaces in order to prevent name collisions and as a way to organize them into the object hierarchy. Types that are defined outside any named namespace are in a global namespace that cannot be referenced in code.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-3903",
-          "properties": {
-            "category": "Major Bug",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "SonarWay",
-              "MainSourceScope",
-              "TestSourceScope"
             ]
           }
         },

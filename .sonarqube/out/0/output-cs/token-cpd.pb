@@ -3089,37 +3089,38 @@ FD:\dev\Battleships\Battleships\Data\Dto\PlayerLobbyDtoWithSessionId.cs
 ;< =
 } 	
 } 
-} ˆ
+} ™
 8D:\dev\Battleships\Battleships\Data\PasswordException.cs
 	namespace 	
 Battleships
  
 . 
-Data 
-; 
-public 
-class 
-PasswordException 
-:  
-	Exception! *
-{ 
-public 
-
-PasswordException 
-( 
-string #
-message$ +
-)+ ,
-:- .
-base/ 3
-(3 4
-message4 ;
-); <
-{ 
+Data 
+{ 
+public 
+
+class 
+PasswordException "
+:# $
+	Exception% .
+{ 
+public 
+PasswordException  
+(  !
+string! '
+message( /
+)/ 0
+:1 2
+base3 7
+(7 8
+message8 ?
+)? @
+{ 	
 }
 
- 
-} ÊY
+ 	
+} 
+} ÊY
 7D:\dev\Battleships\Battleships\Data\SeedAchievements.cs
 	namespace 	
 Battleships
@@ -22820,7 +22821,7 @@ UpdateMany$$? I
 }AA 
 }BB 	
 }CC 
-}DD —4
+}DD «4
 OD:\dev\Battleships\Battleships\Services\Authentication\AuthenticationService.cs
 	namespace 	
 Battleships
@@ -23101,13 +23102,14 @@ WriteTokenNN% /
 tokenPP 
 ;PP 
 }QQ 	
-privateSS 
-ClaimsIdentitySS 
-GetClaimsIdentitySS 0
-(SS0 1
-ApplicationUserSS1 @
-userSSA E
-)SSE F
+privateSS 
+staticSS 
+ClaimsIdentitySS %
+GetClaimsIdentitySS& 7
+(SS7 8
+ApplicationUserSS8 G
+userSSH L
+)SSL M
 {TT 	
 varUU 
 claimsUU 

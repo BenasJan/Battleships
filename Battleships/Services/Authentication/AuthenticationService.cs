@@ -53,14 +53,10 @@ namespace Battleships.Services.Authentication
             await _userManager.CreateAsync(newUser);
             
             var createdUser = await _userManager.FindByEmailAsync(newUser.Email);
-            var result = await _userManager.AddPasswordAsync(createdUser, userCredentialsDto.Password);
-            if (!result.Succeeded)
-            {
-                throw new Exception("Pyzdec");
-            }
+            await _userManager.AddPasswordAsync(createdUser, userCredentialsDto.Password);
         }
 
-        private string CreateJwtToken(ApplicationUser user)
+        private static string CreateJwtToken(ApplicationUser user)
         {
             var tokenDescriptor = new SecurityTokenDescriptor
             {

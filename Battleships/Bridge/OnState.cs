@@ -4,21 +4,21 @@ namespace Battleships.Bridge;
 
 public class OnState : IShipState
 {
-    private Ship ship;
-    
+    private readonly Ship _ship;
+
+    public OnState(Ship ship)
+    {
+        _ship = ship;
+    }
+
     public void ChangeState()
     {
-        ship.Name = "OnState No name provided";
-        ship.Description = "OnState No description provided";
+        _ship.Name = "OnState No name provided";
+        _ship.Description = "OnState No description provided";
     }
 
     public string GetState()
     {
         return "is On";
-    }
-
-    public void ni()
-    {
-        throw new System.NotImplementedException();
     }
 }

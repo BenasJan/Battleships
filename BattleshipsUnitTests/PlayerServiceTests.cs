@@ -1,4 +1,5 @@
-﻿using Battleships.Models;
+﻿using Battleships.Data.Dto;
+using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.Services.Authentication.Interfaces;
 using Battleships.Services.Players;
@@ -32,42 +33,54 @@ namespace BattleshipsUnitTests
             _userManagerMock = new Mock<IUserManager>();
 
 
-            _currentUserServiceMock.Setup(cuMock => cuMock.GetCurrentUserId()).Returns("1");
+            _currentUserServiceMock.Setup(cuMock => cuMock.GetCurrentUserId()).Returns("00000000-0000-0000-0000-000000000000");
 
             var dbMock = GetDbMock(_playersRepositoryMock);
 
-            dbMock.Setup(db => db.PlayersRepository.GetWhere(It.IsAny<Expression<Func<Player, bool>>>())).ReturnsAsync(
-                new List<Player>
-                {
-                    new Player
-                    {
-                        Id = Guid.NewGuid(),
-                    }
-                });
             _playerService = new PlayersService(dbMock.Object, _userManagerMock.Object, _currentUserServiceMock.Object);
         }
 
         [Fact]
-        public async Task When_GettingAllUsers_ReturnAllUsers()
+        public async Task When_GettingAllUsers_Expect_AllUsers()
         {
+            var userDto = new List<UserDto>()
+                {
+                    new UserDto()
+                    {
+                        Id = "00000000-0000-0000-0000-000000000001",
+                    },
+
+                    new UserDto()
+                    {
+                        Id = "00000000-0000-0000-0000-000000000002"
+                    }
+                };
+
+            SetupUserManager(userDto);
             var users = await _playerService.GetAllUsers();
 
-            Assert.Equal(users.Count, 2);
+            Assert.Equal(2, users.Count);
         }
 
-        //[Fact]
-        //public async Task When_InvitingUserToGame()
-        //{
-        //    var gameSession = GetGameSession();
-        //    var userId = Guid.NewGuid();
-        //    SetupUserManager(userId.ToString(), "InvitedUserName");
+        [Fact]
+        public async Task When_InvitingUserToGame_Expect_CreatedUser()
+        {
+            var gameSession = GetGameSession();
+            var userId = Guid.NewGuid();
 
-        //    await _playerService.InviteUserToGame(gameSession.Id, userId.ToString());
-        //}
+            await _playerService.InviteUserToGame(gameSession.Id, userId.ToString());
+
+            _playersRepositoryMock.Verify(repo => repo.Create(
+                It.Is<Player>(expected => expected.Id == userId)));
+            
+        }
+
         private static Mock<IBattleshipsDatabase> GetDbMock(
         Mock<IPlayersRepository> playerRepositoryMock)
         {
             var mock = new Mock<IBattleshipsDatabase>();
+
+            mock.Setup(m => m.PlayersRepository).Returns(playerRepositoryMock.Object);
 
             return mock;
         }
@@ -83,6 +96,12 @@ namespace BattleshipsUnitTests
                 new() { IsCurrentPlayerTurn = false },
             }
             };
+        }
+
+        private void SetupUserManager(List<UserDto> userDto)
+        {
+            _userManagerMock.Setup(um => um.GetOtherUsers("00000000-0000-0000-0000-000000000000"))
+                .ReturnsAsync(userDto);
         }
     }
 }

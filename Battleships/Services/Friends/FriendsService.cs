@@ -5,6 +5,7 @@ using Battleships.Repositories;
 using Battleships.Services.Authentication;
 using Battleships.Services.Authentication.Interfaces;
 using Battleships.Services.Friends.Interfaces;
+using Battleships.Services.Users;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -19,12 +20,13 @@ namespace Battleships.Services.Friends
     {
         private readonly IBattleshipsDatabase _db;
 
-        private readonly UserManager<ApplicationUser> _userManager;
+        //private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IUserManager _userManager;
 
         private readonly ICurrentUserService _currentUserService;
 
 
-        public FriendsService (IBattleshipsDatabase database, UserManager<ApplicationUser> userManager, ICurrentUserService currentUserService)
+        public FriendsService (IBattleshipsDatabase database, IUserManager userManager, ICurrentUserService currentUserService)
         {
             _db = database;
             _userManager = userManager;

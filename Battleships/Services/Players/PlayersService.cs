@@ -15,18 +15,19 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Battleships.Services.Users;
 
 namespace Battleships.Services.Players
 {
     public class PlayersService : IPlayersService
     {
         private readonly IBattleshipsDatabase _db;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IUserManager _userManager;
         private readonly ICurrentUserService _currentUserService;
 
         public PlayersService(
             IBattleshipsDatabase database,
-            UserManager<ApplicationUser> userManager,
+            IUserManager userManager,
             ICurrentUserService currentUserService)
         {
             _db = database;

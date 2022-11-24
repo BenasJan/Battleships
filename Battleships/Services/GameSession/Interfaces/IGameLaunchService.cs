@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Battleships.Services.GameSession.Interfaces;
-
-public interface IGameLaunchService
+namespace Battleships.Services.GameSession.Interfaces
 {
-    Task LaunchGame(Guid gameSessionId);
-    Task LaunchGame(Guid gameSessionId, bool rematch);
+    public interface IGameLaunchService
+    {
+        Task LaunchGame(Guid gameSessionId);
+        Task LaunchGame(Guid gameSessionId, bool rematch);
+    }
 }

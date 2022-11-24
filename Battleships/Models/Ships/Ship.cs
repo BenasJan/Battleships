@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using Battleships.Bridge;
+using Battleships.Services.Bridge;
 
 namespace Battleships.Models.Ships
 {
@@ -15,21 +15,9 @@ namespace Battleships.Models.Ships
 
         public List<UserCosmetic> UserCosmetics { get; set; }
         public List<PlayerShip> PlayerShips { get; set; }
-        
-        protected IShipState _state;
 
         [NotMapped]
-        public IShipState State
-        {
-            get
-            {
-                return _state;
-            }
-            set
-            {
-                _state = value;
-            }
-        }
+        public IShipState State { get; set; }
 
         public abstract void ChangeState();
     }

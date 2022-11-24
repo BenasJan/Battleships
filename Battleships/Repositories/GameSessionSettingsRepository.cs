@@ -3,16 +3,17 @@ using System.Threading.Tasks;
 using Battleships.Data;
 using Battleships.Models;
 
-namespace Battleships.Repositories;
-
-public class GameSessionSettingsRepository : BaseRepository<GameSessionSettings>, IGameSessionSettingsRepository
+namespace Battleships.Repositories
 {
-    public async Task<GameSessionSettings> GetBySessionId(Guid gameSessionId)
+    public class GameSessionSettingsRepository : BaseRepository<GameSessionSettings>, IGameSessionSettingsRepository
     {
-        return await GetSingle(settings => settings.GameSessionId == gameSessionId);
-    }
+        public async Task<GameSessionSettings> GetBySessionId(Guid gameSessionId)
+        {
+            return await GetSingle(settings => settings.GameSessionId == gameSessionId);
+        }
 
-    public GameSessionSettingsRepository(ApplicationDbContext context) : base(context)
-    {
+        public GameSessionSettingsRepository(ApplicationDbContext context) : base(context)
+        {
+        }
     }
 }

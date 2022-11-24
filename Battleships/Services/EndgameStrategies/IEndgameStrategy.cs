@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Battleships.Services.EndgameStrategies;
-
-public interface IEndgameStrategy
+namespace Battleships.Services.EndgameStrategies
 {
-    Task<bool> IsEndgameReached(Guid gameSessionId);
-    public string StrategyType { get; }
+    public interface IEndgameStrategy
+    {
+        Task<bool> IsEndgameReached(Guid gameSessionId);
+        public string StrategyType { get; }
+    }
 }

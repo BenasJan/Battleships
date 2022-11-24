@@ -1,6 +1,7 @@
-﻿namespace Battleships.Models.enums;
-
-public enum Engine
+﻿namespace Battleships.Models.enums
 {
+    public enum Engine
+    {
     
+    }
 }

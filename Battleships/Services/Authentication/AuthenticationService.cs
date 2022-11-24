@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Authentication;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -34,7 +33,7 @@ namespace Battleships.Services.Authentication
                 throw new AuthenticationException("Invalid password");
             }
 
-            var jwtToken = await CreateJwtToken(user);
+            var jwtToken = CreateJwtToken(user);
 
             return jwtToken;
         }
@@ -60,11 +59,11 @@ namespace Battleships.Services.Authentication
             }
         }
 
-        private async Task<string> CreateJwtToken(ApplicationUser user)
+        private string CreateJwtToken(ApplicationUser user)
         {
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = await GetClaimsIdentity(user),
+                Subject = GetClaimsIdentity(user),
                 Expires = DateTime.UtcNow.AddHours(12),
                 SigningCredentials =
                     new SigningCredentials(
@@ -80,15 +79,15 @@ namespace Battleships.Services.Authentication
             return token;
         }
 
-        private async Task<ClaimsIdentity> GetClaimsIdentity(ApplicationUser user)
+        private ClaimsIdentity GetClaimsIdentity(ApplicationUser user)
         {
-            var claims = await GetClaims(user);
+            var claims = GetClaims(user);
             var claimsIdentity = new ClaimsIdentity(claims);
 
             return claimsIdentity;
         }
 
-        private async Task<List<Claim>> GetClaims(ApplicationUser user)
+        private static List<Claim> GetClaims(ApplicationUser user)
         {
             var claims = new List<Claim>
             {

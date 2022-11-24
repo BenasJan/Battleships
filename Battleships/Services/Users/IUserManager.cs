@@ -2,10 +2,11 @@
 using System.Threading.Tasks;
 using Battleships.Models;
 
-namespace Battleships.Services.Users;
-
-public interface IUserManager
+namespace Battleships.Services.Users
 {
-    IQueryable<ApplicationUser> Users { get; }
-    Task<ApplicationUser> GetById(string userId);
+    public interface IUserManager
+    {
+        Task<ApplicationUser> GetById(string userId);
+        IQueryable<ApplicationUser> Users { get; }
+    }
 }

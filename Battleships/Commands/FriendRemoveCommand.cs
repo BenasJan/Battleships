@@ -1,21 +1,20 @@
-﻿using Battleships.Data.Dto;
+﻿using System;
 using Battleships.Models;
-using System.Reflection.Metadata;
 
 namespace Battleships.Commands
 {
     public class FriendRemoveCommand : IFriendCommand
     {
-        private Friend friend;
+        private readonly Friend _friend;
 
         public FriendRemoveCommand(Friend friend)
         {
-            this.friend = friend;
+            _friend = friend;
         }
 
         public void Execute()
         {
-            //friend.Remove();
+            Console.WriteLine($"{_friend.User1} {_friend.User2}");
         }
     }
 }

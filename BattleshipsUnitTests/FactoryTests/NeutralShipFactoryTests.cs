@@ -1,5 +1,4 @@
-﻿using Battleships.Bridge;
-using Battleships.Data.Constants;
+﻿using Battleships.Data.Constants;
 using Battleships.Factories;
 using Battleships.Models.Ships;
 using Xunit.Abstractions;

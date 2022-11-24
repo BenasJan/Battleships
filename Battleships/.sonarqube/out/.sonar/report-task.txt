@@ -2,5 +2,5 @@ projectKey=battleships
 serverUrl=http://localhost:9000
 serverVersion=8.9.9.56886
 dashboardUrl=http://localhost:9000/dashboard?id=battleships
-ceTaskId=AYShJHTXBR-5KPV6b-pn
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYShJHTXBR-5KPV6b-pn
+ceTaskId=AYSmCSmDQn8VQRgSdid0
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYSmCSmDQn8VQRgSdid0

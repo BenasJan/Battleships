@@ -6,34 +6,35 @@ using Battleships.Models.Ships;
 using Battleships.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Battleships.Data;
-
-public class ShipSeeder
+namespace Battleships.Data
 {
-    public static void SeedShips(IServiceProvider serviceProvider)
+    public class ShipSeeder
     {
-        using var serviceScope = serviceProvider.CreateScope();
-        var battleshipsDatabase = serviceScope.ServiceProvider.GetRequiredService<IBattleshipsDatabase>();
-        var isEmpty = battleshipsDatabase.ShipsRepository.IsEmpty();
-
-        if (isEmpty)
+        public static void SeedShips(IServiceProvider serviceProvider)
         {
-            var factoryProducer = new ShipFactoryProducer();
-            var neutralShipFactory = factoryProducer.ProduceFactory(null);
-            var defensiveShipsFactory = factoryProducer.ProduceFactory(true);
-            var offensiveShipsFactory = factoryProducer.ProduceFactory(false);
+            using var serviceScope = serviceProvider.CreateScope();
+            var battleshipsDatabase = serviceScope.ServiceProvider.GetRequiredService<IBattleshipsDatabase>();
+            var isEmpty = battleshipsDatabase.ShipsRepository.IsEmpty();
 
-            var ships = new List<Ship>()
+            if (isEmpty)
             {
-                defensiveShipsFactory.GenerateShip(ShipTypes.Carrier),
-                defensiveShipsFactory.GenerateShip(ShipTypes.Cruiser),
-                offensiveShipsFactory.GenerateShip(ShipTypes.Battleship),
-                offensiveShipsFactory.GenerateShip(ShipTypes.Destroyer),
-                offensiveShipsFactory.GenerateShip(ShipTypes.Submarine),
-                neutralShipFactory.GenerateShip(ShipTypes.Dummy)
-            };    
+                var factoryProducer = new ShipFactoryProducer();
+                var neutralShipFactory = factoryProducer.ProduceFactory(null);
+                var defensiveShipsFactory = factoryProducer.ProduceFactory(true);
+                var offensiveShipsFactory = factoryProducer.ProduceFactory(false);
+
+                var ships = new List<Ship>()
+                {
+                    defensiveShipsFactory.GenerateShip(ShipTypes.Carrier),
+                    defensiveShipsFactory.GenerateShip(ShipTypes.Cruiser),
+                    offensiveShipsFactory.GenerateShip(ShipTypes.Battleship),
+                    offensiveShipsFactory.GenerateShip(ShipTypes.Destroyer),
+                    offensiveShipsFactory.GenerateShip(ShipTypes.Submarine),
+                    neutralShipFactory.GenerateShip(ShipTypes.Dummy)
+                };    
             
-            battleshipsDatabase.ShipsRepository.CreateMany(ships).Wait();
+                battleshipsDatabase.ShipsRepository.CreateMany(ships).Wait();
+            }
         }
     }
 }

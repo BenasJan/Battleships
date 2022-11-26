@@ -1,4 +1,5 @@
-﻿using Battleships.Models;
+﻿using AutoMapper.Configuration.Annotations;
+using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.Services;
 using Battleships.Services.Authentication.Interfaces;
@@ -22,7 +23,7 @@ namespace BattleshipsUnitTests
             var userManagerMock = new Mock<IUserManager>();
             var currentUserServiceMock = new Mock<ICurrentUserService>();
 
-            currentUserServiceMock.Setup(cuMock => cuMock.GetCurrentUserId()).Returns("1");
+            currentUserServiceMock.Setup(cuMock => cuMock.GetCurrentUserId()).Returns("00000000-0000-0000-0000-000000000010");
 
             dbMock.Setup(db => db.FriendsRepository.GetWhere(It.IsAny<Expression<Func<Friend, bool>>>())).ReturnsAsync(
                 new List<Friend>
@@ -43,5 +44,30 @@ namespace BattleshipsUnitTests
 
             Assert.Single(friendIds);
         }
+
+        [Fact]
+        public async Task When_ListFriends_ReturnsFriends()
+        {
+            var friendIds = await _friendsService.ListFriends();
+
+            Assert.Single(friendIds);
+        }
+
+        [Fact]
+        public async Task When_Addfriend_ReturnCorrectResponse()
+        {
+            var addedBool = await _friendsService.AddFriend("00000000-0000-0000-0000-000000000000");
+
+            Assert.True(addedBool);
+        }
+
+        [Fact]
+        public async Task When_AddfriendWithWrongId_ReturnCorrectResponse()
+        {
+            var addedBool = await _friendsService.AddFriend("00000000-0000-0000-0000-000000000010");
+
+            Assert.False(addedBool);
+        }
+
     }
 }

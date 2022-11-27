@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Battleships.Data
 {
-    public class ShipSeeder
+    public static class ShipSeeder
     {
         public static void SeedShips(IServiceProvider serviceProvider)
         {

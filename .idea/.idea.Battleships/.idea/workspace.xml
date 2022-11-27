@@ -6,32 +6,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/BattleshipsUnitTests/BattleshipsDatabaseBuilder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BattleshipsUnitTests/Builders/ShipTileBuilderTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BattleshipsUnitTests/InGameSessionHelperServiceTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BattleshipsUnitTests/PlayerShipGenerationServiceTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BattleshipsUnitTests/TimeUtilityTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/conf/1/FilesToAnalyze.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/conf/1/FilesToAnalyze.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/out/.sonar/report-task.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/out/.sonar/report-task.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/out/0/Issues.json" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/out/0/Issues.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/out/0/output-cs/metrics.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/out/0/output-cs/metrics.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/out/0/output-cs/symrefs.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/out/0/output-cs/symrefs.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/out/0/output-cs/token-cpd.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/out/0/output-cs/token-cpd.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/out/0/output-cs/token-type.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/out/0/output-cs/token-type.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/out/1/Issues.json" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/out/1/Issues.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/out/1/output-cs/file-metadata.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/out/1/output-cs/file-metadata.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/out/1/output-cs/symrefs.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/out/1/output-cs/symrefs.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/out/1/output-cs/token-type.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/out/1/output-cs/token-type.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/out/sonar-project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/out/sonar-project.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/Battleships/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Battleships/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/Battleships/v17/.futdcache.v1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Battleships/v17/.futdcache.v1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/Battleships/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Battleships/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/Battleships/v17/fileList.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Battleships/v17/fileList.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Adapter/SendGridEmailProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Adapter/SendGridEmailProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/public-users-list/public-users-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/public-users-list/public-users-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Models/GameSession.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Models/GameSession.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/Builders/GameSessionBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Builders/GameSessionBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/Friends/FriendsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Friends/FriendsService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/GameSession/GameSessionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/GameSession/GameSessionService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BattleshipsUnitTests/GameSessionServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipsUnitTests/GameSessionServiceTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Models/enums/Engine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Models/enums/Engine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Models/enums/Gun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Models/enums/Gun.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BattleshipsUnitTests/AchievementsServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipsUnitTests/AchievementsServiceTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +61,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Battleships">
     <configuration name="Battleships" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Battleships/Battleships.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net5.0" />
@@ -125,11 +109,40 @@
       <workItem from="1669150087174" duration="687000" />
       <workItem from="1669226547298" duration="8805000" />
       <workItem from="1669236876399" duration="239000" />
+      <workItem from="1669303585752" duration="2282000" />
+      <workItem from="1669387992158" duration="1806000" />
+      <workItem from="1669474982927" duration="11871000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnitTestsCoverage.Settings">
+    <option name="coveragePercentColumnWidth" value="76" />
+    <option name="sortOrder" value="DESCENDING" />
+    <option name="sortedColumn" value="1" />
+    <option name="symbolColumnWidth" value="225" />
+    <coverage-tree-state>
+      <expand>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 67% 423/1275" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 67% 423/1275" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Battleships 49% 420/830" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 67% 423/1275" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Battleships 49% 420/830" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Battleships 49% 420/830" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+      </expand>
+      <select />
+    </coverage-tree-state>
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />

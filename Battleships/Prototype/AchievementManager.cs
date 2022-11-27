@@ -4,11 +4,11 @@ namespace Battleships.Prototype
 {
     public class AchievementManager
     {
-        private Dictionary<string, AchievementPrototype> achievements = new() ;
+        private readonly Dictionary<string, AchievementPrototype> _achievements = new() ;
         public AchievementPrototype this[string shortName]
         {
-            get { return achievements[shortName]; }
-            set { achievements.Add(shortName, value); }
+            get => _achievements[shortName];
+            set => _achievements.Add(shortName, value);
         }
     }
 }

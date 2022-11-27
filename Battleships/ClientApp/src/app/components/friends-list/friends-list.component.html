@@ -3,7 +3,6 @@
   <mat-divider></mat-divider>
   <div *ngIf="friends.length > 0">
     <mat-list-item *ngFor="let friend of friends">
-      <!--<mat-icon mat-list-icon>{{friend.icon}}</mat-icon>-->
       <mat-icon mat-list-icon>{{'person'}}</mat-icon>
       <div mat-line>{{friend.name}}</div>
       <div mat-line>Games played: {{friend.gamesPlayedCount}}</div>
@@ -12,9 +11,6 @@
       <div mat-col>
         <mat-icon mat-list-icon>{{'group_add'}}</mat-icon>
       </div>
-      <!--<div mat-col>
-    <mat-icon mat-list-icon>{{'message'}}</mat-icon>
-  </div>-->
       <div mat-col>
         <mat-icon mat-list-icon>{{'favorite'}}</mat-icon>
       </div>

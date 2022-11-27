@@ -32,7 +32,8 @@ FD:\dev\Battleships\Battleships\Data\Dto\PlayerLobbyDtoWithSessionId.csutf-8F
 =D:\dev\Battleships\Battleships\Data\Dto\UserCredentialsDto.csutf-8;
 2D:\dev\Battleships\Battleships\Data\Dto\UserDto.csutf-8A
 8D:\dev\Battleships\Battleships\Data\Dto\UserInviteDto.csutf-8?
-6D:\dev\Battleships\Battleships\Data\NumberGenerator.csutf-8@
+6D:\dev\Battleships\Battleships\Data\NumberGenerator.csutf-8A
+8D:\dev\Battleships\Battleships\Data\PasswordException.csutf-8@
 7D:\dev\Battleships\Battleships\Data\SeedAchievements.csutf-8:
 1D:\dev\Battleships\Battleships\Data\ShipSeeder.csutf-8C
 :D:\dev\Battleships\Battleships\Decorators\InfoDecorator.csutf-8E

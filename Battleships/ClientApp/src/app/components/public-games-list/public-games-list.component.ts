@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { GameType } from "../../models/enums/game-type";
 import { GameSession } from "../../models/game-session";
 import { GameSessionService } from "../../services/game-session.service";
-import {GameType} from "../../models/enums/game-type";
 
 @Component({
   selector: 'app-public-games-list',
-  templateUrl: './public-games-list.component.html',
-  styleUrls: ['./public-games-list.component.scss']
+  templateUrl: './public-games-list.component.html'
 })
 export class PublicGamesListComponent implements OnInit {
 

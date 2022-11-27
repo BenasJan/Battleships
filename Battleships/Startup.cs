@@ -27,6 +27,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Battleships.Services.Friends.Interfaces;
 using Battleships.Services.Friends;
+using Battleships.Services.Users;
 
 namespace Battleships
 {
@@ -39,7 +40,6 @@ namespace Battleships
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -58,9 +58,6 @@ namespace Battleships
                     options.Password.RequireNonAlphanumeric = false;
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-
-            // services.AddIdentityServer()
-            //     .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
 
             services.AddAuthentication(options =>
                 {
@@ -81,10 +78,7 @@ namespace Battleships
                         ClockSkew = TimeSpan.Zero
                     };
                 });
-                // .AddIdentityServerJwt();
             services.AddControllersWithViews();
-            // services.AddRazorPages();
-            // In production, the Angular files will be served from this directory
             services.AddSignalR();
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
 
@@ -114,10 +108,11 @@ namespace Battleships
                 .AddScoped<IPlayerShipGenerationService, PlayerShipGenerationService>()
                 .AddSingleton<NumberGeneratorFactory>()
                 .AddScoped<IFriendsService, FriendsService>()
+                .AddScoped<IInGameSessionHelperService, InGameSessionHelperService>()
+                .AddScoped<IUserManager, UserManager>()
                 ;
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -127,8 +122,6 @@ namespace Battleships
             }
             else
             {
-                // app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -142,7 +135,6 @@ namespace Battleships
             app.UseRouting();
 
             app.UseAuthentication();
-            // app.UseIdentityServer();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
@@ -158,9 +150,6 @@ namespace Battleships
 
             app.UseSpa(spa =>
             {
-                // To learn more about options for serving an Angular SPA from ASP.NET Core,
-                // see https://go.microsoft.com/fwlink/?linkid=864501
-
                 spa.Options.SourcePath = "ClientApp";
 
                 if (env.IsDevelopment())

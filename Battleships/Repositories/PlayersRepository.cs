@@ -5,17 +5,18 @@ using Battleships.Data.Dto;
 using Battleships.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Battleships.Repositories;
-
-public class PlayersRepository : BaseRepository<Player>, IPlayersRepository
+namespace Battleships.Repositories
 {
-    public PlayersRepository(ApplicationDbContext context) : base(context)
+    public class PlayersRepository : BaseRepository<Player>, IPlayersRepository
     {
-    }
+        public PlayersRepository(ApplicationDbContext context) : base(context)
+        {
+        }
 
-    public override async Task<List<Player>> GetAll()
-    {
-        return await ItemSet.Include(x => x.User)
-            .ToListAsync();
+        public override async Task<List<Player>> GetAll()
+        {
+            return await ItemSet.Include(x => x.User)
+                .ToListAsync();
+        }
     }
 }

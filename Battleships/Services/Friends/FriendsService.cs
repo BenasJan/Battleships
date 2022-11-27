@@ -1,31 +1,24 @@
-﻿using Battleships.Data.Constants;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Threading.Tasks;
 using Battleships.Data.Dto;
 using Battleships.Models;
 using Battleships.Repositories;
-using Battleships.Services.Authentication;
 using Battleships.Services.Authentication.Interfaces;
 using Battleships.Services.Friends.Interfaces;
 using Battleships.Services.Users;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Battleships.Services.Friends
 {
     public class FriendsService : IFriendsService
     {
         private readonly IBattleshipsDatabase _db;
-
-        //private readonly UserManager<ApplicationUser> _userManager;
         private readonly IUserManager _userManager;
-
         private readonly ICurrentUserService _currentUserService;
-
-
+        
         public FriendsService (IBattleshipsDatabase database, IUserManager userManager, ICurrentUserService currentUserService)
         {
             _db = database;
@@ -35,30 +28,22 @@ namespace Battleships.Services.Friends
 
         public async Task<List<FriendDto>> ListFriends()
         {
-            Random random = new Random();
-
             var currentUserId = _currentUserService.GetCurrentUserId();
-
             var friendsIds = GetFriendsIds(currentUserId).Result;
+            var friendsUsers = await _userManager.Users
+                    .Where(user => user.Id != currentUserId && friendsIds.Contains(user.Id))
+                    .ToListAsync()
+                ;
 
-            var friendsUsers = _userManager.Users.Where(user => user.Id != currentUserId && friendsIds.Contains(user.Id));
-
-            var test = new List<FriendDto>();
-
-            foreach ( var user in friendsUsers)
+            var friends = friendsUsers.Select(user => new FriendDto
             {
-                var Friend = new FriendDto()
-                {
-                    Name = user.UserName,
-                    GamesPlayedCount = random.Next(25,50),
-                    GamesWonCount = random.Next(0, 25),
-                    UserId = user.Id
-                };
+                Name = user.UserName,
+                GamesPlayedCount = RandomNumberGenerator.GetInt32(25, 50),
+                GamesWonCount = RandomNumberGenerator.GetInt32(25),
+                UserId = user.Id
+            }).ToList();
 
-                test.Add(Friend);
-            }
-
-            return test;
+            return friends;
         }
 
         public async Task<List<string>> GetFriendsIds(string currentUserId)
@@ -68,18 +53,15 @@ namespace Battleships.Services.Friends
 
             var friendsIds = new List<string>();
 
-            foreach (var friend in friends)
+            foreach (var friend in friends.Where(friend => friend.User1.ToString() == currentUserId || friend.User2.ToString() == currentUserId))
             {
-                if (friend.User1.ToString() == currentUserId || friend.User2.ToString() == currentUserId)
+                if (friend.User1.ToString() == currentUserId)
                 {
-                    if (friend.User1.ToString() == currentUserId)
-                    {
-                        friendsIds.Add(friend.User2.ToString());
-                    }
-                    else if (friend.User2.ToString() == currentUserId)
-                    {
-                        friendsIds.Add(friend.User1.ToString());
-                    }
+                    friendsIds.Add(friend.User2.ToString());
+                }
+                else if (friend.User2.ToString() == currentUserId)
+                {
+                    friendsIds.Add(friend.User1.ToString());
                 }
             }
 
@@ -102,20 +84,17 @@ namespace Battleships.Services.Friends
 
                 return true;
             }
-            else
-            {
-                return  false;
-            }
+
+            return  false;
         }
 
-        public async Task<bool> RemoveFriend(FriendDto friendObj)
+        public async Task<bool> RemoveFriend(FriendDto friend)
         {
             var currentUserId = _currentUserService.GetCurrentUserId();
-            var friendsIds = GetFriendsIds(currentUserId).Result;
 
             var friends = await _db.FriendsRepository.GetWhere(
-            user => (user.User1.ToString() == currentUserId && user.User2.ToString() == friendObj.UserId)
-            || (user.User1.ToString() == friendObj.UserId && user.User2.ToString() == currentUserId));
+            user => (user.User1.ToString() == currentUserId && user.User2.ToString() == friend.UserId)
+            || (user.User1.ToString() == friend.UserId && user.User2.ToString() == currentUserId));
 
             await _db.FriendsRepository.DeleteMany(friends);
 

@@ -1,7 +1,6 @@
-﻿using Battleships.Data.Dto;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Battleships.Data.Dto;
 
 namespace Battleships.Services.Friends.Interfaces
 {

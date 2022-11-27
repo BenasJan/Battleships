@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using Battleships.Services.Achievement.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Battleships.Controllers

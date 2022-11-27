@@ -2,40 +2,31 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Battleships.Data.Dto;
-using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.Services.Achievement.Interfaces;
-using Microsoft.AspNetCore.Identity;
 
 namespace Battleships.Services.Achievement
 {
     public class AchievementService : IAchievementService
     {
-        private readonly IBattleshipsDatabase _db;
+        private readonly IBattleshipsDatabase _battleshipsDatabase;
 
-        public AchievementService (IBattleshipsDatabase db)
+        public AchievementService (IBattleshipsDatabase battleshipsDatabase)
         {
-            _db = db;
+            _battleshipsDatabase = battleshipsDatabase;
         }
 
         public async Task<List<AchievementDto>> ListAchievements()
         {
-            var allAchievements = await _db.AchievementsRepository.GetAll();
+            var allAchievements = await _battleshipsDatabase.AchievementsRepository.GetAll();
 
-            var achievementList = new List<AchievementDto>();
-
-            foreach (var item in allAchievements)
-            {
-                var achievement = new AchievementDto()
+            return allAchievements
+                .Select(item => new AchievementDto
                 {
                     Name = item.Name,
                     Description = item.Description
-                };
-
-                achievementList.Add(achievement);
-            }
-
-            return achievementList;
+                })
+                .ToList();
         }
     }
 }

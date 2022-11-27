@@ -1,8 +1,4 @@
-﻿using Battleships.Models;
-using System.Collections.Generic;
-using System;
-
-namespace Battleships.Data.Dto
+﻿namespace Battleships.Data.Dto
 {
     public class FriendDto
     {

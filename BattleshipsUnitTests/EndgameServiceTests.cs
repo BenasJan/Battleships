@@ -12,14 +12,12 @@ public class EndgameServiceTests
 {
     private readonly EndgameService _endgameService;
 
-    private readonly Mock<IEndgameStrategyService> _endgameStrategyServiceMock;
     private readonly Mock<IGameSessionsRepository> _gameSessionsRepositoryMock;
     private readonly Mock<IUserManager> _userManagerMock;
     private readonly Mock<IBattleshipsSynchronizationService> _battleshipsSynchronizationServiceMock;
     
     public EndgameServiceTests()
     {
-        _endgameStrategyServiceMock = new Mock<IEndgameStrategyService>();
         _gameSessionsRepositoryMock = new Mock<IGameSessionsRepository>();
         _userManagerMock = new Mock<IUserManager>();
         _battleshipsSynchronizationServiceMock = new Mock<IBattleshipsSynchronizationService>();

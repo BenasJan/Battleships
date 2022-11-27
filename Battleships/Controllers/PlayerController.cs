@@ -1,7 +1,4 @@
-﻿using Battleships.Data.Dto;
-using Battleships.Models;
-using Battleships.Repositories;
-using Battleships.Services.Players.Interfaces;
+﻿using Battleships.Services.Players.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;

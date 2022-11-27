@@ -4,7 +4,7 @@
     {
         public override void ChangeState()
         {
-            base.Description = $"Cruiser ship {_state.GetState()}!";
+            base.Description = $"Cruiser ship {State.GetState()}!";
         }
     }
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Authentication;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Battleships.Data;
 using Battleships.Data.Constants;
 using Battleships.Data.Dto;
 using Battleships.Models;
@@ -31,10 +31,10 @@ namespace Battleships.Services.Authentication
 
             if (user == null || !await _userManager.CheckPasswordAsync(user, userCredentialsDto.Password))
             {
-                throw new AuthenticationException("Invalid password");
+                throw new PasswordException("Invalid password");
             }
 
-            var jwtToken = await CreateJwtToken(user);
+            var jwtToken = CreateJwtToken(user);
 
             return jwtToken;
         }
@@ -53,18 +53,14 @@ namespace Battleships.Services.Authentication
             await _userManager.CreateAsync(newUser);
             
             var createdUser = await _userManager.FindByEmailAsync(newUser.Email);
-            var result = await _userManager.AddPasswordAsync(createdUser, userCredentialsDto.Password);
-            if (!result.Succeeded)
-            {
-                throw new Exception("Pyzdec");
-            }
+            await _userManager.AddPasswordAsync(createdUser, userCredentialsDto.Password);
         }
 
-        private async Task<string> CreateJwtToken(ApplicationUser user)
+        private static string CreateJwtToken(ApplicationUser user)
         {
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = await GetClaimsIdentity(user),
+                Subject = GetClaimsIdentity(user),
                 Expires = DateTime.UtcNow.AddHours(12),
                 SigningCredentials =
                     new SigningCredentials(
@@ -80,15 +76,15 @@ namespace Battleships.Services.Authentication
             return token;
         }
 
-        private async Task<ClaimsIdentity> GetClaimsIdentity(ApplicationUser user)
+        private static ClaimsIdentity GetClaimsIdentity(ApplicationUser user)
         {
-            var claims = await GetClaims(user);
+            var claims = GetClaims(user);
             var claimsIdentity = new ClaimsIdentity(claims);
 
             return claimsIdentity;
         }
 
-        private async Task<List<Claim>> GetClaims(ApplicationUser user)
+        private static List<Claim> GetClaims(ApplicationUser user)
         {
             var claims = new List<Claim>
             {

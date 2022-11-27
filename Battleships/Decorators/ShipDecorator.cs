@@ -4,12 +4,12 @@ namespace Battleships.Decorators
 {
     public class ShipDecorator : IShipAppearance
     {
-        private IShipAppearance _shipDecorator;
+        private readonly IShipAppearance _shipDecorator;
 
         public string SkinName => _shipDecorator.SkinName;
         public string Label => _shipDecorator.Label;
 
-        public ShipDecorator(IShipAppearance shipDecorator)
+        protected ShipDecorator(IShipAppearance shipDecorator)
         {
             _shipDecorator = shipDecorator;
         }

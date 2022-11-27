@@ -1,6 +1,4 @@
 ﻿using Battleships.Adapter;
-using SendGrid;
-using SendGrid.Helpers.Mail;
 
 namespace Battleships.Services
 {
@@ -13,7 +11,7 @@ namespace Battleships.Services
             provider.SendEmail(email);
         }
 
-        private IEmailProvider GetAgencyEmailProvider(string provider)
+        private static IEmailProvider GetAgencyEmailProvider(string provider)
         {
 
             if (provider == "SMTP")

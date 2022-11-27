@@ -7,13 +7,7 @@ using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.Services.Authentication.Interfaces;
 using Battleships.Services.Players.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Battleships.Services.Users;
 

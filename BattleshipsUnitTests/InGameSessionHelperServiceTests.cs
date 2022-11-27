@@ -41,43 +41,70 @@ public class InGameSessionHelperServiceTests
         var currentPlayerId = Guid.NewGuid();
         var opponentPlayerId = Guid.NewGuid();
         var gameSessionId = Guid.NewGuid();
+        var gameSessionDto = new InGameSessionDto
+        {
+            ColumnCount = 3,
+            RowCount = 3,
+            CurrentRound = 69
+        };
+        var shipTiles = GetShipTiles();
 
-        _currentUserServiceMock.Setup(s => s.GetCurrentUserId()).Returns(currentUserId);
-        _gameSessionsRepositoryMock.Setup(s => s.GetPlayerIds(
-            It.Is<Guid>(id => id == gameSessionId),
-            It.Is<string>(id => id == currentUserId))
-        ).ReturnsAsync((currentPlayerId, opponentPlayerId));
-        _gameSessionsRepositoryMock.Setup(s => s.GetInGameSession(
-            It.Is<Guid>(id => id == gameSessionId),
-            It.Is<string>(id => id == currentUserId))
-        ).ReturnsAsync(
-            new InGameSessionDto
-            {
-                ColumnCount = 3,
-                RowCount = 3,
-                CurrentRound = 69
-            }
-        );
-        
-        _shipTilesRepositoryMock.Setup(s => s.GetPlayerTiles(It.IsAny<Guid>())).ReturnsAsync(
-            new List<ShipTile>
-            {
-                new() { XCoordinate = 1, YCoordinate = 1 },
-                new() { XCoordinate = 2, YCoordinate = 1 },
-                new() { XCoordinate = 3, YCoordinate = 1 },
-                new() { XCoordinate = 1, YCoordinate = 2 },
-                new() { XCoordinate = 2, YCoordinate = 2 },
-                new() { XCoordinate = 3, YCoordinate = 2 },
-                new() { XCoordinate = 1, YCoordinate = 3 },
-                new() { XCoordinate = 2, YCoordinate = 3 },
-                new() { XCoordinate = 3, YCoordinate = 3 },
-            }
-        );
+        SetupCurrentUserService(currentUserId);
+        SetupGameSessionsRepositoryGetPlayerIds(gameSessionId, currentUserId, currentPlayerId, opponentPlayerId);
+        SetupGameSessionsRepositoryGetInGameSession(gameSessionId, currentUserId, gameSessionDto);
+        SetupShipTiles(shipTiles);
         
         var session = await _inGameSessionHelperService.GetInGameSession(gameSessionId);
         
         Assert.Equal(9, session.OwnTiles.Count);
         Assert.Equal(9, session.OpponentTiles.Count);
         Assert.Equal(69, session.CurrentRound);
+    }
+
+    private void SetupCurrentUserService(string currentUserId)
+    {
+        _currentUserServiceMock.Setup(s => s.GetCurrentUserId()).Returns(currentUserId);
+    }
+
+    private void SetupGameSessionsRepositoryGetPlayerIds(Guid gameSessionId, string currentUserId, Guid currentPlayerId,
+        Guid opponentPlayerId)
+    {
+        _gameSessionsRepositoryMock.Setup(s => s.GetPlayerIds(
+            It.Is<Guid>(id => id == gameSessionId),
+            It.Is<string>(id => id == currentUserId))
+        ).ReturnsAsync((currentPlayerId, opponentPlayerId));
+    }
+
+    private void SetupGameSessionsRepositoryGetInGameSession(Guid gameSessionId, string currentUserId, InGameSessionDto gameSessionDto)
+    {
+        _gameSessionsRepositoryMock.Setup(s => s.GetInGameSession(
+            It.Is<Guid>(id => id == gameSessionId),
+            It.Is<string>(id => id == currentUserId))
+        ).ReturnsAsync(
+            gameSessionDto
+        );
+    }
+
+    private void SetupShipTiles(List<ShipTile> shipTiles)
+    {
+        _shipTilesRepositoryMock.Setup(s => s.GetPlayerTiles(It.IsAny<Guid>())).ReturnsAsync(
+            shipTiles
+        );
+    }
+
+    private static List<ShipTile> GetShipTiles()
+    {
+        return new List<ShipTile>
+        {
+            new() { XCoordinate = 1, YCoordinate = 1 },
+            new() { XCoordinate = 2, YCoordinate = 1 },
+            new() { XCoordinate = 3, YCoordinate = 1 },
+            new() { XCoordinate = 1, YCoordinate = 2 },
+            new() { XCoordinate = 2, YCoordinate = 2 },
+            new() { XCoordinate = 3, YCoordinate = 2 },
+            new() { XCoordinate = 1, YCoordinate = 3 },
+            new() { XCoordinate = 2, YCoordinate = 3 },
+            new() { XCoordinate = 3, YCoordinate = 3 },
+        }
     }
 }

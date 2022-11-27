@@ -105,6 +105,6 @@ public class InGameSessionHelperServiceTests
             new() { XCoordinate = 1, YCoordinate = 3 },
             new() { XCoordinate = 2, YCoordinate = 3 },
             new() { XCoordinate = 3, YCoordinate = 3 },
-        }
+        };
     }
 }

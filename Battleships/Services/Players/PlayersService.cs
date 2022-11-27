@@ -9,18 +9,19 @@ using Battleships.Services.Authentication.Interfaces;
 using Battleships.Services.Players.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Battleships.Services.Users;
 
 namespace Battleships.Services.Players
 {
     public class PlayersService : IPlayersService
     {
         private readonly IBattleshipsDatabase _db;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IUserManager _userManager;
         private readonly ICurrentUserService _currentUserService;
 
         public PlayersService(
             IBattleshipsDatabase database,
-            UserManager<ApplicationUser> userManager,
+            IUserManager userManager,
             ICurrentUserService currentUserService)
         {
             _db = database;
@@ -32,33 +33,15 @@ namespace Battleships.Services.Players
         {
             var currentUserId = _currentUserService.GetCurrentUserId();
 
-            var users = await _userManager.Users
-                .Where(u => u.Id != currentUserId)
-                .Select(u => new UserDto
-                {
-                    Id = u.Id,
-                    Name = u.UserName,
-                    GamesPlayedCount = u.Players.Count,
-                    GamesWonCount = u.WonGames.Count
-                })
-                .ToListAsync();
+            var users = await _userManager.GetOtherUsers(currentUserId);
 
             return users;
         }
 
         public async Task<List<UserDto>> GetLobbyUsers(Guid gameSessionId)
         {
-            var users = await _userManager.Users
-                .Where(u => u.Players.All(p => p.GameSessionId != gameSessionId))
-                .Select(u => new UserDto
-                {
-                    Id = u.Id,
-                    Name = u.UserName,
-                    GamesPlayedCount = u.Players.Count,
-                    GamesWonCount = u.WonGames.Count
-                })
-                .ToListAsync();
-            
+            var users = await _userManager.GetLobbyUsers(gameSessionId);
+
             return users;
         }
 

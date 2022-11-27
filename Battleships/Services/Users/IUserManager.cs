@@ -16,6 +16,8 @@ namespace Battleships.Services.Users
 
         Task<List<UserDto>> GetOtherUsers(string currentUserId);
 
-        Task<List<UserDto>> GetLobbyUsers(Guid gameSessionId);  
+        Task<List<UserDto>> GetLobbyUsers(Guid gameSessionId); 
+        
+        Task<List<ApplicationUser>> GetFriendsList(string currentUserId, List<string> friendsIds);
     }
 }

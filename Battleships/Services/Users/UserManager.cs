@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Linq.Expressions;
+
 using System.Threading.Tasks;
 using Battleships.Data.Dto;
 using Battleships.Models;
@@ -25,7 +26,6 @@ namespace Battleships.Services.Users
         {
             return await _userManager.FindByIdAsync(userId);
         }
-
 
         public IQueryable<ApplicationUser> GetWhere(Expression<Func<ApplicationUser, bool>> filter)
         {
@@ -62,5 +62,11 @@ namespace Battleships.Services.Users
             return users;
         }
 
+        public async Task<List<ApplicationUser>> GetFriendsList(string currentUserId, List<string> friendsIds) // used specifically for friends service
+        {
+            return await _userManager.Users
+                    .Where(user => friendsIds.Contains(user.Id))
+                    .ToListAsync();
+        }
     }
 }

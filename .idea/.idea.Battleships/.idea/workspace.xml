@@ -6,16 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BattleshipsUnitTests/BattleshipsDatabaseBuilder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BattleshipsUnitTests/Builders/ShipTileBuilderTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BattleshipsUnitTests/InGameSessionHelperServiceTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BattleshipsUnitTests/PlayerShipGenerationServiceTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BattleshipsUnitTests/TimeUtilityTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Models/enums/Engine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Models/enums/Engine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Models/enums/Gun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Models/enums/Gun.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BattleshipsUnitTests/AchievementsServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipsUnitTests/AchievementsServiceTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BattleshipsUnitTests/BattleshipsDatabaseBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipsUnitTests/BattleshipsDatabaseBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BattleshipsUnitTests/FactoryTests/DefensiveShipFactoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipsUnitTests/FactoryTests/DefensiveShipFactoryTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BattleshipsUnitTests/GameLaunchServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipsUnitTests/GameLaunchServiceTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BattleshipsUnitTests/InGameSessionHelperServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipsUnitTests/InGameSessionHelperServiceTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +53,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Battleships">
@@ -111,7 +106,8 @@
       <workItem from="1669236876399" duration="239000" />
       <workItem from="1669303585752" duration="2282000" />
       <workItem from="1669387992158" duration="1806000" />
-      <workItem from="1669474982927" duration="11871000" />
+      <workItem from="1669474982927" duration="13710000" />
+      <workItem from="1669554587289" duration="4938000" />
     </task>
     <servers />
   </component>
@@ -119,10 +115,10 @@
     <option name="version" value="3" />
   </component>
   <component name="UnitTestsCoverage.Settings">
-    <option name="coveragePercentColumnWidth" value="76" />
+    <option name="coveragePercentColumnWidth" value="15" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="225" />
+    <option name="symbolColumnWidth" value="15" />
     <coverage-tree-state>
       <expand>
         <path>

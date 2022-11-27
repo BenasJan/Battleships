@@ -1,4 +1,5 @@
-﻿using Battleships.Repositories;
+﻿using Battleships.Models;
+using Battleships.Repositories;
 using Moq;
 
 namespace BattleshipsUnitTests;
@@ -34,6 +35,13 @@ public class BattleshipsDatabaseBuilder
     public BattleshipsDatabaseBuilder WithShipsRepo(Mock<IShipsRepository> repoMock)
     {
         _dbMock.Setup(db => db.ShipsRepository).Returns(repoMock.Object);
+
+        return this;
+    }
+    
+    public BattleshipsDatabaseBuilder WithPlayerShipsRepo(Mock<IRepository<PlayerShip>> repoMock)
+    {
+        _dbMock.Setup(db => db.PlayerShipsRepository).Returns(repoMock.Object);
 
         return this;
     }

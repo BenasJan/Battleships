@@ -33,33 +33,15 @@ namespace Battleships.Services.Players
         {
             var currentUserId = _currentUserService.GetCurrentUserId();
 
-            var users = await _userManager.Users
-                .Where(u => u.Id != currentUserId)
-                .Select(u => new UserDto
-                {
-                    Id = u.Id,
-                    Name = u.UserName,
-                    GamesPlayedCount = u.Players.Count,
-                    GamesWonCount = u.WonGames.Count
-                })
-                .ToListAsync();
+            var users = await _userManager.GetOtherUsers(currentUserId);
 
             return users;
         }
 
         public async Task<List<UserDto>> GetLobbyUsers(Guid gameSessionId)
         {
-            var users = await _userManager.Users
-                .Where(u => u.Players.All(p => p.GameSessionId != gameSessionId))
-                .Select(u => new UserDto
-                {
-                    Id = u.Id,
-                    Name = u.UserName,
-                    GamesPlayedCount = u.Players.Count,
-                    GamesWonCount = u.WonGames.Count
-                })
-                .ToListAsync();
-            
+            var users = await _userManager.GetLobbyUsers(gameSessionId);
+
             return users;
         }
 

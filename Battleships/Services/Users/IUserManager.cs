@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Battleships.Models;
 
@@ -8,5 +9,6 @@ namespace Battleships.Services.Users
     {
         Task<ApplicationUser> GetById(string userId);
         IQueryable<ApplicationUser> Users { get; }
+        Task<List<ApplicationUser>> GetFriendsList(string currentUserId, List<string> friendsIds);
     }
 }

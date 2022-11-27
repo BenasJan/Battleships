@@ -25,22 +25,35 @@ namespace BattleshipsUnitTests
 
             currentUserServiceMock.Setup(cuMock => cuMock.GetCurrentUserId()).Returns("00000000-0000-0000-0000-000000000010");
 
+            userManagerMock.Setup(uMMock => uMMock.GetFriendsList("00000000-0000-0000-0000-000000000010", new List<string>
+            {
+                "00000000-0000-0000-0000-000000000011"
+            }
+            )).ReturnsAsync(new List<ApplicationUser>
+            {
+                new ApplicationUser
+                {
+                    Id = "00000000-0000-0000-0000-000000000011"
+                }
+            });
+
             dbMock.Setup(db => db.FriendsRepository.GetWhere(It.IsAny<Expression<Func<Friend, bool>>>())).ReturnsAsync(
                 new List<Friend>
                 {
                     new()
                     {
-                        Id = Guid.NewGuid(),
+                        User1 = Guid.Parse("00000000-0000-0000-0000-000000000010"),
+                        User2 = Guid.Parse("00000000-0000-0000-0000-000000000011"),
                     }
                 });
 
             _friendsService = new FriendsService(dbMock.Object, userManagerMock.Object, currentUserServiceMock.Object);
         }
-
+        
         [Fact]
         public async Task When_GetFriendIds_ReturnsIds()
         {
-            var friendIds = await _friendsService.GetFriendsIds("00000000-0000-0000-0000-000000000000");
+            var friendIds = await _friendsService.GetFriendsIds("00000000-0000-0000-0000-000000000010");
 
             Assert.Single(friendIds);
         }
@@ -48,9 +61,9 @@ namespace BattleshipsUnitTests
         [Fact]
         public async Task When_ListFriends_ReturnsFriends()
         {
-            var friendIds = await _friendsService.ListFriends();
+            var friends = await _friendsService.ListFriends();
 
-            Assert.Single(friendIds);
+            Assert.Single(friends);
         }
 
         [Fact]

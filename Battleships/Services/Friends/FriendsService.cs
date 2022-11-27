@@ -29,11 +29,8 @@ namespace Battleships.Services.Friends
         public async Task<List<FriendDto>> ListFriends()
         {
             var currentUserId = _currentUserService.GetCurrentUserId();
-            var friendsIds = GetFriendsIds(currentUserId).Result;
-            var friendsUsers = await _userManager.Users
-                    .Where(user => user.Id != currentUserId && friendsIds.Contains(user.Id))
-                    .ToListAsync()
-                ;
+            var friendsIds = await GetFriendsIds(currentUserId);
+            var friendsUsers = await _userManager.GetFriendsList(currentUserId, friendsIds);
 
             var friends = friendsUsers.Select(user => new FriendDto
             {

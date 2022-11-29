@@ -12,6 +12,69 @@
       },
       "results": [
         {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Models/Player.cs",
+                "region": {
+                  "startLine": 44,
+                  "startColumn": 9,
+                  "endLine": 44,
+                  "endColumn": 12
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S125",
+          "level": "warning",
+          "message": "Remove this commented out code.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Services/Users/UserManager.cs",
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 5,
+                  "endLine": 17,
+                  "endColumn": 48
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S5332",
+          "level": "warning",
+          "message": "EnableSsl should be set to true.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Adapter/SmtpEmailProvider.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 43,
+                  "endLine": 9,
+                  "endColumn": 49
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
           "ruleId": "S101",
           "level": "warning",
           "message": "Rename class 'friendsInit' to match pascal case naming rules, consider using 'FriendsInit'.",
@@ -82,6 +145,27 @@
           }
         },
         {
+          "ruleId": "S4581",
+          "level": "warning",
+          "message": "Use 'Guid.NewGuid()' or 'Guid.Empty' or add arguments to this GUID instantiation.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/dev/Battleships/Battleships/Migrations/20221103225052_UpdateShipTile.cs",
+                "region": {
+                  "startLine": 73,
+                  "startColumn": 31,
+                  "endLine": 73,
+                  "endColumn": 79
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
           "ruleId": "S107",
           "level": "warning",
           "message": "Constructor has 9 parameters, which is greater than the 7 authorized.",
@@ -115,9 +199,9 @@
             "isEnabledByDefault": true,
             "tags": [
               "C#",
-              "SonarWay",
               "MainSourceScope",
-              "TestSourceScope"
+              "TestSourceScope",
+              "SonarWay"
             ]
           }
         },
@@ -132,9 +216,26 @@
             "isEnabledByDefault": false,
             "tags": [
               "C#",
-              "SonarWay",
               "MainSourceScope",
-              "TestSourceScope"
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S125": {
+          "id": "S125",
+          "shortDescription": "Sections of code should not be commented out",
+          "fullDescription": "Programmers should not comment out code as it bloats programs and reduces readability.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-125",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
             ]
           }
         },
@@ -149,8 +250,41 @@
             "isEnabledByDefault": true,
             "tags": [
               "C#",
-              "SonarWay",
-              "MainSourceScope"
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S4581": {
+          "id": "S4581",
+          "shortDescription": "\"new Guid()\" should not be used",
+          "fullDescription": "When the syntax new Guid() (i.e. parameterless instantiation) is used, it must be that one of three things is wanted:",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-4581",
+          "properties": {
+            "category": "Major Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S5332": {
+          "id": "S5332",
+          "shortDescription": "Using clear-text protocols is security-sensitive",
+          "fullDescription": "Clear-text protocols such as ftp, telnet or non-secure http lack encryption of transported data, as well as the capability to build an authenticated connection. It means that an attacker able to sniff traffic from the network can read, modify or corrupt the transported content. These protocols are not secure as they expose applications to an extensive range of risks:",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-5332",
+          "properties": {
+            "category": "Critical Security Hotspot",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
             ]
           }
         }

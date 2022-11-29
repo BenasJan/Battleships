@@ -11,8 +11,6 @@ export class AuthorizationService {
 
   private readonly jwtTokenSubject = new BehaviorSubject<string>('');
 
-  constructor() { }
-
   public intializeAuthorization(): void {
     const existingToken = localStorage.getItem(this.JwtTokenKey);
 

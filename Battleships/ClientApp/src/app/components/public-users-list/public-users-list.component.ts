@@ -1,12 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AddFriendPayload } from '../../models/payloads/add-friend';
 import { User } from '../../models/player';
-import { AuthorizationService } from "../../services/authorization.service";
 import { FriendService } from '../../services/friend.service';
 import { PlayerService } from '../../services/player.service';
-
-
-
 @Component({
   selector: 'app-public-users-list',
   templateUrl: './public-users-list.component.html'
@@ -27,23 +23,13 @@ export class PublicUsersListComponent implements OnInit {
 
   constructor(
     private playerService: PlayerService,
-    private authorizationService: AuthorizationService,
     private friendService: FriendService
   ) { }
 
   ngOnInit(): void {
     this.playerService.getGlobalUsers().subscribe((res: User[]) => {
       this.users = res;
-      // console.log(this.users);
     })
-
-    // if(this.excludeCurrUser) {
-    //   let token = jwt_decode(this.authorizationService.jwtToken!);
-    //   if(token != null) {
-    //     console.log("token: " + JSON.stringify(token));
-    //   }
-    // }
-
   }
 
   addFriend(userId: string): void {
@@ -67,5 +53,4 @@ export class PublicUsersListComponent implements OnInit {
   public removeUser(userId: string) {
     this.users = this.users.filter(user => user.id != userId);
   }
-
 }

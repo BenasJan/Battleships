@@ -7,8 +7,25 @@
   <component name="ChangeListManager">
     <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarlint/battleships/CSharp/SonarLint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarlint/battleships/CSharp/SonarLint.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarlint/battleshipscsharp.ruleset" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarlint/battleshipscsharp.ruleset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/app-container/app-container.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/app-container/app-container.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/create-game-session/create-game-session.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/create-game-session/create-game-session.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/dashboard/dashboard.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/game-lobby/game-lobby.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/game-lobby/game-lobby.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/game-session/game-session.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/game-session/game-session.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/inventory/inventory.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/inventory/inventory.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/profile/profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/profile/profile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/public-users-list/public-users-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/public-users-list/public-users-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/observer/attack-moves-subject.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/observer/attack-moves-subject.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/observer/endgame-reached-subject.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/observer/endgame-reached-subject.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/authorization.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/authorization.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/game-session-events.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/game-session-events.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/http.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/http.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Data/PasswordException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/PasswordException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Models/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Models/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/Users/UserManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Users/UserManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BattleshipsUnitTests/PlayerServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipsUnitTests/PlayerServiceTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +124,7 @@
       <workItem from="1669474982927" duration="13710000" />
       <workItem from="1669554587289" duration="6385000" />
       <workItem from="1669735953717" duration="2243000" />
+      <workItem from="1669747025743" duration="867000" />
     </task>
     <servers />
   </component>
@@ -114,10 +132,10 @@
     <option name="version" value="3" />
   </component>
   <component name="UnitTestsCoverage.Settings">
-    <option name="coveragePercentColumnWidth" value="35" />
+    <option name="coveragePercentColumnWidth" value="31" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="114" />
+    <option name="symbolColumnWidth" value="92" />
     <coverage-tree-state>
       <expand />
       <select />

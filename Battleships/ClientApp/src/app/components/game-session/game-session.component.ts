@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit, HostListener } from '@angular/core';
-import { NumberValueAccessor } from '@angular/forms';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { tap } from 'rxjs';
 import { Attack } from 'src/app/models/attack';
@@ -10,7 +9,6 @@ import { AttackPublishingService } from 'src/app/services/attack-publishing.serv
 import { AuthorizationService } from 'src/app/services/authorization.service';
 import { GameSessionEventsService } from 'src/app/services/game-session-events.service';
 import { GameSessionService } from 'src/app/services/game-session.service';
-//import { MoveSubmissionEventsService } from 'src/app/services/move-submission.service';
 import { ShipMove } from '../../models/ship-move';
 import { SignalRService } from '../../services/signal-r.service';
 
@@ -135,16 +133,6 @@ export class GameSessionComponent implements OnInit, OnDestroy {
 
 
   }
-
-  //public MoveShip(shipId: string, direction: string) {
-
-  //  const shipMove: ShipMove = {
-  //    gameSessionId: this.gameSessionId,
-  //    shipId: shipId,
-  //    direction: direction
-  //  }
-  //  this.gameSessionService.moveShip(shipMove).subscribe(() => location.reload());
-  //}
 
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {

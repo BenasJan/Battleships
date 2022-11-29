@@ -48,7 +48,6 @@ export class HttpService {
 
   private handleHttpError(error: HttpErrorResponse): Observable<never> {
     if (error.status === HttpStatusCode.Unauthorized) {
-      // this.logoutService.logout();
       this.toastService.publish('Session expired, please login again');
     } else {
       this.toastService.publish('An error has occurred');

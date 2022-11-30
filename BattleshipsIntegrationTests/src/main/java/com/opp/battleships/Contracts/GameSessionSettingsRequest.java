@@ -7,6 +7,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class GameSessionSettingsRequest {
     private Integer rowCount;
-    private Integer colCount;
+    private Integer columnCount;
     private Integer gameType;
 }

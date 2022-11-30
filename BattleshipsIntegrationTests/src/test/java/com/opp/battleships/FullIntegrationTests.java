@@ -2,12 +2,10 @@ package com.opp.battleships;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.opp.battleships.Contracts.AuthRequest;
-import com.opp.battleships.Contracts.CreateGameSessionRequest;
-import com.opp.battleships.Contracts.GameSessionSettingsRequest;
-import com.opp.battleships.Contracts.UserInviteRequest;
+import com.opp.battleships.Contracts.*;
 import com.opp.battleships.Models.Player;
 import org.junit.jupiter.api.*;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,14 +19,20 @@ import java.util.UUID;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.emptyOrNullString;
 
 @SpringBootTest
-@TestMethodOrder(MethodOrderer.MethodName.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class FullIntegrationTests {
 
     private static Player player1 = new Player();
     private static Player player2 = new Player();
     private static String gameSessionId;
+    private static final Integer colCount = 12;
+    private static final Integer rowCount = 12;
+    private static JsonObject inGameSession;
+    private static final Integer[] movedShipCell = new Integer[2];
+    private static String movedShipId;
 
     public static final String BASE_URL = "http://localhost:5000/api";
 
@@ -39,6 +43,7 @@ public class FullIntegrationTests {
     }
 
     @Test
+    @Order(1)
     public void stage1_registerUser1Test() {
         RestTemplate restTemplate = new RestTemplate();
         HttpEntity<AuthRequest> request = new HttpEntity<>(new AuthRequest(player1.getEmailAddress(), player1.getPassword()));
@@ -50,6 +55,7 @@ public class FullIntegrationTests {
     }
 
     @Test
+    @Order(2)
     public void stage2_registerUser2Test() {
         RestTemplate restTemplate = new RestTemplate();
         HttpEntity<AuthRequest> request = new HttpEntity<>(new AuthRequest(player2.getEmailAddress(), player2.getPassword()));
@@ -61,6 +67,7 @@ public class FullIntegrationTests {
     }
 
     @Test
+    @Order(3)
     public void stage3_loginUser1Test() {
         RestTemplate restTemplate = new RestTemplate();
         HttpEntity<AuthRequest> request = new HttpEntity<>(new AuthRequest(player1.getEmailAddress(), player1.getPassword()));
@@ -79,6 +86,7 @@ public class FullIntegrationTests {
     }
 
     @Test
+    @Order(4)
     public void stage4_loginUser2Test() {
         RestTemplate restTemplate = new RestTemplate();
         HttpEntity<AuthRequest> request = new HttpEntity<>(new AuthRequest(player2.getEmailAddress(), player2.getPassword()));
@@ -97,6 +105,7 @@ public class FullIntegrationTests {
     }
 
     @Test
+    @Order(5)
     public void stage5_createGameSessionTest() {
         RestTemplate restTemplate = new RestTemplate();
 
@@ -106,7 +115,7 @@ public class FullIntegrationTests {
         HttpEntity<CreateGameSessionRequest> request = new HttpEntity<>(
                 new CreateGameSessionRequest(
                         "icon", "New game",
-                        new GameSessionSettingsRequest(10, 10, 1)
+                        new GameSessionSettingsRequest(rowCount, colCount, 1)
                 ),
                 headers
         );
@@ -114,7 +123,6 @@ public class FullIntegrationTests {
         var response = restTemplate.exchange(BASE_URL + "/GameSession/createSession",
                 HttpMethod.POST, request, UUID.class);
 
-        System.out.println("Game session ID: " + response.getBody());
         assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
         assertThat(response.getBody(), equalTo(UUID.fromString(response.getBody().toString())));
 
@@ -122,6 +130,7 @@ public class FullIntegrationTests {
     }
 
     @Test
+    @Order(6)
     public void stage6_getPlayer2IdTest() {
         RestTemplate restTemplate = new RestTemplate();
 
@@ -140,12 +149,10 @@ public class FullIntegrationTests {
         assertThat(id, not(emptyOrNullString()));
 
         player2.setUserId(id);
-        System.out.println("user2 email = " + player2.getEmailAddress());
-        System.out.println("user2 ID = " + response);
-
     }
 
     @Test
+    @Order(7)
     public void stage7_invitePlayer2ToGameTest() {
         RestTemplate restTemplate = new RestTemplate();
 
@@ -155,7 +162,6 @@ public class FullIntegrationTests {
         HttpEntity<UserInviteRequest> request = new HttpEntity<>(
             new UserInviteRequest(player2.getUserId())
         );
-        System.out.println("Game Session ID = " + gameSessionId);
 
         var response = restTemplate
                 .exchange(BASE_URL + "/GameSession/invite/" + gameSessionId,
@@ -165,22 +171,80 @@ public class FullIntegrationTests {
     }
 
     @Test
+    @Order(8)
     public void stage8_LaunchGameTest() {
         RestTemplate restTemplate = new RestTemplate();
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.set("Authorization", "Bearer " + player1.getAccessToken());
-        HttpEntity<UserInviteRequest> request = new HttpEntity<>(
-                new UserInviteRequest(player2.getUserId())
+        HttpEntity<LaunchGameRequest> request = new HttpEntity<>(
+                new LaunchGameRequest(gameSessionId, false),
+                headers
         );
-        System.out.println("Game Session ID = " + gameSessionId);
 
         var response = restTemplate
                 .exchange(BASE_URL + "/GameSession/launch-game/" + gameSessionId,
                         HttpMethod.POST, request, UserInviteRequest.class);
 
         assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
+    }
+
+    @Test
+    @Order(9)
+    public void stage9_GetInGameSessionPreActionTest() {
+        RestTemplate restTemplate = new RestTemplate();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.set("Authorization", "Bearer " + player1.getAccessToken());
+        HttpEntity<Void> requestEntity = new HttpEntity<>(headers);
+
+        var response = restTemplate.exchange(
+                BASE_URL + "/GameSession/in-game/" + gameSessionId,
+                HttpMethod.GET, requestEntity, String.class);
+
+        var session = new JsonParser().parse(response.getBody()).getAsJsonObject();
+        assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
+        assertThat(session.toString(), not(emptyOrNullString()));
+
+        inGameSession = session;
+        shipMovementSetup();
+    }
+
+    @Test
+    @Order(10)
+    public void stage10_moveShipTest() {
+        RestTemplate restTemplate = new RestTemplate();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.set("Authorization", "Bearer " + player1.getAccessToken());
+        HttpEntity<ShipMoveRequest> request = new HttpEntity<>(
+                new ShipMoveRequest(movedShipId, "Up"),
+                headers
+        );
+
+        var response = restTemplate.exchange(BASE_URL + "/GameSession/move-ship/" + gameSessionId,
+                HttpMethod.POST, request, String.class);
+
+        var session = new JsonParser().parse(response.getBody()).getAsJsonObject();
+        assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
+        assertThat(session.toString(), not(emptyOrNullString()));
+        assertThat(session.toString(), not(inGameSession.toString()));
+    }
+
+    private void shipMovementSetup() {
+        JsonArray tiles = inGameSession.getAsJsonArray("ownTiles");
+        for(var x : tiles) {
+            JsonObject tile = x.getAsJsonObject();
+            if(tile.get("isShip").getAsBoolean()) {
+                movedShipId = tile.get("shipId").getAsString();
+                movedShipCell[0] = tile.get("columnCoordinate").getAsInt();
+                movedShipCell[1] = tile.get("rowCoordinate").getAsInt();
+                break;
+            }
+        }
     }
 
     private static void generatePlayer(Player player) {

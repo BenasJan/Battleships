@@ -44,6 +44,8 @@ namespace Battleships
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            
+            services.AddCors();
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -124,8 +126,14 @@ namespace Battleships
             {
                 app.UseHsts();
             }
+            
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());   
+            // app.UseMvc();
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
             app.UseStaticFiles();
             if (!env.IsDevelopment())
             {

@@ -56,6 +56,12 @@ namespace Battleships.Services.Authentication
             await _userManager.AddPasswordAsync(createdUser, userCredentialsDto.Password);
         }
 
+        public async Task<string> GetUserIdByEmail(string email)
+        {
+            var user =  await _userManager.FindByEmailAsync(email);
+            return user.Id;
+        }
+
         private static string CreateJwtToken(ApplicationUser user)
         {
             var tokenDescriptor = new SecurityTokenDescriptor

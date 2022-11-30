@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Battleships.Data.Dto;
 using Battleships.Services.Authentication.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +21,6 @@ namespace Battleships.Controllers
         public async Task<IActionResult> Login([FromBody] UserCredentialsDto userCredentialsDto)
         {
             var token = await _authenticationService.Login(userCredentialsDto);
-
             return Ok(new { token });
         }
 
@@ -30,6 +30,12 @@ namespace Battleships.Controllers
             await _authenticationService.Register(registration);
 
             return Ok();
+        }
+        
+        [HttpGet("getUserByEmail")]
+        public async Task<IActionResult> GetUserByEmail([FromQuery(Name = "email")] string email)
+        {
+            return Ok(_authenticationService.GetUserIdByEmail(email));
         }
     }
 }

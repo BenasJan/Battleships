@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using Battleships.Models.enums;
 
 namespace Battleships.Models

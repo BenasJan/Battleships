@@ -1,4 +1,5 @@
 ﻿using Battleships.Data.Constants;
+using Battleships.Flyweight;
 
 namespace Battleships.Factories
 {
@@ -6,6 +7,8 @@ namespace Battleships.Factories
     {
         public AbstractShipFactory ProduceFactory(bool? isDefensive)
         {
+            ShipBaseDataFWFactory shipBaseDataFactory = new ShipBaseDataFWFactory();
+
             if (isDefensive == null) return new NeutralShipFactory();
 
             if ((bool)isDefensive)
@@ -13,7 +16,7 @@ namespace Battleships.Factories
                 return new DefensiveShipFactory();
             }
 
-            return new OffensiveShipFactory();
+            return new OffensiveShipFactory(shipBaseDataFactory);
         }
     }
 }

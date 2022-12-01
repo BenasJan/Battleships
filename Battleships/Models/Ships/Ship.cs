@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using Battleships.Flyweight;
 using Battleships.Services.Bridge;
 
 namespace Battleships.Models.Ships
@@ -8,9 +9,11 @@ namespace Battleships.Models.Ships
     {
         public string ShipTypeDiscriminator { get; set; }
 
+        //public ShipBaseData ShipBaseData { get; set; }
+
         public string Name { get; set; }
         public string Description { get; set; }
-        
+
         public string ShipType { get; set; }
 
         public List<UserCosmetic> UserCosmetics { get; set; }
@@ -20,5 +23,12 @@ namespace Battleships.Models.Ships
         public IShipState State { get; set; }
 
         public abstract void ChangeState();
+
+        public void SetBaseData (ShipBaseData shipBaseData)
+        {
+            Name = shipBaseData.Name;
+            Description = shipBaseData.Description;
+            ShipType = shipBaseData.ShipType;
+        }
     }
 }

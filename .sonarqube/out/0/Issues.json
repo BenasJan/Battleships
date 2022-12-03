@@ -12,69 +12,6 @@
       },
       "results": [
         {
-          "ruleId": "S125",
-          "level": "warning",
-          "message": "Remove this commented out code.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Models/Player.cs",
-                "region": {
-                  "startLine": 44,
-                  "startColumn": 9,
-                  "endLine": 44,
-                  "endColumn": 12
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S125",
-          "level": "warning",
-          "message": "Remove this commented out code.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Services/Users/UserManager.cs",
-                "region": {
-                  "startLine": 17,
-                  "startColumn": 5,
-                  "endLine": 17,
-                  "endColumn": 48
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S5332",
-          "level": "warning",
-          "message": "EnableSsl should be set to true.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Adapter/SmtpEmailProvider.cs",
-                "region": {
-                  "startLine": 9,
-                  "startColumn": 43,
-                  "endLine": 9,
-                  "endColumn": 49
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "S101",
           "level": "warning",
           "message": "Rename class 'friendsInit' to match pascal case naming rules, consider using 'FriendsInit'.",
@@ -104,9 +41,9 @@
               "resultFile": {
                 "uri": "file:///D:/dev/Battleships/Battleships/Data/PasswordException.cs",
                 "region": {
-                  "startLine": 5,
+                  "startLine": 6,
                   "startColumn": 18,
-                  "endLine": 5,
+                  "endLine": 6,
                   "endColumn": 35
                 }
               }
@@ -117,20 +54,9 @@
               "physicalLocation": {
                 "uri": "file:///D:/dev/Battleships/Battleships/Data/PasswordException.cs",
                 "region": {
-                  "startLine": 5,
+                  "startLine": 6,
                   "startColumn": 12,
-                  "endLine": 5,
-                  "endColumn": 17
-                }
-              }
-            },
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/dev/Battleships/Battleships/Data/PasswordException.cs",
-                "region": {
-                  "startLine": 5,
-                  "startColumn": 12,
-                  "endLine": 5,
+                  "endLine": 6,
                   "endColumn": 17
                 }
               }
@@ -139,8 +65,7 @@
           "properties": {
             "warningLevel": 1,
             "customProperties": {
-              "0": "Add 'System.SerializableAttribute' attribute on 'PasswordException' because it implements 'ISerializable'.",
-              "1": "Add a 'protected' constructor 'PasswordException(SerializationInfo, StreamingContext)'."
+              "0": "Add a 'protected' constructor 'PasswordException(SerializationInfo, StreamingContext)'."
             }
           }
         },
@@ -222,23 +147,6 @@
             ]
           }
         },
-        "S125": {
-          "id": "S125",
-          "shortDescription": "Sections of code should not be commented out",
-          "fullDescription": "Programmers should not comment out code as it bloats programs and reduces readability.",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-125",
-          "properties": {
-            "category": "Major Code Smell",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
-              "TestSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
         "S3925": {
           "id": "S3925",
           "shortDescription": "\"ISerializable\" should be implemented correctly",
@@ -268,22 +176,6 @@
               "C#",
               "MainSourceScope",
               "TestSourceScope",
-              "SonarWay"
-            ]
-          }
-        },
-        "S5332": {
-          "id": "S5332",
-          "shortDescription": "Using clear-text protocols is security-sensitive",
-          "fullDescription": "Clear-text protocols such as ftp, telnet or non-secure http lack encryption of transported data, as well as the capability to build an authenticated connection. It means that an attacker able to sniff traffic from the network can read, modify or corrupt the transported content. These protocols are not secure as they expose applications to an extensive range of risks:",
-          "defaultLevel": "warning",
-          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-5332",
-          "properties": {
-            "category": "Critical Security Hotspot",
-            "isEnabledByDefault": true,
-            "tags": [
-              "C#",
-              "MainSourceScope",
               "SonarWay"
             ]
           }

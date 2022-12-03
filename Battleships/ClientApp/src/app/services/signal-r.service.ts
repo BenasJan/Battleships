@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HubConnection, HubConnectionBuilder, HubConnectionState, LogLevel } from '@microsoft/signalr';
+import { HubConnection, HubConnectionState } from '@microsoft/signalr';
 import { from, Observable, tap } from 'rxjs';
 import { Attack } from '../models/attack';
 import { AuthorizationService } from './authorization.service';
@@ -24,15 +24,6 @@ export class SignalRService {
     this.connection = SignalRConnection.getInstance();
     this.configureMethods();
   }
-
-  //#region initialization
-  // private getConnection(): HubConnection {
-  //   return new HubConnectionBuilder()
-  //     .withUrl('/battleshipsHub')
-  //     .configureLogging(LogLevel.Information)
-  //     .withAutomaticReconnect()
-  //     .build();
-  // }
 
   private configureMethods() {
     this.connection.on("underAttack", (payload) => {

@@ -53,12 +53,12 @@
       <Key>S2342</Key>
       <Parameters>
         <Parameter>
-          <Key>flagsAttributeFormat</Key>
-          <Value>^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?s$</Value>
-        </Parameter>
-        <Parameter>
           <Key>format</Key>
           <Value>^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$</Value>
+        </Parameter>
+        <Parameter>
+          <Key>flagsAttributeFormat</Key>
+          <Value>^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?s$</Value>
         </Parameter>
       </Parameters>
     </Rule>
@@ -117,12 +117,12 @@
       <Key>S3776</Key>
       <Parameters>
         <Parameter>
-          <Key>propertyThreshold</Key>
-          <Value>3</Value>
-        </Parameter>
-        <Parameter>
           <Key>threshold</Key>
           <Value>15</Value>
+        </Parameter>
+        <Parameter>
+          <Key>propertyThreshold</Key>
+          <Value>3</Value>
         </Parameter>
       </Parameters>
     </Rule>
@@ -167,7 +167,7 @@
       <Parameters>
         <Parameter>
           <Key>maximum</Key>
-          <Value>30</Value>
+          <Value>6</Value>
         </Parameter>
       </Parameters>
     </Rule>
@@ -430,6 +430,9 @@
       <Key>S3963</Key>
     </Rule>
     <Rule>
+      <Key>S1301</Key>
+    </Rule>
+    <Rule>
       <Key>S2996</Key>
     </Rule>
     <Rule>
@@ -473,6 +476,9 @@
     </Rule>
     <Rule>
       <Key>S2612</Key>
+    </Rule>
+    <Rule>
+      <Key>S1698</Key>
     </Rule>
     <Rule>
       <Key>S3875</Key>
@@ -526,12 +532,12 @@
       <Key>S2436</Key>
       <Parameters>
         <Parameter>
-          <Key>maxMethod</Key>
-          <Value>3</Value>
-        </Parameter>
-        <Parameter>
           <Key>max</Key>
           <Value>2</Value>
+        </Parameter>
+        <Parameter>
+          <Key>maxMethod</Key>
+          <Value>3</Value>
         </Parameter>
       </Parameters>
     </Rule>

@@ -39,10 +39,5 @@ namespace Battleships.Models
 
             return dto;
         }
-        
-        //public override string ToString()
-        //{
-        //    return $"{nameof(GameSessionId)}: {GameSessionId}, {nameof(GameSession)}: {GameSession}, {nameof(IsHost)}: {IsHost}, {nameof(UserId)}: {UserId}, {nameof(User)}: {User.ToString()}, {nameof(PlayerShips)}: {PlayerShips}";
-        //}
     }
 }

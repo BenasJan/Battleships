@@ -14,7 +14,6 @@ namespace Battleships.Services.Users;
 public class UserManager : IUserManager
 {
     private readonly UserManager<ApplicationUser> _userManager;
-    //public IQueryable<ApplicationUser> Users;
     IQueryable<ApplicationUser> IUserManager.Users => _userManager.Users;
 
 

@@ -7,8 +7,6 @@ export class AttackMovesSubject implements Subject {
     public xCoord: number;
     public yCoord: number;
 
-    constructor() {}
-
     attach(observer: AttackMovesObserver): void {
         const isExist = this.observers.includes(observer);
         if (isExist) {

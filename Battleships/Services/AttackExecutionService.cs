@@ -58,7 +58,7 @@ namespace Battleships.Services
                 CallerUserId = attack.AttackingUserId,
                 Payload = attack
             });
-            
+
             if (await _endgameService.IsEndgameReached(attack.GameSessionId))
             {
                 await _endgameService.EndGameSession(attack.GameSessionId, attack.AttackingUserId);

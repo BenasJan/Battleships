@@ -8,7 +8,6 @@ import { LobbyPlayer } from "../../models/lobby-player";
 import { LobySession } from "../../models/lobby-session";
 import { GameSessionService } from "../../services/game-session.service";
 import { PlayerService } from "../../services/player.service";
-import { ToastService } from "../../services/toast.service";
 import { PublicUsersListComponent } from '../public-users-list/public-users-list.component';
 
 @Component({
@@ -46,9 +45,7 @@ export class GameLobbyComponent implements OnInit {
   getSession(){
     this.gameSessionService.getSession(this.sessionId).subscribe(res => {
      this.lobbySession = res;
-     // console.log("AA");
       this.lobbySession.gameType = GameType[Number(res.gameType)];
-     // console.log(this.lobbySession);
       }
     )
   }

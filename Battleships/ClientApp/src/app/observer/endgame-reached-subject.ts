@@ -6,8 +6,6 @@ export class EndgameReachedSubject implements Subject {
     public endgame: EndgameReachedPayload;
     private observers: EndgameReachedObserver[] = [];
 
-    constructor() {}
-
     attach(observer: EndgameReachedObserver): void {
         const isExist = this.observers.includes(observer);
         if (isExist) {

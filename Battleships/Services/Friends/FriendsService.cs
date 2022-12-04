@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Battleships.Data.Dto;
 using Battleships.Models;
@@ -33,11 +31,11 @@ namespace Battleships.Services.Friends
             var friends = await _userManager.Users
                 .Where(user => user.Id == currentUserId)
                 .SelectMany(
-                    user => user.AddedFriends.Select(friend => new FriendDto 
+                    user => user.Friends.Select(friend => new FriendDto 
                     { 
-                        Name = friend.AddedUser.Name,
-                        GamesPlayedCount = friend.AddedUser.Players.Count,
-                        GamesWonCount = friend.AddedUser.WonGames.Count,
+                        Name = friend.TargetUser.Name,
+                        GamesPlayedCount = friend.TargetUser.Players.Count,
+                        GamesWonCount = friend.TargetUser.WonGames.Count,
                         FriendId = friend.Id,
                         UserId = user.Id 
                     }))
@@ -46,47 +44,28 @@ namespace Battleships.Services.Friends
             return friends;
         }
 
-        public async Task<List<string>> GetFriendsIds(string currentUserId)
-        {
-            var friends = await _db.FriendsRepository.GetWhere(
-                user => user.InitiatingUserId.ToString() == currentUserId || user.AddedUserId.ToString() == currentUserId);
-
-            var friendsIds = new List<string>();
-
-            foreach (var friend in friends.Where(friend => friend.InitiatingUserId.ToString() == currentUserId || friend.AddedUserId.ToString() == currentUserId))
-            {
-                if (friend.InitiatingUserId.ToString() == currentUserId)
-                {
-                    friendsIds.Add(friend.AddedUserId.ToString());
-                }
-                else if (friend.AddedUserId.ToString() == currentUserId)
-                {
-                    friendsIds.Add(friend.InitiatingUserId.ToString());
-                }
-            }
-
-            return friendsIds;
-        }
-
         public async Task<bool> AddFriend(AddFriendEvent addFriendEvent)
         {
             var currentUserId = addFriendEvent.InitiatorUserId;
             var userId = addFriendEvent.TargetUserId;
-            var friendsIds = GetFriendsIds(currentUserId).Result;
 
-            if (userId != null && userId != currentUserId && !friendsIds.Contains(userId.ToString()))
+            var existingFriend = _db.FriendsRepository
+                .GetWhere(friend => friend.InitiatingUserId == currentUserId && friend.TargetUserId == userId);
+
+            if (existingFriend is not null)
             {
-                var newFriend = new Friend()
-                {
-                    InitiatingUserId = Guid.Parse(currentUserId),
-                    AddedUserId = Guid.Parse(userId)
-                };
-                await _db.FriendsRepository.Create(newFriend);
-
-                return true;
+                return false;
             }
 
-            return  false;
+            var friend = new Friend
+            {
+                InitiatingUserId = currentUserId,
+                TargetUserId = userId
+            };
+
+            await _db.FriendsRepository.Create(friend);
+
+            return true;
         }
 
         public async Task<bool> RemoveFriend(RemoveFriendEvent removeFriend)

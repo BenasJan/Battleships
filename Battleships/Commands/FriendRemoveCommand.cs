@@ -14,7 +14,7 @@ namespace Battleships.Commands
 
         public void Execute()
         {
-            Console.WriteLine($"{_friend.InitiatingUserId} {_friend.AddedUserId}");
+            Console.WriteLine($"{_friend.InitiatingUserId} {_friend.TargetUserId}");
         }
     }
 }

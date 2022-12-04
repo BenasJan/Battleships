@@ -26,7 +26,6 @@ export class FriendsListComponent implements OnInit {
   }
 
   removeFriend(friend: Friend): void {
-
     const event: RemoveFriendEvent = {
       friendId: friend.friendId,
       initiatorUserId: this.authorizationService.getUserId()

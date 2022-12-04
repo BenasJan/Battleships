@@ -12,6 +12,8 @@ namespace Battleships.Models
         public List<Player> Players { get; set; }
         public List<UserAchievement> UserAchievements { get; set; }
         public List<GameSession> WonGames { get; set; }
+        public List<Friend> AddedFriends { get; set; }
+        public List<Friend> FriendsAddedBy { get; set; }
 
         public override string ToString()
         {

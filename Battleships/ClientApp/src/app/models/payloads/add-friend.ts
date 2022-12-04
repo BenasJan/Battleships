@@ -1,3 +1,4 @@
-export interface AddFriendPayload {
-  userId: string;
+export interface AddFriendEvent {
+  initiatorUserId: string;
+  targetUserId: string;
 }

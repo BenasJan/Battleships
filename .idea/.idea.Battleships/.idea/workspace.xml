@@ -6,32 +6,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Battleships/Services/EventConsumers/AttackExecutionConsumer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/Services/EventConsumers/BaseConsumer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/Services/EventConsumers/EventsMediator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/Services/EventConsumers/IConsumer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/Services/EventConsumers/IEvent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/Services/EventConsumers/IEventsMediator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/Services/EventConsumers/InviteFriendConsumer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/Services/EventConsumers/RemoveFriendConsumer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Battleships/SignalR/FriendsHub.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Battleships/Data/Dto/FriendDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Controllers/FriendController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Controllers/FriendController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Data/Dto/FriendAddDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/Dto/AddFriendEvent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Data/Dto/FriendDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/Dto/RemoveFriendEvent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/IShipTilesRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/IShipTilesRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/ShipTilesRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/ShipTilesRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/AttackExecutionProxy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/AttackExecutionProxy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/AttackExecutionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/AttackExecutionService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/public-users-list/public-users-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/public-users-list/public-users-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/models/payloads/add-friend.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/models/payloads/add-friend.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/base-dialog-service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/friend.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/friend.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Commands/FriendRemoveCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Commands/FriendRemoveCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Data/Dto/RemoveFriendEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/Dto/RemoveFriendEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Models/ApplicationUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Models/ApplicationUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Models/Friend.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Models/Friend.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/EventConsumers/BaseConsumer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EventConsumers/BaseConsumer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/EventConsumers/InviteFriendConsumer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EventConsumers/AddFriendConsumer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Services/Friends/FriendsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Friends/FriendsService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Services/Friends/Interfaces/IFriendsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Friends/Interfaces/IFriendsService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/IAttackExecutor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/IAttackExecutor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/SignalR/BattleshipsHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/SignalR/BattleshipsHub.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/SignalR/BattleshipsSynchronizationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/SignalR/BattleshipsSynchronizationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/SignalR/Interfaces/IBattleshipsSynchronizationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/SignalR/Interfaces/IBattleshipsSynchronizationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/SignalR/Models/AttackPayload.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/SignalR/Models/AttackEvent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BattleshipsUnitTests/AttackExecutionServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipsUnitTests/AttackExecutionServiceTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/SignalR/FriendsHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/SignalR/FriendsHub.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BattleshipsUnitTests/FriendsServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipsUnitTests/FriendsServiceTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +123,8 @@
       <workItem from="1669554587289" duration="6385000" />
       <workItem from="1669735953717" duration="2243000" />
       <workItem from="1669747025743" duration="8357000" />
-      <workItem from="1670146556777" duration="13919000" />
+      <workItem from="1670146556777" duration="15141000" />
+      <workItem from="1670176781456" duration="4936000" />
     </task>
     <servers />
   </component>

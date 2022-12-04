@@ -18,4 +18,9 @@ public class FriendsHub : Hub
     {
         await _eventsMediator.PublishEvent(@event);
     }
+
+    public async Task RemoveFriend(RemoveFriendEvent @event)
+    {
+        await _eventsMediator.PublishEvent(@event);
+    }
 }

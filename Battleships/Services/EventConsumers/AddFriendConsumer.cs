@@ -5,11 +5,11 @@ using Battleships.Services.Friends.Interfaces;
 
 namespace Battleships.Services.EventConsumers;
 
-public class InviteFriendConsumer : BaseConsumer<AddFriendEvent>
+public class AddFriendConsumer : BaseConsumer<AddFriendEvent>
 {
     private readonly IFriendsService _friendsService;
 
-    public InviteFriendConsumer(IFriendsService friendsService)
+    public AddFriendConsumer(IFriendsService friendsService)
     {
         _friendsService = friendsService;
     }

@@ -8,10 +8,14 @@ namespace Battleships.Models
     {
         [Required]
         [ForeignKey("ApplicationUser")]
-        public Guid User1 { get; set; }
+        public Guid InitiatingUserId { get; set; }
 
+        public ApplicationUser InitiatingUser { get; set; }
+        
         [Required]
         [ForeignKey("ApplicationUser")]
-        public Guid User2 { get; set; }
+        public Guid AddedUserId { get; set; }
+
+        public ApplicationUser AddedUser { get; set; }
     }
 }

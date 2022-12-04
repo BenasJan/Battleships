@@ -6,7 +6,7 @@ namespace Battleships.Services.Friends.Interfaces
 {
     public interface IFriendsService
     {
-        Task<List<RemoveFriendEvent>> ListFriends();
+        Task<List<FriendDto>> ListFriends();
 
         Task<bool> AddFriend(AddFriendEvent addFriendEvent);
         Task<bool> RemoveFriend(RemoveFriendEvent removeFriend);

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Battleships.Services.EventConsumers;
 
-public abstract class BaseConsumer<TEvent> where TEvent : class
+public abstract class BaseConsumer<TEvent> : IConsumer<TEvent> where TEvent : IEvent
 {
     public async Task ConsumeEvent(TEvent @event)
     {

@@ -1,26 +1,29 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Battleships.Repositories;
 using Battleships.SignalR.Models;
 
 namespace Battleships.Services;
 
-public class AttackExecutionProxy : IAttackExecutionService
+public class AttackExecutionProxy : IAttackExecutor
 {
     private readonly IBattleshipsDatabase _battleshipsDatabase;
-    private readonly IAttackExecutionService _attackExecutionService;
+    private readonly IAttackExecutor _attackExecutor;
 
     public AttackExecutionProxy(
         IBattleshipsDatabase battleshipsDatabase,
-        IAttackExecutionService attackExecutionService
+        IAttackExecutor attackExecutor
     )
     {
         _battleshipsDatabase = battleshipsDatabase;
-        _attackExecutionService = attackExecutionService;
+        _attackExecutor = attackExecutor;
     }
     
     public async Task ExecuteAttack(AttackPayload attack)
     {
+        Console.WriteLine("EXECUTING ATTACK WITH PROXY");
+        
         var player = (await _battleshipsDatabase.PlayersRepository.GetWhere(p =>
             p.GameSessionId == attack.GameSessionId && p.UserId == attack.AttackingUserId)).FirstOrDefault();
 
@@ -28,7 +31,7 @@ public class AttackExecutionProxy : IAttackExecutionService
         
         if (userHasAccessToGame)
         {
-            await _attackExecutionService.ExecuteAttack(attack);
+            await _attackExecutor.ExecuteAttack(attack);
         }
     }
 }

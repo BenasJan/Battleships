@@ -112,7 +112,7 @@ namespace Battleships
                 .AddScoped<IInGameSessionHelperService, InGameSessionHelperService>()
                 .AddScoped<IUserManager, UserManager>()
                 .AddScoped<AttackExecutionService>()
-                .AddScoped<IAttackExecutionService, AttackExecutionProxy>(serviceProvider =>
+                .AddScoped<IAttackExecutor, AttackExecutionProxy>(serviceProvider =>
                 {
                     var database = serviceProvider.GetRequiredService<IBattleshipsDatabase>();
                     var attackExecutionService = serviceProvider.GetRequiredService<AttackExecutionService>();

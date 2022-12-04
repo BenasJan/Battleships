@@ -6,8 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Battleships/Services/AttackExecutionProxy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/AttackExecutionProxy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/AttackExecutionProxy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/AttackExecutionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/AttackExecutionService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/IAttackExecutionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/IAttackExecutor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/SignalR/BattleshipsHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/SignalR/BattleshipsHub.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +112,7 @@
       <workItem from="1669554587289" duration="6385000" />
       <workItem from="1669735953717" duration="2243000" />
       <workItem from="1669747025743" duration="8357000" />
-      <workItem from="1670146556777" duration="1806000" />
+      <workItem from="1670146556777" duration="3283000" />
     </task>
     <servers />
   </component>
@@ -494,10 +497,10 @@
           <line>22</line>
           <properties documentPath="D:\dev\Battleships\Battleships\SignalR\BattleshipsHub.cs" initialLine="22" containingFunctionPresentation="method 'ConnectToGameSession'">
             <startOffsets>
-              <option value="670" />
+              <option value="622" />
             </startOffsets>
             <endOffsets>
-              <option value="671" />
+              <option value="623" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="15" />
@@ -507,10 +510,10 @@
           <line>17</line>
           <properties documentPath="D:\dev\Battleships\Battleships\SignalR\BattleshipsHub.cs" initialLine="17" containingFunctionPresentation="method 'ConnectUser'">
             <startOffsets>
-              <option value="502" />
+              <option value="454" />
             </startOffsets>
             <endOffsets>
-              <option value="503" />
+              <option value="455" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="16" />

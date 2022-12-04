@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Battleships.Prototype;
-
 namespace Battleships.Models
 {
-    public class Achievement : AchievementPrototype
+    public class Achievement : BaseModel
     {
         public string Name { get; set; }
         public string Description { get; set; }
@@ -13,10 +11,5 @@ namespace Battleships.Models
         public int ActionPerformedCount { get; set; }
         public int RequiredActionPerformedCount { get; set; }
         public List<ApplicationUser> Users { get; set; }
-
-        public override AchievementPrototype Clone()
-        {
-            return this.MemberwiseClone() as AchievementPrototype;
-        }
     }
 }

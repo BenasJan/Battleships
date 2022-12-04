@@ -3,11 +3,10 @@
  using System.Linq;
  using Battleships.Data.Dto;
  using Battleships.Models.enums;
- using Battleships.Prototype;
 
  namespace Battleships.Models
 {
-    public class GameSession : GameSessionPrototype
+    public class GameSession : BaseModel
     {
         public string Icon { get; set; }
         public string Name { get; set; }
@@ -39,9 +38,9 @@
             return dto;
         }
 
-        private GameSession DeepCopy(GameSession gameSession)
+        public GameSession DeepCopy(GameSession gameSession)
         {
-            var shallowCopy = ShallowClone() as GameSession;
+            var shallowCopy = new GameSession();
             var settings = shallowCopy.Settings;
 
             var playerOne = new Player(gameSession, true, gameSession.Players[0].UserId);
@@ -69,20 +68,9 @@
             
         }
 
-        public override string ToString()
+        public string ToString()
         {
             return this.Id.ToString() + " " + this.Name + " " + this.Icon + " " + this.Players[0].Id;
-        }
-
-        public override GameSessionPrototype ShallowClone()
-        {
-            return this.MemberwiseClone() as GameSessionPrototype;
-        }
-
-        public override GameSessionPrototype DeepClone(GameSession gameSessionPrototype)
-        {
-            var copiedSession = DeepCopy(gameSessionPrototype);
-            return copiedSession;
         }
     }
 }

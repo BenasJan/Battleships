@@ -8,7 +8,7 @@ namespace Battleships.Repositories
 {
     public interface IShipTilesRepository : IRepository<ShipTile>
     {
-        Task<List<ShipTile>> GetAttackedTiles(AttackPayload attack);
+        Task<List<ShipTile>> GetAttackedTiles(AttackEvent attack);
         Task<List<ShipTile>> GetSessionShipTiles(Guid gameSessionId);
         Task<List<ShipTile>> GetPlayerTiles(Guid playerId);
     }   

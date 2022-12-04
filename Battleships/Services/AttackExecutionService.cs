@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Battleships.Models;
 using Battleships.Repositories;
@@ -23,8 +24,10 @@ namespace Battleships.Services
             _battleshipsSynchronizationService = battleshipsSynchronizationService;
         }
 
-        public async Task ExecuteAttack(AttackPayload attack)
+        public async Task ExecuteAttack(AttackEvent attack)
         {
+            Console.WriteLine("EXECUTING ATTACK WITH PROXY - ATTACK EXECUTION IN PROGRESS");
+
             var session = await _battleshipsDatabase.GameSessionsRepository.GetWithPlayersAndSettings(attack.GameSessionId);
             var attackedTiles = await _battleshipsDatabase.ShipTilesRepository.GetAttackedTiles(attack);
             var currentUserPlayer = session.Players.First(p => p.IsCurrentPlayerTurn);
@@ -53,7 +56,7 @@ namespace Battleships.Services
             opponentPlayer.IsCurrentPlayerTurn = true;
             
             await _battleshipsDatabase.GameSessionsRepository.Update(session);
-            await _battleshipsSynchronizationService.SendAttackMessage(session.Id, new BattleshipsMessage<AttackPayload>
+            await _battleshipsSynchronizationService.SendAttackMessage(session.Id, new BattleshipsMessage<AttackEvent>
             {
                 CallerUserId = attack.AttackingUserId,
                 Payload = attack

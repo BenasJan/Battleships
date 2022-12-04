@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -28,11 +29,11 @@ import { GameLobbyComponent } from './components/game-lobby/game-lobby.component
 import { GameSessionComponent } from './components/game-session/game-session.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { LoginComponent } from './components/login/login.component';
+import { NotificationComponent } from './components/notification/notification.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { PublicGamesListComponent } from './components/public-games-list/public-games-list.component';
 import { PublicUsersListComponent } from './components/public-users-list/public-users-list.component';
 import { RegisterComponent } from './components/register/register.component';
-import { NotificationComponent } from './components/notification/notification.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { NotificationComponent } from './components/notification/notification.co
     MatSelectModule,
     MatButtonToggleModule,
     MatTableModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule
   ],
   providers: [CdkColumnDef,{
     provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },

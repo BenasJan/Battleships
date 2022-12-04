@@ -26,18 +26,18 @@ namespace Battleships.Services.Friends
             _currentUserService = currentUserService;
         }        
 
-        public async Task<List<FriendDto>> ListFriends()
+        public async Task<List<RemoveFriendEvent>> ListFriends()
         {
             var currentUserId = _currentUserService.GetCurrentUserId();
             var friendsIds = await GetFriendsIds(currentUserId);
             var friendsUsers = await _userManager.GetFriendsList(currentUserId, friendsIds);
 
-            var friends = friendsUsers.Select(user => new FriendDto
+            var friends = friendsUsers.Select(user => new RemoveFriendEvent
             {
-                Name = user.UserName,
-                GamesPlayedCount = RandomNumberGenerator.GetInt32(25, 50),
-                GamesWonCount = RandomNumberGenerator.GetInt32(25),
-                UserId = user.Id
+                // Name = user.UserName,
+                // GamesPlayedCount = RandomNumberGenerator.GetInt32(25, 50),
+                // GamesWonCount = RandomNumberGenerator.GetInt32(25),
+                // UserId = user.Id
             }).ToList();
 
             return friends;
@@ -65,9 +65,10 @@ namespace Battleships.Services.Friends
             return friendsIds;
         }
 
-        public async Task<bool> AddFriend(string userId)
+        public async Task<bool> AddFriend(AddFriendEvent addFriendEvent)
         {
-            var currentUserId = _currentUserService.GetCurrentUserId();
+            var currentUserId = addFriendEvent.InitiatorUserId;
+            var userId = addFriendEvent.TargetUserId;
             var friendsIds = GetFriendsIds(currentUserId).Result;
 
             if (userId != null && userId != currentUserId && !friendsIds.Contains(userId.ToString()))
@@ -85,17 +86,12 @@ namespace Battleships.Services.Friends
             return  false;
         }
 
-        public async Task<bool> RemoveFriend(FriendDto friend)
+        public async Task<bool> RemoveFriend(RemoveFriendEvent removeFriend)
         {
-            var currentUserId = _currentUserService.GetCurrentUserId();
+            var friend = await _db.FriendsRepository.GetById(removeFriend.FriendId);
+            await _db.FriendsRepository.Delete(friend);
 
-            var friends = await _db.FriendsRepository.GetWhere(
-            user => (user.User1.ToString() == currentUserId && user.User2.ToString() == friend.UserId)
-            || (user.User1.ToString() == friend.UserId && user.User2.ToString() == currentUserId));
-
-            await _db.FriendsRepository.DeleteMany(friends);
-
-            return false;
+            return true;
         }
     }
 }

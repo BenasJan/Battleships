@@ -1,8 +1,9 @@
 ﻿using System;
+using Battleships.Services.EventConsumers;
 
 namespace Battleships.SignalR.Models
 {
-    public class AttackPayload
+    public class AttackEvent : IEvent
     {
         public Guid GameSessionId { get; set; }
         public string AttackingUserId { get; set; }

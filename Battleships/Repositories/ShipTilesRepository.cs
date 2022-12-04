@@ -15,7 +15,7 @@ namespace Battleships.Repositories
         {
         }
 
-        public async Task<List<ShipTile>> GetAttackedTiles(AttackPayload attack)
+        public async Task<List<ShipTile>> GetAttackedTiles(AttackEvent attack)
         {
             return await GetWhere(tile =>
                 tile.XCoordinate == attack.TargetXCoordinate && tile.YCoordinate == attack.TargetYCoordinate &&

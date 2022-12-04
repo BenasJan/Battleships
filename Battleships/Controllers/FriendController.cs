@@ -23,20 +23,5 @@ namespace Battleships.Controllers
 
             return Ok(friends);
         }
-
-        [HttpPost("addFriend")]
-        public async Task<IActionResult> AddFriend([FromBody] FriendAddDto friendAddBody)
-        {
-            var success = await _friendsService.AddFriend(friendAddBody.UserId);
-
-            return Ok(success);
-        }        
-        [HttpPost("removeFriend")]
-        public async Task<IActionResult> RemoveFriend([FromBody] FriendDto friend)
-        {
-            var success = await _friendsService.RemoveFriend(friend);
-
-            return Ok(success);
-        }
     }
 }

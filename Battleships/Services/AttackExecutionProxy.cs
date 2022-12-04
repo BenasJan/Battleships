@@ -20,9 +20,9 @@ public class AttackExecutionProxy : IAttackExecutor
         _attackExecutor = attackExecutor;
     }
     
-    public async Task ExecuteAttack(AttackPayload attack)
+    public async Task ExecuteAttack(AttackEvent attack)
     {
-        Console.WriteLine("EXECUTING ATTACK WITH PROXY");
+        Console.WriteLine("EXECUTING ATTACK WITH PROXY - PROXY HAS BEEN CALLED");
         
         var player = (await _battleshipsDatabase.PlayersRepository.GetWhere(p =>
             p.GameSessionId == attack.GameSessionId && p.UserId == attack.AttackingUserId)).FirstOrDefault();

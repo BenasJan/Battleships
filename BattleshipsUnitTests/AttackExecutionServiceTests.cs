@@ -36,7 +36,7 @@ public class AttackExecutionServiceTests
     public async Task When_ExecutingAttack_With_TargetTileWithShip_Expect_UpdateCalled()
     {
         var targetedTile = new List<ShipTile> { new ShipTile() };
-        var attack = new AttackPayload();
+        var attack = new AttackEvent();
 
         SetupGetAttackedTile(targetedTile, attack);
         SetupGetGameSession(GetGameSession());
@@ -53,7 +53,7 @@ public class AttackExecutionServiceTests
     public async Task When_ExecutingAttack_With_TargetTileWithoutShip_Expect_UpdateNotCalled()
     {
         var targetedTile = new List<ShipTile>();
-        var attack = new AttackPayload();
+        var attack = new AttackEvent();
 
         SetupGetAttackedTile(targetedTile, attack);
         SetupGetGameSession(GetGameSession());
@@ -70,7 +70,7 @@ public class AttackExecutionServiceTests
     public async Task When_ExecutingAttack_Expect_RoundIncremented()
     {
         var targetedTile = new List<ShipTile>();
-        var attack = new AttackPayload();
+        var attack = new AttackEvent();
 
         var gameSession = GetGameSession();
         gameSession.CurrentRound = 4;
@@ -91,7 +91,7 @@ public class AttackExecutionServiceTests
     {
         var gameSessionId = Guid.NewGuid();
         var attackerId = Guid.NewGuid().ToString();
-        var attack = new AttackPayload{ GameSessionId = gameSessionId, AttackingUserId = attackerId };
+        var attack = new AttackEvent{ GameSessionId = gameSessionId, AttackingUserId = attackerId };
         SetupGetAttackedTile(new List<ShipTile>{ new ShipTile() }, attack);
         SetupGetGameSession(GetGameSession());
         SetupEndgameReached(gameSessionId, true);
@@ -104,11 +104,11 @@ public class AttackExecutionServiceTests
         ), Times.Once);
     }
 
-    private void SetupGetAttackedTile(List<ShipTile> tiles, AttackPayload attack)
+    private void SetupGetAttackedTile(List<ShipTile> tiles, AttackEvent attack)
     {
         _shipTilesRepositoryMock
             .Setup(repo => repo
-                .GetAttackedTiles(It.Is<AttackPayload>(expected => expected == attack))
+                .GetAttackedTiles(It.Is<AttackEvent>(expected => expected == attack))
             )
             .ReturnsAsync(tiles);
     }

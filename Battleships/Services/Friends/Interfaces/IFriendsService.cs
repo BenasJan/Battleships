@@ -6,10 +6,10 @@ namespace Battleships.Services.Friends.Interfaces
 {
     public interface IFriendsService
     {
-        Task<List<FriendDto>> ListFriends();
+        Task<List<RemoveFriendEvent>> ListFriends();
 
-        Task<bool> AddFriend(string userId);
-        Task<bool> RemoveFriend(FriendDto friend);
+        Task<bool> AddFriend(AddFriendEvent addFriendEvent);
+        Task<bool> RemoveFriend(RemoveFriendEvent removeFriend);
 
     }
 }

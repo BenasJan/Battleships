@@ -7,28 +7,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/conf/0/merged.ruleset" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/conf/0/merged.ruleset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/conf/Sonar-cs.ruleset" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/conf/Sonar-cs.ruleset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/conf/cs/SonarLint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/conf/cs/SonarLint.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/out/.sonar/report-task.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/out/.sonar/report-task.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/out/0/Issues.json" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/out/0/Issues.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/out/0/output-cs/metrics.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/out/0/output-cs/metrics.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/out/0/output-cs/symrefs.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/out/0/output-cs/symrefs.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/out/0/output-cs/token-cpd.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/out/0/output-cs/token-cpd.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/out/0/output-cs/token-type.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/out/0/output-cs/token-type.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/out/1/Issues.json" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/out/1/Issues.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/out/1/output-cs/symrefs.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/out/1/output-cs/symrefs.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarqube/out/1/output-cs/token-type.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.sonarqube/out/1/output-cs/token-type.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/Battleships/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Battleships/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/Battleships/v17/.futdcache.v1" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Battleships/v17/.futdcache.v1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/Battleships/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Battleships/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/Battleships/v17/fileList.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/Battleships/v17/fileList.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/game-session/game-session.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/game-session/game-session.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/models/game-session.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/models/game-session.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/authorization.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/authorization.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/signal-r.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/signal-r.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/AttackExecutionProxy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/AttackExecutionProxy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Battleships/Services/AttackExecutionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/AttackExecutionService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/EmailSendingService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EmailSendingService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/IAttackExecutionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/IAttackExecutor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/SignalR/BattleshipsHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/SignalR/BattleshipsHub.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,6 +112,7 @@
       <workItem from="1669554587289" duration="6385000" />
       <workItem from="1669735953717" duration="2243000" />
       <workItem from="1669747025743" duration="8357000" />
+      <workItem from="1670146556777" duration="3283000" />
     </task>
     <servers />
   </component>
@@ -139,25 +123,9 @@
     <option name="coveragePercentColumnWidth" value="60" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="15" />
+    <option name="symbolColumnWidth" value="114" />
     <coverage-tree-state>
-      <expand>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 69% 428/1368" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 69% 428/1368" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Battleships 53% 398/845" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 69% 428/1368" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Battleships 53% 398/845" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Battleships 53% 398/845" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-      </expand>
+      <expand />
       <select />
     </coverage-tree-state>
   </component>
@@ -529,10 +497,10 @@
           <line>22</line>
           <properties documentPath="D:\dev\Battleships\Battleships\SignalR\BattleshipsHub.cs" initialLine="22" containingFunctionPresentation="method 'ConnectToGameSession'">
             <startOffsets>
-              <option value="670" />
+              <option value="622" />
             </startOffsets>
             <endOffsets>
-              <option value="671" />
+              <option value="623" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="15" />
@@ -542,10 +510,10 @@
           <line>17</line>
           <properties documentPath="D:\dev\Battleships\Battleships\SignalR\BattleshipsHub.cs" initialLine="17" containingFunctionPresentation="method 'ConnectUser'">
             <startOffsets>
-              <option value="502" />
+              <option value="454" />
             </startOffsets>
             <endOffsets>
-              <option value="503" />
+              <option value="455" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="16" />

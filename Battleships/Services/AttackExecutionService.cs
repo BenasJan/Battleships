@@ -7,7 +7,7 @@ using Battleships.SignalR.Models;
 
 namespace Battleships.Services
 {
-    public class AttackExecutionService : IAttackExecutionService
+    public class AttackExecutionService : IAttackExecutor
     {
         private readonly IBattleshipsDatabase _battleshipsDatabase;
         private readonly IEndgameService _endgameService;

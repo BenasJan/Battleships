@@ -3,7 +3,7 @@ using Battleships.SignalR.Models;
 
 namespace Battleships.Services
 {
-    public interface IAttackExecutionService
+    public interface IAttackExecutor
     {
         Task ExecuteAttack(AttackPayload attack);
     }

@@ -98,7 +98,6 @@ namespace Battleships
                 .AddScoped<IPlayersRepository, PlayersRepository>()
                 .AddScoped<IPlayersService, PlayersService>()
                 .AddScoped<IShipTilesRepository, ShipTilesRepository>()
-                .AddScoped<IAttackExecutionService, AttackExecutionService>()
                 .AddScoped<IEndgameService, EndgameService>()
                 .AddScoped<IEndgameStrategyService, EndgameStrategyService>()
                 .AddScoped<IEndgameStrategy, ClassicEndgameStrategy>()
@@ -112,6 +111,14 @@ namespace Battleships
                 .AddScoped<IFriendsService, FriendsService>()
                 .AddScoped<IInGameSessionHelperService, InGameSessionHelperService>()
                 .AddScoped<IUserManager, UserManager>()
+                .AddScoped<AttackExecutionService>()
+                .AddScoped<IAttackExecutor, AttackExecutionProxy>(serviceProvider =>
+                {
+                    var database = serviceProvider.GetRequiredService<IBattleshipsDatabase>();
+                    var attackExecutionService = serviceProvider.GetRequiredService<AttackExecutionService>();
+
+                    return new AttackExecutionProxy(database, attackExecutionService);
+                })
                 ;
         }
 

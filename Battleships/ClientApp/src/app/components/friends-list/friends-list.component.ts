@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RemoveFriendEvent } from 'src/app/models/payloads/remove-friend-event';
+import { AuthorizationService } from 'src/app/services/authorization.service';
 import { Friend } from '../../models/friend';
 import { FriendService } from '../../services/friend.service';
 
@@ -9,16 +11,12 @@ import { FriendService } from '../../services/friend.service';
 })
 export class FriendsListComponent implements OnInit {
 
-  //public friends = [
-  //  {icon: 'person', name: 'Kajus Knoras', gamesPlayedCount: 10, gamesWonCount: 5 },
-  //  {icon: 'person', name: 'Vladislav ryžovas', gamesPlayedCount: 2, gamesWonCount: 2 },
-  //  {icon: 'person', name: 'Tomas Venslova', gamesPlayedCount: 3, gamesWonCount: 3 },
-  //  {icon: 'person', name: 'Raminta Valaitytė', gamesPlayedCount: 5, gamesWonCount: 4 },
-  //]
-
   public friends: Friend[] = [];
 
-  constructor(private friendService: FriendService) { }
+  constructor(
+    private friendService: FriendService,
+    private authorizationService: AuthorizationService
+  ) { }
 
   ngOnInit(): void {
     this.friendService.fetchFriends().subscribe((res: Friend[]) => {
@@ -28,11 +26,13 @@ export class FriendsListComponent implements OnInit {
   }
 
   removeFriend(friend: Friend): void {
-    console.log("addFriend id:", friend);
 
-    this.friendService.removeFriend(friend).subscribe(res => {
-      console.log("addFriend res:", res);
-    })
+    const event: RemoveFriendEvent = {
+      friendId: friend.friendId,
+      initiatorUserId: this.authorizationService.getUserId()
+    };
+
+    this.friendService.removeFriend(event).subscribe()
   }
 
 }

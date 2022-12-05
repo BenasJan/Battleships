@@ -5,6 +5,6 @@ namespace Battleships.Services
 {
     public interface IAttackExecutor
     {
-        Task ExecuteAttack(AttackPayload attack);
+        Task ExecuteAttack(AttackEvent attack);
     }
 }

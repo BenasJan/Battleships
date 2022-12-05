@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Battleships.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221103235240_UpdateShipTileAgain")]
-    partial class UpdateShipTileAgain
+    [Migration("20221204203418_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -123,6 +123,29 @@ namespace Battleships.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("Battleships.Models.Friend", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("InitiatingUserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("TargetUserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InitiatingUserId");
+
+                    b.HasIndex("TargetUserId");
+
+                    b.ToTable("Friends");
                 });
 
             modelBuilder.Entity("Battleships.Models.GameSession", b =>
@@ -283,11 +306,26 @@ namespace Battleships.Migrations
                     b.Property<Guid?>("AttackerPlayerId")
                         .HasColumnType("uuid");
 
+                    b.Property<int>("Engine")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("GunCount")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Guns")
+                        .HasColumnType("integer");
+
                     b.Property<bool>("IsDestroyed")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsFlagship")
                         .HasColumnType("boolean");
 
                     b.Property<Guid?>("PlayerShipId")
                         .HasColumnType("uuid");
+
+                    b.Property<bool>("Shield")
+                        .HasColumnType("boolean");
 
                     b.Property<Guid?>("TargetPlayerId")
                         .HasColumnType("uuid");
@@ -535,6 +573,25 @@ namespace Battleships.Migrations
                         .HasForeignKey("AchievementId");
                 });
 
+            modelBuilder.Entity("Battleships.Models.Friend", b =>
+                {
+                    b.HasOne("Battleships.Models.ApplicationUser", "InitiatingUser")
+                        .WithMany("Friends")
+                        .HasForeignKey("InitiatingUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Battleships.Models.ApplicationUser", "TargetUser")
+                        .WithMany("FriendsIAmAddedBy")
+                        .HasForeignKey("TargetUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("InitiatingUser");
+
+                    b.Navigation("TargetUser");
+                });
+
             modelBuilder.Entity("Battleships.Models.GameSession", b =>
                 {
                     b.HasOne("Battleships.Models.ApplicationUser", "Winner")
@@ -703,6 +760,10 @@ namespace Battleships.Migrations
             modelBuilder.Entity("Battleships.Models.ApplicationUser", b =>
                 {
                     b.Navigation("Cosmetics");
+
+                    b.Navigation("Friends");
+
+                    b.Navigation("FriendsIAmAddedBy");
 
                     b.Navigation("Players");
 

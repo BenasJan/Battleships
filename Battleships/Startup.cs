@@ -1,5 +1,6 @@
 using System;
 using Battleships.Data;
+using Battleships.Data.Dto;
 using Battleships.Factories;
 using Battleships.Models;
 using Battleships.Repositories;
@@ -9,6 +10,7 @@ using Battleships.Services.Achievement.Interfaces;
 using Battleships.Services.Authentication;
 using Battleships.Services.Authentication.Interfaces;
 using Battleships.Services.EndgameStrategies;
+using Battleships.Services.EventConsumers;
 using Battleships.Services.Players;
 using Battleships.Services.Players.Interfaces;
 using Battleships.Services.GameSession;
@@ -28,6 +30,7 @@ using Microsoft.IdentityModel.Tokens;
 using Battleships.Services.Friends.Interfaces;
 using Battleships.Services.Friends;
 using Battleships.Services.Users;
+using Battleships.SignalR.Models;
 
 namespace Battleships
 {
@@ -119,6 +122,10 @@ namespace Battleships
 
                     return new AttackExecutionProxy(database, attackExecutionService);
                 })
+                .AddScoped<IConsumer<AttackEvent>, AttackExecutionConsumer>()
+                .AddScoped<IConsumer<AddFriendEvent>, AddFriendConsumer>()
+                .AddScoped<IConsumer<RemoveFriendEvent>, RemoveFriendConsumer>()
+                .AddScoped<IEventsMediator, EventsMediator>()
                 ;
         }
 
@@ -157,10 +164,10 @@ namespace Battleships
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
-                endpoints.MapHub<BattleshipsHub>("/battleshipsHub", options =>
-                {
-                    options.Transports = HttpTransportType.WebSockets;
-                });
+                endpoints
+                    .MapHub<BattleshipsHub>("/battleshipsHub", options => options.Transports = HttpTransportType.WebSockets);
+                endpoints
+                    .MapHub<FriendsHub>("/friendsHub", options => options.Transports = HttpTransportType.WebSockets);
             });
 
             app.UseSpa(spa =>

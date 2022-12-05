@@ -1,17 +1,16 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Battleships.Models
 {
     public class Friend : BaseModel
     {
         [Required]
-        [ForeignKey("ApplicationUser")]
-        public Guid User1 { get; set; }
+        public string InitiatingUserId { get; set; }
 
+        public ApplicationUser InitiatingUser { get; set; }
+        
         [Required]
-        [ForeignKey("ApplicationUser")]
-        public Guid User2 { get; set; }
+        public string TargetUserId { get; set; }
+        public ApplicationUser TargetUser { get; set; }
     }
 }

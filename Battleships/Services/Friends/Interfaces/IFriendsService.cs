@@ -8,8 +8,8 @@ namespace Battleships.Services.Friends.Interfaces
     {
         Task<List<FriendDto>> ListFriends();
 
-        Task<bool> AddFriend(string userId);
-        Task<bool> RemoveFriend(FriendDto friend);
+        Task<bool> AddFriend(AddFriendEvent addFriendEvent);
+        Task<bool> RemoveFriend(RemoveFriendEvent removeFriend);
 
     }
 }

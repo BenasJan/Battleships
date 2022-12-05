@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Battleships.Migrations
 {
-    public partial class friendsInit : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -41,39 +41,14 @@ namespace Battleships.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Friends",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    User1 = table.Column<Guid>(type: "uuid", nullable: false),
-                    User2 = table.Column<Guid>(type: "uuid", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Friends", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "GameSession",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Icon = table.Column<string>(type: "text", nullable: true),
-                    Name = table.Column<string>(type: "text", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_GameSession", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Ship",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     ShipTypeDiscriminator = table.Column<string>(type: "text", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: true),
-                    Description = table.Column<string>(type: "text", nullable: true)
+                    Description = table.Column<string>(type: "text", nullable: true),
+                    ShipType = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -130,28 +105,6 @@ namespace Battleships.Migrations
                         name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
                         column: x => x.RoleId,
                         principalTable: "AspNetRoles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "GameSessionSettings",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    GameSessionId = table.Column<Guid>(type: "uuid", nullable: false),
-                    GridSize = table.Column<string>(type: "text", nullable: true),
-                    GameType = table.Column<int>(type: "integer", nullable: false),
-                    RoundCount = table.Column<int>(type: "integer", nullable: false),
-                    DestroyedShipPercentage = table.Column<int>(type: "integer", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_GameSessionSettings", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_GameSessionSettings_GameSession_GameSessionId",
-                        column: x => x.GameSessionId,
-                        principalTable: "GameSession",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -242,28 +195,52 @@ namespace Battleships.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Player",
+                name: "Friends",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    GameSessionId = table.Column<Guid>(type: "uuid", nullable: false),
-                    IsHost = table.Column<bool>(type: "boolean", nullable: false),
-                    UserId = table.Column<string>(type: "text", nullable: true)
+                    InitiatingUserId = table.Column<string>(type: "text", nullable: false),
+                    TargetUserId = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Player", x => x.Id);
+                    table.PrimaryKey("PK_Friends", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Player_AspNetUsers_UserId",
-                        column: x => x.UserId,
+                        name: "FK_Friends_AspNetUsers_InitiatingUserId",
+                        column: x => x.InitiatingUserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Player_GameSession_GameSessionId",
-                        column: x => x.GameSessionId,
-                        principalTable: "GameSession",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Friends_AspNetUsers_TargetUserId",
+                        column: x => x.TargetUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "GameSession",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Icon = table.Column<string>(type: "text", nullable: true),
+                    Name = table.Column<string>(type: "text", nullable: true),
+                    DateCreated = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    GameLength = table.Column<TimeSpan>(type: "interval", nullable: false),
+                    Status = table.Column<int>(type: "integer", nullable: false),
+                    CurrentRound = table.Column<int>(type: "integer", nullable: false),
+                    EndgameStrategy = table.Column<string>(type: "text", nullable: true),
+                    WinnerId = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GameSession", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_GameSession_AspNetUsers_WinnerId",
+                        column: x => x.WinnerId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -316,6 +293,57 @@ namespace Battleships.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "GameSessionSettings",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    GameSessionId = table.Column<Guid>(type: "uuid", nullable: false),
+                    GridSize = table.Column<string>(type: "text", nullable: true),
+                    ColumnCount = table.Column<int>(type: "integer", nullable: false),
+                    RowCount = table.Column<int>(type: "integer", nullable: false),
+                    GameType = table.Column<int>(type: "integer", nullable: false),
+                    RoundCountLimitForEndgame = table.Column<int>(type: "integer", nullable: false),
+                    DestroyedShipsPercentageForEndgame = table.Column<int>(type: "integer", nullable: false),
+                    DestroyedShipCountForEndgame = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GameSessionSettings", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_GameSessionSettings_GameSession_GameSessionId",
+                        column: x => x.GameSessionId,
+                        principalTable: "GameSession",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Player",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    GameSessionId = table.Column<Guid>(type: "uuid", nullable: false),
+                    IsHost = table.Column<bool>(type: "boolean", nullable: false),
+                    IsCurrentPlayerTurn = table.Column<bool>(type: "boolean", nullable: false),
+                    UserId = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Player", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Player_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Player_GameSession_GameSessionId",
+                        column: x => x.GameSessionId,
+                        principalTable: "GameSession",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PlayerShip",
                 columns: table => new
                 {
@@ -348,34 +376,33 @@ namespace Battleships.Migrations
                     XCoordinate = table.Column<int>(type: "integer", nullable: false),
                     YCoordinate = table.Column<int>(type: "integer", nullable: false),
                     IsDestroyed = table.Column<bool>(type: "boolean", nullable: false),
-                    PlayerShipId = table.Column<Guid>(type: "uuid", nullable: false)
+                    AttackerPlayerId = table.Column<Guid>(type: "uuid", nullable: true),
+                    TargetPlayerId = table.Column<Guid>(type: "uuid", nullable: true),
+                    PlayerShipId = table.Column<Guid>(type: "uuid", nullable: true),
+                    Engine = table.Column<int>(type: "integer", nullable: false),
+                    Guns = table.Column<int>(type: "integer", nullable: false),
+                    Shield = table.Column<bool>(type: "boolean", nullable: false),
+                    GunCount = table.Column<int>(type: "integer", nullable: false),
+                    IsFlagship = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ShipTile", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_ShipTile_Player_AttackerPlayerId",
+                        column: x => x.AttackerPlayerId,
+                        principalTable: "Player",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_ShipTile_Player_TargetPlayerId",
+                        column: x => x.TargetPlayerId,
+                        principalTable: "Player",
+                        principalColumn: "Id");
+                    table.ForeignKey(
                         name: "FK_ShipTile_PlayerShip_PlayerShipId",
                         column: x => x.PlayerShipId,
                         principalTable: "PlayerShip",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.InsertData(
-                table: "Achievements",
-                columns: new[] { "Id", "ActionPerformedCount", "Description", "Name", "RequiredAction", "RequiredActionPerformedCount" },
-                values: new object[,]
-                {
-                    { new Guid("241de7b9-af56-4664-83c9-f6fe4294a1b3"), 0, "Get hit by an enemy player for the first time", "Get hit", "Get one of your ships damaged", 1 },
-                    { new Guid("3022194d-d137-4ddb-89b0-68ce1842428c"), 0, "Start your first match", "Lets go", "Start match", 1 },
-                    { new Guid("34574fd2-5115-40a9-917c-2d4137e0863e"), 0, "Lose five times against an enemy player", "Loser", "Lose 5 times", 5 },
-                    { new Guid("3a1a9b33-457b-4cd4-bc61-894d63e3a653"), 0, "Win 10 matches", "Ten fingers", "Win 10 Matches", 10 },
-                    { new Guid("4755f58f-5964-4908-ba32-ca00d4532419"), 0, "Lose against an enemy player", "Its okay", "Lose match", 1 },
-                    { new Guid("7e864ca7-2736-49d6-a733-9150b1693de5"), 0, "Hit your first piece of a ship", "First blood", "Shoot a ship", 1 },
-                    { new Guid("915efd4f-18ac-41ac-a743-f4ca4da98945"), 0, "Win five times against an enemy player", "Fiver win", "Win 5 times", 5 },
-                    { new Guid("c3c39233-588d-403b-8444-176dc17a1cbe"), 0, "Win your first match", "First Win", "Win match", 1 },
-                    { new Guid("fb03e03f-b989-4a87-926f-55b7d74df038"), 0, "Have your shot miss any enemy ship", "Miss", "Shoot an empty tile", 1 },
-                    { new Guid("fc228190-f4fe-4777-905b-20e6cfbb5532"), 0, "End a match before it ends", "Quitter", "Cancel match", 1 }
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -421,6 +448,21 @@ namespace Battleships.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Friends_InitiatingUserId",
+                table: "Friends",
+                column: "InitiatingUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Friends_TargetUserId",
+                table: "Friends",
+                column: "TargetUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_GameSession_WinnerId",
+                table: "GameSession",
+                column: "WinnerId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_GameSessionSettings_GameSessionId",
                 table: "GameSessionSettings",
                 column: "GameSessionId",
@@ -447,9 +489,19 @@ namespace Battleships.Migrations
                 column: "ShipId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ShipTile_AttackerPlayerId",
+                table: "ShipTile",
+                column: "AttackerPlayerId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ShipTile_PlayerShipId",
                 table: "ShipTile",
                 column: "PlayerShipId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ShipTile_TargetPlayerId",
+                table: "ShipTile",
+                column: "TargetPlayerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserAchievement_AchievementId",
@@ -517,10 +569,10 @@ namespace Battleships.Migrations
                 name: "Ship");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "GameSession");
 
             migrationBuilder.DropTable(
-                name: "GameSession");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Achievements");

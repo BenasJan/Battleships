@@ -45,7 +45,7 @@ namespace Battleships.Services.GameSession
         private async Task LaunchRematch(Guid gameSessionId)
         {
             var gameSession = await _battleshipsDatabase.GameSessionsRepository.GetWithPlayersAndSettings(gameSessionId);
-            var deepCopy = gameSession.DeepClone(gameSession) as Models.GameSession;
+            var deepCopy = gameSession.DeepCopy(gameSession);
 
             var playerShips = await _playerShipGenerationService.GeneratePlayerShips(gameSession.Settings);
 

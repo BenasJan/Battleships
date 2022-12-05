@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Battleships.Services;
+using Battleships.Services.EventConsumers;
 using Battleships.SignalR.Models;
 using Microsoft.AspNetCore.SignalR;
 
@@ -7,11 +8,11 @@ namespace Battleships.SignalR
 {
     public class BattleshipsHub : Hub
     {
-        private readonly IAttackExecutor _attackExecutor;
+        private readonly IEventsMediator _eventsMediator;
 
-        public BattleshipsHub(IAttackExecutor attackExecutor)
+        public BattleshipsHub(IEventsMediator eventsMediator)
         {
-            _attackExecutor = attackExecutor;
+            _eventsMediator = eventsMediator;
         }
 
         public async Task ConnectUser(string userId)
@@ -29,9 +30,9 @@ namespace Battleships.SignalR
             await Groups.RemoveFromGroupAsync(Context.ConnectionId, gameSessionIdString);
         }
 
-        public async Task PublishAttack(AttackPayload attack)
+        public async Task PublishAttack(AttackEvent attack)
         {
-            await _attackExecutor.ExecuteAttack(attack);
+            await _eventsMediator.PublishEvent(attack);
         }
     }
 }

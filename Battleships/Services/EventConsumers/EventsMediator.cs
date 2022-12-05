@@ -6,14 +6,14 @@ namespace Battleships.Services.EventConsumers;
 
 public class EventsMediator : IEventsMediator
 {
-    private readonly IConsumer<AddFriendEvent> _addFriendConsumer;
-    private readonly IConsumer<RemoveFriendEvent> _removeFriendConsumer;
-    private readonly IConsumer<AttackEvent> _attackEventConsumer;
+    private readonly BaseConsumer<AddFriendEvent> _addFriendConsumer;
+    private readonly BaseConsumer<RemoveFriendEvent> _removeFriendConsumer;
+    private readonly BaseConsumer<AttackEvent> _attackEventConsumer;
 
     public EventsMediator(
-        IConsumer<AddFriendEvent> addFriendConsumer,
-        IConsumer<RemoveFriendEvent> removeFriendConsumer,
-        IConsumer<AttackEvent> attackEventConsumer
+        BaseConsumer<AddFriendEvent> addFriendConsumer,
+        BaseConsumer<RemoveFriendEvent> removeFriendConsumer,
+        BaseConsumer<AttackEvent> attackEventConsumer
     )
     {
         _addFriendConsumer = addFriendConsumer;

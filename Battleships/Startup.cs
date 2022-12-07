@@ -122,9 +122,9 @@ namespace Battleships
 
                     return new AttackExecutionProxy(database, attackExecutionService);
                 })
-                .AddScoped<IConsumer<AttackEvent>, AttackExecutionConsumer>()
-                .AddScoped<IConsumer<AddFriendEvent>, AddFriendConsumer>()
-                .AddScoped<IConsumer<RemoveFriendEvent>, RemoveFriendConsumer>()
+                .AddScoped<BaseConsumer<AttackEvent>, AttackExecutionConsumer>()
+                .AddScoped<BaseConsumer<AddFriendEvent>, AddFriendConsumer>()
+                .AddScoped<BaseConsumer<RemoveFriendEvent>, RemoveFriendConsumer>()
                 .AddScoped<IEventsMediator, EventsMediator>()
                 ;
         }

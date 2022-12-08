@@ -12,6 +12,8 @@ import { GameSessionService } from 'src/app/services/game-session.service';
 import { BlueInput } from '../../interpreter/blue-input';
 import { RedInput } from '../../interpreter/red-input';
 import { SignalRService } from '../../services/signal-r.service';
+import {GameStyleState} from "../../states/GameStyleState";
+import {WhiteState} from "../../states/WhiteState";
 
 @Component({
   selector: 'app-game-session',
@@ -22,9 +24,12 @@ export class GameSessionComponent implements OnInit, OnDestroy {
 
   public backgroundColor: string;
 
+  public styleState: GameStyleState;
+  
   public gameSessionId: string;
   public selectedMoveXCoord: number | null;
   public selectedMoveYCoord: number | null;
+  public color: string = "white";
 
   public gameSession = {} as InGameSession;
   public selectedShipId = "";
@@ -61,13 +66,20 @@ export class GameSessionComponent implements OnInit, OnDestroy {
     }
   }
 
+  public changeColor(): void {
+    this.styleState = this.styleState.changeColor();
+    console.log("FONO KOLORAS: " + this.color)
+  }
+
   ngOnInit(): void {
      this.backgroundColor = 'white';
      this.redInput = new RedInput(this);
      this.blueInput = new BlueInput(this);
 
+    this.styleState = new WhiteState(this);
+    console.log("stateas D: " + this.color);
     this.gameSessionId = this.activatedRoute.snapshot.params['id'];
-    
+
     this.gameSessionService.getGameplaySession(this.gameSessionId).pipe(
       tap(session => this.gameSession = session),
       tap(session => this.isOwnTurn = session.currentRoundPlayerUserId == this.authorizationService.getUserId())
@@ -79,9 +91,9 @@ export class GameSessionComponent implements OnInit, OnDestroy {
 
     this.ownMovesObserver = this.gameSessionEventsService.onOwnMoveSubmitted((xCorrd, yCoord) => {
       this.gameSession.currentRound++;
-      
+
       const destroyedTile = this.gameSession.opponentTiles.find(tile => tile.columnCoordinate == xCorrd && tile.rowCoordinate == yCoord);
-      
+
       if (destroyedTile) {
         destroyedTile.isDestroyed = true;
         this.gameSession = { ...this.gameSession };
@@ -99,7 +111,7 @@ export class GameSessionComponent implements OnInit, OnDestroy {
       this.gameSession.currentRound++;
 
       const destroyedTile = this.gameSession.ownTiles.find(tile => tile.columnCoordinate == xCorrd && tile.rowCoordinate == yCoord);
-      
+
       if (destroyedTile) {
         destroyedTile.isDestroyed = true;
         this.gameSession = { ...this.gameSession };

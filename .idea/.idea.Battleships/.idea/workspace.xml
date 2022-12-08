@@ -7,16 +7,17 @@
   <component name="ChangeListManager">
     <list default="true" id="d3d33f00-688a-449f-bfbe-dcd46bddd874" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Battleships/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/game-session/game-session.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/game-session/game-session.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/models/attack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/models/attack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Repositories/ShipTilesRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Repositories/ShipTilesRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/AttackExecutionProxy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/AttackExecutionProxy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/AttackExecutionService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/AttackExecutionService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/EventConsumers/BaseConsumer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EventConsumers/BaseConsumer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/EventConsumers/IConsumer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/Services/EventConsumers/IEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/EventConsumers/IEvent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Battleships/SignalR/Models/AttackEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/SignalR/Models/AttackEvent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BattleshipsUnitTests/AttackExecutionServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BattleshipsUnitTests/AttackExecutionServiceTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/friends-list/friends-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/friends-list/friends-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/friends-list/friends-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/friends-list/friends-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/public-users-list/public-users-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/public-users-list/public-users-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/public-users-list/public-users-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/components/public-users-list/public-users-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/models/player.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/models/player.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/authentication.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/authentication.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/friends-hub-connection.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/ClientApp/src/app/services/friends-hub-connection.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Data/Dto/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Data/Dto/UserDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/Friends/FriendsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Friends/FriendsService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Battleships/Services/Users/UserManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Battleships/Services/Users/UserManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -499,32 +500,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Battleships/SignalR/BattleshipsHub.cs</url>
-          <line>23</line>
-          <properties documentPath="D:\dev\Battleships\Battleships\SignalR\BattleshipsHub.cs" initialLine="22" containingFunctionPresentation="method 'ConnectToGameSession'">
-            <startOffsets>
-              <option value="665" />
-            </startOffsets>
-            <endOffsets>
-              <option value="666" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Battleships/SignalR/BattleshipsHub.cs</url>
-          <line>18</line>
-          <properties documentPath="D:\dev\Battleships\Battleships\SignalR\BattleshipsHub.cs" initialLine="17" containingFunctionPresentation="method 'ConnectUser'">
-            <startOffsets>
-              <option value="497" />
-            </startOffsets>
-            <endOffsets>
-              <option value="498" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BattleshipsUnitTests/AttackExecutionServiceTests.cs</url>
           <line>91</line>

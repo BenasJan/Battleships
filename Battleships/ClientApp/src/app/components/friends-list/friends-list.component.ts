@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, switchMap, tap } from 'rxjs';
 import { RemoveFriendEvent } from 'src/app/models/payloads/remove-friend-event';
 import { AuthorizationService } from 'src/app/services/authorization.service';
 import { Friend } from '../../models/friend';
@@ -19,10 +20,13 @@ export class FriendsListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.friendService.fetchFriends().subscribe((res: Friend[]) => {
-      console.log(res);
-      this.friends = res;
-    })
+    this.initializeFriends().subscribe();
+  }
+
+  initializeFriends(): Observable<any> {
+    return this.friendService.fetchFriends().pipe(
+      tap((res: Friend[]) => this.friends = res)
+    );
   }
 
   removeFriend(friend: Friend): void {
@@ -31,7 +35,9 @@ export class FriendsListComponent implements OnInit {
       initiatorUserId: this.authorizationService.getUserId()
     };
 
-    this.friendService.removeFriend(event).subscribe()
+    this.friendService.removeFriend(event).pipe(
+      switchMap(() => this.initializeFriends())
+    ).subscribe()
   }
 
 }

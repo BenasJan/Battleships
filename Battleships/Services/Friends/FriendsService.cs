@@ -49,8 +49,8 @@ namespace Battleships.Services.Friends
             var currentUserId = addFriendEvent.InitiatorUserId;
             var userId = addFriendEvent.TargetUserId;
 
-            var existingFriend = _db.FriendsRepository
-                .GetWhere(friend => friend.InitiatingUserId == currentUserId && friend.TargetUserId == userId);
+            var existingFriend = (await _db.FriendsRepository
+                .GetWhere(friend => friend.InitiatingUserId == currentUserId && friend.TargetUserId == userId)).SingleOrDefault();
 
             if (existingFriend is not null)
             {

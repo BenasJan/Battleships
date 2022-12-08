@@ -6,6 +6,7 @@
         public string Name { get; set; }
         public int GamesPlayedCount { get; set; }
         public int GamesWonCount { get; set; }
+        public bool IsFriend { get; set; }
     }
 }
 

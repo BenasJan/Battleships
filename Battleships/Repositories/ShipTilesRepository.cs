@@ -19,7 +19,7 @@ namespace Battleships.Repositories
         {
             return await GetWhere(tile =>
                 tile.XCoordinate == attack.TargetXCoordinate && tile.YCoordinate == attack.TargetYCoordinate &&
-                tile.PlayerShip.Player.UserId != attack.AttackingUserId &&
+                tile.PlayerShip.Player.UserId != attack.InitiatorUserId &&
                 tile.PlayerShip.Player.GameSessionId == attack.GameSessionId
             );
         }

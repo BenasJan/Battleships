@@ -2,5 +2,5 @@
 
 public interface IEvent
 {
-    
+    public string InitiatorUserId { get; set; }
 }

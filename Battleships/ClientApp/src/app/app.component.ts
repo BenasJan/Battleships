@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { from } from 'rxjs';
 import { AuthorizationService } from './services/authorization.service';
+import { FriendsHubConnection } from './services/friends-hub-connection';
 import { SignalRService } from './services/signal-r.service';
 
 @Component({
@@ -18,6 +20,8 @@ export class AppComponent implements OnInit {
     this.authorizationService.intializeAuthorization();
     if (this.authorizationService.isAuthorized){
       this.signalRService.connectAsUser();
+      const connection = FriendsHubConnection.getInstance();
+      from(connection.start()).subscribe(); 
     }
   }
 }

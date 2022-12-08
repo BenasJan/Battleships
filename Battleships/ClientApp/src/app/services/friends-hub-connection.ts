@@ -9,7 +9,7 @@ export class FriendsHubConnection {
         }
 
         FriendsHubConnection.connection = new HubConnectionBuilder()
-            .withUrl('/battleshipsHub')
+            .withUrl('/friendsHub')
             .configureLogging(LogLevel.Information)
             .withAutomaticReconnect()
             .build();

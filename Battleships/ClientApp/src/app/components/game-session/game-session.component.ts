@@ -156,7 +156,7 @@ export class GameSessionComponent implements OnInit, OnDestroy {
     this.attackInSubmission = true;
     const attack: Attack = {
       gameSessionId: this.gameSessionId,
-      attackingUserId: this.authorizationService.getUserId(),
+      initiatorUserId: this.authorizationService.getUserId(),
       targetYCoordinate: this.selectedMoveYCoord as number,
       targetXCoordinate: this.selectedMoveXCoord as number
     };

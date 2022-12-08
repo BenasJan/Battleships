@@ -1,6 +1,6 @@
 export interface Attack {
     gameSessionId: string;
-    attackingUserId: string;
+    initiatorUserId: string;
     targetXCoordinate: number;
     targetYCoordinate: number;
 }

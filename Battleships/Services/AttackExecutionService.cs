@@ -58,13 +58,13 @@ namespace Battleships.Services
             await _battleshipsDatabase.GameSessionsRepository.Update(session);
             await _battleshipsSynchronizationService.SendAttackMessage(session.Id, new BattleshipsMessage<AttackEvent>
             {
-                CallerUserId = attack.AttackingUserId,
+                CallerUserId = attack.InitiatorUserId,
                 Payload = attack
             });
 
             if (await _endgameService.IsEndgameReached(attack.GameSessionId))
             {
-                await _endgameService.EndGameSession(attack.GameSessionId, attack.AttackingUserId);
+                await _endgameService.EndGameSession(attack.GameSessionId, attack.InitiatorUserId);
             }
         }
     }

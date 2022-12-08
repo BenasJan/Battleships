@@ -91,7 +91,7 @@ public class AttackExecutionServiceTests
     {
         var gameSessionId = Guid.NewGuid();
         var attackerId = Guid.NewGuid().ToString();
-        var attack = new AttackEvent{ GameSessionId = gameSessionId, AttackingUserId = attackerId };
+        var attack = new AttackEvent{ GameSessionId = gameSessionId, InitiatorUserId = attackerId };
         SetupGetAttackedTile(new List<ShipTile>{ new ShipTile() }, attack);
         SetupGetGameSession(GetGameSession());
         SetupEndgameReached(gameSessionId, true);
@@ -100,7 +100,7 @@ public class AttackExecutionServiceTests
 
         _endgameServiceMock.Verify(service => service.EndGameSession(
             It.Is<Guid>(expected => expected == attack.GameSessionId),
-            It.Is<string>(expected => expected == attack.AttackingUserId)
+            It.Is<string>(expected => expected == attack.InitiatorUserId)
         ), Times.Once);
     }
 

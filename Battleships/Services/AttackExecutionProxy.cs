@@ -25,7 +25,7 @@ public class AttackExecutionProxy : IAttackExecutor
         Console.WriteLine("EXECUTING ATTACK WITH PROXY - PROXY HAS BEEN CALLED");
         
         var player = (await _battleshipsDatabase.PlayersRepository.GetWhere(p =>
-            p.GameSessionId == attack.GameSessionId && p.UserId == attack.AttackingUserId)).FirstOrDefault();
+            p.GameSessionId == attack.GameSessionId && p.UserId == attack.InitiatorUserId)).FirstOrDefault();
 
         var userHasAccessToGame = player is not null;
         

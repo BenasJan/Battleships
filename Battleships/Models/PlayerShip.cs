@@ -22,6 +22,37 @@ namespace Battleships.Models
         public Ship Ship { get; set; }
 
         public List<ShipTile> Tiles { get; set; }
+        public PlayerShip() { }
+        private PlayerShip(List<ShipTile> shipTiles)
+        {
+            this.Tiles = shipTiles;
+        }
+
+        public class Originator
+        {
+            private List<ShipTile> Tiles;
+
+            public void Set (List<ShipTile> shipTiles)
+            {
+                Debug.WriteLine("Originator: Setting ShipTiles to: ");
+                PrintShipTiles(shipTiles);
+                this.Tiles = shipTiles;
+            }
+
+            public PlayerShip SaveToMemento()
+            {
+                Debug.WriteLine("Originator: Saving to Memento.");
+                return new PlayerShip(CopyTiles(Tiles));
+            }
+
+            public void RestoreFromMemento(PlayerShip playerShip)
+            {
+                Tiles = playerShip.Tiles;
+                Debug.WriteLine("Originator: ShipTiles after restoring from Memento: ");
+                PrintShipTiles(Tiles);
+
+            }
+        }
 
         public void MoveUp()
         {
@@ -74,9 +105,15 @@ namespace Battleships.Models
             }
         }
 
-        private List<ShipTile> GetCurrentTiles()
+        public List<ShipTile> GetCurrentTiles()
         {
             var serializedTiles = JsonConvert.SerializeObject(this.Tiles);
+            return JsonConvert.DeserializeObject<List<ShipTile>>(serializedTiles);
+        }        
+        
+        public static List<ShipTile> CopyTiles(List<ShipTile> shipTiles)
+        {
+            var serializedTiles = JsonConvert.SerializeObject(shipTiles);
             return JsonConvert.DeserializeObject<List<ShipTile>>(serializedTiles);
         }
 
@@ -102,6 +139,14 @@ namespace Battleships.Models
             Debug.WriteLine("\nPrinting current ShipTiles:");
             Debug.WriteLine("X, Y coordinates");
             foreach (var tile in this.Tiles)
+            {
+                Debug.WriteLine($"{tile.XCoordinate}, {tile.YCoordinate}");
+            }
+        }        
+        public static void PrintShipTiles(List<ShipTile> shipTiles)
+        {
+            Debug.WriteLine("X, Y coordinates");
+            foreach (var tile in shipTiles)
             {
                 Debug.WriteLine($"{tile.XCoordinate}, {tile.YCoordinate}");
             }

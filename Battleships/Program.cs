@@ -17,7 +17,8 @@ namespace Battleships
     {
         public static void Main(string[] args)
         {
-            TestMemento();
+            TestMementoNew();
+            //TestMemento();
 
             CreateHostBuilder(args).Build().Run();
         }
@@ -26,6 +27,40 @@ namespace Battleships
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
 
+
+        public static void TestMementoNew()
+        {
+            List<PlayerShip> savedShipTiles = new List<PlayerShip>();
+
+            PlayerShip.Originator originator = new PlayerShip.Originator();
+
+            var neutralShipFactory = new NeutralShipFactory();
+            PlayerShip testPlayerShip = new PlayerShip()
+            {
+                ShipId = new Guid(),
+                Ship = neutralShipFactory.GenerateShip("Dummy"),
+                Tiles = new List<ShipTile>()
+                {
+                    new() { XCoordinate = 4, YCoordinate = 5 },
+                    new() { XCoordinate = 5, YCoordinate = 5 },
+                    new() { XCoordinate = 6, YCoordinate = 5 },
+                }
+            };
+
+            originator.Set(testPlayerShip.Tiles);
+            savedShipTiles.Add(originator.SaveToMemento());
+            testPlayerShip.MoveDown();
+            originator.Set(testPlayerShip.Tiles);
+            savedShipTiles.Add(originator.SaveToMemento());
+            testPlayerShip.MoveDown();
+            originator.Set(testPlayerShip.Tiles);
+            savedShipTiles.Add(originator.SaveToMemento());
+            testPlayerShip.MoveDown();
+            originator.Set(testPlayerShip.Tiles);
+
+            originator.RestoreFromMemento(savedShipTiles[0]);
+            originator.RestoreFromMemento(savedShipTiles[2]);
+        }
 
         public static void TestMemento()
         {
@@ -46,6 +81,8 @@ namespace Battleships
             };
             playerShip.PrintShipTiles();
             playerShip.PrintShipTilesMemory();
+
+            Debug.WriteLine("\n");
 
             playerShip.MoveDown();
             Debug.WriteLine("Moved down");

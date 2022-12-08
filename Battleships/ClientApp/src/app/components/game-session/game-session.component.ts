@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { tap } from 'rxjs';
 import { Attack } from 'src/app/models/attack';
@@ -9,7 +9,11 @@ import { AttackPublishingService } from 'src/app/services/attack-publishing.serv
 import { AuthorizationService } from 'src/app/services/authorization.service';
 import { GameSessionEventsService } from 'src/app/services/game-session-events.service';
 import { GameSessionService } from 'src/app/services/game-session.service';
+import { BlueInput } from '../../interpreter/blue-input';
+import { RedInput } from '../../interpreter/red-input';
 import { SignalRService } from '../../services/signal-r.service';
+import {GameStyleState} from "../../states/GameStyleState";
+import {WhiteState} from "../../states/WhiteState";
 
 @Component({
   selector: 'app-game-session',
@@ -18,9 +22,14 @@ import { SignalRService } from '../../services/signal-r.service';
 })
 export class GameSessionComponent implements OnInit, OnDestroy {
 
+  public backgroundColor: string;
+
+  public styleState: GameStyleState;
+  
   public gameSessionId: string;
   public selectedMoveXCoord: number | null;
   public selectedMoveYCoord: number | null;
+  public color: string = "white";
 
   public gameSession = {} as InGameSession;
   public selectedShipId = "";
@@ -29,6 +38,9 @@ export class GameSessionComponent implements OnInit, OnDestroy {
   private ownMovesObserver: AttackMovesObserver;
   private opponentMovesObserver: AttackMovesObserver;
   private endgameObserver: EndgameReachedObserver;
+
+  private redInput: RedInput;
+  private blueInput: BlueInput;
 
   public endgameReached: boolean;
   public winnerName: string;
@@ -43,10 +55,31 @@ export class GameSessionComponent implements OnInit, OnDestroy {
     private readonly gameSessionEventsService: GameSessionEventsService,
     private readonly signalRService: SignalRService
   ) { }
+  
+  @HostListener('document:keypress', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if (event.key == 'r') {
+      this.redInput.Interpret(event);
+    }
+    else if (event.key == 'b') {
+      this.blueInput.Interpret(event);
+    }
+  }
+
+  public changeColor(): void {
+    this.styleState = this.styleState.changeColor();
+    console.log("FONO KOLORAS: " + this.color)
+  }
 
   ngOnInit(): void {
+     this.backgroundColor = 'white';
+     this.redInput = new RedInput(this);
+     this.blueInput = new BlueInput(this);
+
+    this.styleState = new WhiteState(this);
+    console.log("stateas D: " + this.color);
     this.gameSessionId = this.activatedRoute.snapshot.params['id'];
-    
+
     this.gameSessionService.getGameplaySession(this.gameSessionId).pipe(
       tap(session => this.gameSession = session),
       tap(session => this.isOwnTurn = session.currentRoundPlayerUserId == this.authorizationService.getUserId())
@@ -58,9 +91,9 @@ export class GameSessionComponent implements OnInit, OnDestroy {
 
     this.ownMovesObserver = this.gameSessionEventsService.onOwnMoveSubmitted((xCorrd, yCoord) => {
       this.gameSession.currentRound++;
-      
+
       const destroyedTile = this.gameSession.opponentTiles.find(tile => tile.columnCoordinate == xCorrd && tile.rowCoordinate == yCoord);
-      
+
       if (destroyedTile) {
         destroyedTile.isDestroyed = true;
         this.gameSession = { ...this.gameSession };
@@ -78,7 +111,7 @@ export class GameSessionComponent implements OnInit, OnDestroy {
       this.gameSession.currentRound++;
 
       const destroyedTile = this.gameSession.ownTiles.find(tile => tile.columnCoordinate == xCorrd && tile.rowCoordinate == yCoord);
-      
+
       if (destroyedTile) {
         destroyedTile.isDestroyed = true;
         this.gameSession = { ...this.gameSession };

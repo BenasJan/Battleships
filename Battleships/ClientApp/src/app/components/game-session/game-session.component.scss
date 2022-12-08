@@ -12,6 +12,14 @@
     background-color: black;
 }
 
+.redship-tile {
+  background-color: red;
+}
+
+.blueship-tile {
+  background-color: blue;
+}
+
 .destroyed-tile-own {
     background-color: rgba($color: green, $alpha: 0.5) !important;
 }

@@ -1,6 +1,7 @@
 using System;
 using Battleships.Data;
 using Battleships.Data.Dto;
+using Battleships.Data.Events;
 using Battleships.Factories;
 using Battleships.Models;
 using Battleships.Repositories;

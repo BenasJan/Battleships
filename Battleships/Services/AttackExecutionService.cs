@@ -56,7 +56,7 @@ namespace Battleships.Services
             opponentPlayer.IsCurrentPlayerTurn = true;
             
             await _battleshipsDatabase.GameSessionsRepository.Update(session);
-            await _battleshipsSynchronizationService.SendAttackMessage(session.Id, new BattleshipsMessage<AttackEvent>
+            await _battleshipsSynchronizationService.SendAttackedMessage(session.Id, new BattleshipsMessage<AttackEvent>
             {
                 CallerUserId = attack.InitiatorUserId,
                 Payload = attack

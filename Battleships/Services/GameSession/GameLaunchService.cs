@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Battleships.Data.Events;
 using Battleships.Models.enums;
 using Battleships.Repositories;
+using Battleships.Services.Authentication.Interfaces;
+using Battleships.Services.EventConsumers;
 using Battleships.Services.GameSession.Interfaces;
 
 namespace Battleships.Services.GameSession
@@ -10,13 +13,19 @@ namespace Battleships.Services.GameSession
     {
         private readonly IBattleshipsDatabase _battleshipsDatabase;
         private readonly IPlayerShipGenerationService _playerShipGenerationService;
+        private readonly ICurrentUserService _currentUserService;
+        private readonly IEventsMediator _eventsMediator;
 
         public GameLaunchService(
             IBattleshipsDatabase battleshipsDatabase,
-            IPlayerShipGenerationService playerShipGenerationService)
+            IPlayerShipGenerationService playerShipGenerationService,
+            ICurrentUserService currentUserService,
+            IEventsMediator eventsMediator)
         {
             _battleshipsDatabase = battleshipsDatabase;
             _playerShipGenerationService = playerShipGenerationService;
+            _currentUserService = currentUserService;
+            _eventsMediator = eventsMediator;
         }
 
         public async Task LaunchGame(Guid gameSessionId, bool rematch)
@@ -40,6 +49,9 @@ namespace Battleships.Services.GameSession
 
             await _battleshipsDatabase.PlayerShipsRepository.CreateMany(playerShips);
             await _battleshipsDatabase.GameSessionsRepository.Update(gameSession);
+            
+            var gameLaunchEvent = new GameLaunchedEvent(_currentUserService.GetCurrentUserId(), gameSessionId);
+            await _eventsMediator.PublishEvent(gameLaunchEvent);
         }
 
         private async Task LaunchRematch(Guid gameSessionId)

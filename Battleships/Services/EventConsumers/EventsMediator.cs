@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Battleships.Data.Events;
 using Battleships.Repositories;
 using Battleships.Services.Users;
 using Battleships.SignalR.Interfaces;
-using Battleships.SignalR.Models;
 
 namespace Battleships.Services.EventConsumers;
 
@@ -13,7 +13,6 @@ public class EventsMediator : IEventsMediator
 {
     private readonly BaseConsumer<AddFriendEvent> _addFriendConsumer;
     private readonly BaseConsumer<RemoveFriendEvent> _removeFriendConsumer;
-    private readonly BaseConsumer<AttackEvent> _attackEventConsumer;
     private readonly IFriendsSynchronizationService _friendsSynchronizationService;
     private readonly IBattleshipsSynchronizationService _battleshipsSynchronizationService;
     private readonly IBattleshipsDatabase _battleshipsDatabase;
@@ -22,7 +21,6 @@ public class EventsMediator : IEventsMediator
     public EventsMediator(
         BaseConsumer<AddFriendEvent> addFriendConsumer,
         BaseConsumer<RemoveFriendEvent> removeFriendConsumer,
-        BaseConsumer<AttackEvent> attackEventConsumer,
         IFriendsSynchronizationService friendsSynchronizationService,
         IBattleshipsSynchronizationService battleshipsSynchronizationService,
         IBattleshipsDatabase battleshipsDatabase,
@@ -31,7 +29,6 @@ public class EventsMediator : IEventsMediator
     {
         _addFriendConsumer = addFriendConsumer;
         _removeFriendConsumer = removeFriendConsumer;
-        _attackEventConsumer = attackEventConsumer;
         _friendsSynchronizationService = friendsSynchronizationService;
         _battleshipsSynchronizationService = battleshipsSynchronizationService;
         _battleshipsDatabase = battleshipsDatabase;
@@ -42,6 +39,8 @@ public class EventsMediator : IEventsMediator
     {
         List<string> userIds;
         string userName;
+
+        Console.WriteLine("Publishing event with mediator");
         
         switch (@event)
         {
@@ -53,9 +52,6 @@ public class EventsMediator : IEventsMediator
                 break;
             case GameLaunchedEvent gameLaunchedEvent:
                 await _battleshipsSynchronizationService.SendLaunchGameMessage(gameLaunchedEvent.GameSessionId);
-                break;
-            case AttackEvent attackEvent:
-                await _attackEventConsumer.ConsumeEvent(attackEvent);
                 break;
             case EndgameReachedEvent endgameReachedEvent:
                 var winnerName = (await _userManager.GetById(endgameReachedEvent.AttackerUserId)).UserName;

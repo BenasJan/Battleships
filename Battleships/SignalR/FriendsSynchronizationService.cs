@@ -9,6 +9,11 @@ public class FriendsSynchronizationService : IFriendsSynchronizationService
 {
     private readonly IHubContext<FriendsHub> _friendsHub;
 
+    public FriendsSynchronizationService(IHubContext<FriendsHub> friendsHub)
+    {
+        _friendsHub = friendsHub;
+    }
+
     public async Task PublishFriendLostEvent(List<string> userIds, string friendName)
     {
         var payload = new { friendName };

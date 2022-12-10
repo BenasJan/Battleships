@@ -13,18 +13,19 @@ public class EndgameService : IEndgameService
     private readonly IBattleshipsDatabase _battleshipsDatabase;
     private readonly IEndgameStrategyService _endgameStrategyService;
     private readonly IEventsMediator _eventsMediator;
-    private readonly IFriendsService _friendsService;
+    private readonly IFriendsEventService _friendsEventService;
 
     public EndgameService(
         IBattleshipsDatabase battleshipsDatabase,
         IEndgameStrategyService endgameStrategyService,
         IEventsMediator eventsMediator,
-        IFriendsService friendsService)
+        IFriendsEventService friendsEventService
+    )
     {
         _battleshipsDatabase = battleshipsDatabase;
         _endgameStrategyService = endgameStrategyService;
         _eventsMediator = eventsMediator;
-        _friendsService = friendsService;
+        _friendsEventService = friendsEventService;
     }
 
     public async Task<bool> IsEndgameReached(Guid gameSessionId)
@@ -45,6 +46,6 @@ public class EndgameService : IEndgameService
 
         var endgameReachedEvent = new EndgameReachedEvent(gameSessionId, attackerId);
         await _eventsMediator.PublishEvent(endgameReachedEvent);
-        await _friendsService.PublishEndgameEvents(gameSessionId, attackerId);
+        await _friendsEventService.PublishEndgameEvents(gameSessionId, attackerId);
     }
 }

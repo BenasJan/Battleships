@@ -19,19 +19,16 @@ namespace Battleships.Services.Friends
         private readonly IBattleshipsDatabase _db;
         private readonly IUserManager _userManager;
         private readonly ICurrentUserService _currentUserService;
-        private readonly IEventsMediator _eventsMediator;
         
         public FriendsService (
             IBattleshipsDatabase database,
             IUserManager userManager,
-            ICurrentUserService currentUserService,
-            IEventsMediator eventsMediator
+            ICurrentUserService currentUserService
             )
         {
             _db = database;
             _userManager = userManager;
             _currentUserService = currentUserService;
-            _eventsMediator = eventsMediator;
         }        
 
         public async Task<List<FriendDto>> ListFriends()
@@ -84,19 +81,6 @@ namespace Battleships.Services.Friends
             await _db.FriendsRepository.Delete(friend);
 
             return true;
-        }
-
-        public async Task PublishEndgameEvents(Guid gameSessionId, string winnerUserId)
-        {
-            var loserUserId = (await _db.PlayersRepository
-                    .GetWhere(p => p.GameSessionId == gameSessionId && p.UserId != winnerUserId))
-                .Single().UserId;
-            
-            var friendWonEvent = new FriendWonEvent { InitiatorUserId = winnerUserId };
-            var friendLostEvent = new FriendLostEvent { InitiatorUserId = loserUserId };
-
-            await _eventsMediator.PublishEvent(friendWonEvent);
-            await _eventsMediator.PublishEvent(friendLostEvent);
         }
     }
 }

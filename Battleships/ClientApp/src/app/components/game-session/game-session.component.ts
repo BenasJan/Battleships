@@ -25,11 +25,12 @@ export class GameSessionComponent implements OnInit, OnDestroy {
   public backgroundColor: string;
 
   public styleState: GameStyleState;
-  
+
   public gameSessionId: string;
   public selectedMoveXCoord: number | null;
   public selectedMoveYCoord: number | null;
   public color: string = "white";
+  public chanceToMiss: number = 0;
 
   public gameSession = {} as InGameSession;
   public selectedShipId = "";
@@ -55,7 +56,7 @@ export class GameSessionComponent implements OnInit, OnDestroy {
     private readonly gameSessionEventsService: GameSessionEventsService,
     private readonly signalRService: SignalRService
   ) { }
-  
+
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     if (event.key == 'r') {
@@ -66,10 +67,10 @@ export class GameSessionComponent implements OnInit, OnDestroy {
     }
   }
 
-  public changeColor(): void {
-    this.styleState = this.styleState.changeColor();
-    console.log("FONO KOLORAS: " + this.color)
-  }
+  // public changeColor(): void {
+  //   this.styleState = this.styleState.changeColor();
+  //   console.log("FONO KOLORAS: " + this.color)
+  // }
 
   ngOnInit(): void {
      this.backgroundColor = 'white';
@@ -91,7 +92,7 @@ export class GameSessionComponent implements OnInit, OnDestroy {
 
     this.ownMovesObserver = this.gameSessionEventsService.onOwnMoveSubmitted((xCorrd, yCoord) => {
       this.gameSession.currentRound++;
-
+      this.changeGameSessionState();
       const destroyedTile = this.gameSession.opponentTiles.find(tile => tile.columnCoordinate == xCorrd && tile.rowCoordinate == yCoord);
 
       if (destroyedTile) {
@@ -109,6 +110,7 @@ export class GameSessionComponent implements OnInit, OnDestroy {
 
     this.opponentMovesObserver = this.gameSessionEventsService.onOpponentMoveSubmitted((xCorrd, yCoord) => {
       this.gameSession.currentRound++;
+      this.changeGameSessionState();
 
       const destroyedTile = this.gameSession.ownTiles.find(tile => tile.columnCoordinate == xCorrd && tile.rowCoordinate == yCoord);
 
@@ -128,6 +130,19 @@ export class GameSessionComponent implements OnInit, OnDestroy {
     })
 
     this.signalRService.connectToGameSession(this.gameSessionId);
+  }
+
+  private changeGameSessionState(): void {
+    // switch (this.gameSession.currentRound) {
+    //   case 5:
+    //     this.styleState.changeState();
+    //
+    // }
+    //
+    console.log("round: " + this.gameSession.currentRound);
+    if(this.gameSession.currentRound % 5 == 0)
+      this.styleState.changeState();
+
   }
 
   ngOnDestroy(): void {
@@ -153,12 +168,19 @@ export class GameSessionComponent implements OnInit, OnDestroy {
   }
 
   public submitAttack(): void {
+    let isMissed = false;
+    if(Math.floor(Math.random() * 100) + 1 < this.chanceToMiss) {
+      console.log("You misssed");
+      isMissed = true;
+    }
+
     this.attackInSubmission = true;
     const attack: Attack = {
       gameSessionId: this.gameSessionId,
       attackingUserId: this.authorizationService.getUserId(),
       targetYCoordinate: this.selectedMoveYCoord as number,
-      targetXCoordinate: this.selectedMoveXCoord as number
+      targetXCoordinate: this.selectedMoveXCoord as number,
+      missed: isMissed
     };
 
     this.attackPublishingService.publishAttack(attack);

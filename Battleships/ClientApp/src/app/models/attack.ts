@@ -3,4 +3,5 @@ export interface Attack {
     attackingUserId: string;
     targetXCoordinate: number;
     targetYCoordinate: number;
+    missed: boolean;
 }

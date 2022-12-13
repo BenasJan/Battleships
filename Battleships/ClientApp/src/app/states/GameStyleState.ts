@@ -7,6 +7,5 @@ export abstract class GameStyleState {
     this.context = context;
   }
 
-  public abstract changeColor(): GameStyleState;
-
+  public abstract changeState(): GameStyleState;
 }

@@ -9,5 +9,6 @@ namespace Battleships.SignalR.Models
         public string InitiatorUserId { get; set; }
         public int TargetXCoordinate { get; set; }
         public int TargetYCoordinate { get; set; }
+        public bool Missed { get; set; }
     }
 }

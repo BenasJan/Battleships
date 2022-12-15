@@ -95,15 +95,15 @@ namespace Battleships.Models
             }
         }
 
-        public void UndoMove()
-        {
-            var prevTiles = this.shipTilesMemory.Last();
-            if(prevTiles != null)
-            {
-                this.Tiles = prevTiles;
-                this.shipTilesMemory.Remove(prevTiles);
-            }
-        }
+        //public void UndoMove()
+        //{
+        //    var prevTiles = this.shipTilesMemory.Last();
+        //    if(prevTiles != null)
+        //    {
+        //        this.Tiles = prevTiles;
+        //        this.shipTilesMemory.Remove(prevTiles);
+        //    }
+        //}
 
         public List<ShipTile> GetCurrentTiles()
         {
@@ -117,32 +117,6 @@ namespace Battleships.Models
             return JsonConvert.DeserializeObject<List<ShipTile>>(serializedTiles);
         }
 
-        public void PrintShipTilesMemory()
-        {
-            Debug.WriteLine("\nPrinting ShipTiles memory:");
-            var cnt = 1;
-
-            foreach (var shipTiles in this.shipTilesMemory)
-            {
-                Debug.WriteLine($"ShipTiles memory step {cnt}:");
-                cnt++;
-
-                Debug.WriteLine("X, Y coordinates");
-                foreach (var tile in shipTiles)
-                {
-                    Debug.WriteLine($"{tile.XCoordinate}, {tile.YCoordinate}");
-                }
-            }
-        }
-        public void PrintShipTiles()
-        {
-            Debug.WriteLine("\nPrinting current ShipTiles:");
-            Debug.WriteLine("X, Y coordinates");
-            foreach (var tile in this.Tiles)
-            {
-                Debug.WriteLine($"{tile.XCoordinate}, {tile.YCoordinate}");
-            }
-        }        
         public static void PrintShipTiles(List<ShipTile> shipTiles)
         {
             Debug.WriteLine("X, Y coordinates");
@@ -151,5 +125,33 @@ namespace Battleships.Models
                 Debug.WriteLine($"{tile.XCoordinate}, {tile.YCoordinate}");
             }
         }
+
+        //public void PrintShipTilesMemory()
+        //{
+        //    Debug.WriteLine("\nPrinting ShipTiles memory:");
+        //    var cnt = 1;
+
+        //    foreach (var shipTiles in this.shipTilesMemory)
+        //    {
+        //        Debug.WriteLine($"ShipTiles memory step {cnt}:");
+        //        cnt++;
+
+        //        Debug.WriteLine("X, Y coordinates");
+        //        foreach (var tile in shipTiles)
+        //        {
+        //            Debug.WriteLine($"{tile.XCoordinate}, {tile.YCoordinate}");
+        //        }
+        //    }
+        //}
+        //public void PrintShipTiles()
+        //{
+        //    Debug.WriteLine("\nPrinting current ShipTiles:");
+        //    Debug.WriteLine("X, Y coordinates");
+        //    foreach (var tile in this.Tiles)
+        //    {
+        //        Debug.WriteLine($"{tile.XCoordinate}, {tile.YCoordinate}");
+        //    }
+        //}        
+
     }
 }

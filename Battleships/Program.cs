@@ -62,46 +62,46 @@ namespace Battleships
             originator.RestoreFromMemento(savedShipTiles[2]);
         }
 
-        public static void TestMemento()
-        {
-            Debug.WriteLine("Memento start");
+        //public static void TestMemento()
+        //{
+        //    Debug.WriteLine("Memento start");
 
-            var neutralShipFactory = new NeutralShipFactory();
+        //    var neutralShipFactory = new NeutralShipFactory();
 
-            PlayerShip playerShip = new PlayerShip()
-            {
-                ShipId = new Guid(),
-                Ship = neutralShipFactory.GenerateShip("Dummy"),
-                Tiles = new List<ShipTile>()
-                {
-                    new() { XCoordinate = 4, YCoordinate = 5 },
-                    new() { XCoordinate = 5, YCoordinate = 5 },
-                    new() { XCoordinate = 6, YCoordinate = 5 },
-                }
-            };
-            playerShip.PrintShipTiles();
-            playerShip.PrintShipTilesMemory();
+        //    PlayerShip playerShip = new PlayerShip()
+        //    {
+        //        ShipId = new Guid(),
+        //        Ship = neutralShipFactory.GenerateShip("Dummy"),
+        //        Tiles = new List<ShipTile>()
+        //        {
+        //            new() { XCoordinate = 4, YCoordinate = 5 },
+        //            new() { XCoordinate = 5, YCoordinate = 5 },
+        //            new() { XCoordinate = 6, YCoordinate = 5 },
+        //        }
+        //    };
+        //    playerShip.PrintShipTiles();
+        //    playerShip.PrintShipTilesMemory();
 
-            Debug.WriteLine("\n");
+        //    Debug.WriteLine("\n");
 
-            playerShip.MoveDown();
-            Debug.WriteLine("Moved down");
-            playerShip.MoveRight();
-            Debug.WriteLine("Moved right");            
-            playerShip.MoveDown();
-            Debug.WriteLine("Moved down");
+        //    playerShip.MoveDown();
+        //    Debug.WriteLine("Moved down");
+        //    playerShip.MoveRight();
+        //    Debug.WriteLine("Moved right");            
+        //    playerShip.MoveDown();
+        //    Debug.WriteLine("Moved down");
 
-            playerShip.PrintShipTiles();
-            playerShip.PrintShipTilesMemory();
+        //    playerShip.PrintShipTiles();
+        //    playerShip.PrintShipTilesMemory();
 
-            playerShip.UndoMove();
-            Debug.WriteLine("Undone move");            
-            playerShip.UndoMove();
-            Debug.WriteLine("Undone move");
+        //    playerShip.UndoMove();
+        //    Debug.WriteLine("Undone move");            
+        //    playerShip.UndoMove();
+        //    Debug.WriteLine("Undone move");
 
-            playerShip.PrintShipTiles();
-            playerShip.PrintShipTilesMemory();
+        //    playerShip.PrintShipTiles();
+        //    playerShip.PrintShipTilesMemory();
 
-        }
+        //}
     }
 }

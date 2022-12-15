@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Battleships.Data.Dto;
+using Battleships.Data.Events;
 using Battleships.Services.Friends.Interfaces;
 
 namespace Battleships.Services.EventConsumers;

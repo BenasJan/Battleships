@@ -1,7 +1,7 @@
 ﻿using System;
 using Battleships.Services.EventConsumers;
 
-namespace Battleships.Data.Dto
+namespace Battleships.Data.Events
 {
     public class RemoveFriendEvent : IEvent
     {

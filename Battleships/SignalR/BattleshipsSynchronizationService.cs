@@ -21,7 +21,7 @@ namespace Battleships.SignalR
             await _battleshipsHub.Clients.Group(gameSessionId.ToString()).SendAsync("endgameReached", payload);
         }
 
-        public async Task SendAttackMessage(Guid gameSessionId, BattleshipsMessage<AttackEvent> message)
+        public async Task SendAttackedMessage(Guid gameSessionId, BattleshipsMessage<AttackEvent> message)
         {
             await _battleshipsHub.Clients.Group(gameSessionId.ToString()).SendAsync("underAttack", message);
         }

@@ -1,4 +1,5 @@
 import { HubConnection, HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
+import { from, Observable, tap } from "rxjs";
 
 export class FriendsHubConnection {
     private static connection: HubConnection;

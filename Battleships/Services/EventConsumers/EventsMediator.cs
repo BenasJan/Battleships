@@ -1,10 +1,11 @@
 ﻿using System.Threading.Tasks;
 using Battleships.Data.Dto;
 using Battleships.SignalR.Models;
+using Battleships.Visitor;
 
 namespace Battleships.Services.EventConsumers;
 
-public class EventsMediator : IEventsMediator
+public class EventsMediator : IEventsMediator, IVisitor
 {
     private readonly BaseConsumer<AddFriendEvent> _addFriendConsumer;
     private readonly BaseConsumer<RemoveFriendEvent> _removeFriendConsumer;
@@ -21,19 +22,28 @@ public class EventsMediator : IEventsMediator
         _attackEventConsumer = attackEventConsumer;
     }
 
-    public async Task PublishEvent<TEvent>(TEvent @event) where TEvent : IEvent
+    public async Task PublishEvent<TEvent>(AcceptableEvent @event) where TEvent : IEvent
     {
-        switch (@event)
-        {
-            case AddFriendEvent addFriendEvent:
-                await _addFriendConsumer.ConsumeEvent(addFriendEvent);
-                break;
-            case RemoveFriendEvent removeFriendEvent:
-                await _removeFriendConsumer.ConsumeEvent(removeFriendEvent);
-                break;
-            case AttackEvent attackEvent:
-                await _attackEventConsumer.ConsumeEvent(attackEvent);
-                break;
-        }
+        //switch (@event)
+        //{
+        //    case AddFriendEvent addFriendEvent:
+        //        await _addFriendConsumer.ConsumeEvent(addFriendEvent);
+        //        break;
+        //    case RemoveFriendEvent removeFriendEvent:
+        //        await _removeFriendConsumer.ConsumeEvent(removeFriendEvent);
+        //        break;
+        //    case AttackEvent attackEvent:
+        //        await _attackEventConsumer.ConsumeEvent(attackEvent);
+        //        break;
+        //}
+
+        await @event.Accept(this);
     }
+
+    public Task Visit(AddFriendEvent addFriendEvent) => _addFriendConsumer.ConsumeEvent(addFriendEvent);
+
+    public Task Visit(RemoveFriendEvent removeFriendEvent) => _removeFriendConsumer.ConsumeEvent(removeFriendEvent);
+
+    public Task Visit(AttackEvent attackEvent) => _attackEventConsumer.ConsumeEvent(attackEvent);
+
 }

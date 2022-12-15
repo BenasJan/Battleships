@@ -16,6 +16,7 @@ import { DInput } from '../../interpreter/d-input';
 import { SignalRService } from '../../services/signal-r.service';
 import {GameStyleState} from "../../states/GameStyleState";
 import {WhiteState} from "../../states/WhiteState";
+import { EnterInput } from 'src/app/interpreter/enter-input';
 
 @Component({
   selector: 'app-game-session',
@@ -48,6 +49,7 @@ export class GameSessionComponent implements OnInit, OnDestroy {
   private aInput: AInput;
   private sInput: SInput;
   private wInput: WInput;
+  private enterInput: EnterInput;
 
   public endgameReached: boolean;
   public winnerName: string;
@@ -70,26 +72,36 @@ export class GameSessionComponent implements OnInit, OnDestroy {
     }
     if (event.key == 'd') {
       if (this.selectedMoveYCoord != null && this.selectedMoveXCoord != null) {
+        console.log(event.key);
         this.selectedMoveYCoord += 1;
         this.dInput.Interpret(this.selectedMoveYCoord, this.selectedMoveXCoord, this.gameSession);
       }
     }
     if (event.key == 'a') {
       if (this.selectedMoveYCoord != null && this.selectedMoveXCoord != null) {
+        console.log(event.key);
         this.selectedMoveYCoord -= 1;
         this.aInput.Interpret(this.selectedMoveYCoord, this.selectedMoveXCoord, this.gameSession);
       }
     }
     if (event.key == 's') {
       if (this.selectedMoveYCoord != null && this.selectedMoveXCoord != null) {
+        console.log(event.key);
         this.selectedMoveXCoord += 1;
         this.sInput.Interpret(this.selectedMoveYCoord, this.selectedMoveXCoord, this.gameSession);
       }
     }
     if (event.key == 'w') {
       if (this.selectedMoveYCoord != null && this.selectedMoveXCoord != null) {
+        console.log(event.key);
         this.selectedMoveXCoord -= 1;
         this.wInput.Interpret(this.selectedMoveYCoord, this.selectedMoveXCoord, this.gameSession);
+      }
+    }
+    if (event.key == 'Enter') {
+      if (this.selectedMoveYCoord != null && this.selectedMoveXCoord != null) {
+        console.log(event.key);
+        this.enterInput.Interpret(this.selectedMoveYCoord, this.selectedMoveXCoord, this.gameSession);
       }
     }
 
@@ -114,6 +126,7 @@ export class GameSessionComponent implements OnInit, OnDestroy {
     this.wInput = new WInput(this, this.gameSession);
     this.sInput = new SInput(this, this.gameSession);
     this.aInput = new AInput(this, this.gameSession);
+    this.enterInput = new EnterInput(this, this.gameSession);
 
     this.styleState = new WhiteState(this);
     console.log("stateas D: " + this.color);

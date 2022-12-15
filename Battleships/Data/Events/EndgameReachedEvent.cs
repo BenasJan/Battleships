@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Battleships.Services.EventConsumers;
+using Battleships.Visitor;
 
 namespace Battleships.Data.Events;
 
-public class EndgameReachedEvent : IEvent
+public class EndgameReachedEvent : IEvent, AcceptableEvent
 {
     public string InitiatorUserId
     {
@@ -18,5 +20,11 @@ public class EndgameReachedEvent : IEvent
     {
         GameSessionId = gameSessionId;
         AttackerUserId = attackerUserId;
+    }
+
+    public async Task Accept(IVisitor v)
+    {
+        Console.WriteLine("Working Visitor");
+        await v.Visit(this);
     }
 }

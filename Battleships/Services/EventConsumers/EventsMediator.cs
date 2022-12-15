@@ -6,10 +6,13 @@ using Battleships.Data.Events;
 using Battleships.Repositories;
 using Battleships.Services.Users;
 using Battleships.SignalR.Interfaces;
+using Battleships.Data.Dto;
+using Battleships.SignalR.Models;
+using Battleships.Visitor;
 
 namespace Battleships.Services.EventConsumers;
 
-public class EventsMediator : IEventsMediator
+public class EventsMediator : IEventsMediator, IVisitor
 {
     private readonly BaseConsumer<AddFriendEvent> _addFriendConsumer;
     private readonly BaseConsumer<RemoveFriendEvent> _removeFriendConsumer;
@@ -35,41 +38,14 @@ public class EventsMediator : IEventsMediator
         _userManager = userManager;
     }
 
-    public async Task PublishEvent<TEvent>(TEvent @event) where TEvent : IEvent
+    public async Task PublishEvent(AcceptableEvent @event)
     {
         List<string> userIds;
         string userName;
 
         Console.WriteLine("Publishing event with mediator");
-        
-        switch (@event)
-        {
-            case AddFriendEvent addFriendEvent:
-                await _addFriendConsumer.ConsumeEvent(addFriendEvent);
-                break;
-            case RemoveFriendEvent removeFriendEvent:
-                await _removeFriendConsumer.ConsumeEvent(removeFriendEvent);
-                break;
-            case GameLaunchedEvent gameLaunchedEvent:
-                await _battleshipsSynchronizationService.SendLaunchGameMessage(gameLaunchedEvent.GameSessionId);
-                break;
-            case EndgameReachedEvent endgameReachedEvent:
-                var winnerName = (await _userManager.GetById(endgameReachedEvent.AttackerUserId)).UserName;
-                await _battleshipsSynchronizationService.SendEndgameReached(endgameReachedEvent.GameSessionId, winnerName);
-                break;
-            case FriendWonEvent friendWonEvent:
-                userIds = await GetIdsOfUserAddedAsFriend(friendWonEvent.InitiatorUserId);
-                userName = await GetUserEmail(friendWonEvent.InitiatorUserId);
-                
-                await _friendsSynchronizationService.PublishFriendWonEvent(userIds, userName);
-                break;
-            case FriendLostEvent friendLostEvent:
-                userIds = await GetIdsOfUserAddedAsFriend(friendLostEvent.InitiatorUserId);
-                userName = await GetUserEmail(friendLostEvent.InitiatorUserId);
 
-                await _friendsSynchronizationService.PublishFriendLostEvent(userIds, userName);
-                break;
-        }
+        await @event.Accept(this);
     }
 
     private async Task<List<string>> GetIdsOfUserAddedAsFriend(string userId)
@@ -87,5 +63,39 @@ public class EventsMediator : IEventsMediator
     private async Task<string> GetUserEmail(string userId)
     {
         return (await _userManager.GetById(userId)).Email;
+    }
+
+    public async Task Visit(AddFriendEvent addFriendEvent) => await _addFriendConsumer.ConsumeEvent(addFriendEvent);
+
+    public async Task Visit(RemoveFriendEvent removeFriendEvent) => await _removeFriendConsumer.ConsumeEvent(removeFriendEvent);
+
+    public async Task Visit(GameLaunchedEvent gameLaunchedEvent) => await _battleshipsSynchronizationService.SendLaunchGameMessage(gameLaunchedEvent.GameSessionId);
+
+    public async Task Visit(EndgameReachedEvent endgameReachedEvent)
+    {
+        var winnerName = (await _userManager.GetById(endgameReachedEvent.AttackerUserId)).UserName;
+        await _battleshipsSynchronizationService.SendEndgameReached(endgameReachedEvent.GameSessionId, winnerName);
+    }
+
+    public async Task Visit(FriendWonEvent friendWonEvent)
+    {
+        List<string> userIds;
+        string userName;
+
+        userIds = await GetIdsOfUserAddedAsFriend(friendWonEvent.InitiatorUserId);
+        userName = await GetUserEmail(friendWonEvent.InitiatorUserId);
+
+        await _friendsSynchronizationService.PublishFriendWonEvent(userIds, userName);
+    }
+
+    public async Task Visit(FriendLostEvent friendLostEvent)
+    {
+        List<string> userIds;
+        string userName;
+
+        userIds = await GetIdsOfUserAddedAsFriend(friendLostEvent.InitiatorUserId);
+        userName = await GetUserEmail(friendLostEvent.InitiatorUserId);
+
+        await _friendsSynchronizationService.PublishFriendLostEvent(userIds, userName);
     }
 }

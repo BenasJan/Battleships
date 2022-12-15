@@ -44,35 +44,8 @@ public class EventsMediator : IEventsMediator, IVisitor
         string userName;
 
         Console.WriteLine("Publishing event with mediator");
-        
-        switch (@event)
-        {
-            case AddFriendEvent addFriendEvent:
-                await _addFriendConsumer.ConsumeEvent(addFriendEvent);
-                break;
-            case RemoveFriendEvent removeFriendEvent:
-                await _removeFriendConsumer.ConsumeEvent(removeFriendEvent);
-                break;
-            case GameLaunchedEvent gameLaunchedEvent:
-                await _battleshipsSynchronizationService.SendLaunchGameMessage(gameLaunchedEvent.GameSessionId);
-                break;
-            case EndgameReachedEvent endgameReachedEvent:
-                var winnerName = (await _userManager.GetById(endgameReachedEvent.AttackerUserId)).UserName;
-                await _battleshipsSynchronizationService.SendEndgameReached(endgameReachedEvent.GameSessionId, winnerName);
-                break;
-            case FriendWonEvent friendWonEvent:
-                userIds = await GetIdsOfUserAddedAsFriend(friendWonEvent.InitiatorUserId);
-                userName = await GetUserEmail(friendWonEvent.InitiatorUserId);
-                
-                await _friendsSynchronizationService.PublishFriendWonEvent(userIds, userName);
-                break;
-            case FriendLostEvent friendLostEvent:
-                userIds = await GetIdsOfUserAddedAsFriend(friendLostEvent.InitiatorUserId);
-                userName = await GetUserEmail(friendLostEvent.InitiatorUserId);
 
-                await _friendsSynchronizationService.PublishFriendLostEvent(userIds, userName);
-                break;
-        }
+        await @event.Accept(this);
     }
 
     private async Task<List<string>> GetIdsOfUserAddedAsFriend(string userId)
@@ -90,14 +63,39 @@ public class EventsMediator : IEventsMediator, IVisitor
     private async Task<string> GetUserEmail(string userId)
     {
         return (await _userManager.GetById(userId)).Email;
-
-        await @event.Accept(this);
     }
 
-    public Task Visit(AddFriendEvent addFriendEvent) => _addFriendConsumer.ConsumeEvent(addFriendEvent);
+    public async Task Visit(AddFriendEvent addFriendEvent) => await _addFriendConsumer.ConsumeEvent(addFriendEvent);
 
-    public Task Visit(RemoveFriendEvent removeFriendEvent) => _removeFriendConsumer.ConsumeEvent(removeFriendEvent);
+    public async Task Visit(RemoveFriendEvent removeFriendEvent) => await _removeFriendConsumer.ConsumeEvent(removeFriendEvent);
 
-    public Task Visit(AttackEvent attackEvent) => _attackEventConsumer.ConsumeEvent(attackEvent);
+    public async Task Visit(GameLaunchedEvent gameLaunchedEvent) => await _battleshipsSynchronizationService.SendLaunchGameMessage(gameLaunchedEvent.GameSessionId);
 
+    public async Task Visit(EndgameReachedEvent endgameReachedEvent)
+    {
+        var winnerName = (await _userManager.GetById(endgameReachedEvent.AttackerUserId)).UserName;
+        await _battleshipsSynchronizationService.SendEndgameReached(endgameReachedEvent.GameSessionId, winnerName);
+    }
+
+    public async Task Visit(FriendWonEvent friendWonEvent)
+    {
+        List<string> userIds;
+        string userName;
+
+        userIds = await GetIdsOfUserAddedAsFriend(friendWonEvent.InitiatorUserId);
+        userName = await GetUserEmail(friendWonEvent.InitiatorUserId);
+
+        await _friendsSynchronizationService.PublishFriendWonEvent(userIds, userName);
+    }
+
+    public async Task Visit(FriendLostEvent friendLostEvent)
+    {
+        List<string> userIds;
+        string userName;
+
+        userIds = await GetIdsOfUserAddedAsFriend(friendLostEvent.InitiatorUserId);
+        userName = await GetUserEmail(friendLostEvent.InitiatorUserId);
+
+        await _friendsSynchronizationService.PublishFriendLostEvent(userIds, userName);
+    }
 }

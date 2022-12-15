@@ -12,6 +12,7 @@ namespace Battleships.Data.Events
 
         public async Task Accept(IVisitor v)
         {
+            Console.WriteLine("Working Visitor");
             await v.Visit(this);
         }
     }

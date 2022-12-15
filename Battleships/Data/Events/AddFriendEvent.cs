@@ -1,5 +1,6 @@
 ﻿using Battleships.Services.EventConsumers;
 using Battleships.Visitor;
+using System;
 using System.Threading.Tasks;
 
 namespace Battleships.Data.Events
@@ -11,6 +12,7 @@ namespace Battleships.Data.Events
 
         public async Task Accept(IVisitor v)
         {
+            Console.WriteLine("Working Visitor");
             await v.Visit(this);
         }
     }

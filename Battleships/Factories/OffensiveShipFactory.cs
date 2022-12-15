@@ -11,7 +11,9 @@ namespace Battleships.Factories
             {
                 return new BattleshipShip
                 {
-                    ShipType = ShipTypes.Battleship
+                    ShipType = ShipTypes.Battleship,
+                    TurretsCount = 3,
+                    GunCount = 8
                 };
             }
 
@@ -19,7 +21,7 @@ namespace Battleships.Factories
             {
                 return new SubmarineShip
                 {
-                    ShipType = ShipTypes.Submarine
+                    ShipType = ShipTypes.Submarine,
                 };
             }
             
@@ -27,7 +29,10 @@ namespace Battleships.Factories
             {
                 return new DestroyerShip
                 {
-                    ShipType = ShipTypes.Destroyer
+                    ShipType = ShipTypes.Destroyer,
+                    TurretsCount = 4,
+                    GunCount = 8,
+                    ArmourMm = 800
                 };
             }
 

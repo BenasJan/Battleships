@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Battleships.Data.Dto
 {
-    public class AddFriendEvent : IEvent, AcceptableEvent
+    public class AddFriendEvent : AcceptableEvent
     {
         public string InitiatorUserId { get; set; }
         public string TargetUserId { get; set; }

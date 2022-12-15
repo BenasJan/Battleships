@@ -5,7 +5,7 @@ using Battleships.Visitor;
 
 namespace Battleships.Data.Dto
 {
-    public class RemoveFriendEvent : IEvent, AcceptableEvent
+    public class RemoveFriendEvent : AcceptableEvent
     {
         public string InitiatorUserId { get; set; }
         public Guid FriendId { get; set; }

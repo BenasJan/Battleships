@@ -22,20 +22,8 @@ public class EventsMediator : IEventsMediator, IVisitor
         _attackEventConsumer = attackEventConsumer;
     }
 
-    public async Task PublishEvent<TEvent>(AcceptableEvent @event) where TEvent : IEvent
+    public async Task PublishEvent(AcceptableEvent @event)
     {
-        //switch (@event)
-        //{
-        //    case AddFriendEvent addFriendEvent:
-        //        await _addFriendConsumer.ConsumeEvent(addFriendEvent);
-        //        break;
-        //    case RemoveFriendEvent removeFriendEvent:
-        //        await _removeFriendConsumer.ConsumeEvent(removeFriendEvent);
-        //        break;
-        //    case AttackEvent attackEvent:
-        //        await _attackEventConsumer.ConsumeEvent(attackEvent);
-        //        break;
-        //}
 
         await @event.Accept(this);
     }

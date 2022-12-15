@@ -5,5 +5,5 @@ namespace Battleships.Services.EventConsumers;
 
 public interface IEventsMediator
 {
-    Task PublishEvent<TEvent>(AcceptableEvent @event) where TEvent : IEvent;
+    Task PublishEvent(AcceptableEvent @event);
 }

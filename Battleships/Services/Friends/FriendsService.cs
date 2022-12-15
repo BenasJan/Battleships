@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Battleships.Data.Dto;
+using Battleships.Data.Events;
 using Battleships.Models;
 using Battleships.Repositories;
 using Battleships.Services.Authentication.Interfaces;
+using Battleships.Services.EventConsumers;
 using Battleships.Services.Friends.Interfaces;
 using Battleships.Services.Users;
 using Microsoft.EntityFrameworkCore;
@@ -17,7 +20,11 @@ namespace Battleships.Services.Friends
         private readonly IUserManager _userManager;
         private readonly ICurrentUserService _currentUserService;
         
-        public FriendsService (IBattleshipsDatabase database, IUserManager userManager, ICurrentUserService currentUserService)
+        public FriendsService (
+            IBattleshipsDatabase database,
+            IUserManager userManager,
+            ICurrentUserService currentUserService
+            )
         {
             _db = database;
             _userManager = userManager;

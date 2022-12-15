@@ -2,6 +2,9 @@
 using System.Threading.Tasks;
 using Battleships.Data.Dto;
 using Battleships.Data.Dto.InGameSession;
+using Battleships.Data.Events;
+using Battleships.Services.Authentication.Interfaces;
+using Battleships.Services.EventConsumers;
 using Battleships.Services.GameSession.Interfaces;
 using Battleships.Services.Players.Interfaces;
 using Battleships.SignalR.Interfaces;
@@ -24,7 +27,8 @@ namespace Battleships.Controllers
             IPlayersService playersService,
             IGameLaunchService gameLaunchService,
             IBattleshipsSynchronizationService battleshipsSynchronizationService,
-            IInGameSessionHelperService inGameSessionHelperService)
+            IInGameSessionHelperService inGameSessionHelperService
+            )
         {
             _gameSessionService = gameSessionService;
             _playersService = playersService;
@@ -67,9 +71,6 @@ namespace Battleships.Controllers
         public async Task<IActionResult> LaunchGame(Guid gameSessionId, bool rematch)
         {
             await _gameLaunchService.LaunchGame(gameSessionId, rematch);
-
-            Response.OnCompleted(async () =>
-                await _battleshipsSynchronizationService.SendLaunchGameMessage(gameSessionId));
 
             return Ok();
         }

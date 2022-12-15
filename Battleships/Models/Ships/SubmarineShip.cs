@@ -6,5 +6,15 @@
         {
             base.Description = $"Submarine ship {State.GetState()}!";
         }
+
+        public override int CalculateGuns()
+        {
+            return 2;
+        }
+
+        public override int CalculateWeight()
+        {
+            return CalculateGuns() + 5;
+        }
     }
 }

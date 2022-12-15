@@ -2,7 +2,7 @@
 using Battleships.Visitor;
 using System.Threading.Tasks;
 
-namespace Battleships.Data.Dto
+namespace Battleships.Data.Events
 {
     public class AddFriendEvent : AcceptableEvent
     {

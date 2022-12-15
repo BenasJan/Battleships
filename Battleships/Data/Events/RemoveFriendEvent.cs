@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Battleships.Services.EventConsumers;
 using Battleships.Visitor;
 
-namespace Battleships.Data.Dto
+namespace Battleships.Data.Events
 {
     public class RemoveFriendEvent : AcceptableEvent
     {

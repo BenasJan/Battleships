@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
 import { AuthorizationService } from './services/authorization.service';
+import { FriendsConnectionService } from './services/friends-connection.service';
 import { FriendsHubConnection } from './services/friends-hub-connection';
 import { SignalRService } from './services/signal-r.service';
 
@@ -13,15 +14,15 @@ export class AppComponent implements OnInit {
 
   constructor(
     private readonly authorizationService: AuthorizationService,
-    private readonly signalRService: SignalRService
+    private readonly signalRService: SignalRService,
+    private readonly friendsConnectionService: FriendsConnectionService
   ) { }
 
   ngOnInit(): void {
     this.authorizationService.intializeAuthorization();
     if (this.authorizationService.isAuthorized){
       this.signalRService.connectAsUser();
-      const connection = FriendsHubConnection.getInstance();
-      from(connection.start()).subscribe(); 
+      this.friendsConnectionService.initializeConnection().subscribe();
     }
   }
 }

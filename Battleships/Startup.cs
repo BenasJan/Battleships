@@ -1,6 +1,7 @@
 using System;
 using Battleships.Data;
 using Battleships.Data.Dto;
+using Battleships.Data.Events;
 using Battleships.Factories;
 using Battleships.Models;
 using Battleships.Repositories;
@@ -97,6 +98,7 @@ namespace Battleships
                 .AddScoped<ICurrentUserService, CurrentUserService>()
                 .AddScoped<IGameSessionService, GameSessionService>()
                 .AddScoped<IBattleshipsSynchronizationService, BattleshipsSynchronizationService>()
+                .AddScoped<IFriendsSynchronizationService, FriendsSynchronizationService>()
                 .AddScoped<IGameSessionsRepository, GameSessionsRepository>()
                 .AddScoped<IPlayersRepository, PlayersRepository>()
                 .AddScoped<IPlayersService, PlayersService>()
@@ -126,6 +128,7 @@ namespace Battleships
                 .AddScoped<BaseConsumer<AddFriendEvent>, AddFriendConsumer>()
                 .AddScoped<BaseConsumer<RemoveFriendEvent>, RemoveFriendConsumer>()
                 .AddScoped<IEventsMediator, EventsMediator>()
+                .AddScoped<IFriendsEventService, FriendsEventService>()
                 ;
         }
 

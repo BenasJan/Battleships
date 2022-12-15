@@ -11,7 +11,10 @@ namespace Battleships.Factories
             {
                 return new CarrierShip
                 {
-                    ShipType = ShipTypes.Carrier
+                    ShipType = ShipTypes.Carrier,
+                    PlaneCount = 5,
+                    GunCount = 6
+                    
                 };
             }
             
@@ -19,7 +22,9 @@ namespace Battleships.Factories
             {
                 return new CruiserShip
                 {
-                    ShipType = ShipTypes.Cruiser
+                    ShipType = ShipTypes.Cruiser,
+                    TurretsCount = 2,
+                    GunCount = 5
                 };
             }
 

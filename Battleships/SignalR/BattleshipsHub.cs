@@ -7,11 +7,11 @@ namespace Battleships.SignalR
 {
     public class BattleshipsHub : Hub
     {
-        private readonly IAttackExecutor _attackExecutor;
+        private readonly IGameSessionControl _gameSessionControl;
 
-        public BattleshipsHub(IAttackExecutor attackExecutor)
+        public BattleshipsHub(IGameSessionControl gameSessionControl)
         {
-            _attackExecutor = attackExecutor;
+            _gameSessionControl = gameSessionControl;
         }
 
         public async Task ConnectUser(string userId)
@@ -31,7 +31,12 @@ namespace Battleships.SignalR
 
         public async Task PublishAttack(AttackEvent attack)
         {
-            await _attackExecutor.ExecuteAttack(attack);
+            await _gameSessionControl.ExecuteAttack(attack);
+        }
+
+        public async Task MoveShip(MoveShipEvent shipMove)
+        {
+            await _gameSessionControl.MoveShip(shipMove);
         }
     }
 }

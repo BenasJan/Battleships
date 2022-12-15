@@ -116,13 +116,13 @@ namespace Battleships
                 .AddScoped<IFriendsService, FriendsService>()
                 .AddScoped<IInGameSessionHelperService, InGameSessionHelperService>()
                 .AddScoped<IUserManager, UserManager>()
-                .AddScoped<AttackExecutionService>()
-                .AddScoped<IAttackExecutor, AttackExecutionProxy>(serviceProvider =>
+                .AddScoped<GameSessionControl>()
+                .AddScoped<IGameSessionControl, GameSessionControlProxy>(serviceProvider =>
                 {
                     var database = serviceProvider.GetRequiredService<IBattleshipsDatabase>();
-                    var attackExecutionService = serviceProvider.GetRequiredService<AttackExecutionService>();
+                    var gameSessionControl = serviceProvider.GetRequiredService<GameSessionControl>();
 
-                    return new AttackExecutionProxy(database, attackExecutionService);
+                    return new GameSessionControlProxy(gameSessionControl, database);
                 })
                 .AddScoped<BaseConsumer<AttackEvent>, AttackExecutionConsumer>()
                 .AddScoped<BaseConsumer<AddFriendEvent>, AddFriendConsumer>()

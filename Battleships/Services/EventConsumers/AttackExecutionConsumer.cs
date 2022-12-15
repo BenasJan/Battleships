@@ -5,15 +5,15 @@ namespace Battleships.Services.EventConsumers;
 
 public class AttackExecutionConsumer : BaseConsumer<AttackEvent>
 {
-    private readonly IAttackExecutor _attackExecutor;
+    private readonly IAttackExecutionService _attackExecutionService;
 
-    public AttackExecutionConsumer(IAttackExecutor attackExecutor)
+    public AttackExecutionConsumer(IAttackExecutionService attackExecutionService)
     {
-        _attackExecutor = attackExecutor;
+        _attackExecutionService = attackExecutionService;
     }
 
     protected override async Task HandleEvent(AttackEvent @event)
     {
-        await _attackExecutor.ExecuteAttack(@event);
+        await _attackExecutionService.ExecuteAttack(@event);
     }
 }

@@ -1,4 +1,5 @@
 import { HubConnection, HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
+import { from, Observable, tap } from "rxjs";
 
 export class FriendsHubConnection {
     private static connection: HubConnection;
@@ -9,7 +10,7 @@ export class FriendsHubConnection {
         }
 
         FriendsHubConnection.connection = new HubConnectionBuilder()
-            .withUrl('/battleshipsHub')
+            .withUrl('/friendsHub')
             .configureLogging(LogLevel.Information)
             .withAutomaticReconnect()
             .build();

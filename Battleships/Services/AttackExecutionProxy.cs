@@ -22,16 +22,22 @@ public class AttackExecutionProxy : IAttackExecutor
     
     public async Task ExecuteAttack(AttackEvent attack)
     {
-        Console.WriteLine("EXECUTING ATTACK WITH PROXY - PROXY HAS BEEN CALLED");
-        
-        var player = (await _battleshipsDatabase.PlayersRepository.GetWhere(p =>
-            p.GameSessionId == attack.GameSessionId && p.UserId == attack.AttackingUserId)).FirstOrDefault();
+        var player = (await _battleshipsDatabase.PlayersRepository
+            .GetWhere(p => 
+                p.GameSessionId == attack.GameSessionId &&
+                p.UserId == attack.InitiatorUserId &&
+                p.IsCurrentPlayerTurn)
+            ).FirstOrDefault();
 
-        var userHasAccessToGame = player is not null;
+        var playerExistsWithTurn = player is not null;
         
-        if (userHasAccessToGame)
+        if (playerExistsWithTurn)
         {
             await _attackExecutor.ExecuteAttack(attack);
+        }
+        else
+        {
+            throw new Exception($"{attack.InitiatorUserId} cannot attack in game session {attack.GameSessionId}");
         }
     }
 }

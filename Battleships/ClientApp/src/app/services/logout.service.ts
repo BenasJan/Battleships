@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { from, switchMap, tap } from 'rxjs';
 import { AuthorizationService } from './authorization.service';
+import { FriendsHubConnection } from './friends-hub-connection';
+import { SignalRConnection } from './signal-r-connection';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +17,9 @@ export class LogoutService {
 
   public logout(): void {
     this.authorizationService.clearToken();
-    this.router.navigateByUrl('/login');
+    from(SignalRConnection.getInstance().stop()).pipe(
+      switchMap(() => from(FriendsHubConnection.getInstance().stop())),
+      tap(() => this.router.navigateByUrl('/login'))
+    ).subscribe();
   }
 }

@@ -4,6 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Authentication;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Battleships.ChainOfResponsibility;
 using Battleships.Data;
 using Battleships.Data.Constants;
 using Battleships.Data.Dto;
@@ -27,15 +28,25 @@ namespace Battleships.Services.Authentication
 
         public async Task<string> Login(UserCredentialsDto userCredentialsDto)
         {
+            LoginValidator validator1 = new EmailValidator();
+            LoginValidator validator2 = new PasswordValidator();
+            LoginValidator validator3 = new EmailSqlValidator();
+            LoginValidator validator4 = new PasswordSqlValidator();
+            
+            validator1.SetNextValidator(validator2);
+            validator2.SetNextValidator(validator3);
+            validator3.SetNextValidator(validator4);
+            validator1.ProcessData(userCredentialsDto);
+            
             var user = await _userManager.FindByEmailAsync(userCredentialsDto.Email);
-
+            
             if (user == null || !await _userManager.CheckPasswordAsync(user, userCredentialsDto.Password))
             {
                 throw new PasswordException("Invalid password");
             }
-
+            
             var jwtToken = CreateJwtToken(user);
-
+            
             return jwtToken;
         }
 

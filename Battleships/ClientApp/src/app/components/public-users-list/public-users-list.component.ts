@@ -34,23 +34,17 @@ export class PublicUsersListComponent implements OnInit {
     })
   }
 
-  addFriend(userId: string): void {
-    console.log("addFriend id:", userId);
+  addFriend(user: User): void {
+    console.log("addFriend id:", user);
     const friend: AddFriendEvent = {
       initiatorUserId: this.authorizationService.getUserId(),
-      targetUserId: userId
+      targetUserId: user.id
     }
 
     this.friendService.addFriend(friend).subscribe(res => {
-      console.log("addFriend res:", res);
+      user.isFriend = true;
+      this.users = [...this.users]
     })
-    const isLobby = !this.showHeader && this.showAddPlayerButton;
-
-    if (!isLobby) {
-      this.playerService.getGlobalUsers().subscribe((res: User[]) => {
-        this.users = res;
-      })
-    }
   }
 
   public removeUser(userId: string) {

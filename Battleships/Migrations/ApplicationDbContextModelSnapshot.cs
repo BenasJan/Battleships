@@ -533,12 +533,27 @@ namespace Battleships.Migrations
                 {
                     b.HasBaseType("Battleships.Models.Ships.Ship");
 
+                    b.Property<int>("GunCount")
+                        .HasColumnType("integer")
+                        .HasColumnName("BattleshipShip_GunCount");
+
+                    b.Property<int>("TurretsCount")
+                        .HasColumnType("integer")
+                        .HasColumnName("BattleshipShip_TurretsCount");
+
                     b.HasDiscriminator().HasValue("BattleshipShip");
                 });
 
             modelBuilder.Entity("Battleships.Models.Ships.CarrierShip", b =>
                 {
                     b.HasBaseType("Battleships.Models.Ships.Ship");
+
+                    b.Property<int>("GunCount")
+                        .HasColumnType("integer")
+                        .HasColumnName("CarrierShip_GunCount");
+
+                    b.Property<int>("PlaneCount")
+                        .HasColumnType("integer");
 
                     b.HasDiscriminator().HasValue("CarrierShip");
                 });
@@ -547,12 +562,29 @@ namespace Battleships.Migrations
                 {
                     b.HasBaseType("Battleships.Models.Ships.Ship");
 
+                    b.Property<int>("GunCount")
+                        .HasColumnType("integer")
+                        .HasColumnName("CruiserShip_GunCount");
+
+                    b.Property<int>("TurretsCount")
+                        .HasColumnType("integer")
+                        .HasColumnName("CruiserShip_TurretsCount");
+
                     b.HasDiscriminator().HasValue("CruiserShip");
                 });
 
             modelBuilder.Entity("Battleships.Models.Ships.DestroyerShip", b =>
                 {
                     b.HasBaseType("Battleships.Models.Ships.Ship");
+
+                    b.Property<int>("ArmourMm")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("GunCount")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("TurretsCount")
+                        .HasColumnType("integer");
 
                     b.HasDiscriminator().HasValue("DestroyerShip");
                 });

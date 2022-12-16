@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Battleships.CompositeBox;
 using Battleships.Data.Constants;
 using Battleships.Factories;
 using Battleships.Models;
+using Battleships.Models.Ships;
 using Battleships.Repositories;
 using Battleships.Services.Authentication.Interfaces;
 using Battleships.Services.Builders;
@@ -63,6 +65,8 @@ namespace Battleships.Services.GameSession
 
             var playerShips = new List<PlayerShip>();
 
+            List<Ship> allShips = new List<Ship>();
+            
             while (playerShips.Count < 7)
             {
                 var column = columnStartGenerator.GenerateNumber();
@@ -89,6 +93,7 @@ namespace Battleships.Services.GameSession
                 }).ToList();
 
                 var ship = await _battleshipsDatabase.ShipsRepository.GetByType(shipType);
+                allShips.Add(ship);
 
                 var playerShip = new PlayerShip
                 {
@@ -99,6 +104,8 @@ namespace Battleships.Services.GameSession
 
                 playerShips.Add(playerShip);
             }
+            CompositeShipBox compositeShipBox = new CompositeShipBox(allShips);
+            Console.WriteLine("COMPOSITE RESULT: " + compositeShipBox.CalculateGuns() + " " + compositeShipBox.CalculateWeight());
 
             return playerShips;
         }

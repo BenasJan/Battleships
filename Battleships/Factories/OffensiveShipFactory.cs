@@ -19,12 +19,6 @@ namespace Battleships.Factories
 
             if (shipType == ShipTypes.Battleship)
             {
-                return new BattleshipShip
-                {
-                    ShipType = ShipTypes.Battleship,
-                    TurretsCount = 3,
-                    GunCount = 8
-                };
                 var ship = new BattleshipShip();
                 ship.SetBaseData(shipBaseData);
                 return ship;

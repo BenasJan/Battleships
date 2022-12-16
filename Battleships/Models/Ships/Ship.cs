@@ -23,6 +23,8 @@ namespace Battleships.Models.Ships
         [NotMapped]
         public IShipState State { get; set; }
 
+        public abstract int CalculateGuns();
+        public abstract int CalculateWeight();
         public abstract void ChangeState();
 
         public void SetBaseData (ShipBaseData shipBaseData)

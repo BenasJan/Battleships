@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Battleships.Models;
@@ -30,6 +31,12 @@ namespace Battleships.Services
             
             var session = await _battleshipsDatabase.GameSessionsRepository.GetWithPlayersAndSettings(attack.GameSessionId);
             var attackedTiles = await _battleshipsDatabase.ShipTilesRepository.GetAttackedTiles(attack);
+
+            List<PlayerShip> savedShipTiles = new List<PlayerShip>();
+            PlayerShip.Originator originator = new PlayerShip.Originator();
+            originator.Set(attackedTiles);
+            savedShipTiles.Add(originator.SaveToMemento());
+
             var currentUserPlayer = session.Players.First(p => p.IsCurrentPlayerTurn);
             var opponentPlayer = session.Players.First(p => !p.IsCurrentPlayerTurn);
             

@@ -119,10 +119,10 @@ namespace Battleships.Models
 
         public static void PrintShipTiles(List<ShipTile> shipTiles)
         {
-            Debug.WriteLine("X, Y coordinates");
+            Debug.WriteLine("X, Y coordinates, Ship?");
             foreach (var tile in shipTiles)
             {
-                Debug.WriteLine($"{tile.XCoordinate}, {tile.YCoordinate}");
+                Debug.WriteLine($"{tile.XCoordinate}, {tile.YCoordinate}, {tile.PlayerShipId != null}");
             }
         }
 

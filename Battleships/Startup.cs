@@ -1,5 +1,7 @@
 using System;
 using Battleships.Data;
+using Battleships.Data.Dto;
+using Battleships.Data.Events;
 using Battleships.Factories;
 using Battleships.Models;
 using Battleships.Repositories;
@@ -9,6 +11,7 @@ using Battleships.Services.Achievement.Interfaces;
 using Battleships.Services.Authentication;
 using Battleships.Services.Authentication.Interfaces;
 using Battleships.Services.EndgameStrategies;
+using Battleships.Services.EventConsumers;
 using Battleships.Services.Players;
 using Battleships.Services.Players.Interfaces;
 using Battleships.Services.GameSession;
@@ -28,6 +31,7 @@ using Microsoft.IdentityModel.Tokens;
 using Battleships.Services.Friends.Interfaces;
 using Battleships.Services.Friends;
 using Battleships.Services.Users;
+using Battleships.SignalR.Models;
 
 namespace Battleships
 {
@@ -44,6 +48,8 @@ namespace Battleships
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            
+            services.AddCors();
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -92,11 +98,11 @@ namespace Battleships
                 .AddScoped<ICurrentUserService, CurrentUserService>()
                 .AddScoped<IGameSessionService, GameSessionService>()
                 .AddScoped<IBattleshipsSynchronizationService, BattleshipsSynchronizationService>()
+                .AddScoped<IFriendsSynchronizationService, FriendsSynchronizationService>()
                 .AddScoped<IGameSessionsRepository, GameSessionsRepository>()
                 .AddScoped<IPlayersRepository, PlayersRepository>()
                 .AddScoped<IPlayersService, PlayersService>()
                 .AddScoped<IShipTilesRepository, ShipTilesRepository>()
-                .AddScoped<IAttackExecutionService, AttackExecutionService>()
                 .AddScoped<IEndgameService, EndgameService>()
                 .AddScoped<IEndgameStrategyService, EndgameStrategyService>()
                 .AddScoped<IEndgameStrategy, ClassicEndgameStrategy>()
@@ -110,6 +116,19 @@ namespace Battleships
                 .AddScoped<IFriendsService, FriendsService>()
                 .AddScoped<IInGameSessionHelperService, InGameSessionHelperService>()
                 .AddScoped<IUserManager, UserManager>()
+                .AddScoped<AttackExecutionService>()
+                .AddScoped<IAttackExecutor, AttackExecutionProxy>(serviceProvider =>
+                {
+                    var database = serviceProvider.GetRequiredService<IBattleshipsDatabase>();
+                    var attackExecutionService = serviceProvider.GetRequiredService<AttackExecutionService>();
+
+                    return new AttackExecutionProxy(database, attackExecutionService);
+                })
+                .AddScoped<BaseConsumer<AttackEvent>, AttackExecutionConsumer>()
+                .AddScoped<BaseConsumer<AddFriendEvent>, AddFriendConsumer>()
+                .AddScoped<BaseConsumer<RemoveFriendEvent>, RemoveFriendConsumer>()
+                .AddScoped<IEventsMediator, EventsMediator>()
+                .AddScoped<IFriendsEventService, FriendsEventService>()
                 ;
         }
 
@@ -124,8 +143,14 @@ namespace Battleships
             {
                 app.UseHsts();
             }
+            
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());   
+            // app.UseMvc();
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
             app.UseStaticFiles();
             if (!env.IsDevelopment())
             {
@@ -142,10 +167,10 @@ namespace Battleships
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
-                endpoints.MapHub<BattleshipsHub>("/battleshipsHub", options =>
-                {
-                    options.Transports = HttpTransportType.WebSockets;
-                });
+                endpoints
+                    .MapHub<BattleshipsHub>("/battleshipsHub", options => options.Transports = HttpTransportType.WebSockets);
+                endpoints
+                    .MapHub<FriendsHub>("/friendsHub", options => options.Transports = HttpTransportType.WebSockets);
             });
 
             app.UseSpa(spa =>

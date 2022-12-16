@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html'
 })
-export class InventoryComponent implements OnInit {
+export class InventoryComponent {
 
   public mapSkins = [
     { icon: 'zoom_out_map', location: 'Belgrad', name: 'Navy', gamesPlayed: '0', lastPlayed: '2022-09-15' },
@@ -32,10 +32,4 @@ export class InventoryComponent implements OnInit {
     { icon: 'sailing', shipName: 'Destroyer', name: 'Crimson', gamesPlayed: '10', lastPlayed: '2022-09-10' },
     { icon: 'sailing', shipName: 'Carrier', name: 'Limited edition', gamesPlayed: '10', lastPlayed: '2022-09-10' }
   ];
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

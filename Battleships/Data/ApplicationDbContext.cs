@@ -15,6 +15,8 @@ namespace Battleships.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            base.OnModelCreating(builder);
+
             builder.Entity<Ship>()
                 .HasDiscriminator(ship => ship.ShipTypeDiscriminator)
                 .HasValue<BattleshipShip>(nameof(BattleshipShip))
@@ -23,8 +25,16 @@ namespace Battleships.Data
                 .HasValue<DestroyerShip>(nameof(DestroyerShip))
                 .HasValue<SubmarineShip>(nameof(SubmarineShip))
                 ;
+
+            builder.Entity<Friend>()
+                .HasOne(friend => friend.TargetUser)
+                .WithMany(u => u.FriendsIAmAddedBy)
+                .HasForeignKey(friend => friend.TargetUserId);
             
-            base.OnModelCreating(builder);
+            builder.Entity<Friend>()
+                .HasOne(friend => friend.InitiatingUser)
+                .WithMany(u => u.Friends)
+                .HasForeignKey(friend => friend.InitiatingUserId);
         }
     }
 }

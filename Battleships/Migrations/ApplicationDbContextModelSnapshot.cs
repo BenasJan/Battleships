@@ -45,7 +45,7 @@ namespace Battleships.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Achievements", (string)null);
+                    b.ToTable("Achievements");
                 });
 
             modelBuilder.Entity("Battleships.Models.ApplicationUser", b =>
@@ -129,15 +129,21 @@ namespace Battleships.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("User1")
-                        .HasColumnType("uuid");
+                    b.Property<string>("InitiatingUserId")
+                        .IsRequired()
+                        .HasColumnType("text");
 
-                    b.Property<Guid>("User2")
-                        .HasColumnType("uuid");
+                    b.Property<string>("TargetUserId")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Friends", (string)null);
+                    b.HasIndex("InitiatingUserId");
+
+                    b.HasIndex("TargetUserId");
+
+                    b.ToTable("Friends");
                 });
 
             modelBuilder.Entity("Battleships.Models.GameSession", b =>
@@ -174,7 +180,7 @@ namespace Battleships.Migrations
 
                     b.HasIndex("WinnerId");
 
-                    b.ToTable("GameSession", (string)null);
+                    b.ToTable("GameSession");
                 });
 
             modelBuilder.Entity("Battleships.Models.GameSessionSettings", b =>
@@ -212,7 +218,7 @@ namespace Battleships.Migrations
                     b.HasIndex("GameSessionId")
                         .IsUnique();
 
-                    b.ToTable("GameSessionSettings", (string)null);
+                    b.ToTable("GameSessionSettings");
                 });
 
             modelBuilder.Entity("Battleships.Models.Player", b =>
@@ -239,7 +245,7 @@ namespace Battleships.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Player", (string)null);
+                    b.ToTable("Player");
                 });
 
             modelBuilder.Entity("Battleships.Models.PlayerShip", b =>
@@ -260,7 +266,7 @@ namespace Battleships.Migrations
 
                     b.HasIndex("ShipId");
 
-                    b.ToTable("PlayerShip", (string)null);
+                    b.ToTable("PlayerShip");
                 });
 
             modelBuilder.Entity("Battleships.Models.Ships.Ship", b =>
@@ -284,7 +290,7 @@ namespace Battleships.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Ship", (string)null);
+                    b.ToTable("Ship");
 
                     b.HasDiscriminator<string>("ShipTypeDiscriminator").HasValue("Ship");
                 });
@@ -322,9 +328,6 @@ namespace Battleships.Migrations
                     b.Property<Guid?>("TargetPlayerId")
                         .HasColumnType("uuid");
 
-                    b.Property<bool>("Shield")
-                        .HasColumnType("boolean");
-
                     b.Property<int>("XCoordinate")
                         .HasColumnType("integer");
 
@@ -337,7 +340,9 @@ namespace Battleships.Migrations
 
                     b.HasIndex("PlayerShipId");
 
-                    b.ToTable("ShipTile", (string)null);
+                    b.HasIndex("TargetPlayerId");
+
+                    b.ToTable("ShipTile");
                 });
 
             modelBuilder.Entity("Battleships.Models.UserAchievement", b =>
@@ -358,7 +363,7 @@ namespace Battleships.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserAchievement", (string)null);
+                    b.ToTable("UserAchievement");
                 });
 
             modelBuilder.Entity("Battleships.Models.UserCosmetic", b =>
@@ -385,7 +390,7 @@ namespace Battleships.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserCosmetic", (string)null);
+                    b.ToTable("UserCosmetic");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -528,12 +533,27 @@ namespace Battleships.Migrations
                 {
                     b.HasBaseType("Battleships.Models.Ships.Ship");
 
+                    b.Property<int>("GunCount")
+                        .HasColumnType("integer")
+                        .HasColumnName("BattleshipShip_GunCount");
+
+                    b.Property<int>("TurretsCount")
+                        .HasColumnType("integer")
+                        .HasColumnName("BattleshipShip_TurretsCount");
+
                     b.HasDiscriminator().HasValue("BattleshipShip");
                 });
 
             modelBuilder.Entity("Battleships.Models.Ships.CarrierShip", b =>
                 {
                     b.HasBaseType("Battleships.Models.Ships.Ship");
+
+                    b.Property<int>("GunCount")
+                        .HasColumnType("integer")
+                        .HasColumnName("CarrierShip_GunCount");
+
+                    b.Property<int>("PlaneCount")
+                        .HasColumnType("integer");
 
                     b.HasDiscriminator().HasValue("CarrierShip");
                 });
@@ -542,12 +562,29 @@ namespace Battleships.Migrations
                 {
                     b.HasBaseType("Battleships.Models.Ships.Ship");
 
+                    b.Property<int>("GunCount")
+                        .HasColumnType("integer")
+                        .HasColumnName("CruiserShip_GunCount");
+
+                    b.Property<int>("TurretsCount")
+                        .HasColumnType("integer")
+                        .HasColumnName("CruiserShip_TurretsCount");
+
                     b.HasDiscriminator().HasValue("CruiserShip");
                 });
 
             modelBuilder.Entity("Battleships.Models.Ships.DestroyerShip", b =>
                 {
                     b.HasBaseType("Battleships.Models.Ships.Ship");
+
+                    b.Property<int>("ArmourMm")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("GunCount")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("TurretsCount")
+                        .HasColumnType("integer");
 
                     b.HasDiscriminator().HasValue("DestroyerShip");
                 });
@@ -564,6 +601,25 @@ namespace Battleships.Migrations
                     b.HasOne("Battleships.Models.Achievement", null)
                         .WithMany("Users")
                         .HasForeignKey("AchievementId");
+                });
+
+            modelBuilder.Entity("Battleships.Models.Friend", b =>
+                {
+                    b.HasOne("Battleships.Models.ApplicationUser", "InitiatingUser")
+                        .WithMany("Friends")
+                        .HasForeignKey("InitiatingUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Battleships.Models.ApplicationUser", "TargetUser")
+                        .WithMany("FriendsIAmAddedBy")
+                        .HasForeignKey("TargetUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("InitiatingUser");
+
+                    b.Navigation("TargetUser");
                 });
 
             modelBuilder.Entity("Battleships.Models.GameSession", b =>
@@ -734,6 +790,10 @@ namespace Battleships.Migrations
             modelBuilder.Entity("Battleships.Models.ApplicationUser", b =>
                 {
                     b.Navigation("Cosmetics");
+
+                    b.Navigation("Friends");
+
+                    b.Navigation("FriendsIAmAddedBy");
 
                     b.Navigation("Players");
 

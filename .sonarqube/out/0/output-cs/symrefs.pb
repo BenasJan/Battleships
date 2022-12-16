@@ -1,4 +1,4 @@
-±
+ô
 /D:\dev\Battleships\Battleships\Adapter\Email.cs
 
  
@@ -6,13 +6,7 @@
   
   
   
-		  
-
-
-
- 
-
- 
+		  
  # 
 , 0 
 9 ; 
@@ -43,41 +37,33 @@
  Y d
  ) ,
 
- -…
+ -ø
 ;D:\dev\Battleships\Battleships\Adapter\SmtpEmailProvider.cs
 
- "<
-		 '     
+ "2
+$ /    
 
 
 
  #(
 
 
-* /8 =B GQ V
+* /8 =B GQ V
 
- -§
+ -ò
 >D:\dev\Battleships\Battleships\Commands\FriendRemoveCommand.cs
 
  $(
-  ' ! (1 8
-
-
-
- "
+  ' ! (1 8
 
 
 * 0 
 
- ú
+ ê
 @D:\dev\Battleships\Battleships\Commands\FriendsActionCommands.cs
 
  &
-( <    
-
-
-
- $
+( <    
 
 
 4 G# 6
@@ -92,58 +78,46 @@
 
  '
 
- §
+ Ù
 :D:\dev\Battleships\Battleships\Commands\ShipMoveCommand.cs
 
  "
-$ )  
-
-		  
+$ )  
 		, 0 
 
  
 
  $
-$ )  
-
- "
+$ )  
 . 2 
 
  
 
 ## $
-%%$ ))) .. 
-
-'' "
+%%$ ))) .. 
 ''. 2)) 
 
 ,, 
 
 22 %
-44$ )88 == 
-
-66 #
+44$ )88 == 
 66/ 388 
 
-;; µ
+;; ©
 CD:\dev\Battleships\Battleships\Controllers\AchievementController.cs
 
 		 &
-- @ % 8
-
- $
+- @ % 8
 9 K" 4
 
 ) 4
-  "˙
+  "Ó
 FD:\dev\Battleships\Battleships\Controllers\AuthenticationController.cs
 
 
 
  )(
-0 F " 4 (
-
- '
+0 F " 4 (
 ? T% :
 
 ) .
@@ -151,15 +125,13 @@ FD:\dev\Battleships\Battleships\Controllers\AuthenticationController.cs
   !
 
 ) 1
-P \2 >¥
+P \2 >®
 >D:\dev\Battleships\Battleships\Controllers\FriendController.cs
 
 
 
  !2
-) 8   /  /%%  /
-
- 
+) 8   /  /%%  /
 0 > ,
 
 ) 4
@@ -171,7 +143,7 @@ FD:\dev\Battleships\Battleships\Controllers\AuthenticationController.cs
 
 ##) 5
 ##K Q%%= C
-%% '' ≠
+%% '' °
 CD:\dev\Battleships\Battleships\Controllers\GameSessionController.cs
 
  &<
@@ -179,9 +151,7 @@ CD:\dev\Battleships\Battleships\Controllers\GameSessionController.cs
 ) 8 PP !
 , > EE $(
 < ^   .HH 8SS 8
-5 P!! '== 7
-
- $
+5 P!! '== 7
   2" 4
  * ,
  0! 2
@@ -213,15 +183,13 @@ CD:\dev\Battleships\Battleships\Controllers\GameSessionController.cs
 YY) 1
 YY7 D\\B O
 YY] h\\Q \\\e p
-\\ ^^ Ú
+\\ ^^ Ê
 >D:\dev\Battleships\Battleships\Controllers\PlayerController.cs
 
 
 
  !(
-) 8 ! 0  /
-
- 
+) 8 ! 0  /
 0 > ,
 
 ) 4
@@ -229,7 +197,7 @@ CD:\dev\Battleships\Battleships\Controllers\GameSessionController.cs
 
 ) 9
 K X> K
-    ≈
+    π
 ;D:\dev\Battleships\Battleships\Data\ApplicationDbContext.cs
 
  %
@@ -238,9 +206,7 @@ CD:\dev\Battleships\Battleships\Controllers\GameSessionController.cs
 
 " .
 
- $
-
- #
+ $
 5 <E L
 
   /
@@ -301,7 +267,7 @@ BD:\dev\Battleships\Battleships\Data\Constants\EndgameStrategies.cs
 
   
 
-		 É
+		 Ì
 9D:\dev\Battleships\Battleships\Data\Dto\GameSessionDto.cs
 
  
@@ -324,8 +290,7 @@ BD:\dev\Battleships\Battleships\Data\Constants\EndgameStrategies.cs
 › È
 Ó ˙
 
- '
- " #r
+ 'r
 @D:\dev\Battleships\Battleships\Data\Dto\GameSessionRequestDto.cs
 
  &
@@ -447,22 +412,18 @@ FD:\dev\Battleships\Battleships\Data\Dto\PlayerLobbyDtoWithSessionId.cs
 
  
 
- í
+ Ü
 6D:\dev\Battleships\Battleships\Data\NumberGenerator.cs
 
   
- & 2 ;
-
-		 
+ & 2 ;
 		# +  
 
- !h
+ !\
 8D:\dev\Battleships\Battleships\Data\PasswordException.cs
 
- "
-
-  
-( /8 ?◊
+ "
+( /8 ?◊
 7D:\dev\Battleships\Battleships\Data\SeedAchievements.cs
 
 
@@ -475,8 +436,8 @@ FD:\dev\Battleships\Battleships\Data\Dto\PlayerLobbyDtoWithSessionId.cs
  # -%% #
   x
  &" 4 & & & & & & &   &!! &"" &
-)) - !
-  %%F R|
+  %%F R
+)) - !|
 ))A S++ 55 ?? II SS ]] gg qq {{ 
 ÖÖ 
 èè Õ
@@ -493,12 +454,10 @@ FD:\dev\Battleships\Battleships\Data\Dto\PlayerLobbyDtoWithSessionId.cs
  &!! &
  ) ) )(
  ) ) )   )
- $$? D¿
+ $$? D¥
 :D:\dev\Battleships\Battleships\Decorators\InfoDecorator.cs
 
- 
-
- 
+ 
 - :C P
 
 		' +2
@@ -514,12 +473,10 @@ FD:\dev\Battleships\Battleships\Data\Dto\PlayerLobbyDtoWithSessionId.cs
 
 
 
- ó
+ ã
 ;D:\dev\Battleships\Battleships\Decorators\LabelDecorator.cs
 
- 
-
- 
+ 
 . ;D Q
 
 ' +
@@ -537,7 +494,7 @@ FD:\dev\Battleships\Battleships\Data\Dto\PlayerLobbyDtoWithSessionId.cs
 
   
 
- "¬
+ "∂
 :D:\dev\Battleships\Battleships\Decorators\ShipDecorator.cs
 
  2
@@ -549,31 +506,25 @@ FD:\dev\Battleships\Battleships\Data\Dto\PlayerLobbyDtoWithSessionId.cs
 
 
 
- 
-
- 
+ 
 0 = *
 
-& *ñ
+& *ä
 :D:\dev\Battleships\Battleships\Decorators\SkinDecorator.cs
 
- 
-
- 
+ 
 - :C P
 
 ' +
 		 )
 
-  !∞
+  !§
 ;D:\dev\Battleships\Battleships\Facades\GameSessionFacade.cs
 
  "
 . 7 99 $
 - @  ,F
-/ 3    "!! "" 11 22 
-
-  
+/ 3    "!! "" 11 22 
 6 >  
 T f" 4
 	~ Å 
@@ -1281,29 +1232,13 @@ DD:\dev\Battleships\Battleships\Migrations\20221122173954_NewInit2.cs
 		 C
 5D:\dev\Battleships\Battleships\Models\enums\Engine.cs
 
- ~
+ N
 @D:\dev\Battleships\Battleships\Models\enums\GameSessionStatus.cs
 
- !
-
- 
-
- 
-
- 
-
- v
+ !F
 8D:\dev\Battleships\Battleships\Models\enums\GameTypes.cs
 
- 
-
- 
-
- 
-
- 
-
- @
+ @
 2D:\dev\Battleships\Battleships\Models\enums\Gun.cs
 
  U
@@ -1313,11 +1248,11 @@ DD:\dev\Battleships\Battleships\Migrations\20221122173954_NewInit2.cs
 
  
 
- –
-4D:\dev\Battleships\Battleships\Models\GameSession.csP
+ ú
+4D:\dev\Battleships\Battleships\Models\GameSession.cs2
 
 
- ** **% 0,, ,,0 ;33 RR7 BTT 2
+ ** **% 0,,0 ;RR7 B2
      55 55# 'JJE I2
  !!  66 66# 'JJ3 7
  #77 77* 5
@@ -1339,15 +1274,14 @@ DD:\dev\Battleships\Battleships\Migrations\20221122173954_NewInit2.cs
 ** $TT  (x
 **1 <//' 2//: E00' 200; F55 "66 "77 )88 (99 $:: *;;" -
 ,, -- &
-MM- 9,, *
 -- == #
 // 11, 5
 00 118 A
 11 << !
-33 @@ 
-CC 33 )
+33 @@ 
 
-HH '
+HH '
+MM- 9,, *
 
 RR- 6
 RRC WTT) =
@@ -1387,38 +1321,28 @@ DD:\dev\Battleships\Battleships\Migrations\20221122173954_NewInit2.cs
 
  
 
- œ
+ ß
 /D:\dev\Battleships\Battleships\Models\Player.cs
 
- 
-		 !-- *--/ <(
+ 
+
+		 !
 
 
- & --G R--W b(
-  --m s--x ~
+ & 
+  
 
- '6
-  %% 
---â è
---î ö,
+ '
+  %% 
  #$$ 
---• ©
---Æ ≤"
-  +
---» ”
---ÿ „
 
- 
-
- 
+  +
 " - %
 4 : 
 C I 
 
  (
-!! (( 
-
-++ '’
+!! (( ˝
 3D:\dev\Battleships\Battleships\Models\PlayerShip.cs
 
  
@@ -1435,20 +1359,16 @@ DD:\dev\Battleships\Battleships\Migrations\20221122173954_NewInit2.cs
  #' , ' ,## ''' ,-- 11' ,77 
 
  
- ! % 
-  
+ ! % 
 
  
- ! %## 
- !! 
+ ! %## 
 
 %% 
-'' ))! %-- 
-)) ++ 
+'' ))! %-- 
 
 // 
-11 33! %77 
-33 55 W
+11 33! %77 W
 =D:\dev\Battleships\Battleships\Models\Ships\BattleshipShip.cs
 
  
@@ -1567,7 +1487,7 @@ DD:\dev\Battleships\Battleships\Migrations\20221122173954_NewInit2.cs
 ) - "
 $ 5 
 ? C& *
-* 4: Dé
+* 4: Dx
 >D:\dev\Battleships\Battleships\Prototype\AchievementManager.cs
 
  #
@@ -1575,8 +1495,7 @@ DD:\dev\Battleships\Battleships\Migrations\20221122173954_NewInit2.cs
 
     
 
-0 9
- 0 5d
+0 9d
 @D:\dev\Battleships\Battleships\Prototype\AchievementPrototype.cs
  . ,
 
@@ -1588,15 +1507,13 @@ DD:\dev\Battleships\Battleships\Migrations\20221122173954_NewInit2.cs
 
 C W
 
-- 9≥	
+- 9ß	
 =D:\dev\Battleships\Battleships\Repositories\BaseRepository.cs
 
  ‹
   &6 <D J 8 >" ( %A G""' -''' -//! '55! ';;6 <CC* 0II* 0ZZ #ZZ? E\\' -`` "aa "ee llX ^<
 . 6+ 3 WW \\ "dd "x
-  '    $$  )) 11 77 == EE KK QQ "nn  
-
- 
+  '    $$  )) 11 77 == EE KK QQ "nn  
 3 : 
 
 * 1
@@ -1609,8 +1526,7 @@ DD:\dev\Battleships\Battleships\Migrations\20221122173954_NewInit2.cs
 ""0 6
 
 ''  &
-''. 3))# (,, F
-UU &** 22 88 >> FF LL 
+''. 3))# (,, 
 
 //  
 //( -11  
@@ -1629,26 +1545,25 @@ DD:\dev\Battleships\Battleships\Migrations\20221122173954_NewInit2.cs
 II2 8KK  &
 
 OO 
-QQ RR 
+QQ RR F
+UU &** 22 88 >> FF LL 
 
 ZZ% .
-ZZN T\\7 =
-__4 ?__ (aa$ /
+ZZN T\\7 =
 
-__* 3
+__* 3
+__4 ?__ (aa$ /
 ``+ 1ff !
-aa2 Fgg 0
-ll2 =ll (ll` k
+aa2 Fgg 0
 
-ll* 1
+ll* 1
+ll2 =ll (ll` k
 llD Foo* ,
 	lln Çpp ,
-oo oo #Ë
+oo oo #‹
 BD:\dev\Battleships\Battleships\Repositories\BattleshipsDatabase.cs
 
- $
-
- "
+ $
 % ;% ;
 		$ :% ;
 
@@ -1665,10 +1580,10 @@ BD:\dev\Battleships\Battleships\Repositories\BattleshipsDatabase.cs
 . K )
   " 3 
 !!' < !
+""$ 7 
 ##  / 
 $$) @ #
-""$ 7 
-%%# 4 ¥
+%%# 4 ®
 LD:\dev\Battleships\Battleships\Repositories\GameSessionSettingsRepository.cs
 
  .
@@ -1679,10 +1594,8 @@ LD:\dev\Battleships\Battleships\Repositories\GameSessionSettingsRepository.cs
 
 
 C PI V
-# +/ 7
-
- ,
-B IR YÎ
+# +/ 7
+B IR Yﬂ
 ED:\dev\Battleships\Battleships\Repositories\GameSessionsRepository.cs
 
  '
@@ -1736,9 +1649,7 @@ ED:\dev\Battleships\Battleships\Repositories\GameSessionsRepository.cs
 XXF S]]4 A
 [[ [[ !
 \\ \\ !
-]]% ']]+ -
-
-`` %
+]]% ']]+ -
 ``; B``K RΩ
 CD:\dev\Battleships\Battleships\Repositories\IBattleshipsDatabase.cs
 
@@ -1869,33 +1780,27 @@ CD:\dev\Battleships\Battleships\Repositories\IShipTilesRepository.cs
 
  +
 
-1 9í
+1 9Ü
 @D:\dev\Battleships\Battleships\Repositories\PlayersRepository.cs
 
 
 
- "
-
-  
+ "
 6 =F M
 
 1 7
-) *. /¶
+) *. /ö
 >D:\dev\Battleships\Battleships\Repositories\ShipsRepository.cs
 
   
 
 		  )
 		1 9< D
-# '+ /
-
- 
-4 ;D KÄ
+# '+ /
+4 ;D KÙ
 BD:\dev\Battleships\Battleships\Repositories\ShipTilesRepository.cs
 
- $
-
- "
+ $
 8 ?H O
 
 * :2
@@ -1909,15 +1814,13 @@ BD:\dev\Battleships\Battleships\Repositories\ShipTilesRepository.cs
 
 ##* 8
 ##> F&&; C&&^ f
-&& && #&&G K€
+&& && #&&G Kœ
 ID:\dev\Battleships\Battleships\Services\Achievement\AchievementService.cs
 
 
 
  #
-. B  ( <
-
- !
+. B  ( <
 8 K# 6
 
 0 @
@@ -1927,7 +1830,7 @@ UD:\dev\Battleships\Battleships\Services\Achievement\Interfaces\IAchievementServ
 
  (
 
-		# 3°
+		# 3ï
 AD:\dev\Battleships\Battleships\Services\AttackExecutionService.cs
 
 
@@ -1935,9 +1838,7 @@ AD:\dev\Battleships\Battleships\Services\AttackExecutionService.cs
  'F
 . B    4& :$$ *00 *77 &(
 ) 8 >> %@@ %
-< ^ .88 4
-
- %
+< ^ .88 4
 ! 4# 6
  * ,
 / P1 R
@@ -1951,35 +1852,33 @@ AD:\dev\Battleships\Battleships\Services\AttackExecutionService.cs
  ..% 355 
 7 8= >
 ##& '##+ ,
-(( 00F J«
+(( 00F Jª
 OD:\dev\Battleships\Battleships\Services\Authentication\AuthenticationService.cs
 
  &F
-6 B  )  ' 355 77$ 088 
-
- $
+6 B  )  ' 355 77$ 088 
 ) 4 &
 
 " '
 ; M; M  M _(
       G K%%* .
-%% '' 
-;; ,%% )
+%% '' 
 
 ** "(
 **6 H.. *// -88= O
 ,, 55+ 277B I
 77 880 ;
+;; ,%% )
 ;;= A??, 0
-== II9 H
-OO& 7?? +
+== II9 H
 HH II  ,JJ $
 II JJ0 =
 JJ LL 
+OO& 7?? +
 OOH LQQ# '
 QQ RR4 :
-WW# ,QQ "
 RR TT !
+WW# ,QQ "
 WW= A[[- 1
 YY ^^ 
 OD:\dev\Battleships\Battleships\Services\Authentication\AuthenticationUtility.cs
@@ -1989,13 +1888,11 @@ OD:\dev\Battleships\Battleships\Services\Authentication\AuthenticationUtility.cs
 
 
 
-+ Bî
++ Bà
 LD:\dev\Battleships\Battleships\Services\Authentication\CurrentUserService.cs
 
 		 #
-. B   1
-
- !
+. B   1
 7 J# 6
 
  &
@@ -2025,24 +1922,20 @@ XD:\dev\Battleships\Battleships\Services\Authentication\Interfaces\ICurrentUserS
 
  
 
- ¨
+ †
 :D:\dev\Battleships\Battleships\Services\Bridge\OffState.cs
 
  (
- #   
-
-		 
+ #   
 		 ! 
 
  
 
- ´
+ ü
 9D:\dev\Battleships\Battleships\Services\Bridge\OnState.cs
 
  (
- #   
-
-		 
+ #   
 		   
 
  
@@ -2070,23 +1963,21 @@ FD:\dev\Battleships\Battleships\Services\Builders\GameSessionBuilder.csZ
 $$; B&& &
 
 **" 5
-**J R,,  (--@ H
-77 6--' ?
+**J R,,  (--@ H
 
 11" 2
-117 <33$ )2
+117 <33$ )
+77 6--' ?2
 77K S99 >> CC HH 
 
 PP" ,
 PP? ERR $
 
-WW" '∂
+WW" '™
 FD:\dev\Battleships\Battleships\Services\Builders\GameSessionCreator.cs
 
  #2
-- 5    
-
-		 !
+- 5    
 		6 = 
 
  .â
@@ -2219,7 +2110,7 @@ CD:\dev\Battleships\Battleships\Services\Builders\ShipTileBuilder.csn
 * /		2 7 $
 		  
 & <		 1
-D L É
+D L ˜
 9D:\dev\Battleships\Battleships\Services\EndgameService.cs
 
 
@@ -2228,9 +2119,7 @@ CD:\dev\Battleships\Battleships\Services\Builders\ShipTileBuilder.csn
 . B  &&  4++ &
 1 H #! 8
 < ^ ... 4
-& 2 --$ 0
-
- 
+& 2 --$ 0
 ! 4# 6
 $ :& <
 / P1 R
@@ -2244,15 +2133,13 @@ CD:\dev\Battleships\Battleships\Services\Builders\ShipTileBuilder.csn
 $$. ;&&T a..H U
 $$D N(( )--9 C(
 && (( )) ++E L
--- ..W a≠
+-- ..W a°
 SD:\dev\Battleships\Battleships\Services\EndgameStrategies\ClassicEndgameStrategy.cs
 
 
 
  '
-. B   2
-
- %
+. B   2
 ! 4# 6
 
   0
@@ -2263,22 +2150,20 @@ SD:\dev\Battleships\Battleships\Services\EndgameStrategies\ClassicEndgameStrateg
    $
  M X
  )  M X
- )"" ,
+ )"" ,
+   )""0 I
 %% 5, E  , E
-   )""0 I
 %%E J'' #
 %%Q Y((; C
 '' ** 
 (( (( #
 **# '**+ /
 
--- "–
+-- "ƒ
 VD:\dev\Battleships\Battleships\Services\EndgameStrategies\DeathMatchEndgameStrategy.cs
 
  *
-. B   2
-
- (
+. B   2
 > Q# 6
 
   0
@@ -2295,15 +2180,13 @@ VD:\dev\Battleships\Battleships\Services\EndgameStrategies\DeathMatchEndgameStra
 %% %% #
 && && !
 
-)) "Ë
+)) "‹
 ^D:\dev\Battleships\Battleships\Services\EndgameStrategies\DestroyedShipCountEndgameStrategy.cs
 
 
 
  2(
-. B  3 G 2
-
- 0
+. B  3 G 2
 F Y# 6
 
   0
@@ -2314,8 +2197,8 @@ VD:\dev\Battleships\Battleships\Services\EndgameStrategies\DeathMatchEndgameStra
 ) -1 5
  ) ,
 = El t
- 6I d
-1 6: ?
+1 6: ?
+ 6I d
 F K!! #""  %
 R Z!!N V
 !! ((O Z
@@ -2340,13 +2223,11 @@ MD:\dev\Battleships\Battleships\Services\EndgameStrategies\IEndgameStrategy.cs
 
 ) 6
 
-		 "ô
+		 "ç
 [D:\dev\Battleships\Battleships\Services\EndgameStrategies\RoundCountLimitEndgameStrategy.cs
 
  /(
-		. B   2! 5
-
- -
+		. B   2! 5
 ! 4# 6
 
   0
@@ -2354,16 +2235,14 @@ MD:\dev\Battleships\Battleships\Services\EndgameStrategies\IEndgameStrategy.cs
   
   $
 
- "´
+ "ü
 AD:\dev\Battleships\Battleships\Services\EndgameStrategyService.cs
 
 
 
  '
 . B  ' ;
-7 I " 4
-
- %
+7 I " 4
 ! 4# 6
 * ;! 2
 
@@ -2371,46 +2250,42 @@ AD:\dev\Battleships\Battleships\Services\EndgameStrategyService.cs
 D Qf s
  ` n
   "
-; CG Oß
+; CG O«
 AD:\dev\Battleships\Battleships\Services\Friends\FriendsService.cs
 
  <
-. 1 33  #SS __  #cc 
+. 1 00  #PP \\  #`` 
 & 2 !!% 12
-- @   3II  3]]  3
-
- 
+- @   3FF  3ZZ  3
 4 < 
 K V &
 l ~" 4
 
 + 6
-   + 8"". ;
-   ""? I
-11( 5   *JJ *
-!! && &
-"" ""# '""S W
-&& .. 
-&&. 2(( ++ H
-11= J441 >44[ h88V c
-88Ç è::/ <>>4 A
-33 88# *
-44 44 44B F(
-66 << @@ DD 2
-88 :: <<# )>> @@# )
-881 788; A88g m
+   1 >!!A N
+   !!P Z
+!! ## &
+## ++ 
+##. 2%% (( 
+..( 5  # 0GG *H
+..= J111 >11[ h55V c
+55Ç è77/ <;;4 A
+00 55# *
+11 11 11B F(
+33 99 == AA 
+551 755; A55g m
 
-GG  )2
-GG1 7LL LL" (LLR XQQ' -(
-II JJ+ 8LL, 9PP' 4
-JJ LL> H
-NN SS3 <
+DD  )2
+DD1 7II II" (IIR XNN' -(
+FF GG+ 8II, 9MM' 4
+GG II> H
+KK PP3 <
 
-[[  ,
-[[7 =``X ^aa) /
-]] ``. ;aaS `
-__ cc3 :2
-`` `` ``? Caa aa: >ó
+XX  ,
+XX7 =]]X ^^^) /
+ZZ ]]. ;^^S `
+\\ ``3 :2
+]] ]] ]]? C^^ ^^: >ó
 MD:\dev\Battleships\Battleships\Services\Friends\Interfaces\IFriendsService.cs
 
  $
@@ -2423,37 +2298,33 @@ MD:\dev\Battleships\Battleships\Services\Friends\Interfaces\IFriendsService.cs
 
  
 
-* 0Œ
+* 0¬
 HD:\dev\Battleships\Battleships\Services\GameSession\GameLaunchService.cs
 
 		 "P
 . B  $$$ 8)) &** &//$ 888 *99 *(
-6 R (%%$ @22$ @
-
-  
+6 R (%%$ @22$ @
 ! 4# 6
 ) D+ F
 
  $
 * 7$ 1! .
 > E 
--- ( #
 "" $  
 ""* 7$$X e(
 $$ %%U `'' **E P
 %% ))H S
+-- ( #
 --. ;//j w(
 // 00 &001 <22U `(
 00 44 66 99I Q
-22 88L W¸	
+22 88L W	
 ID:\dev\Battleships\Battleships\Services\GameSession\GameSessionService.cs
 
  #P
 . B  %%/ C,, 344 -[[# 7\\$ 8rr &
 - @ %%E X(
-5 P   'tt' Buu" =
-
- !
+5 P   'tt' Buu" =
 ! 4# 6
   +" -
 ( B  * D
@@ -2498,14 +2369,12 @@ ID:\dev\Battleships\Battleships\Services\GameSession\GameSessionService.cs
 ii' :jj '
 mm' ;nn (3
 tt uuW e	uus Åvv xx !
-uu vv& 5Â
+uu vv& 5Ÿ
 QD:\dev\Battleships\Battleships\Services\GameSession\InGameSessionHelperService.cs
 
  +<
 . B    8 L!!! 5""& :$$ 0
-- @   3
-
- )
+- @   3
 ! 4# 6
   +" -
 
@@ -2590,15 +2459,13 @@ UD:\dev\Battleships\Battleships\Services\GameSession\Interfaces\IGameSessionServ
 
 
 
-G Oˆ
+G OÍ
 RD:\dev\Battleships\Battleships\Services\GameSession\PlayerShipGenerationService.cs
 
  ,(
 . B  ## *[[! 5
 - @ !!  3(
-0 G #22$ ;33' >
-
- *
+0 G #22$ ;33' >
 ! 4# 6
   2" 4
 # 9& <
@@ -2673,69 +2540,95 @@ MD:\dev\Battleships\Battleships\Services\Players\Interfaces\IPlayersService.cs
 
 # 0
 
-9 ?Ô
+9 ?π
 AD:\dev\Battleships\Battleships\Services\Players\PlayersService.cs
 
- 
-. 1 II (
-6 B ## *33 *
-- @ !!  3
+ 
+. 1 88 (
+& 2 $$ *++ *
+- @ ""  3
+! ) 
+ $ &
+  2" 4
 
- 
-! ) 
-) 4 &
-  2" 4
+  ) 4
+"" $$9 F
+$$ && 
 
-) 4
-!! $$$ 1
-## .. 
-$$ $$ 2
-%% '' (( ))' (**$ %
+))) 6
+))< I++9 F
+++ -- 
 
-11) 6
-11< I44B O
-33 >> 
-44 44 
-44* +44/ 02
-55 77 88 99' (::$ %
-
-AA *
-AA0 =EE  -
-AAF LFF 
-CC II/ 5o
+00 *
+000 =44  -
+00F L55 
+22 88/ 5€
 =D:\dev\Battleships\Battleships\Services\Users\IUserManager.cs
 
- !
+ !
 
-		 %
+ %
 
-		- 3
+- 3
 
-
-
-$ )ƒ
+$ )
+
+$ ,
+
+U [
+
+ )
+
+1 >
+
+ )
+
+/ <
+
+$ 2
+
+: G
+
+V `ˆ
 <D:\dev\Battleships\Battleships\Services\Users\UserManager.cs
 
- (
-
-
-6 B 4 @ %
+ P
+2 >6 B 0 < !"" 55 &EE !
 
- 
-8 C &
+- 2
+4 ? "
+' ,'' 
 
-+ 0
+' .
+6 <0 6
 
-+ 2
-: @4 :ê
+  ' /
+  X ^""( .
+
+%%% 2
+%%: G''3 @
+'' 00 
+''& '''+ ,2
+(( ** ++ ,,# $--  !
+
+33% 2
+338 E66> K
+55 @@ 
+66 66 
+66& '66+ ,2
+77 99 :: ;;# $<<  !
+
+CC- ;
+
+CCC P
+CC_ iFF )
+FF FF3 7Ñ
 8D:\dev\Battleships\Battleships\SignalR\BattleshipsHub.cs
 
  
 
 
-1 H #"" )
-
- 
+1 H #"" )
 6 L& <
 
  %
@@ -2748,13 +2641,11 @@ AD:\dev\Battleships\Battleships\Services\Players\PlayersService.cs
 ; ND W
 
    '
-  6 <""8 >√
+  6 <""8 >∑
 KD:\dev\Battleships\Battleships\SignalR\BattleshipsSynchronizationService.cs
 
 		 2<
-5 D  ! ! !$$ (
-
- 0
+5 D  ! ! !$$ (
 M [ ,
 
  ,
@@ -2824,12 +2715,10 @@ CD:\dev\Battleships\Battleships\SignalR\Models\BattleshipsMessage.cs
 
  "
 
- Ç
+ ˆ
 )D:\dev\Battleships\Battleships\Startup.cs
 
-"" 
-
-$$ 
+"" 
 $$& 3&& )
 )) +&& .." /
 
@@ -2867,12 +2756,11 @@ CD:\dev\Battleships\Battleships\SignalR\Models\BattleshipsMessage.cs
 
 óó 
 ôô 
-ùù ±
+ùù õ
 7D:\dev\Battleships\Battleships\Utilities\TimeUtility.cs
   "		 !(
 # 7 $ $ '
 
-		" 0
- + 6
+		" 0
 
  *

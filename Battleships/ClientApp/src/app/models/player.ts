@@ -5,5 +5,6 @@ export interface User {
   gamesPlayedCount: number;
   gamesWonCount: number;
   userId: string;
+  isFriend: boolean;
 }
 

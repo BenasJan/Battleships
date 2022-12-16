@@ -7,7 +7,7 @@ namespace Battleships.SignalR.Interfaces
     public interface IBattleshipsSynchronizationService
     {
         Task SendEndgameReached(Guid gameSessionId, string winnerName); 
-        Task SendAttackMessage(Guid gameSessionId, BattleshipsMessage<AttackPayload> message);
+        Task SendAttackedMessage(Guid gameSessionId, BattleshipsMessage<AttackEvent> message);
         Task SendLaunchGameMessage(Guid gameSessionId);
         Task InviteUserToGame(Guid gameSessionId, string userId);
     }

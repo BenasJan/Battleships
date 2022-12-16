@@ -19,7 +19,11 @@ public class GameLaunchServiceTests
     {
         _playerShipsRepositoryMock = new Mock<IRepository<PlayerShip>>(); 
         _gameSessionsRepositoryMock = new Mock<IGameSessionsRepository>();
-        var databaseMock = GetDbMock(_playerShipsRepositoryMock, _gameSessionsRepositoryMock);
+
+        var databaseMock = BattleshipsDatabaseBuilder.GetBuilder()
+            .WithPlayerShipsRepo(_playerShipsRepositoryMock)
+            .WithGameSessionsRepo(_gameSessionsRepositoryMock)
+            .Build();
         
         _playerShipGenerationServiceMock = new Mock<IPlayerShipGenerationService>();
         
@@ -79,18 +83,5 @@ public class GameLaunchServiceTests
         _playerShipGenerationServiceMock
             .Setup(s => s.GeneratePlayerShips(It.Is<GameSessionSettings>(expected => expected == settings)))
             .ReturnsAsync(playerShips);
-    }
-
-    private static Mock<IBattleshipsDatabase> GetDbMock(
-        Mock<IRepository<PlayerShip>> playerShipsRepositoryMock,
-        Mock<IGameSessionsRepository> gameSessionsRepositoryMock
-    )
-    {
-        var mock = new Mock<IBattleshipsDatabase>();
-
-        mock.Setup(db => db.PlayerShipsRepository).Returns(playerShipsRepositoryMock.Object);
-        mock.Setup(db => db.GameSessionsRepository).Returns(gameSessionsRepositoryMock.Object);
-
-        return mock;
     }
 }

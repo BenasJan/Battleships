@@ -15,8 +15,6 @@ export class GameSessionEventsService {
 
   private endgameReachedSubject = new EndgameReachedSubject();
 
-  constructor() { }
-
   //#region opponent attacks
   public publishOpponentAttack(xCoord: number, yCoord: number): void {
     this.opponentAttacksSubject.sendAttackMove(xCoord, yCoord);

@@ -7,12 +7,10 @@ namespace BattleshipsUnitTests.FactoryTests;
 
 public class DefensiveShipFactoryTests
 {
-    private readonly ITestOutputHelper _testOutputHelper;
     private readonly DefensiveShipFactory _defensiveShipFactory;
 
-    public DefensiveShipFactoryTests(ITestOutputHelper testOutputHelper)
+    public DefensiveShipFactoryTests()
     {
-        _testOutputHelper = testOutputHelper;
         _defensiveShipFactory = new DefensiveShipFactory();
     }
     

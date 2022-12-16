@@ -1,12 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { AddFriendPayload } from '../../models/payloads/add-friend';
+import { AuthorizationService } from 'src/app/services/authorization.service';
+import { AddFriendEvent } from '../../models/payloads/add-friend';
 import { User } from '../../models/player';
-import { AuthorizationService } from "../../services/authorization.service";
 import { FriendService } from '../../services/friend.service';
 import { PlayerService } from '../../services/player.service';
-
-
-
 @Component({
   selector: 'app-public-users-list',
   templateUrl: './public-users-list.component.html'
@@ -27,45 +24,30 @@ export class PublicUsersListComponent implements OnInit {
 
   constructor(
     private playerService: PlayerService,
-    private authorizationService: AuthorizationService,
-    private friendService: FriendService
+    private friendService: FriendService,
+    private authorizationService: AuthorizationService
   ) { }
 
   ngOnInit(): void {
     this.playerService.getGlobalUsers().subscribe((res: User[]) => {
       this.users = res;
-      // console.log(this.users);
     })
-
-    // if(this.excludeCurrUser) {
-    //   let token = jwt_decode(this.authorizationService.jwtToken!);
-    //   if(token != null) {
-    //     console.log("token: " + JSON.stringify(token));
-    //   }
-    // }
-
   }
 
-  addFriend(userId: string): void {
-    console.log("addFriend id:", userId);
-    const friend: AddFriendPayload = {
-      userId: userId
+  addFriend(user: User): void {
+    console.log("addFriend id:", user);
+    const friend: AddFriendEvent = {
+      initiatorUserId: this.authorizationService.getUserId(),
+      targetUserId: user.id
     }
 
     this.friendService.addFriend(friend).subscribe(res => {
-      console.log("addFriend res:", res);
+      user.isFriend = true;
+      this.users = [...this.users]
     })
-    const isLobby = !this.showHeader && this.showAddPlayerButton;
-
-    if (!isLobby) {
-      this.playerService.getGlobalUsers().subscribe((res: User[]) => {
-        this.users = res;
-      })
-    }
   }
 
   public removeUser(userId: string) {
     this.users = this.users.filter(user => user.id != userId);
   }
-
 }

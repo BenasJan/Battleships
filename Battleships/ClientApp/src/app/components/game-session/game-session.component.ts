@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit, HostListener } from '@angular/core';
-import { NumberValueAccessor } from '@angular/forms';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { tap } from 'rxjs';
 import { Attack } from 'src/app/models/attack';
@@ -10,9 +9,14 @@ import { AttackPublishingService } from 'src/app/services/attack-publishing.serv
 import { AuthorizationService } from 'src/app/services/authorization.service';
 import { GameSessionEventsService } from 'src/app/services/game-session-events.service';
 import { GameSessionService } from 'src/app/services/game-session.service';
-//import { MoveSubmissionEventsService } from 'src/app/services/move-submission.service';
-import { ShipMove } from '../../models/ship-move';
+import { WInput } from '../../interpreter/w-input';
+import { SInput } from '../../interpreter/s-input';
+import { AInput } from '../../interpreter/a-input';
+import { DInput } from '../../interpreter/d-input';
 import { SignalRService } from '../../services/signal-r.service';
+import {GameStyleState} from "../../states/GameStyleState";
+import {WhiteState} from "../../states/WhiteState";
+import { EnterInput } from 'src/app/interpreter/enter-input';
 
 @Component({
   selector: 'app-game-session',
@@ -21,9 +25,15 @@ import { SignalRService } from '../../services/signal-r.service';
 })
 export class GameSessionComponent implements OnInit, OnDestroy {
 
+  public backgroundColor: string;
+
+  public styleState: GameStyleState;
+
   public gameSessionId: string;
   public selectedMoveXCoord: number | null;
   public selectedMoveYCoord: number | null;
+  public color: string = "white";
+  public chanceToMiss: number = 0;
 
   public gameSession = {} as InGameSession;
   public selectedShipId = "";
@@ -32,6 +42,14 @@ export class GameSessionComponent implements OnInit, OnDestroy {
   private ownMovesObserver: AttackMovesObserver;
   private opponentMovesObserver: AttackMovesObserver;
   private endgameObserver: EndgameReachedObserver;
+
+  //private redInput: RedInput;
+  //private blueInput: BlueInput;
+  private dInput: DInput;
+  private aInput: AInput;
+  private sInput: SInput;
+  private wInput: WInput;
+  private enterInput: EnterInput;
 
   public endgameReached: boolean;
   public winnerName: string;
@@ -47,9 +65,73 @@ export class GameSessionComponent implements OnInit, OnDestroy {
     private readonly signalRService: SignalRService
   ) { }
 
+  @HostListener('document:keypress', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if (!this.isOwnTurn || this.endgameReached) {
+      return;
+    }
+    if (event.key == 'd') {
+      if (this.selectedMoveYCoord != null && this.selectedMoveXCoord != null) {
+        console.log(event.key);
+        this.selectedMoveYCoord += 1;
+        this.dInput.Interpret(this.selectedMoveYCoord, this.selectedMoveXCoord, this.gameSession);
+      }
+    }
+    if (event.key == 'a') {
+      if (this.selectedMoveYCoord != null && this.selectedMoveXCoord != null) {
+        console.log(event.key);
+        this.selectedMoveYCoord -= 1;
+        this.aInput.Interpret(this.selectedMoveYCoord, this.selectedMoveXCoord, this.gameSession);
+      }
+    }
+    if (event.key == 's') {
+      if (this.selectedMoveYCoord != null && this.selectedMoveXCoord != null) {
+        console.log(event.key);
+        this.selectedMoveXCoord += 1;
+        this.sInput.Interpret(this.selectedMoveYCoord, this.selectedMoveXCoord, this.gameSession);
+      }
+    }
+    if (event.key == 'w') {
+      if (this.selectedMoveYCoord != null && this.selectedMoveXCoord != null) {
+        console.log(event.key);
+        this.selectedMoveXCoord -= 1;
+        this.wInput.Interpret(this.selectedMoveYCoord, this.selectedMoveXCoord, this.gameSession);
+      }
+    }
+    if (event.key == 'Enter') {
+      if (this.selectedMoveYCoord != null && this.selectedMoveXCoord != null) {
+        console.log(event.key);
+        this.enterInput.Interpret(this.selectedMoveYCoord, this.selectedMoveXCoord, this.gameSession);
+      }
+    }
+
+    //if (event.key == 'r') {
+    //  this.redInput.Interpret(event);
+    //}
+    //else if (event.key == 'b') {
+    //  this.blueInput.Interpret(event);
+    //}
+  }
+
+  // public changeColor(): void {
+  //   this.styleState = this.styleState.changeColor();
+  //   console.log("FONO KOLORAS: " + this.color)
+  // }
+
   ngOnInit(): void {
+     this.backgroundColor = 'white';
+     //this.redInput = new RedInput(this);
+    //this.blueInput = new BlueInput(this);
+    this.dInput = new DInput(this, this.gameSession);
+    this.wInput = new WInput(this, this.gameSession);
+    this.sInput = new SInput(this, this.gameSession);
+    this.aInput = new AInput(this, this.gameSession);
+    this.enterInput = new EnterInput(this, this.gameSession);
+
+    this.styleState = new WhiteState(this);
+    console.log("stateas D: " + this.color);
     this.gameSessionId = this.activatedRoute.snapshot.params['id'];
-    
+
     this.gameSessionService.getGameplaySession(this.gameSessionId).pipe(
       tap(session => this.gameSession = session),
       tap(session => this.isOwnTurn = session.currentRoundPlayerUserId == this.authorizationService.getUserId())
@@ -61,9 +143,9 @@ export class GameSessionComponent implements OnInit, OnDestroy {
 
     this.ownMovesObserver = this.gameSessionEventsService.onOwnMoveSubmitted((xCorrd, yCoord) => {
       this.gameSession.currentRound++;
-      
+      this.changeGameSessionState();
       const destroyedTile = this.gameSession.opponentTiles.find(tile => tile.columnCoordinate == xCorrd && tile.rowCoordinate == yCoord);
-      
+
       if (destroyedTile) {
         destroyedTile.isDestroyed = true;
         this.gameSession = { ...this.gameSession };
@@ -79,9 +161,10 @@ export class GameSessionComponent implements OnInit, OnDestroy {
 
     this.opponentMovesObserver = this.gameSessionEventsService.onOpponentMoveSubmitted((xCorrd, yCoord) => {
       this.gameSession.currentRound++;
+      this.changeGameSessionState();
 
       const destroyedTile = this.gameSession.ownTiles.find(tile => tile.columnCoordinate == xCorrd && tile.rowCoordinate == yCoord);
-      
+
       if (destroyedTile) {
         destroyedTile.isDestroyed = true;
         this.gameSession = { ...this.gameSession };
@@ -98,6 +181,19 @@ export class GameSessionComponent implements OnInit, OnDestroy {
     })
 
     this.signalRService.connectToGameSession(this.gameSessionId);
+  }
+
+  private changeGameSessionState(): void {
+    // switch (this.gameSession.currentRound) {
+    //   case 5:
+    //     this.styleState.changeState();
+    //
+    // }
+    //
+    console.log("round: " + this.gameSession.currentRound);
+    if(this.gameSession.currentRound % 5 == 0)
+      this.styleState.changeState();
+
   }
 
   ngOnDestroy(): void {
@@ -123,55 +219,23 @@ export class GameSessionComponent implements OnInit, OnDestroy {
   }
 
   public submitAttack(): void {
+    let isMissed = false;
+    if(Math.floor(Math.random() * 100) + 1 < this.chanceToMiss) {
+      console.log("You misssed");
+      isMissed = true;
+    }
+
     this.attackInSubmission = true;
     const attack: Attack = {
       gameSessionId: this.gameSessionId,
-      attackingUserId: this.authorizationService.getUserId(),
+      initiatorUserId: this.authorizationService.getUserId(),
       targetYCoordinate: this.selectedMoveYCoord as number,
-      targetXCoordinate: this.selectedMoveXCoord as number
+      targetXCoordinate: this.selectedMoveXCoord as number,
+      missed: isMissed
     };
 
     this.attackPublishingService.publishAttack(attack);
 
 
-  }
-
-  //public MoveShip(shipId: string, direction: string) {
-
-  //  const shipMove: ShipMove = {
-  //    gameSessionId: this.gameSessionId,
-  //    shipId: shipId,
-  //    direction: direction
-  //  }
-  //  this.gameSessionService.moveShip(shipMove).subscribe(() => location.reload());
-  //}
-
-  @HostListener('document:keydown', ['$event'])
-  handleKeyboardEvent(event: KeyboardEvent) {
-    const shipMove: ShipMove = {
-      gameSessionId: this.gameSessionId,
-      shipId: this.selectedShipId,
-      direction: ""
-    }
-
-    switch (event.keyCode) {
-      case 37:
-        shipMove.direction = "Left"
-        this.gameSessionService.moveShip(shipMove).subscribe((session) => this.gameSession = session);
-        break;
-      case 38:
-        shipMove.direction = "Up"
-        this.gameSessionService.moveShip(shipMove).subscribe((session) => this.gameSession = session);
-        break;
-      case 39:
-        shipMove.direction = "Right"
-        this.gameSessionService.moveShip(shipMove).subscribe((session) => this.gameSession = session);
-        break;
-      case 40:
-        shipMove.direction = "Down"
-        this.gameSessionService.moveShip(shipMove).subscribe((session) => this.gameSession = session);
-        break;
-      
-    }
   }
 }

@@ -1,5 +1,7 @@
 ﻿D:\dev\Battleships\BattleshipsUnitTests\AchievementsServiceTests.cs
 D:\dev\Battleships\BattleshipsUnitTests\AttackExecutionServiceTests.cs
+D:\dev\Battleships\BattleshipsUnitTests\BattleshipsDatabaseBuilder.cs
+D:\dev\Battleships\BattleshipsUnitTests\Builders\ShipTileBuilderTests.cs
 D:\dev\Battleships\BattleshipsUnitTests\EndgameServiceTests.cs
 D:\dev\Battleships\BattleshipsUnitTests\EndgameStrategyServiceTests.cs
 D:\dev\Battleships\BattleshipsUnitTests\FactoryTests\DefensiveShipFactoryTests.cs
@@ -9,6 +11,10 @@ D:\dev\Battleships\BattleshipsUnitTests\FactoryTests\ShipFactoryProducerTests.cs
 D:\dev\Battleships\BattleshipsUnitTests\FriendsServiceTests.cs
 D:\dev\Battleships\BattleshipsUnitTests\GameLaunchServiceTests.cs
 D:\dev\Battleships\BattleshipsUnitTests\GameSessionServiceTests.cs
+D:\dev\Battleships\BattleshipsUnitTests\InGameSessionHelperServiceTests.cs
+D:\dev\Battleships\BattleshipsUnitTests\PlayerServiceTests.cs
+D:\dev\Battleships\BattleshipsUnitTests\PlayerShipGenerationServiceTests.cs
+D:\dev\Battleships\BattleshipsUnitTests\TimeUtilityTests.cs
 D:\dev\Battleships\BattleshipsUnitTests\Usings.cs
 C:\Users\benas\.nuget\packages\microsoft.net.test.sdk\17.1.0\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.Program.cs
 C:\Users\benas\.nuget\packages\microsoft.testplatform.testhost\17.1.0\build\netcoreapp2.1\x64\testhost.exe

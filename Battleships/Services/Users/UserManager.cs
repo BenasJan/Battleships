@@ -14,7 +14,6 @@ namespace Battleships.Services.Users;
 public class UserManager : IUserManager
 {
     private readonly UserManager<ApplicationUser> _userManager;
-    //public IQueryable<ApplicationUser> Users;
     IQueryable<ApplicationUser> IUserManager.Users => _userManager.Users;
 
 
@@ -43,7 +42,8 @@ public class UserManager : IUserManager
                 Id = u.Id,
                 Name = u.UserName,
                 GamesPlayedCount = u.Players.Count,
-                GamesWonCount = u.WonGames.Count
+                GamesWonCount = u.WonGames.Count,
+                IsFriend = u.FriendsIAmAddedBy.Any(f => f.InitiatingUserId == currentUserId)
             }).ToListAsync();
 
         return users;

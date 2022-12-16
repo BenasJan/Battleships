@@ -7,5 +7,6 @@ namespace Battleships.Services.Authentication.Interfaces
     {
         Task<string> Login(UserCredentialsDto userCredentialsDto);
         Task Register(UserCredentialsDto userCredentialsDto);
+        Task<string> GetUserIdByEmail(string email);
     }
 }

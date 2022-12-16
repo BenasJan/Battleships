@@ -11,8 +11,6 @@ export class AuthorizationService {
 
   private readonly jwtTokenSubject = new BehaviorSubject<string>('');
 
-  constructor() { }
-
   public intializeAuthorization(): void {
     const existingToken = localStorage.getItem(this.JwtTokenKey);
 
@@ -42,8 +40,8 @@ export class AuthorizationService {
   }
 
   public getUserId(): string {
-    const token = jwt_decode(this.jwtToken) as any;
-    const userId = token.USER_ID;
+    const token = jwt_decode(this.jwtToken);
+    const userId = (token as any).USER_ID;
 
     return userId;
   }

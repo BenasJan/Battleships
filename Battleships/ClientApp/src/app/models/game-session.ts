@@ -1,4 +1,3 @@
-import {GameType} from "./enums/game-type";
 
 export interface GameSession {
   id: string;

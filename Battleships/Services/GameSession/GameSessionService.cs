@@ -85,6 +85,8 @@ namespace Battleships.Services.GameSession
             return dtos.ToList();
         }
 
+
+
         public async Task<InGameSessionDto> MoveShipInSession (Guid gameSessionId, Guid shipId, string direction)
         {
 
@@ -119,5 +121,7 @@ namespace Battleships.Services.GameSession
 
             return gameSessionDto;
         }
+
+        
     }
 }

@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using Battleships.Flyweight;
+using Battleships.CompositeBox;
 using Battleships.Services.Bridge;
 
 namespace Battleships.Models.Ships
 {
-    public abstract class Ship : BaseModel
+    public abstract class Ship : BaseModel, ShipBox
     {
         public string ShipTypeDiscriminator { get; set; }
 

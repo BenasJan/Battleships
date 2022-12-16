@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs';
@@ -9,7 +9,7 @@ import { ToastService } from 'src/app/services/toast.service';
   selector: 'app-register',
   templateUrl: './register.component.html'
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
   public registrationFormGroup = new FormGroup({
     email: new FormControl<string>({ value: '', disabled: false }, Validators.required),
@@ -21,9 +21,6 @@ export class RegisterComponent implements OnInit {
     private readonly toastService: ToastService,
     private readonly router: Router
   ) { }
-
-  ngOnInit(): void {
-  }
 
   public register(): void {
     this.authenticationService.register(this.registrationFormGroup.value as any).pipe(

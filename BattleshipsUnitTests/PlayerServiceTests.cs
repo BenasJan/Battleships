@@ -20,11 +20,9 @@ namespace BattleshipsUnitTests
     {
         private readonly PlayersService _playersService;
 
-        private readonly IPlayersService _playerService;
         private readonly Mock<IPlayersRepository> _playersRepositoryMock;
         private readonly Mock<ICurrentUserService> _currentUserServiceMock;
         private readonly Mock<IUserManager> _userManagerMock;
-        private readonly ICurrentUserService _currentUserService;
 
         public PlayerServiceTests()
         {
@@ -34,24 +32,8 @@ namespace BattleshipsUnitTests
 
             var dbMock = GetDbMock(_playersRepositoryMock);
 
-            _playerService = new PlayersService(dbMock.Object, _userManagerMock.Object, _currentUserServiceMock.Object);
+            _playersService = new PlayersService(dbMock.Object, _userManagerMock.Object, _currentUserServiceMock.Object);
         }
-
-        //[Fact]
-        //public async Task When_GettingAllUsers_Expect_AllUsers()
-        //{
-        //    var userDto = new List<UserDto>();
-
-        //    userDto.Add(new UserDto());
-        //    userDto.Add(new UserDto());
-
-        //    SetupCurrentUserService();
-        //    SetupUserManager(userDto);
-
-        //    var users = await _playerService.GetAllUsers();
-
-        //    Assert.Equal(userDto.Count, users.Count);
-        //}
 
         [Theory]
         [InlineData(0)]
@@ -68,7 +50,7 @@ namespace BattleshipsUnitTests
             SetupCurrentUserService();
             SetupUserManager(userDtos);
 
-            var users = await _playerService.GetAllUsers();
+            var users = await _playersService.GetAllUsers();
 
             Assert.Equal(userCount, users.Count);
         }
@@ -79,7 +61,7 @@ namespace BattleshipsUnitTests
             var gameSession = GetGameSession();
             var userId = "00000000-0000-0000-0000-000000000001";
 
-            await _playerService.InviteUserToGame(gameSession.Id, userId);
+            await _playersService.InviteUserToGame(gameSession.Id, userId);
 
             _playersRepositoryMock.Verify(repo => repo.Create(
                 It.Is<Player>(expected => expected.UserId == userId)));
@@ -106,7 +88,7 @@ namespace BattleshipsUnitTests
 
             SetupUserManagerLobbyUsers(userDto, gameSession.Id);
 
-            var players = await _playerService.GetLobbyUsers(gameSession.Id);
+            var players = await _playersService.GetLobbyUsers(gameSession.Id);
 
             Assert.Equal(userDto.Count, players.Count);
 

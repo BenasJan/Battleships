@@ -56,14 +56,17 @@
       <Key>S2342</Key>
       <Parameters>
         <Parameter>
-          <Key>format</Key>
-          <Value>^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$</Value>
-        </Parameter>
-        <Parameter>
           <Key>flagsAttributeFormat</Key>
           <Value>^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?s$</Value>
         </Parameter>
+        <Parameter>
+          <Key>format</Key>
+          <Value>^([A-Z]{1,3}[a-z0-9]+)*([A-Z]{2})?$</Value>
+        </Parameter>
       </Parameters>
+    </Rule>
+    <Rule>
+      <Key>S2222</Key>
     </Rule>
     <Rule>
       <Key>S6146</Key>
@@ -223,6 +226,9 @@
       </Parameters>
     </Rule>
     <Rule>
+      <Key>S4581</Key>
+    </Rule>
+    <Rule>
       <Key>S4583</Key>
     </Rule>
     <Rule>
@@ -358,6 +364,9 @@
       <Key>S4423</Key>
     </Rule>
     <Rule>
+      <Key>S1155</Key>
+    </Rule>
+    <Rule>
       <Key>S3453</Key>
     </Rule>
     <Rule>
@@ -383,6 +392,9 @@
     </Rule>
     <Rule>
       <Key>S4260</Key>
+    </Rule>
+    <Rule>
+      <Key>S2259</Key>
     </Rule>
     <Rule>
       <Key>S4159</Key>

@@ -15,9 +15,11 @@ namespace Battleships.Services
         {
 
             if (provider == "SMTP")
+            {
                 return new SmtpEmailProvider();
-            else
-                return new SendGridEmailProvider();
+            }
+            
+            return new SendGridEmailProvider();
         }
     }
 }

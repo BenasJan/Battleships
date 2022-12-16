@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
-import {CreateGameSessionPayload} from "../../models/payloads/create-game-session-payload";
-import {GameSessionService} from "../../services/game-session.service";
-import {ToastService} from "../../services/toast.service";
-import {Router} from "@angular/router";
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from "@angular/router";
+import { CreateGameSessionPayload } from "../../models/payloads/create-game-session-payload";
+import { GameSessionService } from "../../services/game-session.service";
+import { ToastService } from "../../services/toast.service";
 
 @Component({
   selector: 'app-create-game-session',
   templateUrl: './create-game-session.component.html'
 })
-export class CreateGameSessionComponent implements OnInit {
+export class CreateGameSessionComponent {
 
   public gameSessionForm = new FormGroup({
     iconControl: new FormControl('directions_boat'),
@@ -30,9 +30,6 @@ export class CreateGameSessionComponent implements OnInit {
     private readonly toastService: ToastService,
     private readonly router: Router
   ) { }
-
-  ngOnInit(): void {
-  }
 
   createSession(): void {
     const settings = {

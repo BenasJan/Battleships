@@ -10,7 +10,7 @@ public sealed class SubmarineShipMover : BaseShipMover
         return 5;
     }
 
-    protected override bool IsShipMovable(PlayerShip ship)
+    protected override bool IsShipNotMovable(PlayerShip ship)
     {
         var isOutOfBounds = ship.Tiles.Any(tile => tile.XCoordinate > 10 || tile.YCoordinate > 10);
 

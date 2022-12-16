@@ -6,10 +6,15 @@ namespace Battleships.Services;
 public class GameSessionControl : IGameSessionControl
 {
     private readonly IAttackExecutionService _attackExecutionService;
+    private readonly IShipMovingService _shipMovingService;
 
-    public GameSessionControl(IAttackExecutionService attackExecutionService)
+    public GameSessionControl(
+        IAttackExecutionService attackExecutionService,
+        IShipMovingService shipMovingService
+    )
     {
         _attackExecutionService = attackExecutionService;
+        _shipMovingService = shipMovingService;
     }
 
     public async Task ExecuteAttack(AttackEvent attackEvent)
@@ -19,6 +24,6 @@ public class GameSessionControl : IGameSessionControl
 
     public async Task MoveShip(MoveShipEvent moveShipEvent)
     {
-        throw new System.NotImplementedException();
+        await _shipMovingService.MoveShip(moveShipEvent);
     }
 }

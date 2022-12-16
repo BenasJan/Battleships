@@ -91,6 +91,7 @@ namespace Battleships
             services
                 .AddHttpContextAccessor()
                 .AddScoped(typeof(IRepository<>), typeof(BaseRepository<>))
+                .AddScoped<IRepository<PlayerShip>, PlayerShipsRepository>()
                 .AddScoped<IGameSessionSettingsRepository, GameSessionSettingsRepository>()
                 .AddScoped<IBattleshipsDatabase, BattleshipsDatabase>()
                 .AddScoped<IShipsRepository, ShipsRepository>()
@@ -116,6 +117,7 @@ namespace Battleships
                 .AddScoped<IFriendsService, FriendsService>()
                 .AddScoped<IInGameSessionHelperService, InGameSessionHelperService>()
                 .AddScoped<IUserManager, UserManager>()
+                .AddScoped<IAttackExecutionService, AttackExecutionService>()
                 .AddScoped<GameSessionControl>()
                 .AddScoped<IGameSessionControl, GameSessionControlProxy>(serviceProvider =>
                 {
@@ -129,6 +131,7 @@ namespace Battleships
                 .AddScoped<BaseConsumer<RemoveFriendEvent>, RemoveFriendConsumer>()
                 .AddScoped<IEventsMediator, EventsMediator>()
                 .AddScoped<IFriendsEventService, FriendsEventService>()
+                .AddScoped<IShipMovingService, ShipMovingService>()
                 ;
         }
 

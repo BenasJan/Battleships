@@ -23,4 +23,5 @@ export interface GameTile {
     shipId: string;
     SkinName: string;
     Label: string;
+    isStagedForMove: boolean;
 }

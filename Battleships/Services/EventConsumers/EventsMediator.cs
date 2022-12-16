@@ -40,7 +40,7 @@ public class EventsMediator : IEventsMediator
         List<string> userIds;
         string userName;
 
-        Console.WriteLine("Publishing event with mediator");
+        Console.WriteLine("PUBLISHING EVENT WITH MEDIATOR");
         
         switch (@event)
         {

@@ -23,6 +23,7 @@ public class GameSessionControlProxy : IGameSessionControl
 
     public async Task ExecuteAttack(AttackEvent attackEvent)
     {
+        Console.WriteLine("EXECUTING ATTACK WITH PROXY");
         if (await IsControlAllowed(attackEvent))
         {
             await _gameSessionControl.ExecuteAttack(attackEvent);
@@ -31,6 +32,7 @@ public class GameSessionControlProxy : IGameSessionControl
 
     public async Task MoveShip(MoveShipEvent moveShipEvent)
     {
+        Console.WriteLine("MOVING SHIP WITH PROXY");
         if (await IsControlAllowed(moveShipEvent))
         {
             await _gameSessionControl.MoveShip(moveShipEvent);
@@ -52,7 +54,8 @@ public class GameSessionControlProxy : IGameSessionControl
         }
 
         throw new InvalidOperationException(
-            $"{gameEvent.InitiatorUserId} cannot perform {typeof(IGameEvent).DeclaringType!.Name} action in game session {gameEvent.GameSessionId}"
+            $"{gameEvent.InitiatorUserId} cannot perform {typeof(IGameEvent).DeclaringType!.Name} " +
+            $"action in game session {gameEvent.GameSessionId}"
         );
     }
 }

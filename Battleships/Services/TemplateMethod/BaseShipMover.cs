@@ -9,7 +9,8 @@ public abstract class BaseShipMover
 {
     public PlayerShip MoveShip(PlayerShip ship, Direction direction, int columnCount, int rowCount)
     {
-        if (IsShipMovable(ship))
+        Console.WriteLine("MOVING SHIP WITH TEMPLATE METHOD");
+        if (IsShipNotMovable(ship))
         {
             return ship;
         }
@@ -53,9 +54,9 @@ public abstract class BaseShipMover
         return tiles;
     }
     
-    protected virtual bool IsShipMovable(PlayerShip ship)
+    protected virtual bool IsShipNotMovable(PlayerShip ship)
     {
-        return ship.Tiles.Count >= 4 || ship.Tiles.Any(tile => tile.IsDestroyed);
+        return ship.Tiles.Count >= 6 || ship.Tiles.Any(tile => tile.IsDestroyed);
     }
     
     protected abstract int GetMovementSize(PlayerShip ship);

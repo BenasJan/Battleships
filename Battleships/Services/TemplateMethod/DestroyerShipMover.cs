@@ -10,7 +10,7 @@ public sealed class DestroyerShipMover : BaseShipMover
         return 3;
     }
 
-    protected override bool IsShipMovable(PlayerShip ship)
+    protected override bool IsShipNotMovable(PlayerShip ship)
     {
         var isShipWithinUnmovableTerritory = ship.Tiles.Any(tile => tile.YCoordinate < 4 || tile.XCoordinate < 4);
         

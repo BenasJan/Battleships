@@ -10,8 +10,9 @@
           'redship-tile': ownTile.isShip && backgroundColor == 'red',
           'blueship-tile': ownTile.isShip && backgroundColor == 'blue',
           'destroyed-tile-own': ownTile.isDestroyed && !ownTile.isShip,
-          'destroyed-ship-tile-own': ownTile.isDestroyed && ownTile.isShip
-        }">
+          'destroyed-ship-tile-own': ownTile.isDestroyed && ownTile.isShip,
+          'staged-for-move': ownTile.isStagedForMove
+        }" (click)="stageShipMove(ownTile)">
             <div></div>
           </mat-grid-tile>
         </ng-container>

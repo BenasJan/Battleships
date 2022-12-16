@@ -80,6 +80,10 @@ export class SignalRService {
     this.connection.invoke(methodName, ...args);
   }
 
+  public callMethodObs(methodName: string, ...args: any[]): Observable<any> {
+    return from(this.connection.invoke(methodName, ...args));
+  }
+
   private connectToHub(): Observable<void> {
       return from(this.connection.start()).pipe(
         tap(() => console.log('SignalR connected'))

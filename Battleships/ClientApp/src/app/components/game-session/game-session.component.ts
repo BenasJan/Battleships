@@ -1,6 +1,6 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { tap } from 'rxjs';
+import { switchMap, tap } from 'rxjs';
 import { Attack } from 'src/app/models/attack';
 import { GameTile, InGameSession } from 'src/app/models/in-game-session';
 import { AttackMovesObserver } from 'src/app/observer/attack-moves-observer';
@@ -32,6 +32,11 @@ export class GameSessionComponent implements OnInit, OnDestroy {
   public gameSessionId: string;
   public selectedMoveXCoord: number | null;
   public selectedMoveYCoord: number | null;
+
+  public selectedShipXCoord: number;
+  public selectedShipYCoord: number;
+  private shipIdStagedForMove: string | null;
+
   public color: string = "white";
   public chanceToMiss: number = 0;
 
@@ -67,9 +72,34 @@ export class GameSessionComponent implements OnInit, OnDestroy {
 
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
+    console.log(event)
     if (!this.isOwnTurn || this.endgameReached) {
       return;
     }
+
+    if (this.shipIdStagedForMove){
+      let direction = 0;
+
+      if (event.key === "8") {
+        direction = 3;
+        this.submitShipMove(direction);
+      }
+      if (event.key === "4") {
+        direction = 1;
+        this.submitShipMove(direction);
+      }
+      if (event.key === "2") {
+        direction = 4;
+        this.submitShipMove(direction);
+      }
+      if (event.key === "6") {
+        direction = 2;
+        this.submitShipMove(direction);
+      }
+
+      return;
+    }
+
     if (event.key == 'd') {
       if (this.selectedMoveYCoord != null && this.selectedMoveXCoord != null) {
         console.log(event.key);
@@ -117,6 +147,19 @@ export class GameSessionComponent implements OnInit, OnDestroy {
   //   this.styleState = this.styleState.changeColor();
   //   console.log("FONO KOLORAS: " + this.color)
   // }
+
+  private submitShipMove(direction: number): void {
+    this.signalRService.callMethodObs("MoveShip", {
+      initiatorUserId: this.authorizationService.getUserId(),
+      gameSessionId: this.gameSessionId,
+      playerShipId: this.shipIdStagedForMove,
+      direction: direction
+    }).pipe(
+      switchMap(() => this.gameSessionService.getGameplaySession(this.gameSessionId)),
+      tap(session => this.gameSession = session),
+      tap(_ => this.shipIdStagedForMove = null)
+    ).subscribe();
+  }
 
   ngOnInit(): void {
      this.backgroundColor = 'white';
@@ -237,5 +280,17 @@ export class GameSessionComponent implements OnInit, OnDestroy {
     this.attackPublishingService.publishAttack(attack);
 
 
+  }
+
+  public stageShipMove(ownTile: GameTile): void {
+    this.gameSession.ownTiles.forEach(tile => {
+      if (ownTile.shipId) {
+        tile.isStagedForMove = tile.shipId == ownTile.shipId
+        this.shipIdStagedForMove = ownTile.shipId;
+      } else {
+        tile.isStagedForMove = false;
+        this.shipIdStagedForMove = null;
+      }
+    });
   }
 }

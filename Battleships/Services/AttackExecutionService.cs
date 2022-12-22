@@ -70,7 +70,7 @@ namespace Battleships.Services
             {
                 CallerUserId = attack.InitiatorUserId,
                 Payload = attack
-            });
+            });f
 
             if (await _endgameService.IsEndgameReached(attack.GameSessionId))
             {
